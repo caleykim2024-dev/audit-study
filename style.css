@@ -76,12 +76,16 @@ a.icon-btn{display:grid;place-items:center;text-decoration:none}
 .choice .n{flex:none;width:26px;height:26px;border-radius:50%;background:#EEF2F9;font-size:14px;font-weight:700;display:grid;place-items:center;margin-top:1px}
 .choice .t{white-space:pre-wrap;word-break:keep-all}
 .choice:not(:disabled):active{border-color:var(--accent)}
+.choice.selected{border-color:var(--accent);background:#EAF0FF}
+.choice.selected .n{background:var(--accent);color:#fff}
 .choice.right{border-color:var(--ok);background:var(--ok-bg)}
 .choice.right .n{background:var(--ok);color:#fff}
 .choice.wrong{border-color:var(--ng);background:var(--ng-bg)}
 .choice.wrong .n{background:var(--ng);color:#fff}
 .choice:disabled{cursor:default}
 .choice:disabled:not(.right):not(.wrong){opacity:.55}
+.submit-answers{margin-top:14px}
+.submit-answers:disabled{opacity:.5;cursor:default}
 
 .verdict{margin-top:18px;border-radius:16px;padding:16px 18px}
 .verdict.ok{background:var(--ok-bg)} .verdict.ng{background:var(--ng-bg)}
