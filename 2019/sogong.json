@@ -1,0 +1,327 @@
+[
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-26",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "품질 속성 시나리오(quality attribute scenario)는\r\n품질 속성에 대한 요구사항을 명확하게 기술하는\r\n대표적인 방식이다. 다음 중에서 품질 속성 시나\r\n리오를 구성하는 항목과 가장 거리가 먼 것은?",
+        "choices":  [
+                        "stimulus – response를 유발하기 위한 stimulus를\r\n명시한다.",
+                        "response – stimulus에 대하여 요구되는 결과를\r\n명시한다.",
+                        "artifact – stimulus의 대상으로서 response를\r\n산출하는 대상을 명시한다.",
+                        "stakeholder – 해당 품질속성과 밀접한 관련이\r\n있는 이해관계자를 명시한다."
+                    ],
+        "answer":  3,
+        "explanation":  "품질속성 시나리오의 핵심 구성은 source, stimulus, artifact, environment, response, response measure이다. stakeholder는 관련자는 될 수 있어도 구성 항목은 아니다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-27",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "동일한 입력에 대해서 엘리베이터 제어 시스템은\r\n내부 상황에 따라서 다른 동작을 보인다. 예를\r\n들어 “open door” 버튼이 선택된 경우, 엘리베\r\n이터가 이동 중이면 무시하여야 하고, 정지 중이\r\n면서 문이 닫혀있거나 닫히는 중인 경우에만 문을\r\n열어야 한다. 이와 같은 동작 특성을 가지는 시\r\n스템을 테스트할 때의 테스트 설계 기법으로 가장\r\n적절한 기법은?",
+        "choices":  [
+                        "분기(branch) 테스팅",
+                        "경계값 분석(boundary value analysis) 테스팅",
+                        "상태 전이(state transition) 테스팅",
+                        "결정표(decision table) 테스팅"
+                    ],
+        "answer":  2,
+        "explanation":  "같은 입력이라도 현재 상태에 따라 결과가 달라지는 시스템은 상태와 전이 조건을 기준으로 테스트하는 상태 전이 테스트가 적합하다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-28",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음의 설명에 가장 적절한 개념은 무엇인가?\r\n낮은 품질의 소프트웨어가 결국은 미래에 사용자의\r\n니즈를 충족시키는 것을 지연시킨다.\r\n비즈니스 이해관계자 및 경영진과 소프트웨어 품질에\r\n대한 의사 소통시 유용한 비유이다.",
+        "choices":  [
+                        "bad smell",
+                        "technical debt",
+                        "quality cost",
+                        "software entropy"
+                    ],
+        "answer":  1,
+        "explanation":  "향후 변경과 품질 문제 해결을 지연시키는 낮은 품질의 누적 비용을 기술 부채라고 부른다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-29",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 클래스 다이어그램은 주문처리 기능에 대한\r\n설계를 보여 준다. 이 클래스 다이어그램에 적용된\r\n설계 원칙으로서 가장 적절한 것은?",
+        "choices":  [
+                        "SRP(Single Responsibility Principle)",
+                        "ISP(Interface Segregation Principle)",
+                        "DIP(Dependency Inversion Principle)",
+                        "LSP(Liskov Substitution Principle)"
+                    ],
+        "answer":  2,
+        "explanation":  "상위 정책이 구체 클래스가 아니라 추상화에 의존하도록 한 구조이므로 의존관계 역전 원칙인 DIP에 해당한다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-30",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 유스케이스 다이어그램은 도서관 시스템에\r\n대한 간략한 기능을 보여준다. 이 유스케이스\r\n다이어그램에 표시된 관계 중에서 가장 적절하게\r\n사용되고 있는 것은?",
+        "choices":  [
+                        "(가)",
+                        "(나)",
+                        "(다)",
+                        "(라)"
+                    ],
+        "answer":  3,
+        "explanation":  "원본 유스케이스 그림에서 (라)의 관계만 유스케이스 관계의 의미와 표기 방향이 맞다. 나머지는 include, extend, 일반화 관계 사용이 부적절하다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-31",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 클래스 다이어그램은 TestAutomation 클래스가\r\nStateCoverageGenerator 또는 TransitionCoverage\r\nGenerator를 이용하여 테스트케이스를 자동 생성\r\n하는 모습을 보여 준다. 이 설계와 가장 밀접한\r\n관계가 있는 feature diagram은?\r\n(가)\r\n(나)\r\n(다)\r\n(라)",
+        "choices":  [
+                        "(가)",
+                        "(나)",
+                        "(다)",
+                        "(라)"
+                    ],
+        "answer":  1,
+        "explanation":  "StateCoverageGenerator와 TransitionCoverageGenerator를 선택 가능한 변형 기능으로 둔 구조이므로, 공통 기능 아래 대안 feature를 표현한 (나)가 맞다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-32",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "사용자 요구사항의 변경 요청 및 플랫폼의 변경을\r\n효율적으로 수용하기 위해서는 아키텍처를 설계\r\n하면서 변경용이성(modifiability)을 고려해야\r\n한다. 다음 중에서 변경용이성을 높이기 위하여\r\n적용하는 방법과 가장 거리가 먼 것은?",
+        "choices":  [
+                        "모듈간의 바인딩을 실행시간보다 컴파일 또는 빌드\r\n시점에 함으로써 모듈의 동작을 명확히 하도록 한다.",
+                        "정보은닉 개념을 적용하여 모듈에 대한 명확한 인터\r\n페이스를 도입하거나 중재자를 도입하여 모듈간의\r\n의존관계를 감소시킨다.",
+                        "하나의 모듈이 하나의 명확한 역할을 하며, 하나의\r\n모듈이 여러 역할을 하는 경우 모듈을 분할하도록\r\n한다.",
+                        "모듈의 크기가 너무 큰 경우 적절하게 작은 크기의\r\n모듈로 분할함으로써 변경 비용을 감소시키도록 한다."
+                    ],
+        "answer":  0,
+        "explanation":  "변경용이성은 늦은 바인딩, 정보은닉, 낮은 결합, 높은 응집, 작은 모듈로 높인다. 컴파일 또는 빌드 시점 바인딩은 실행시간 바인딩보다 변경 수용성이 낮다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-33",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "Robert Martin은 clean architecture를 설명하면서\r\n컴포넌트 응집도에 대한 3가지 원칙을 제시하였다.\r\n다음 중에서 제시된 컴포넌트 응집도와 거리가\r\n가장 먼 것은?",
+        "choices":  [
+                        "REP(The Reuse/Release Equivalence Principle)",
+                        "CCP(The Common Closure Principle)",
+                        "SCP(The Single Change Principle)",
+                        "CRP(The Common Reuse Principle)"
+                    ],
+        "answer":  2,
+        "explanation":  "Robert Martin의 컴포넌트 응집도 원칙은 REP, CCP, CRP이다. SCP는 그 목록의 원칙명이 아니다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-34",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음은 A 회사를 대상으로 CMM/CMMI의 성숙도를\r\n평가하기 위해 평가자들이 파악한 내용들을 간략\r\n하게 정리한 것이다. 이 내용을 근거로 이 회사의\r\n성숙도 수준을 평가한 것으로 가장 적절한 것은?",
+        "choices":  [
+                        "레벨 2: managed",
+                        "레벨 3: defined",
+                        "레벨 4: quantitatively managed",
+                        "레벨 5: optimizing\r\n- 소프트웨어 프로세스가 잘 정의되어 있고, 조직이\r\n이를 잘 준수하고 있다.\r\n- 조직 내 별도의 그룹이 이 프로세스를 전담하며,\r\n개발자들에게 교육을 진행하고 있다.\r\n- 조직에서 정의한 프로세스 표준을 프로젝트 특성에\r\n맞게 테일러링하여 사용하기도 한다.\r\n- 이 프로세스를 기반으로 개발 공정, 비용, 일정,\r\n기능이 통제되고 있다."
+                    ],
+        "answer":  1,
+        "explanation":  "조직 표준 프로세스가 정의되고 교육 및 테일러링되어 프로젝트에 적용되는 상태는 CMMI 레벨 3 Defined이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-35",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음은 클래스 A와 B 사이에 존재하는 연관관계\r\n(association)에 대한 스테레오타입(stereotype)과\r\n이를 코드로 표현한 것이다. 가장 적절하지 않은\r\n것은?\r\n가\r\npublic class A {\r\n   public B makeB() {\r\n      return new B();\r\n   }\r\n}\r\n나\r\npublic class A {\r\n   B b = new B();\r\n   public void f() {\r\n      … // use b\r\n   }\r\n}\r\n다\r\npublic class A {\r\n   public void f(B b) {\r\n      … // use b\r\n   }\r\n}\r\n라\r\npublic class A {\r\n   private B itsB;\r\n   public void f() {\r\n      itsB.f();\r\n   }\r\n}",
+        "choices":  [
+                        "가",
+                        "나",
+                        "다",
+                        "라"
+                    ],
+        "answer":  1,
+        "explanation":  "객체를 필드에서 직접 생성해 계속 보유하는 코드는 단순 연관 스테레오타입 설명과 맞지 않고 소유 또는 합성 성격이 강하다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-36",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "전자정부 표준프레임워크 실행환경은 7개 서비스\r\n그룹으로 구성되며 38개 서비스를 제공한다. 다음 중\r\n‘업무처리’ 서비스 그룹에 포함되는 서비스로 가장\r\n적절한 것은?\r\n가. scheduling\r\n나. transaction\r\n다. exception handling\r\n라. job execution\r\n마. process control\r\n바. sync/async processing",
+        "choices":  [
+                        "가, 라",
+                        "나, 바",
+                        "다, 마",
+                        "라, 바"
+                    ],
+        "answer":  2,
+        "explanation":  "전자정부 표준프레임워크 실행환경의 업무처리 그룹에는 exception handling과 process control이 포함된다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-37",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "스크럼(scrum) 방법론을 따라 소프트웨어를 개\r\n발한다고 하자. 전체 스토리 포인트가 400이고\r\n개발팀의 속도가 25로 추정된다면 해당 릴리스를\r\n완성하기 위해서는 몇 개월의 프로젝트 일정이\r\n필요한가? (단, 한 스프린트는 2주이고, 한 달은\r\n4주라 가정한다.)",
+        "choices":  [
+                        "2개월",
+                        "4개월",
+                        "6개월",
+                        "8개월"
+                    ],
+        "answer":  3,
+        "explanation":  "400점을 속도 25로 처리하면 16스프린트가 필요하다. 2주 스프린트이므로 32주, 즉 8개월이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-38",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음은 ‘항공권 예약 시스템’의 요구사항의 일부를\r\n나열한 것이다. 여기서 비기능 요구사항만을 고른\r\n것으로 가장 적절한 것은?\r\n가. 항공편, 탑승객, 예약을 입력하는 방법이 결정\r\n되어야 한다.\r\n나. 여행사와 고객이 데이터베이스에 접근할 때 어떤\r\n정보를 얻을 수 있는지 결정해야 한다.\r\n다. 시스템은 일주일에 2분 정도의 다운만 허용하며\r\n그 이외에는 항상 사용할 수 있어야 한다.\r\n라. 티켓에 어떤 정보를 표시할지 결정해야 한다.\r\n마. 자주 탑승하는 고객을 서비스하기 위하여 시스\r\n템을 확장할 수 있어야 한다.",
+        "choices":  [
+                        "다",
+                        "가, 라",
+                        "나, 라",
+                        "다, 마"
+                    ],
+        "answer":  3,
+        "explanation":  "가, 나, 라는 기능 또는 데이터 요구에 가깝고, 다는 가용성, 마는 확장성 요구다. 따라서 비기능 요구사항은 다와 마이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-39",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음은 외부 품질 속성과 관련이 있는 내부 속성과\r\n의 관계를 나타낸 그림이다. (가), (나), (다)에\r\n들어갈 외부 속성을 가장 바르게 나열한 것은?\r\n        (가)            (나)          (다)",
+        "choices":  [
+                        "유지보수성        신뢰성        사용성",
+                        "유지보수성        사용성        신뢰성",
+                        "사용성            신뢰성        유지보수성",
+                        "신뢰성            사용성        유지보수성"
+                    ],
+        "answer":  0,
+        "explanation":  "내부 속성과 외부 품질속성 연결상 (가)는 유지보수성, (나)는 신뢰성, (다)는 사용성에 대응한다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-40",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 표를 보고 추정한 개발 팀의 속도(velocity)로\r\n가장 적절한 것은?\r\n스토리 스토리 포인트 상태\r\n스토리 A 5 미완성\r\n스토리 B 7 완성\r\n스토리 C 5 완성\r\n스토리 D 3 부분완료\r\n스토리 E 3 완성\r\n스토리 F 8 시작안함\r\n스토리 G 5 부분완료",
+        "choices":  [
+                        "8",
+                        "13",
+                        "15",
+                        "36"
+                    ],
+        "answer":  2,
+        "explanation":  "애자일 velocity는 완료된 스토리 포인트만 합산한다. 완성된 B, C, E의 7 + 5 + 3 = 15이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-41",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음은 발생한 트러블을 처리하기 위해 디자인\r\n패턴을 적용하여 구현한 프로그램의 각 클래스\r\n에 대한 해설과 클래스 다이어그램이다. 가장\r\n적절한 디자인 패턴은?\r\n이름 해설\r\nTrouble\r\n발생한 트러블을 나타내는 클래스,\r\n트러블 번호를 가진다\r\nSupport 트러블을 해결하는 추상 클래스\r\nNoSupport\r\n트러블을 해결하는 구체 클래스\r\n(항상 처리하지 않는다)\r\nLimitSupport\r\n트러블을 해결하는 구체 클래스\r\n(지정한 번호 미만의 트러블을 해결)\r\nOddSupport\r\n트러블을 해결하는 구체 클래스\r\n(홀수 번호의 트러블을 해결)\r\nSpecialSupport\r\n트러블을 해결하는 구체 클래스\r\n(특정 번호의 트러블을 해결)\r\nMain\r\nSupport들의 사슬을 만들고 트러블을\r\n발생시키는 동작 테스트용 클래스",
+        "choices":  [
+                        "observer",
+                        "template method",
+                        "abstract factory",
+                        "chain of responsibility"
+                    ],
+        "answer":  3,
+        "explanation":  "처리자가 요청을 해결하지 못하면 다음 처리자에게 넘기는 사슬 구조이므로 Chain of Responsibility 패턴이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-42",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "ISO/IEC 33063:2015(E)에는 소프트웨어 테스팅을\r\n위한 process assessment model이 정의되어 있다.\r\n다음 중 ISO/IEC 33063:2015(E)의 test management\r\nprocess 그룹에 속하지 않는 프로세스는?",
+        "choices":  [
+                        "test planning process",
+                        "test monitoring and control process",
+                        "test completion process",
+                        "test execution process"
+                    ],
+        "answer":  3,
+        "explanation":  "ISO/IEC 33063의 test management process에는 planning, monitoring/control, completion 등이 포함된다. test execution은 별도 dynamic test process 쪽이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-43",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "ITIL V3에서 lifecycle phase 와 lifecycle process\r\n의 연결이 가장 적절한 것은?\r\nlifecycle phase lifecycle process\r\n가. service strategy\r\n나. service design\r\n다. service transition\r\n라. service operation\r\nA. capacity management\r\nB. demand management\r\nC. event management\r\nD. knowledge management",
+        "choices":  [
+                        "가-A, 나-B, 다-C, 라-D",
+                        "가-B, 나-A, 다-D, 라-C",
+                        "가-A, 나-C, 다-D, 라-B",
+                        "가-B, 나-A, 다-C, 라-D"
+                    ],
+        "answer":  1,
+        "explanation":  "ITIL V3에서 demand management는 service strategy, capacity management는 service design, knowledge management는 service transition, event management는 service operation에 속한다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-44",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "Provider 클래스가 Service 인터페이스에 정의된\r\n기능을 제공하고 User 클래스가 인터페이스에\r\n정의된 기능을 사용한다는 의미를 표현한 클래스\r\n다이어그램으로 가장 적절한 것은?\r\n(가)\r\n(나)\r\n(다)\r\n(라)",
+        "choices":  [
+                        "(가)",
+                        "(나)",
+                        "(다)",
+                        "(라)"
+                    ],
+        "answer":  0,
+        "explanation":  "제공자는 인터페이스를 실현하고 사용자는 구체 제공자가 아니라 인터페이스에 의존해야 하므로 원본 그림의 (가)가 맞다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-45",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "스크럼(scrum)에서 작업을 진행하는 순서로 가장\r\n적절한 것은?\r\n(가) 스프린트 계획     (나) 스프린트 리뷰\r\n(다) 스프린트 회고     (라) 릴리스 계획",
+        "choices":  [
+                        "(다) → (나) → (다) → (라)",
+                        "(라) → (가) → (나) → (다)",
+                        "(다) → (라) → (가) → (나)",
+                        "(나) → (다) → (라) → (가)"
+                    ],
+        "answer":  1,
+        "explanation":  "스크럼은 릴리스 계획 후 스프린트 계획을 세우고, 스프린트 수행 후 리뷰와 회고를 진행한다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-46",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 JAVA 코드를 실행한 결과 중, 가장 적절한\r\n것은?\r\nimport java.util.ArrayList;\r\nimport java.util.Collection;\r\nimport java.util.HashMap;\r\nimport java.util.HashSet;\r\nimport java.util.LinkedList;\r\nimport java.util.List;\r\nimport java.util.Map;\r\nimport java.util.Set;\r\nimport java.util.Stack;\r\nimport java.util.TreeMap;\r\nimport java.util.TreeSet;\r\npublic class TestB\r\n{\r\n    public static int list = 0, map = 0, set = 0,\r\ncollection = 0;\r\n    public static void collectionCounter(Object abc)\r\n    {\r\n            if (abc instanceof List) list++;\r\n            if (abc instanceof Map) map++;\r\n            if (abc instanceof Set) set++;\r\n            if (abc instanceof Collection)\r\ncollection++;\r\n    }\r\n    public static void main(String[] args)\r\n    {\r\n        collectionCounter(new HashSet\u003cObject\u003e());\r\n\r\n        collectionCounter(new HashMap\u003cObject,\r\nObject\u003e());\r\n        collectionCounter(new ArrayList\u003cObject\u003e());\r\n\r\n        collectionCounter(new LinkedList\u003cObject\u003e());\r\n\r\n        collectionCounter(new Stack\u003cObject\u003e());\r\n\r\n        collectionCounter(new TreeSet\u003cObject\u003e());\r\n\r\n        collectionCounter(new TreeMap\u003cObject,\r\nObject\u003e());\r\n        System.out.println(\"list = \"+list+\" map =\r\n\"+map+\" set = \"+set+\" collection = \"+collection);\r\n    }\r\n}",
+        "choices":  [
+                        "list = 2 map = 2 set = 2 collection = 1",
+                        "list = 2 map = 3 set = 3 collection = 5",
+                        "list = 3 map = 2 set = 2 collection = 5",
+                        "list = 3 map = 3 set = 3 collection = 1"
+                    ],
+        "answer":  2,
+        "explanation":  "HashSet과 TreeSet은 Set과 Collection, ArrayList, LinkedList, Stack은 List와 Collection, HashMap과 TreeMap은 Map이다. 따라서 list=3, map=2, set=2, collection=5이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-47",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음은 리팩토링 전 후의 코드 변화이다. 적용된\r\n리팩토링 기법으로 가장 적절한 것은?\r\n\r\npublic void print(int times) {\r\n   //테두리 출력\r\n   System.out.print(“+”);\r\n   for (int i = 0; i \u003c _content.length(); i++) {\r\n        System.out.print(“-”);\r\n    }\r\n    System.out.print(“+”);\r\n    //내용 출력\r\n    for (int i = 0; i \u003c times; i++) {\r\n        System.out.print(“|” + _content + “|”);\r\n    }\r\n   //테두리 출력\r\n   System.out.print(“+”);\r\n   for (int i = 0; i \u003c _content.length(); i++) {\r\n        System.out.print(“-”);\r\n    }\r\n    System.out.print(“+”);\r\n   }\r\npublic void print(int times) {\r\n    printBorder();\r\n    printContent(times);\r\n    printBorder();\r\n}\r\nprivate void printBorder() {\r\n   System.out.print(“+”);\r\n   for (int i = 0; i \u003c _content.length(); i++) {\r\n        System.out.print(“-”);\r\n    }\r\n    System.out.print(“+”);\r\n   }\r\nprivate void printContent(int times){\r\n    for (int i = 0; i \u003c times; i++) {\r\n        System.out.print(“|” + _content + “|”);\r\n    }\r\n}",
+        "choices":  [
+                        "hide method",
+                        "push down method",
+                        "inline method",
+                        "extract method"
+                    ],
+        "answer":  3,
+        "explanation":  "반복되던 테두리 출력과 내용 출력을 별도 메서드로 뽑아냈으므로 Extract Method 리팩토링이다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-48",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "서비스 지향 아키텍처인 XML 웹서비스에 대한\r\n다음 설명에서 (가)~(다)에 들어갈 내용을 순서\r\n대로 나열한 것은?\r\n( 가 ) 은(는) 서비스 인터페이스 정의를 위한 표\r\n준, 즉, 서비스 오퍼레이션과 서비스 바인딩이 정의\r\n되는 방식을 결정한다. ( 나 ) 은(는) 서비스 메소\r\n드 호출과 데이터 전달 등 메시징을 위해 사용되는\r\n표준이다. 웹서비스 메시지 전송은 ( 다 ) 등의 프\r\n로토콜이 사용된다.",
+        "choices":  [
+                        "(가) UDDI  (나) SOAP  (다) HTTP",
+                        "(가) UDDI  (나) HTTP  (다) TCP/IP",
+                        "(가) WSDL  (나) SOAP  (다) HTTP",
+                        "(가) WSDL  (나) HTTP  (다) TCP/IP"
+                    ],
+        "answer":  2,
+        "explanation":  "웹서비스에서 WSDL은 인터페이스와 바인딩 정의, SOAP은 메시징 표준, HTTP는 전송 프로토콜로 쓰인다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-49",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 중 소프트웨어 형상관리에 대한 설명으로\r\n틀린 것은?",
+        "choices":  [
+                        "특정 컴포넌트의 일련의 버전을 코드라인(code-\r\nline)이라고 하고, 시스템에 포함되는 컴포넌트\r\n들의 가장 최근 버전의 집합을 베이스라인(base\r\nline)이라고 한다.",
+                        "버전 저장소로부터 개인 작업공간으로 가지고\r\n오는 것을 체크아웃(check-out)이라고 하고\r\n변경된 컴포넌트들을 버전 저장소에 반영하는 것을\r\n체크인(check-in)이라고 한다.",
+                        "동일한 컴포넌트를 다른 목적으로 독립적인\r\n개발을 하려면 분기(branch)를 사용하고, 각\r\n분기에서 변경된 내용을 합치는 것을 병합(merge)\r\n라고 하는데 병합 시 충돌(conflict)이 발생할\r\n수 있다.",
+                        "컴포넌트의 버전 간 차이를 델타(delta)라고 하며,\r\n어떤 버전으로부터 이전 버전을 생성하기 위한\r\n규칙은 후향(backward) 델타, 어떤 버전으로부터\r\n이후 버전을 생성하기 위한 규칙은 전향(forward)\r\n델타라고 한다."
+                    ],
+        "answer":  0,
+        "explanation":  "베이스라인은 승인된 구성항목 집합이지 항상 각 컴포넌트의 최신 버전 집합이라는 뜻이 아니다."
+    },
+    {
+        "id":  "2019년 제20회 소프트웨어 공학-50",
+        "deck":  "2019년 제20회 소프트웨어 공학",
+        "question":  "다음 pseudo code를 보고 최소 문장 커버리지\r\n(statement coverage) 테스트 케이스(test case)의\r\n수와 최소 분기 커버리지(branch coverage) 테스트\r\n케이스(test case)의 수로 가장 적절한 것은?\r\nread a, b;\r\nif (a+b \u003e 10) then\r\n     print “Big”;\r\nendif\r\nif (a \u003e 10) then\r\n     print “aBig”;\r\nendif\r\nprint a, b;",
+        "choices":  [
+                        "문장 커버리지 : 2, 분기 커버리지 : 2",
+                        "문장 커버리지 : 1, 분기 커버리지 : 1",
+                        "문장 커버리지 : 1, 분기 커버리지 : 2",
+                        "문장 커버리지 : 2, 분기 커버리지 : 1"
+                    ],
+        "answer":  2,
+        "explanation":  "두 if 조건을 모두 참으로 만드는 한 개 테스트로 모든 문장을 실행할 수 있다. 각 if의 참/거짓 분기를 모두 보려면 최소 두 개 테스트가 필요하다."
+    }
+]
