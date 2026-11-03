@@ -10,8 +10,8 @@
                         "테이블 S의 투플이 삭제되면 이 투플을 참조하\r\n는 R의 투플도 파급해서 삭제된다."
                     ],
         "answer":  [
-                       1,
-                       2
+                       2,
+                       3
                    ],
         "explanation":  "R 삽입은 참조하는 S.C가 필요하므로 S와 무관하지 않다. S 삽입은 자유롭고, ON UPDATE CASCADE는 R.C 갱신을 전파하며, ON DELETE SET NULL은 삭제 전파가 아니라 NULL 설정이다."
     },
