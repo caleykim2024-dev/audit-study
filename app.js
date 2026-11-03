@@ -32,7 +32,7 @@ async function loadConfigFile(){
     if(url&&key&&code)cfg={url,key,code};
   }catch(_){}
 }
-let view='home', cur=0, curDeck='', curYear='2020', syncStatus='', pushTimer=null;
+let view='home', cur=0, curDeck='', curYear='2020', syncStatus='', pushTimer=null, pendingChoices={};
 const LEGACY_YEAR='2020';
 const reviewKey=()=>curYear===LEGACY_YEAR?curDeck:curYear+'/'+curDeck;
 const yearAreas=year=>ALL.filter(name=>Q.some(q=>q.year===year&&q.deck===name));
@@ -136,10 +136,21 @@ function sess(){
   return {ids:deckIds(curDeck),res:S.res};
 }
 const answeredIn=(ids,res)=>ids.filter(id=>res[id]&&res[id].tries>0).length;
+// answer: 0 또는 [0, 2]처럼 보기의 0부터 시작하는 번호를 사용한다.
+const isMulti=q=>Array.isArray(q.answer)||Array.isArray(q.answers);
+function answerIndices(q){
+  const raw=q.answers!==undefined?q.answers:q.answer;
+  return [...new Set((Array.isArray(raw)?raw:[raw]).map(Number)
+    .filter(i=>Number.isInteger(i)&&i>=0&&i<q.choices.length))].sort((a,b)=>a-b);
+}
+function answersMatch(q,picked){
+  const correct=answerIndices(q),selected=[...new Set(Array.isArray(picked)?picked:[picked])].sort((a,b)=>a-b);
+  return selected.length===correct.length&&selected.every((i,n)=>i===correct[n]);
+}
 // 가장 최근에 푼 답이 맞았으면 '맞음' (틀렸다가 다시 풀어 맞혀도 맞은 것으로 센다)
 function isOk(res,id){const r=res[id];if(!r||!(r.tries>0))return false;
   if(r.ok!==undefined)return r.ok;
-  return r.picked!=null?r.picked===QB[id].answer:!r.everWrong;}
+  return r.picked!=null?answersMatch(QB[id],r.picked):!r.everWrong;}
 
 /* ============ 동기화 (Supabase, 선택) ============ */
 const syncOn=()=>cfg.url&&cfg.key&&cfg.code;
@@ -466,17 +477,21 @@ function renderQuiz(){
   const ss=sess();
   const id=ss.ids[cur],q=QB[id];
   if(!q){view=curDeck?'area':'landing';return render();}
-  const res=ss.res,r=res[id]||{},answered=r.picked!=null,ok=answered&&r.picked===q.answer;
+  const res=ss.res,r=res[id]||{},answered=r.picked!=null,ok=answered&&answersMatch(q,r.picked);
+  const multi=isMulti(q),correct=answerIndices(q);
+  const selected=answered?(Array.isArray(r.picked)?r.picked:[r.picked]):(pendingChoices[id]||[]);
   const w=wrongOf(id);
   const ch=q.choices.map((c,i)=>{
     let cls='';
-    if(answered){if(i===q.answer)cls='right';else if(i===r.picked)cls='wrong';}
-    return `<button class="choice ${cls}" ${answered?'disabled':''} onclick="pick(${i})"><span class="n">${i+1}</span><span class="t">${e(c)}</span></button>`;
+    if(answered){if(correct.includes(i))cls='right';else if(selected.includes(i))cls='wrong';}
+    else if(multi&&selected.includes(i))cls='selected';
+    return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${e(c)}</span></button>`;
   }).join('');
+  const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
   const imgBase=answered?explImgBase(q):null;
   const imgSlot=imgBase?`<div class="expl-imgs" data-base="${e(imgBase)}"></div>`:'';
   const verdict=answered?`<div class="verdict ${ok?'ok':'ng'}">
-      <h3>${ok?'정답이에요!':'아쉬워요. 정답은 '+(q.answer+1)+'번'}</h3>
+      <h3>${ok?'정답이에요!':'아쉬워요. 정답은 '+correct.map(i=>(i+1)+'번').join(', ')}</h3>
       ${EXPL_IMG_POS==='top'?imgSlot:''}${explanationHtml(q.explanation)}${EXPL_IMG_POS==='top'?'':imgSlot}</div>`:'';
   const last=cur===ss.ids.length-1;
   const footer=answered?`<div class="footer"><div class="row">
@@ -493,6 +508,7 @@ function renderQuiz(){
     <div class="qtext">${e(q.question)}</div>
     ${q.image?`<img class="qimg" src="${e(q.image)}" alt="">`:''}
     <div class="choices">${ch}</div>
+    ${submit}
     ${verdict}${footer}`;
   fillExplImages();
   window.scrollTo(0,0);
@@ -504,7 +520,7 @@ function renderResult(){
   const ss=sess(),res=ss.res,n=ss.ids.length;
   const wrong=ss.ids.filter(id=>res[id]&&res[id].everWrong);
   const good=ss.ids.filter(id=>isOk(res,id)).length;
-  const label=id=>{const q=QB[id];return q.big?q.big+'  '+q.choices[q.answer]:q.question.slice(0,60)+(q.question.length>60?'…':'');};
+  const label=id=>{const q=QB[id];return q.big?q.big+'  '+answerIndices(q).map(i=>q.choices[i]).join(' · '):q.question.slice(0,60)+(q.question.length>60?'…':'');};
   let redoHtml='';
   if(mode==='rround'){
     const T=todayStr(),rs=S.rsess[curRound],allIds=((rs&&(rs.all||rs.ids))||[]).filter(id=>QB[id]);
@@ -600,11 +616,34 @@ function restartAll(){
   deckIds(curDeck).forEach(id=>{delete S.res[id];});
   save();render();
 }
+function toggleChoice(i){
+  const ss=sess(),id=ss.ids[cur],q=QB[id];
+  if(!q||!isMulti(q)||ss.res[id]?.picked!=null)return;
+  const selected=pendingChoices[id]||(pendingChoices[id]=[]);
+  const at=selected.indexOf(i);
+  if(at<0)selected.push(i);else selected.splice(at,1);
+  $app.querySelectorAll('.choices .choice').forEach((button,n)=>{
+    button.classList.toggle('selected',selected.includes(n));
+    button.setAttribute('aria-pressed',String(selected.includes(n)));
+  });
+  document.getElementById('submitAnswers').disabled=selected.length===0;
+}
+function submitMultiple(){
+  const ss=sess(),id=ss.ids[cur],q=QB[id],selected=pendingChoices[id]||[];
+  if(!q||!isMulti(q)||!selected.length)return;
+  recordAnswer(selected.slice());
+}
 function pick(i){
+  const ss=sess(),q=QB[ss.ids[cur]];
+  if(!q||isMulti(q))return;
+  recordAnswer(i);
+}
+function recordAnswer(picked){
   const ss=sess(),id=ss.ids[cur],q=QB[id];
   const r=ss.res[id]||(ss.res[id]={tries:0,everWrong:false,picked:null});
   if(r.picked!=null)return;
-  r.picked=i;r.tries++;r.ok=(i===q.answer);
+  r.picked=picked;r.tries++;r.ok=answersMatch(q,picked);
+  delete pendingChoices[id];
   const today=todayStr();
   const st=S.stats[id]||(S.stats[id]={seen:0,wrong:0,last:'',lastWrong:''});
   if(r.tries===1){st.seen++;st.last=today;}
@@ -615,7 +654,7 @@ function pick(i){
   if(mode==='rround'&&!redo&&r.ok&&!r.everWrong)markReviewDone(id,curRound);
   save();render();
 }
-function retry(){const ss=sess(),r=ss.res[ss.ids[cur]];if(r){r.picked=null;save();render();}}
+function retry(){const ss=sess(),id=ss.ids[cur],r=ss.res[id];if(r){r.picked=null;delete pendingChoices[id];save();render();}}
 function next(){
   if(cur<sess().ids.length-1){cur++;render();}
   else{view='result';render();}
