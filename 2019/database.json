@@ -1,0 +1,339 @@
+[
+    {
+        "id":  "2019년 제20회 데이터베이스-51",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 두 릴레이션 R(A,B,C)과 S(C,D)를 SQL로\r\n정의한 것이다. 두 테이블에 대한 데이터 조작\r\n연산과 관련된 설명 중 옳은 것을 모두 고르시오.\r\n(2개 선택)\r\nCREATE TABLE R\r\n(A INT NOT NULL, B CHAR(5), C INT, PRIMARY\r\nKEY(A), FOREIGN KEY(C) REFERENCES S(C)\r\n      ON DELETE SET NULL\r\n      ON UPDATE CASCADE);\r\nCREATE TABLE S\r\n(C INT NOT NULL, D CHAR(5), PRIMARY KEY(C));",
+        "choices":  [
+                        "테이블 R의 투플은 테이블 S의 상태와 무관하\r\n게 삽입이 가능하다.",
+                        "테이블 S의 투플은 테이블 R의 상태와 무관하\r\n게 삽입이 가능하다.",
+                        "테이블 S의 C의 값이 갱신되면 테이블 R의 C의\r\n값도 파급해서 갱신된다.",
+                        "테이블 S의 투플이 삭제되면 이 투플을 참조하\r\n는 R의 투플도 파급해서 삭제된다."
+                    ],
+        "answer":  [
+                       1,
+                       2
+                   ],
+        "explanation":  "R 삽입은 참조하는 S.C가 필요하므로 S와 무관하지 않다. S 삽입은 자유롭고, ON UPDATE CASCADE는 R.C 갱신을 전파하며, ON DELETE SET NULL은 삭제 전파가 아니라 NULL 설정이다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-52",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "릴레이션을 정규화(normalization)하는 목적에\r\n관한 설명 중 가장 거리가 먼 것은?",
+        "choices":  [
+                        "정보의 갱신 이상이 생기지 않도록 한다.",
+                        "정보의 보안을 목적으로 한다.",
+                        "정보의 손실을 막는다.",
+                        "정보의 중복을 막는다."
+                    ],
+        "answer":  1,
+        "explanation":  "정규화는 중복과 갱신 이상을 줄이고 정보 손실을 방지하려는 설계 절차다. 보안 자체가 직접 목적은 아니다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-53",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "뷰(view)가 어떻게 데이터베이스 보안에 사용될\r\n수 있는지에 대한 다음 설명 중 옳지 않은 것은?",
+        "choices":  [
+                        "기본 릴레이션에 직접 접근할 수 있는 권한을\r\n부여하지 않고 뷰를 통해 접근하도록 한다.",
+                        "자세한 정보를 제공하는 대신 집단함수의 결과\r\n만 제공할 수 있다.",
+                        "하나의 릴레이션으로 보이는 것을 막기 위해\r\n여러 릴레이션의 열(column)을 조인하는 것이 금\r\n지된다.",
+                        "기본 릴레이션의 일부 속성들에 대해 추가적으\r\n로 정의될 수 있으므로 이를 이용해서 기본 릴\r\n레이션의 일부분만 검색가능하다."
+                    ],
+        "answer":  2,
+        "explanation":  "뷰는 여러 기본 릴레이션을 조인해 하나의 릴레이션처럼 보이게 만들 수 있다. 이를 금지한다는 설명은 틀리다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-54",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "고정 길이 레코드 방식을 사용할 때, 레코드의\r\n길이가 230 byte이고, 블록의 크기가 4,096\r\nbyte, 블록 헤더의 길이가 24 byte 라고 가정하자.\r\n하나의 블록에 가능한 많은 수의 레코드를 채우는\r\n방식으로 35 개의 레코드를 저장할 때, 다음 중\r\n가장 적절한 것은?",
+        "choices":  [
+                        "첫 번째 블록에는 188 byte가 남는다.",
+                        "두 번째 블록에는 3,934 byte가 남는다.",
+                        "세 번째 블록에는 3,842 byte가 남는다.",
+                        "네 번째 블록에는 3,910 byte가 남는다."
+                    ],
+        "answer":  2,
+        "explanation":  "블록의 사용 가능 공간은 4096 - 24 = 4072바이트이고 230바이트 레코드는 블록당 17개 들어간다. 35번째 레코드는 세 번째 블록에 들어가며 4072 - 230 = 3842바이트가 남는다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-55",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "SQL의 표준에서 제시한 트랜잭션의 고립 단계\r\n(isolation level)를 낮게 설정했을 때 발생할\r\n수 있는 문제로 가장 적절하지 않은 것은?",
+        "choices":  [
+                        "serial schedule",
+                        "dirty read",
+                        "nonrepeatable read",
+                        "phantom"
+                    ],
+        "answer":  0,
+        "explanation":  "낮은 고립수준에서 발생하는 문제는 dirty read, nonrepeatable read, phantom 등이다. serial schedule은 이상현상이 아니라 직렬 실행 결과와 같은 바람직한 성질이다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-56",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "확률기반의 기계학습 기법인 나이브 베이즈\r\n(Naive Bayes) 기법에 대한 다음 설명 중 가장\r\n적절하지 않은 것은?",
+        "choices":  [
+                        "입력 속성들이 서로 연관하여 클래스 결정에\r\n영향을 줄 수 있기 때문에 입력 데이터에 존재\r\n하는 조건부 확률을 구하여 사용한다.",
+                        "입력에 존재하지 않는 경우에도 확률값이 0이\r\n되는 것을 방지하기 위해 라플라스 추정치\r\n(Laplace estimator)를 사용할 수 있다.",
+                        "문서 분류를 위해 문서를 단어의 집합(bag of\r\nwords)으로 모델링하여 확률기반의 기계학습을\r\n적용하는 다항분포 나이브 베이즈(multinominal\r\nNaive Bayes) 모델이 있다.",
+                        "입력 속성이 수치값이면 확률 밀도 함수를 사용\r\n하여 해당 입력값의 확률값을 구해서 사용한다."
+                    ],
+        "answer":  0,
+        "explanation":  "나이브 베이즈는 속성들이 클래스가 주어졌을 때 조건부 독립이라고 가정한다. 속성 간 연관을 그대로 조건부 확률로 반영한다는 설명은 맞지 않는다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-57",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "릴레이션 Emp, Dept가 다음과 같이 정의되어 있\r\n다. 부서에 사원이 한명도 없는 부서(deptno)를\r\n검색하는 질의를 작성했을 때, 가장 거리가 먼\r\n것은? (단, Emp의 deptno는 Dept의 deptno를 참\r\n조하는 외래키이다.)\r\nEmp(empno, ename, job, mgr, hiredate, sal,\r\ncomm, deptno)\r\nDept(deptno, dname, loc)",
+        "choices":  [
+                        "SELECT deptno FROM Dept WHERE deptno NOT IN\r\n(SELECT deptno FROM Emp);",
+                        "SELECT deptno FROM Dept a WHERE NOT EXISTS\r\n(SELECT * FROM Emp b WHERE a.deptno =\r\nb.deptno);",
+                        "SELECT b.deptno FROM Emp a RIGHT OUTER JOIN\r\nDept b ON a.deptno = b.deptno WHERE empno\r\nIS NULL;",
+                        "SELECT deptno FROM Dept WHERE deptno \u003c\u003e ANY\r\n(SELECT deptno FROM Emp);"
+                    ],
+        "answer":  3,
+        "explanation":  "deptno \u003c\u003e ANY 조건은 어떤 사원 부서번호 하나와만 달라도 참이 될 수 있어 사원이 없는 부서를 찾지 못한다. NOT IN, NOT EXISTS, outer join/null 방식이 적절하다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-58",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 두 릴레이션 R, S에 대해 어떤 관계 대수\r\n연산을 적용한 결과 릴레이션을 보인 것이다. 두\r\n릴레이션에 대해 적용된 연산 중 옳은 것을 모두\r\n고르시오. (2개 선택)\r\n\r\nR\r\nA B\r\nJohn 5\r\nTom 8\r\nMary 8\r\nTom 1\r\nMary 5\r\nTom 5\r\nS\r\nB C\r\n1 alpha\r\n5 beta\r\n8 zetta\r\n결과\r\nA\r\nTom",
+        "choices":  [
+                        "∏A(R)",
+                        "R÷(∏B(S))",
+                        "∏A(R⋈B\u003cB(σC＝\u0027beta\u0027(S)))",
+                        "∏A(R⋈B=B(σC＝\u0027zetta\u0027(S)))"
+                    ],
+        "answer":  [
+                       1,
+                       2
+                   ],
+        "explanation":  "Tom은 S의 모든 B값 1, 5, 8을 R에서 모두 가지므로 나눗셈 결과에 포함된다. 또 C=\u0027beta\u0027의 B=5보다 작은 B를 가진 R의 A도 Tom뿐이다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-59",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음과 같은 EMPLOYEE 테이블의 Sex와 Salary에\r\n대한 비트맵 인덱스가 만들어졌다고 할 때, 이\r\n에 대한 설명 중 옳지 않은 것은?\r\n     EMPLOYEE\r\n\r\nRow_id Emp_id Name Sex Salary\r\n0 234 Clarke F 60000\r\n1 621 England M 50000\r\n2 811 Gucci F 50000\r\n3 126 Marcus M 60000\r\n4 413 Zara F 90000",
+        "choices":  [
+                        "Salary 속성의 경우, 값 50000에 대해서는\r\n01100, 값 60000에 대해서는 10010, 값 90000에\r\n대해서는 00001의 비트맵 인덱스가 만들어진다.",
+                        "Sex = \u0027F\u0027 AND Salary = 50000과 같은 조건은\r\n해당 비트맵 인덱스에 대한 논리 AND(logical\r\nAND)를 통해 검색할 수 있다.",
+                        "Salary 값이 50000 ~ 60000 사이인 직원은 해당\r\n비트맵 인덱스에 대한 비트단위의 AND(bitwise\r\nAND) 연산을 통해 검색할 수 있다.",
+                        "Sex ¬= \u0027F\u0027와 같은 부정 질의는 해당 비트맵에\r\n대해 불리언 보수(complement) 연산으로 처리\r\n가 가능하다."
+                    ],
+        "answer":  2,
+        "explanation":  "50000~60000 범위 검색은 50000 비트맵과 60000 비트맵을 OR로 결합해야 한다. AND를 쓰면 두 값을 동시에 갖는 행을 찾는 꼴이 된다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-60",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 직원 테이블과 부서 테이블의 구조와 두\r\n테이블에 대한 제약조건을 기술한 것이다. 다음\r\n중 널(null) 값이 허용되는 속성은?\r\n직원(직원번호, 이름, 월급, 상사_직원번호, 부서번호)\r\n부서(부서번호, 부서명, 관리자_직원번호)\r\n- 기본키: 직원 테이블의 기본키는 직원번호, 부서\r\n테이블의 기본키는 부서번호.\r\n- 참조 무결성: 직원.상사_직원번호는 직원.직원번호를\r\n참조, 직원.부서번호는 부서.부서번호를 참조, 부서.\r\n관리자_직원번호는 직원.직원번호를 참조.\r\n- 부서와 직원의 1:N 소속 관계: 한 직원은 반드시 1개의\r\n부서에 소속됨. 한 부서에는 1명 이상의 직원이 소속됨.\r\n- 직원과 직원의 1:N 감독 관계: 한 직원은 0명 이상의\r\n부하 직원을 거느릴 수 있음. 한 직원은 0명 또는 1\r\n명의 상사 직원을 둘 수 있음.\r\n- 직원과 부서의 1:1 관리자 관계: 한 직원은 0개\r\n또는 1개의 부서를 관리할 수 있음. 각 부서에는\r\n1명의 관리자 직원이 배정되어야 함.",
+        "choices":  [
+                        "직원.직원번호",
+                        "직원.상사_직원번호",
+                        "직원.부서번호",
+                        "부서.관리자_직원번호"
+                    ],
+        "answer":  1,
+        "explanation":  "상사 직원은 0명 또는 1명일 수 있으므로 직원.상사_직원번호는 NULL 허용 가능하다. 기본키와 필수 소속/관리자 관계의 속성은 NULL이면 안 된다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-61",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 EER(Enhanced ER) 다이어그램에서 세분화\r\n(specialization)를 표현한 것이다. 이 다이어그\r\n램에 대한 설명으로 옳은 것을 모두 고르시오.\r\n(단, 수퍼타입과 서브타입을 연결하는 중간 원안\r\n의 표시 ‘o’는 overlap을, A 개체 쪽의 이중선\r\n은 total을 표현한다고 하자.) (2개 선택)",
+        "choices":  [
+                        "A의 모든 개체는 최소한 하나의 서브타입의 멤\r\n버가 되어야 한다.",
+                        "동일한 실세계 개체가 하나 이상의 서브타입의\r\n멤버가 될 수 있다.",
+                        "서브타입 B와 C 어디에도 속하지 않은 개체가\r\n존재할 수 있다.",
+                        "하나의 개체는 많아야 하나의 서브타입의 멤버\r\n가 될 수 있다."
+                    ],
+        "answer":  [
+                       0,
+                       1
+                   ],
+        "explanation":  "total 제약은 A의 모든 개체가 최소 하나의 서브타입에 속함을 뜻하고, overlap 제약은 한 개체가 둘 이상의 서브타입에 동시에 속할 수 있음을 뜻한다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-62",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "트랜잭션에 관한 다음 설명 중 가장 적절하지\r\n않은 것은?",
+        "choices":  [
+                        "트랜잭션의 성질을 나타내는 용어로 ACID를 사\r\n용한다.",
+                        "트랜잭션이 로크(lock)를 사용하면 교착상태\r\n(deadlock)는 발생하지 않는다.",
+                        "트랜잭션이 읽기만 할 경우 공유 로크(shared\r\nlock)를 사용한다",
+                        "트랜잭션의 고립수준을 높이면 트랜잭션의 동\r\n시성이 낮아진다."
+                    ],
+        "answer":  1,
+        "explanation":  "로크는 동시성 제어 수단이지만 서로 상대 로크를 기다리는 교착상태를 만들 수 있다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-63",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음의 ER 다이어그램은 직원(EMPLOYEE)과 프로\r\n젝트(PROJECT) 사이의 참가(WORKS_ON) 관계를\r\n표현하고 있다. 이 ER 다이어그램을 데이터베이\r\n스 테이블로 변환할 때 일반적으로 생성되는 테\r\n이블의 개수로 가장 적절한 것은?",
+        "choices":  [
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+        "answer":  2,
+        "explanation":  "원본 ER 그림의 개체와 관계를 릴레이션 변환 규칙에 따라 분리하면 독립 테이블이 4개 필요하다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-64",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "대한민국 공공데이터포털(https://www.data.go.kr)은\r\n국가에서 운영하는 데이터 포털로써 정보 관련\r\n개발자들에게 유용하게 활용된다. 이에 대한 설\r\n명으로 가장 적절하지 않은 것은?",
+        "choices":  [
+                        "「공공데이터의 제공 및 이용 활성화에 관한 법률」\r\n제21조(공공데이터포털의 운영)에 의거한다.",
+                        "공공데이터와 관련된 개발자 간의 지식과 기술\r\n공유를 위해 개발자 네트워크를 제공한다.",
+                        "국민이 쉽고 편리하게 데이터를 이용할 수 있\r\n도록 파일데이터, 오픈API, 시각화 등 다양한\r\n방식으로 정보를 제공한다.",
+                        "공공데이터 포털에서 제공하는 공공데이터는\r\n공공데이터법에 따라 누구나 이용가능하지만,\r\n영리 목적의 이용은 허용되지 않는다."
+                    ],
+        "answer":  3,
+        "explanation":  "공공데이터는 제공 조건을 지키면 영리 목적 활용도 가능하다. 영리 목적 이용이 일괄 금지된다는 설명은 틀리다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-65",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "릴레이션 R1(A, B), R2(C, D)가 있다. 참조무결성\r\n제약조건을 준수할 경우 다음 중 항상 성립하는\r\n것은? (단, R1의 속성 B가 R2의 속성 C를 참조\r\n하는 외래키라고 가정한다.)\r\n\r\n※ π : 프로젝션 연산자, ∅ : 공집합",
+        "choices":  [
+                        "πB(R1) -  πC(R2) = ∅",
+                        "πC(R2) -  πB(R1) = ∅",
+                        "πB(R1) =  πC(R2)",
+                        "πB(R1) -  πC(R2) ≠ ∅"
+                    ],
+        "answer":  0,
+        "explanation":  "외래키 R1.B의 값은 참조 대상 R2.C에 존재해야 하므로 R1의 B값에서 R2의 C값을 뺀 차집합은 공집합이어야 한다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-66",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "릴레이션 R이 다음과 같은 함수 종속을 가지고\r\n있다. 이 릴레이션을 BCNF로 분해하였을 때, 외\r\n래키 역할을 수행하는 속성으로 옳은 것을 모두\r\n고르시오. (2개 선택)\r\n\r\n릴레이션: R(A, B, C, D, E)\r\n함수종속: A→BCDE, B→ACDE, E→CD, C→D",
+        "choices":  [
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+        "answer":  [
+                       1,
+                       3
+                   ],
+        "explanation":  "BCNF 분해 과정에서 C→D, E→CD 같은 종속을 별도 릴레이션으로 분리하면 C와 E가 분해된 릴레이션 사이를 연결하는 외래키 역할을 한다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-67",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "해시 테이블 구조를 사용할 경우, 해시 값의 충\r\n돌을 해결하기 위한 충돌 해결(collision\r\nresolution) 기법이 필요하다. 다음 중 충돌 해\r\n결 기법에 해당하지 않는 것은?",
+        "choices":  [
+                        "개방 주소 지정(open addressing)",
+                        "체인(chain)",
+                        "그림자(shadowing)",
+                        "다중 해싱(multiple hashing)"
+                    ],
+        "answer":  2,
+        "explanation":  "개방 주소 지정, 체이닝, 다중 해싱은 해시 충돌 해결 기법이다. shadowing은 충돌 해결 기법이 아니다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-68",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "테이블 R과 S가 다음과 같을 때, 아래 SQL문\r\n(SELECT 구문)의 실행 결과로 옳은 것은?\r\n\r\nR\r\nEID EName Phone Sex DID\r\n823 Kim 8491 M 100\r\n434 Park 8488 F 101\r\n180 Lee 8592 M 101\r\n510 Choi 8598 F 100\r\n\r\n\r\nS\r\nDID DName Room\r\n100 Head A403\r\n101 Sales A401\r\n102 Proj1 A301\r\n103 Proj2 B101\r\n104 AS B102\r\n      SELECT COUNT(*) FROM R, S;",
+        "choices":  [
+                        "4",
+                        "5",
+                        "9",
+                        "20"
+                    ],
+        "answer":  3,
+        "explanation":  "조인 조건이 없는 FROM R, S는 카티션 곱이므로 4개 행과 5개 행의 조합 20개가 생성된다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-69",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 데이터베이스 특징 중에서 데이터 공유\r\n에 대한 설명이다. (가)와 (나)에 들어갈 용어\r\n를 바르게 짝 지은 것은?\r\n여러 사용자가 동시에 사용하더라도 데이터의 일관\r\n성(consistency)을 보장하기 위해 ( 가 ) 기능을\r\n제공한다.\r\n데이터베이스 작업을 수행하는 단위 프로세스를 ( 나 )\r\n(이)라고 하며, ( 나 )의 주요 성질로는 고립성과\r\n원자성이 있다.",
+        "choices":  [
+                        "(가) 데이터 무결성 (나) 스레드",
+                        "(가) 데이터 무결성 (나) 트랜잭션",
+                        "(가) 동시성 제어   (나) 트랜잭션",
+                        "(가) 동시성 제어   (나) 스레드"
+                    ],
+        "answer":  2,
+        "explanation":  "동시에 여러 사용자가 작업해도 일관성을 지키는 기능은 동시성 제어이고, 작업 단위는 트랜잭션이다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-70",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 OLAP 연산에 대한 설명이다. (가)와 (나)\r\n에 들어갈 OLAP 연산으로 바르게 짝지어진 것은?\r\n작은 단위(예: day)에서 큰 단위(예: month, year)로\r\n집계를 수행하는 OLAP 연산을 (가)이라 한다.\r\n큰 단위(예: year)에서 작은 단위(예: month, day)로\r\n집계를 수행하는 OLAP 연산을 (나)이라 한다.",
+        "choices":  [
+                        "(가) 드릴-다운(drill-down) (나) 롤-업(roll-up)",
+                        "(가) 롤-업(roll-up) (나) 드릴-다운(drill-down)",
+                        "(가) 슬라이싱(slicing) (나) 다이싱(dicing)",
+                        "(가) 다이싱(dicing) (나) 슬라이싱(slicing)"
+                    ],
+        "answer":  1,
+        "explanation":  "하위 시간 단위에서 상위 단위로 집계하는 것은 roll-up, 상위 단위에서 하위 단위로 내려가는 것은 drill-down이다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-71",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 다중 단위 로킹(multiple granularity\r\nlocking)을 위한 로킹 호환성 행렬을 나타낸다.\r\n행렬에서 (가), (나), (다)에 들어갈 내용이 바\r\n르게 연결된 것은?(여기서 S는 공유(shared), X\r\n는 독점적(exclusive), I는 의도(intention)를 의미\r\n한다.)\r\n\r\n로크 IS IX S SIX X\r\nIS True True True True (다)\r\nIX True True (가) False False\r\nS True (가) (나) False False\r\nSIX True False False False False\r\nX (다) False False False False",
+        "choices":  [
+                        "(가) False (나) True  (다) False",
+                        "(가) False (나) True  (다) True",
+                        "(가) True  (나) False (다) False",
+                        "(가) True  (나) False (다) True"
+                    ],
+        "answer":  0,
+        "explanation":  "다중 단위 로킹에서 IX와 S는 호환되지 않고, S와 S는 호환되며, IS와 X는 호환되지 않는다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-72",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음과 같은 트리 구조에 대한 설명으로 가장\r\n적절한 것은?",
+        "choices":  [
+                        "B-트리로서, 루트(root) 노드를 포함한 모든\r\n노드는 절반 이상의 사용률(utilization)을 보\r\n장한다.",
+                        "B+-트리로서, 루트 노드를 포함한 모든 노드는\r\n절반 이상의 사용률을 보장한다.",
+                        "B-트리로서, 내부(internal) 노드의 키 값이\r\n단말(leaf) 노드에 중복하여 나타난다.",
+                        "B+-트리로서, 내부 노드의 키 값이 단말 노드에\r\n중복하여 나타난다."
+                    ],
+        "answer":  3,
+        "explanation":  "B+트리는 내부 노드의 탐색 키가 단말 노드에도 중복 저장될 수 있고 실제 데이터 탐색은 단말 쪽으로 이어진다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-73",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "아래 표와 같이 5개 시퀀스(순차)에 대한 시퀀스\r\n데이터베이스가 주어졌을 때, 서브시퀀스(부분\r\n순차) x의 지지도 s(x)가 바르게 계산된 것은?\r\n\r\nObject Timestamp Events\r\nA 1 1, 2\r\nA 2 2, 3, 4\r\nA 3 2, 4, 5\r\nB 1 1, 3\r\nB 2 2, 4, 5\r\nC 1 1, 2, 4\r\nC 2 2, 3\r\nC 3 5\r\nD 1 1, 2\r\nD 2 2, 3, 4\r\nE 1 2\r\nE 2 3, 4\r\nE 3 4, 5",
+        "choices":  [
+                        "s(\u003c{1}{2}\u003e) = 60%",
+                        "s(\u003c{1}{2,3}\u003e) = 80%",
+                        "s(\u003c{2}{2,3}\u003e) = 60%",
+                        "s(\u003c{3}{5}\u003e) = 60%"
+                    ],
+        "answer":  2,
+        "explanation":  "부분순차 \u003c{2}{2,3}\u003e를 포함하는 객체는 A, C, D로 3개이며 전체 5개 중 60%이다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-74",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음은 즉시 갱신(immediate update) 회복 기법을 사용\r\n하는 트랜잭션의 로그이다. 데이터 B의 초기값은 12000\r\n이고, M의 초기값은 0이다. 2개의 트랜잭션 T1, T2가 다\r\n음과 같이 수행되어 B와 M의 데이터에 대한 로그 기록을\r\n남겼다. 로그번호 7에서 시스템에 장애가 생겼다고 할\r\n때, 회복 과정에서 해야 할 일 중 가장 적절한 것은?\r\n로그\r\n  0. checkpoint\r\n  1. T1 start\r\n  2. T1 B old=12000 new=10000\r\n  3. T1 M old=0 new=2000\r\n  4. T1 commit\r\n  5. T2 start\r\n  6. T2 B old=10000 new=10500\r\n  7. \u003csystem crash\u003e",
+        "choices":  [
+                        "로그번호 6을 REDO하여 B를 10500으로 바꾼다.",
+                        "로그번호 6을 UNDO하여 B를 10000으로 바꾸고, 로\r\n그번호 2와 3을 REDO 한다.",
+                        "트랜잭션 T1이 commit을 했기 때문에 로그번호 2\r\n와 3을 REDO 할 필요는 없다.",
+                        "REDO와 UNDO는 임의의 순서로 진행해도 상관이 없다."
+                    ],
+        "answer":  1,
+        "explanation":  "즉시 갱신에서는 장애 시 커밋된 T1은 REDO하고 커밋 전이던 T2는 UNDO해야 한다."
+    },
+    {
+        "id":  "2019년 제20회 데이터베이스-75",
+        "deck":  "2019년 제20회 데이터베이스",
+        "question":  "다음 릴레이션에 대하여 아래와 같이 인덱스를\r\n생성하였다. 다음 중 생성된 인덱스에 의하여\r\n검색속도를 향상시킬 수 있는 질의로 가장 적절\r\n하지 않은 것은?\r\n릴레이션\r\nArticles(ID, title, journal, issue, year, startpage,\r\nendpage, TR_ID)\r\n\u003c설명\u003e 논문(Articles) 릴레이션은 과학 논문에\r\n관한 정보를 포함하고 있고 밑줄친 속성은 키값\r\n이다. 각 논문은 고유의 ID를 가지고 있으며, 논\r\n문제목(title)과 저널명(journal), 권(issue), 발행연도\r\n(year), 시작페이지(startpage), 끝페이지(endpage)\r\n정보를 포함하고 있다. 논문이 기술 리포트(technical\r\nreport)에 게재된 적이 있으면 TR_ID 번호가 기록\r\n된다. 각 저널에는 고유의 일련번호인 권(issue)\r\n번호가 있으며, 논문에는 시작페이지와 끝페이지\r\n가 기록된다.\r\n인덱스\r\nCREATE INDEX Idx1 ON Articles(year, startpage);\r\nCREATE INDEX Idx2 ON Articles(startpage,\r\nendpage);\r\nCREATE INDEX Idx3 ON Articles(journal, issue,\r\nyear);",
+        "choices":  [
+                        "SELECT title FROM Articles WHERE journal =\r\n\u0027JACM\u0027 AND issue = 55;",
+                        "SELECT title FROM Articles WHERE endpage -\r\nstartpage \u003e 50;",
+                        "SELECT title FROM Articles WHERE year \u003e 1995\r\nAND year \u003c 2000;",
+                        "SELECT title FROM Articles WHERE journal =\r\n\u0027JACM\u0027;"
+                    ],
+        "answer":  1,
+        "explanation":  "endpage - startpage \u003e 50처럼 컬럼 계산식으로 비교하면 주어진 복합 인덱스의 선두 컬럼 탐색 조건을 제대로 활용하기 어렵다."
+    }
+]
