@@ -175,7 +175,7 @@
                         "5"
                     ],
         "answer":  2,
-        "explanation":  "원본 ER 그림의 개체와 관계를 릴레이션 변환 규칙에 따라 분리하면 독립 테이블이 4개 필요하다."
+        "explanation":  "원본 ER 그림의 개체와 관계를 릴레이션 변환 규칙에 따라 분리하면 독립 테이블이 4개 필요하다.EMPLOYEE, PROJECT, WORKS_ON, PROJECT_LOCATION"
     },
     {
         "id":  "2019년 제20회 데이터베이스-64",
