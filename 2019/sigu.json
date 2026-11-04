@@ -10,7 +10,7 @@
                         "48,000 IOPS"
                     ],
         "answer":  3,
-        "explanation":  "지침의 OLTP\u0026Batch 스토리지 성능 산정에서 1,200,000 tpmC의 2%를 적용하면 24,000 IOPS가 된다.\r\n\r\nOLTP 스토리지 IOPS = tpmC × 2% = tpmC ÷ 50"
+        "explanation":  "지침의 OLTP\u0026Batch 스토리지 성능 산정에서 1,200,000 tpmC의 2%를 적용하면 24,000 IOPS가 된다.\r\n\r\nOLTP 스토리지 IOPS = tpmC × 2% = tpmC ÷ 50 \r\n\ OLTP 3%, Batch 1%"
     },
     {
         "id":  "2019년 제20회 시스템 구조-77",
