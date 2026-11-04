@@ -190,41 +190,38 @@ async function push(){
 }
 function schedulePush(){if(!syncOn())return;clearTimeout(pushTimer);pushTimer=setTimeout(push,700);}
 
-/* ============ 풀이 그림: questions/explanation/img/영문영역이름-번호.jpg (없으면 안 보임) ============ */
-const EXPL_IMG_DIR='questions/explanation/img/';   // 그림을 올려둘 폴더
-const EXPL_IMG_EXTS=['jpg','jpeg','png','webp'];    // 찾아볼 확장자 (소문자로 저장하세요)
+/* ============ 문제/풀이 그림: 연도/question 또는 explanation/img/영역-번호.png ============ */
+const LEGACY_EXPL_IMG_DIR='questions/explanation/img/';
+const IMG_EXTS=['png','jpg','jpeg','webp'];
 const EXPL_IMG_POS='top';                           // 'top' = 풀이 글 위, 'bottom' = 풀이 글 아래
 const IMG_CACHE={};
-// 문제 → 그림 파일 이름(확장자 제외). 예) 보안 영역 '…보안-117' → questions/explanation/img/security-117
-function explImgBase(q){
+// 예) 2019년 데이터베이스 61번 → 2019/question/img/database-61
+function imageBase(q,section){
   const area=AREAS.find(a=>a.name===q.deck);
   const m=String(q.id).match(/(\d+)\s*$/);
-  const dir=q.year===LEGACY_YEAR?EXPL_IMG_DIR:q.year+'/explanation/img/';
-  return (area&&m)?dir+area.file+'-'+parseInt(m[1],10):null;
+  return (area&&m)?q.year+'/'+section+'/img/'+area.file+'-'+parseInt(m[1],10):null;
 }
 function probeImage(url){return new Promise(res=>{const im=new Image();im.onload=()=>res(true);im.onerror=()=>res(false);im.src=url;});}
-// base.jpg 를 찾고, 있으면 base-2.jpg, base-3.jpg … (최대 6장)도 찾는다. 하나도 없으면 빈 목록
-async function findExplImages(base){
+// 기본 파일과 -2, -3 … 파일(최대 6장)을 찾는다. 파일이 없으면 표시하지 않는다.
+async function findImages(base){
   if(IMG_CACHE[base])return IMG_CACHE[base];
   const found=[];
   for(let n=1;n<=6;n++){
     const stem=n===1?base:base+'-'+n;
     let hit=null;
-    for(const ext of EXPL_IMG_EXTS){const u=stem+'.'+ext;if(await probeImage(u)){hit=u;break;}}
+    for(const ext of IMG_EXTS){const u=stem+'.'+ext;if(await probeImage(u)){hit=u;break;}}
     if(!hit)break;
     found.push(hit);
   }
   return IMG_CACHE[base]=found;
 }
-function fillExplImages(){
-  const h=$app.querySelector('.expl-imgs');if(!h)return;
-  const base=h.dataset.base;
+function fillImages(selector,cssClass,label){
+  const h=$app.querySelector(selector);if(!h)return;
   const show=urls=>{
     if(!h.isConnected)return;   // 그 사이 다른 화면으로 바뀌었으면 그리지 않는다
-    h.innerHTML=urls.map((u,i)=>`<a href="${e(u)}" target="_blank" rel="noopener"><img class="expl-img" src="${e(u)}" alt="풀이 그림 ${i+1}" loading="lazy"></a>`).join('');
+    h.innerHTML=urls.map((u,i)=>`<a href="${e(u)}" target="_blank" rel="noopener"><img class="${cssClass}" src="${e(u)}" alt="${label} ${i+1}" loading="lazy"></a>`).join('');
   };
-  if(IMG_CACHE[base]){show(IMG_CACHE[base]);return;}
-  findExplImages(base).then(show);
+  findImages(h.dataset.base).then(urls=>urls.length?urls:(h.dataset.fallback?findImages(h.dataset.fallback):[])).then(show);
 }
 
 /* ============ 풀이(설명) 표시: 글 + 표 ============ */
@@ -491,8 +488,13 @@ function renderQuiz(){
     return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${e(c)}</span></button>`;
   }).join('');
   const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
-  const imgBase=answered?explImgBase(q):null;
-  const imgSlot=imgBase?`<div class="expl-imgs" data-base="${e(imgBase)}"></div>`:'';
+  const questionImgBase=imageBase(q,'question');
+  const questionImg=q.image?`<img class="qimg" src="${e(q.image)}" alt="문제 그림">`
+    :(questionImgBase?`<div class="question-imgs" data-base="${e(questionImgBase)}"></div>`:'');
+  const explImgBase=answered?imageBase(q,'explanation'):null;
+  const legacyExplBase=explImgBase&&q.year===LEGACY_YEAR
+    ?LEGACY_EXPL_IMG_DIR+explImgBase.split('/').pop():'';
+  const imgSlot=explImgBase?`<div class="expl-imgs" data-base="${e(explImgBase)}" data-fallback="${e(legacyExplBase)}"></div>`:'';
   const verdict=answered?`<div class="verdict ${ok?'ok':'ng'}">
       <h3>${ok?'정답이에요!':'아쉬워요. 정답은 '+correct.map(i=>(i+1)+'번').join(', ')}</h3>
       ${EXPL_IMG_POS==='top'?imgSlot:''}${explanationHtml(q.explanation)}${EXPL_IMG_POS==='top'?'':imgSlot}</div>`:'';
@@ -509,11 +511,12 @@ function renderQuiz(){
     <div class="qhead">${tags}</div>
     ${q.big?`<div class="bighan" lang="ko">${e(q.big)}</div>`:''}
     <div class="qtext">${e(q.question)}</div>
-    ${q.image?`<img class="qimg" src="${e(q.image)}" alt="">`:''}
+    ${questionImg}
     <div class="choices">${ch}</div>
     ${submit}
     ${verdict}${footer}`;
-  fillExplImages();
+  fillImages('.question-imgs','qimg','문제 그림');
+  fillImages('.expl-imgs','expl-img','풀이 그림');
   window.scrollTo(0,0);
   const box=$app.querySelector('.dots.scroll'),c=$app.querySelector('.dot.cur');
   if(box&&c)box.scrollTop=Math.max(0,c.offsetTop-box.offsetTop-box.clientHeight/2);
