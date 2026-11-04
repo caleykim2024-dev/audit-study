@@ -136,12 +136,15 @@ function sess(){
   return {ids:deckIds(curDeck),res:S.res};
 }
 const answeredIn=(ids,res)=>ids.filter(id=>res[id]&&res[id].tries>0).length;
-// answer: 0 또는 [0, 2]처럼 보기의 0부터 시작하는 번호를 사용한다.
+// 2020년 기존 문항은 0부터 시작하는 인덱스, 다른 연도 문항은 1부터 시작하는 보기 번호를 사용한다.
+// 문항별 answerBase(0 또는 1)가 있으면 해당 값을 우선한다.
 const isMulti=q=>Array.isArray(q.answer)||Array.isArray(q.answers);
 function answerIndices(q){
   const raw=q.answers!==undefined?q.answers:q.answer;
+  const base=q.answerBase===0||q.answerBase===1?q.answerBase:(q.year===LEGACY_YEAR?0:1);
   return [...new Set((Array.isArray(raw)?raw:[raw]).map(Number)
-    .filter(i=>Number.isInteger(i)&&i>=0&&i<q.choices.length))].sort((a,b)=>a-b);
+    .filter(i=>Number.isInteger(i)&&i>=base&&i<q.choices.length+base)
+    .map(i=>i-base))].sort((a,b)=>a-b);
 }
 function answersMatch(q,picked){
   const correct=answerIndices(q),selected=[...new Set(Array.isArray(picked)?picked:[picked])].sort((a,b)=>a-b);
