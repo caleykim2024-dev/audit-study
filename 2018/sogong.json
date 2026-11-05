@@ -1,0 +1,327 @@
+[
+  {
+    "id": "2018년 제19회 소프트웨어 공학-26",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 중 기능 점수를 계산할 때 사용되는 소프트웨어 요소로 가장 적절하지 않은 것은?",
+    "choices": [
+      "입력",
+      "출력",
+      "알고리즘",
+      "파일"
+    ],
+    "answer": 3,
+    "explanation": "기능점수는 외부입력, 외부출력, 외부조회, 내부논리파일, 외부연계파일 같은 기능 요소를 센다. 알고리즘은 기능점수 산정 요소가 아니다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-27",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음의 설명에 가장 적합한 개념은 무엇인가? - 항상 동일한 방식으로 시스템을 구성하는 대신에 고객별 요구사항을 충족시켜야 한다. - 재사용 가능한 컴포넌트 포트폴리오를 바탕으로 고객별 소프트웨어를 구축한다. - 다양한 고객들의 요구사항을 수용하기 위하여 기능, 대상 플랫폼, 비기능적 요구사항 등의 가변성을 고려해야 한다.",
+    "choices": [
+      "서비스 지향 아키텍처(service oriented architecture)",
+      "소프트웨어 자산 관리(software asset management)",
+      "소프트웨어 재사용(software reuse)",
+      "소프트웨어 프로덕트 라인(software product lines)"
+    ],
+    "answer": 4,
+    "explanation": "소프트웨어 프로덕트 라인은 공통 핵심자산과 가변성을 관리해 고객별 제품군을 효율적으로 만드는 접근이다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-28",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 (가)의 의사코드(psuedo code)와 (나)의 제어 흐름그래프(control flow graph)에서 McCabe’s 순환복잡도(cyclomatic complexity)를 각각 구한 것은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36823.png",
+    "choices": [
+      "(가) : 3, (나) : 3",
+      "(가) : 3, (나) : 4",
+      "(가) : 4, (나) : 4",
+      "(가) : 4, (나) : 5"
+    ],
+    "answer": 3,
+    "explanation": "McCabe 순환복잡도는 분기 수+1 또는 E-N+2P로 계산한다. 제시된 의사코드와 제어흐름그래프 모두 독립 경로 수가 4다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-29",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 중에서 ISO/IEC 25010의 성능(performance efficiency)과 관련된 지표를 모두 고른 것은? 가. 동시 접속 가능한 사용자 수 나. 네트워크 Bandwidth 사용률 다. 평균 소요시간(turnaround time) 라. 단위 시간당 평균 처리량 마. 지원 가능한 프로토콜 수",
+    "choices": [
+      "가, 나",
+      "가, 나, 다",
+      "가, 나, 다, 라",
+      "가, 나, 다, 라, 마"
+    ],
+    "answer": 3,
+    "explanation": "ISO/IEC 25010의 성능 효율성은 시간 효율성, 자원 사용률, 용량과 관련된다. 프로토콜 지원 수는 호환성·상호운용성 쪽에 가깝다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-30",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "편의점에 근무하는 아르바이트 직원의 일급을 계산하기 위한 프로그램을 작성하려 한다. 이 프로그램에 대한 명세와 제한 조건이 다음과 같을 때, 동등 클래스 분할 기법에서 all combinations 기법을 사용하여 테스트 케이스를 도출하려고 할 경우 필요한 동등 클래스 분할의 개수로 가장 적절한 것은? 명세: 아르바이트 직원은 경력자와 초보자로 나뉜다. 경력자는 5시간 이하로 근무할 경우, 8천원/시간, 5시간 초과 10시간 이하의 경우 1만원/시간, 10시간 초과의 경우에는 1.2만원/시간으로 일급을 계산한다. 초보자의 경우에는 경력자의 75%의 급여를 지급한다. 하루의 최대 허용 근무시간은 15시간이다. 제한 조건: 이 프로그램은 근무 시간 입력을 위해 GUI를 제공하며, 경력자와 초보자의 선택은 라디오 버튼(radio button)으로 구현되고(default 값: 초보자), 근무 시간 입력칸은 텍스트 박스(text box)로 구현되어야 한다. 계산의 편의를 위해 근무 시간은 시간 단위로 처리되며 사사오입이 적용된다. 즉 3시간 20분 근무했을 경우 3시간으로, 3시간 40분 근무했을 경우 4시간으로 처리한다.",
+    "choices": [
+      "6개",
+      "9개",
+      "10개",
+      "15개"
+    ],
+    "answer": 3,
+    "explanation": "all combinations 방식은 각 입력 조건의 유효·무효 동등분할 조합을 모두 고려한다. 경력 구분, 근무시간 구간, 입력 제약의 조합을 반영하면 10개가 된다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-31",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음은 SOA(Service-Oriented Architecture)의 구성요소와 이들 간의 관계를 그림으로 나타내고 있다. (가) ~ (다)에 가장 적합한 구성요소는? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36826.png",
+    "choices": [
+      "(가) : service registry, (나) : service provider, (다) : service requester",
+      "(가) : service requester, (나) : service provider, (다) : service registry",
+      "(가) : service provider, (나) : service requester, (다) : service registry",
+      "(가) : service registry, (나) : service requester, (다) : service provider"
+    ],
+    "answer": 4,
+    "explanation": "SOA의 기본 관계는 제공자가 서비스를 등록하고, 요청자가 레지스트리에서 찾은 뒤 제공자와 바인딩하는 구조다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-32",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 (가)와 같은 모듈 호출 관계도에서 모듈 e를 단위 테스트하기 위해, (나)와 같이 격리된 테스트 환경을 구축하였다. (나)의 구성요소 A, B, C의 역할을 나타낸 것 중 가장 적절한 것은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36827.png",
+    "choices": [
+      "A - 테스트 드라이버, B - 테스트 스터브, C - 테스트 오라클",
+      "A - 테스트 드라이버, B - 테스트 데이터 생성기, C - 테스트 모니터",
+      "A - 테스트 데이터 생성기, B - 테스트 스터브, C - 테스트 오라클",
+      "A - 테스트 데이터 생성기, B - 테스트 드라이버, C - 테스트 모니터"
+    ],
+    "answer": 1,
+    "explanation": "격리된 단위 테스트에서 테스트 드라이버는 테스트 대상 모듈을 호출하고, 테스트 스터브는 하위 호출 모듈을 대체하며, 테스트 오라클은 기대 결과와 실제 결과를 비교한다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-33",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "애자일(agile) 프로세스 모델에는 XP, Scrum, Crystal 방법들이 있다. Scrum 방식에서 우선 순위가 매겨진, 사용자의 요구사항 목록에 해당하는 것을 (가)라 하고, 계획대비 작업의 진행 정도를 날짜별로 남은 작업량으로 나타낸 것을 (나)라고 하며, 스프린트에서 수행한 활동을 돌아보고 검토하는 과정을 (다)라고 한다. (가) ~ (다)에 해당하는 용어로 가장 적절한 것은?",
+    "choices": [
+      "(가) : sprint backlog, (나) : sprint, (다) : daily scrum meeting",
+      "(가) : release backlog, (나) : task board, (다) : sprint review",
+      "(가) : product backlog, (나) : burndown chart, (다) : sprint respective",
+      "(가) : user story, (나) : story point, (다) : sprint planning meeting"
+    ],
+    "answer": 3,
+    "explanation": "Scrum에서 우선순위가 있는 요구목록은 product backlog, 남은 작업량 추이는 burndown chart, 스프린트 후 회고는 sprint retrospective다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-34",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "소프트웨어 개발 조직의 프로세스를 평가하기 위한 SPICE 모델을 고려하자. SPICE의 성숙도 수준을 낮은 단계에서 높은 단계 순으로 나열한다고 할 때, 다음 보기 중에서 가장 올바른 것은?",
+    "choices": [
+      "established - performed - managed - optimizing - predictable",
+      "performed - managed - established - predictable - optimizing",
+      "established - managed - performed - predictable - optimizing",
+      "performed - established - managed - optimizing – predictable"
+    ],
+    "answer": 2,
+    "explanation": "SPICE 능력수준은 1 performed, 2 managed, 3 established, 4 predictable, 5 optimizing 순으로 올라간다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-35",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "ISO/IEC 25010:2011의 제품 품질 모델에서는 8가지의 품질 주특성을 정의하고 있다. 다음 중에서 품질 주 특성과 가장 거리가 먼 것은?",
+    "choices": [
+      "보안성(security)",
+      "사용성(usability)",
+      "신뢰성(reliability)",
+      "테스트용이성(testability)"
+    ],
+    "answer": 4,
+    "explanation": "ISO/IEC 25010의 8대 제품 품질 주특성에는 기능적합성, 성능효율성, 호환성, 사용성, 신뢰성, 보안성, 유지보수성, 이식성이 있다. 테스트용이성은 유지보수성의 부특성이다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-36",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "소스 코드와 이를 테스트하기 위한 테스트 케이스가 다음과 같이 주어졌다. 이 테스트 케이스는 문장(statement) 커버리지, 조건(condition) 커버리지, 결정(decision) 커버리지를 100% 만족하지 못한다고 판명되었다. 다음 보기 중 이 세 가지 커버리지를 모두 100% 만족하기 위해 추가되어야 할 테스트 케이스로 가장 적절한 것은? (단, short-circuit evaluation은 수행하지 않음) [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36831.png",
+    "choices": [
+      "{t3:<x = -5, y = 12>}",
+      "{t3:<x = 10, y = 0>}",
+      "{t3:<x = 5, y = -5>}",
+      "{t3:<x = 8, y = -2>}"
+    ],
+    "answer": 4,
+    "explanation": "기존 테스트는 첫 번째 결정의 거짓 경로와 두 번째 결정의 참 경로를 충분히 만들지 못한다. x=8, y=-2는 첫 조건을 거짓, 두 번째 조건을 참으로 만들어 세 커버리지를 보완한다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-37",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "ISO/IEC/IEEE 29119-2 표준에서 테스트 설계 및 구현 프로세스는 다음의 6개의 활동(activity)으로 구성된다. 이 프로세스를 구성하는 활동들을 올바른 순서로 나열한 것은? 가. 테스트 커버리지 아이템 유도 (derive test coverage items) 나. 테스트 절차 유도 (derive test procedures) 다. 테스트 집합 조합 (assemble test sets) 라. 테스트 케이스 유도 (derive test cases) 마. 테스트 조건 유도 (derive test conditions) 바. 피처 집합 식별 (identify feature sets)",
+    "choices": [
+      "바 - 다 - 라 - 마 - 가 - 나",
+      "바 - 라 - 나 - 가 - 다 - 마",
+      "바 - 가 - 라 - 마 - 나 - 다",
+      "바 - 마 - 가 - 라 - 다 - 나"
+    ],
+    "answer": 4,
+    "explanation": "ISO/IEC/IEEE 29119-2의 테스트 설계·구현 순서는 피처 집합 식별, 테스트 조건 유도, 커버리지 아이템 유도, 테스트 케이스 유도, 테스트 집합 조합, 테스트 절차 유도다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-38",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음의 Car 클래스의 speedUp 메소드는 NOT_MOVING, MOVING, FAILED 등에 따라서 상이한 동작을 switch문으로 구현하고 있다. 이와 같은 상황에서 적용하기에 가장 적합한 리팩토링(refactoring) 기법은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36833.png",
+    "choices": [
+      "replace parameter with method",
+      "replace type code with state/strategy",
+      "introduce parameter object",
+      "remove control flag"
+    ],
+    "answer": 2,
+    "explanation": "상태값(type code)에 따라 switch로 동작을 나누는 구조는 상태 객체나 전략 객체로 분리하는 replace type code with state/strategy가 적합하다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-39",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음의 그림 (가)와 (나)는 동일한 시스템에 대한 구조로서 사각형은 모듈을 의미하며 선은 모듈간의 호출 관계를 의미한다. (가)의 구조는 (나)의 구조와 같은 모습으로 재구성되는 것이 바람직하다. 이 때 (나)와 가장 가까운 디자인 패턴은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36834.png",
+    "choices": [
+      "facade pattern",
+      "proxy pattern",
+      "composite pattern",
+      "mediator pattern"
+    ],
+    "answer": 1,
+    "explanation": "Facade 패턴은 여러 하위 모듈에 대한 복잡한 호출 관계를 단순한 단일 인터페이스로 감싸 의존성을 줄인다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-40",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "A 회사에서 개발하고자 하는 소프트웨어 제품은 다음과 같은 품질 특성을 만족하여야 한다. 이러한 품질 특성은 국제 표준 ISO 25010의 소프트웨어 제품 품질 평가 기준의 품질 주특성과 관련 지을 수 있다. 관련된 품질 주특성을 가장 적절하게 나열한 것은? (단, ISO/IEC 25010:2011 기준) - 공통 환경 및 자원을 다른 제품과 공유하면서 다른 제품에 악영향을 미치지 않고 필요한 기능을 효율적으로 수행 할 수 있어야 한다. - 동일한 환경에서 같은 목적의 다른 소프트웨어 제품을 이 제품이 대체 할 수 있어야 한다. - 제품은 새로운 결함을 도입하거나 제품의 품질을 저하시키지 않고 효과적으로 수정될 수 있어야 한다.",
+    "choices": [
+      "{functional suitability, compatibility, maintainability}",
+      "{functional suitability, compatibility, portability}",
+      "{functional suitability, portability, maintainability}",
+      "{compatibility, portability, maintainability}"
+    ],
+    "answer": 4,
+    "explanation": "다른 제품과 공존하는 능력은 compatibility, 다른 제품을 대체할 수 있는 성질은 portability의 replaceability, 결함 없이 수정되는 성질은 maintainability에 해당한다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-41",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음은 엘리베이터 관리자 기능과 스케쥴러 기능에 대한 클래스 다이어그램을 보여 준다. 이 설계에 적용된 가장 적절한 2개의 디자인 패턴을 고른 것은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36836.png",
+    "choices": [
+      "strategy pattern, template method pattern",
+      "strategy pattern, observer pattern",
+      "command pattern, observer pattern",
+      "template method pattern, state pattern"
+    ],
+    "answer": 1,
+    "explanation": "스케줄링 알고리즘을 바꿔 끼우는 부분은 Strategy, 공통 처리 흐름을 상위 클래스에 두고 세부 단계를 하위 클래스에서 바꾸는 부분은 Template Method다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-42",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 중에서 소프트웨어 프로세스(SP) 품질 인증의 2등급에 해당되는 평가 항목을 모두 고른 것은? 가. 프로젝트 계획 나. 설계 다. 측정 및 분석 라. 고객 요구사항 관리 마. 문제 해결",
+    "choices": [
+      "가, 나",
+      "가, 나, 라",
+      "가, 나, 라, 마",
+      "가, 나, 다, 라"
+    ],
+    "answer": 4,
+    "explanation": "SP 품질인증 2등급 평가항목에는 프로젝트 계획, 설계, 측정 및 분석, 고객 요구사항 관리가 포함된다. 문제 해결은 해당 묶음이 아니다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-43",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 형상관리(configuration management) 설명에 가장 부합하는 용어는? 이는 시스템을 구성하는 컴포넌트 버전의 집합이다. 여기에 사용된 컴포넌트 버전은 변경되지 않도록 통제되어야 한다. 만약 이를 새롭게 재생성 하고자 하면 구성된 컴포넌트 버전을 변경할 수 있다.",
+    "choices": [
+      "mainline",
+      "baseline",
+      "branching",
+      "merging"
+    ],
+    "answer": 2,
+    "explanation": "Baseline은 승인된 구성항목 버전들의 기준 집합이며 이후 변경은 형상통제 절차를 통해 관리된다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-44",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 코드를 수행할 때, 수행결과로 가장 적절한 것은? #include <stdio.h> void main( ) { int a = 20, b = 30; if ( a++ <= 20 || ++b > 30 ) b++; printf(“%d %d\\n”, a++, b ); }",
+    "choices": [
+      "21 31",
+      "21 32",
+      "22 31",
+      "22 32"
+    ],
+    "answer": 1,
+    "explanation": "a++<=20이 참이므로 a는 21이 되고 ||의 단락평가로 ++b는 실행되지 않는다. if문 안에서 b++가 되어 31, printf는 a++의 증가 전 값 21을 출력한다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-45",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "아래 상태 다이어그램에서는 이벤트 발생에 따라 상태 전이가 일어난다. 다음 중 이벤트에 따른 상태 전이로 가장 적절하지 않은 것은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36840.png",
+    "choices": [
+      "[보기 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36840_1.png",
+      "[보기 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36840_2.png",
+      "[보기 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36840_3.png",
+      "[보기 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36840_4.png"
+    ],
+    "answer": 3,
+    "explanation": "상태 다이어그램의 전이는 이벤트와 시작·도착 상태가 모두 맞아야 한다. 보기 ③은 그림의 전이 방향 또는 이벤트 조건과 일치하지 않는다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-46",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "모듈 내부의 응집도는 가장 약한 정도(가장 바람직 하지 못한 경우)에서 가장 강한 정도(가장 바람직한 경우)에 이르기까지 나열할 수 있다. 다음 중 모듈 내부의 응집도가 약한 정도에서 강한 정도 순으로 가장 적절하게 나열한 것은?",
+    "choices": [
+      "coincidental cohesion – logical cohesion – temporal cohesion – communicational cohesion – procedural cohesion – sequential cohesion – functional cohesion",
+      "coincidental cohesion – logical cohesion – temporal cohesion – procedural cohesion – communicational cohesion – sequential cohesion – functional cohesion",
+      "coincidental cohesion – logical cohesion – sequential cohesion – communicational cohesion – procedural cohesion – temporal cohesion – functional cohesion",
+      "coincidental cohesion – logical cohesion – temporal cohesion – sequential cohesion – communicational cohesion – procedural cohesion – functional cohesion"
+    ],
+    "answer": 2,
+    "explanation": "응집도는 우연적, 논리적, 시간적, 절차적, 교환적, 순차적, 기능적 응집 순으로 강해진다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-47",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 그림은 V 모델을 나타낸 것이다. 다음 보기 중에서 그림의 (가) 단계에서 적용할 수 있는 테스트 기법으로 가장 거리가 먼 것은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36842.png",
+    "choices": [
+      "복구 테스트",
+      "빅뱅 테스트",
+      "볼륨 테스트",
+      "스트레스 테스트"
+    ],
+    "answer": 2,
+    "explanation": "복구·볼륨·스트레스 테스트는 시스템 수준 비기능 테스트에 속한다. 빅뱅 테스트는 통합 테스트 전략이므로 해당 단계의 테스트 기법과 거리가 있다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-48",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음은 위임을 이용하여 adapter pattern을 구현한 클래스 다이어그램을 나타내고 있다. (가) ~ (다)에 가장 적합한 클래스명은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36843.png",
+    "choices": [
+      "(가) : adaptee, (나) : adapter, (다) : target",
+      "(가) : adapter, (나) : adaptee, (다) : target",
+      "(가) : target, (나) : adapter, (다) : adaptee",
+      "(가) : target, (나) : adaptee, (다) : adapter"
+    ],
+    "answer": 3,
+    "explanation": "객체 어댑터에서 Client는 Target 인터페이스를 사용하고, Adapter가 Target을 구현하면서 Adaptee에 실제 요청을 위임한다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-49",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음 코드를 수행할 때, 수행결과로 가장 적절한 것은? int func(int& res, int val) { res = res + val; return res; } void main() { int sum = 0; for(int a = 1; a < 4; a++) sum += func(sum, a); cout << sum << endl; }",
+    "choices": [
+      "6",
+      "12",
+      "22",
+      "24"
+    ],
+    "answer": 3,
+    "explanation": "func는 참조 매개변수 res로 sum 자체를 먼저 증가시킨 뒤 그 값을 반환한다. 반복별 sum은 2, 8, 22가 되어 최종 출력은 22다."
+  },
+  {
+    "id": "2018년 제19회 소프트웨어 공학-50",
+    "deck": "2018년 제19회 소프트웨어 공학",
+    "question": "다음은 UML 2.0에 기반하여 UML class, package, component와 interface간의 관계를 보여 준다. 다음 중 가장 적절하지 않은 것은? [문제 이미지] URL: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36845.png",
+    "choices": [
+      "(가)",
+      "(나)",
+      "(다)",
+      "(라)"
+    ],
+    "answer": 2,
+    "explanation": "UML 2.0의 클래스·패키지·컴포넌트·인터페이스 관계 표기에서 보기 ②의 연결 표기는 해당 관계의 의미와 맞지 않는다."
+  }
+]
