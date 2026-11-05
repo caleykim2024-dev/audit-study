@@ -1,0 +1,330 @@
+[
+  {
+    "id": "2017년 제18회 소프트웨어 공학-26",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음은 정보전략계획 및 업무재설계(ISP/BPR)의 업무활동들이다. 업무절차와 업무활동의 연결이 가장 적절한 것은?\n자료: 가. 정보기술 환경분석 나. 업무분석 다. 정보시스템분석 라. 차이분석 마. 벤치마킹 바. 정보전략 수립 사. 정보관리체계수립 아. 정보시스템구조 설계 자. 업무프로세스 개선계획 수립 차. 기능점수 도출",
+    "choices": [
+      "이행계획수립 - 바, 사, 아, 자",
+      "미래모델설계 - 마, 아, 자, 차",
+      "현황분석 - 나, 다, 라, 마",
+      "환경분석 - 가, 나, 다, 라"
+    ],
+    "answer": 3,
+    "explanation": "정답 선택지 확인 - ③ 현황분석 - 나, 다, 라, 마"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-27",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "CMM(Capability Maturity Model)은 소프트웨어프로세스 성숙도를 높이기 위하여 필요한 작업들에 대한 단계적 모델을 제시하고 있다. 다음에 제시한 주요 프로세스 영역들이 처음으로 포함되는 단계로 가장 적절한 것은?\n자료: - 소프트웨어 프로젝트 계획 - 소프트웨어 프로젝트 추적 및 감독 - 소프트웨어 하청 관리 - 소프트웨어 품질 보증 - 소프트웨어 형상 관리 - 요구 관리",
+    "choices": [
+      "최적단계(Optimizing)",
+      "관리단계(Managed)",
+      "정의단계(Defined)",
+      "반복단계(Repeatable)"
+    ],
+    "answer": 4,
+    "explanation": "정답 선택지 확인 - ④ 반복단계(Repeatable)"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-28",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "객체지향 소프트웨어 개발 시에 적용할 수 있는 클래스 테스팅 방법으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "슬라이싱(slicing) 기반 테스팅",
+      "베타(beta) 테스팅",
+      "상태기반(state based) 테스팅",
+      "데이터 흐름 기반 테스팅"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② 베타(beta) 테스팅"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-29",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "요구사항 분석에서는 시스템의 범위를 파악하는 것이 중요하다. 다음 중 시스템의 범위 표현 기법과 가장 거리가 먼 것은?",
+    "choices": [
+      "state transition diagram",
+      "event list",
+      "ecosystem map",
+      "context diagram"
+    ],
+    "answer": 1,
+    "explanation": "정답 선택지 확인 - ① state transition diagram"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-30",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음은 그래픽 요소들(선, 텍스트)을 그리고 배치 할 수 있는 편집도구의 클래스 다이어그램이다. 다른 도구의 TextView 클래스를 사용하기 위하여 TextShape 클래스를 Shape의 서브클래스로 생성하였다. 이 편집도구에 사용된 디자인 패턴으로 가장 적절한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36945.png]",
+    "choices": [
+      "Factory 패턴",
+      "Adapter 패턴",
+      "Strategy 패턴",
+      "Template Method 패턴"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② Adapter 패턴"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-31",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "소프트웨어 테스팅 기법에 대한 설명으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "상태기반 테스팅은 상태도 기반으로 상태와 트랜지션에 초점을 맞춰 테스트케이스를 생성한다.",
+      "빅뱅 통합테스팅은 한 번에 모든 모듈을 모아 통합 테스팅하는 방법으로 오류의 위치와 원인을 찾기 힘들다",
+      "설치 테스팅은 개발의뢰자가 개발환경에서 프로젝트 계약에 명시된 사용용이성, 기능성, 성능 등을 테스트하는 것이다.",
+      "사용사례기반 테스팅은 객체지향 테스팅의 일종으로 사용사례 명세로부터 테스트케이스를 추출한다."
+    ],
+    "answer": 3,
+    "explanation": "정답 선택지 확인 - ③ 설치 테스팅은 개발의뢰자가 개발환경에서 프로젝트 계약에 명시된 사용용이성, 기능성, 성능 등을 테스트하는 것이다."
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-32",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "애자일(agile) 소프트웨어 개발 방법론에 대한 설명으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "XP(eXtreme Programming)에서 시스템 고객은 개발팀의 일부이고 다른 팀원들과 시나리오에 대해 토론한다.",
+      "사용사례 또는 사용자 스토리 단위로 조금씩 반복적으로 릴리즈(release) 한다.",
+      "Scrum 프로세스는 개략적인 계획과 구조설계, 스프린트(Sprint) 사이클, 프로젝트 마감 단계를 가진다.",
+      "스프린트(Sprint) 사이클에서는 Inception, Elaboration, Construction, Transition 단계가 반복적으로 수행된다."
+    ],
+    "answer": 4,
+    "explanation": "정답 선택지 확인 - ④ 스프린트(Sprint) 사이클에서는 Inception, Elaboration, Construction, Transition 단계가 반복적으로 수행된다."
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-33",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "특정 언어에 대한 컴파일러를 개발하려 한다. 이 때 적용할 수 있는 아키텍처 스타일로 가장 적절한 것은?",
+    "choices": [
+      "계층 구조, 클라이언트 서버 구조",
+      "저장소 구조, MVC 구조",
+      "파이프 필터 구조, 저장소 구조",
+      "MVC 구조, 계층 구조"
+    ],
+    "answer": 3,
+    "explanation": "정답 선택지 확인 - ③ 파이프 필터 구조, 저장소 구조"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-34",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음은 자바코드와 결과 화면이다. 결과 화면처럼 출력되기 위해 ( ) 안에 들어갈 코드 중 틀린 것은?\n자료: interface Command { public abstract void execute(); }\nclass Lamp { public void turnOn() { System.out.println(\"Lamp On\"); } }\nclass LampOnCommand (  ①  ) Command { private Lamp theLamp; public LampOnCommand(Lamp theLamp) { (  ②  ) = theLamp; } public void execute() { theLamp.turnOn(); } }\nclass Button { private Command theCommand; public Button(Command theCommand) { (  ③  ) } public void setCommand(Command newCommand) { this.theCommand=newCommand; } public void pressed() { theCommand.execute(); } } public class Client { public static void main(String[] args) { Lamp lamp = new Lamp(); Command lampOnCommand = new LampOnCommand(lamp); Button button1 = new Button(  ④  ); button1.pressed(); } }\n결과 화면 Lamp On",
+    "choices": [
+      "implement",
+      "Lamp.theLamp",
+      "setCommand(theComma",
+      "lampOnCommand"
+    ],
+    "answer": [
+      2,
+      3
+    ],
+    "explanation": "복수 정답 문항입니다. 정답 선택지 확인 - ② Lamp.theLamp / ③ setCommand(theComma"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-35",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "시스템 아키텍처를 구축하는 과정에서 보안을 강화하기 위하여 DMZ(DeMilitarized Zone)를 구축한 상황을 고려하자. 다음 중 DMZ의 구축 목적으로 가장 적절한 것은?",
+    "choices": [
+      "외부 공격에 대항하기 위한 사용자 인증(user authentication) 목적",
+      "메모리, 네트워크 연결, 접근 포인트 등과 같은 자원에 대한 접근 제한 목적",
+      "외부 공격으로 인해 시스템이 실패한 상황에서 실패로부터 회복하기 위한 목적",
+      "공격자를 파악하고 그들의 행동을 추적하기 위해 사용자 및 시스템 행동을 기록하기 위한 목적"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② 메모리, 네트워크 연결, 접근 포인트 등과 같은 자원에 대한 접근 제한 목적"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-36",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "컴포넌트 기반 개발방법론은 컴포넌트 개발 과정과 컴포넌트 기반 소프트웨어 개발 과정으로 이루어진다. 다음은 컴포넌트 기반 개발방법론에서 컴포넌트 개발 과정의 절차를 나타낸 것이다. (가)~(라)에 들어갈 컴포넌트 개발 단계의 순서가 올바르게 나열된 것은? (단, 컴포넌트 저장소 저장 단계는 컴포넌트 개발 과정 이후의 절차임)\n자료: 도메인 분석 - 도메인 설계 - (가) - (나) - (다) - (라) - (컴포넌트 저장소 저장)",
+    "choices": [
+      "컴포넌트 설계, 컴포넌트 추출, 컴포넌트 구현, 컴포넌트 인증",
+      "컴포넌트 설계, 컴포넌트 추출, 컴포넌트 인증, 컴포넌트 구현",
+      "컴포넌트 추출, 컴포넌트 설계, 컴포넌트 구현, 컴포넌트 인증",
+      "컴포넌트 추출, 컴포넌트 인증, 컴포넌트 설계, 컴포넌트 구현"
+    ],
+    "answer": 3,
+    "explanation": "정답 선택지 확인 - ③ 컴포넌트 추출, 컴포넌트 설계, 컴포넌트 구현, 컴포넌트 인증"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-37",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "스프링 프레임워크(Spring framework)에서는annotation을 이용해서 관리 대상이 되는 컴포넌트를 명시하는 방법을 제공한다. 다음 중 스프링 프레임 워크에서 컴포넌트를 위해서 사용하는 annotation으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "@SessionBean",
+      "@Controller",
+      "@Service",
+      "@Repository"
+    ],
+    "answer": 1,
+    "explanation": "정답 선택지 확인 - ① @SessionBean"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-38",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "프로그램 P가 P’으로 변경된 상황에서 회귀 시험(regression test)을 실시하려 한다. 다음과 같은 조건하에서 회귀 시험에 필요한 테스트 케이스의 최소 개수는?",
+    "choices": [
+      "30",
+      "40",
+      "50",
+      "90"
+    ],
+    "answer": 3,
+    "explanation": "정답 선택지 확인 - ③ 50"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-39",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음은 형상 관리 업무에서 수행되는 변경 제어 절차를 순서대로 나열한 것이다. 네모 칸에 들어갈 절차를 순서대로 바르게 나열한 것은?",
+    "choices": [
+      "요청서 분석 → 변경 구현 및 테스트 → 형상관리 위원회",
+      "형상관리 위원회 → 요청서 분석 → 변경 구현 및 테스트",
+      "변경 구현 및 테스트 → 요청서 분석 → 형상관리 위원회",
+      "요청서 분석 → 형상관리 위원회 → 변경 구현 및 테스트"
+    ],
+    "answer": 4,
+    "explanation": "정답 선택지 확인 - ④ 요청서 분석 → 형상관리 위원회 → 변경 구현 및 테스트"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-40",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음은 소프트웨어 재공학(reengineering)에 사용되는 주요 기법 중의 하나에 대한 설명이다. 해당 기법으로 가장 적절한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36953.png]\n자료: 사용되고 있는 각 애플리케이션에 대해 크기, 비즈니스 결정성, 유지 보수성 등 판정 기준에 대해 분석하여 재공학 후보들을 찾아냄",
+    "choices": [
+      "인벤토리(inventory) 분석",
+      "역공학(reverse engineering",
+      "코드 개조(code restructuring)",
+      "순방향 공학(forward engineering)"
+    ],
+    "answer": 1,
+    "explanation": "정답 선택지 확인 - ① 인벤토리(inventory) 분석"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-41",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "소프트웨어 제품의 기능적인 특징을 기술하는 형식적인 표기법은 관계형 표기법과 상태위주 표기법으로 크게 구분된다. 다음 중 상태위주 표기법으로 가장 적절하지 않은 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36954.png]",
+    "choices": [
+      "recurrence relation",
+      "finite state machine",
+      "event table",
+      "petri nets"
+    ],
+    "answer": 1,
+    "explanation": "정답 선택지 확인 - ① recurrence relation"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-42",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "A 회사에서 다음 표의 조건에 따라 소프트웨어 개발 프로젝트를 수행하려 한다. 계약 기간 내에 프로젝트를 완수하기 위해서는 몇 명의 개발자를 추가로 채용하여야 하는가? (단, 채용되는 개발자들의 평균 생산성은 기존 개발자들의 평균 생산성과 동일하다고 가정함) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36957.png]",
+    "choices": [
+      "3명",
+      "4명",
+      "5명",
+      "6명"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② 4명"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-43",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음 표는 A 회사가 프로젝트 P를 수행하는데 필요한 작업, 작업 예측 소요 기간(일), 각 작업의 선행 작업을 나타낸 것이다. 작업 T5를 담당한 개발자가 독감에 걸려 작업 T5는 예측 소요 기간 7일에 지연된 7일을 더하여 14일이 소요되었다. 이런 상황에서 A 회사가 프로젝트 P의 결과물을 납품한 다음 발주처에 지불하게 될 지체상금은 얼마 인가? (단, 프로젝트 P의 계약금액은 60,000,000원이고, 지체상금율(1일당)은 2.5/1000 임) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36958.png]",
+    "choices": [
+      "0원",
+      "450,000원",
+      "600,000원",
+      "1,050,000원"
+    ],
+    "answer": 3,
+    "explanation": "정답 선택지 확인 - ③ 600,000원"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-44",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음의 소스 코드에 대해 테스트를 수행하려 할 때, 문장 커버리지(statement coverage) 기준으로 가장 높은 커버리지를 달성할 수 있는 테스트 케이스로 가장 적절한 것은? (단, short-circuit evaluation은 수행하지 않음) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36959.png]",
+    "choices": [
+      "T ={(x, y) | (2, -3), (-4, 6) }",
+      "T ={(x, y) | (-2, 3), (1, -4) }",
+      "T ={(x, y) | (2, -3), (4, -6) }",
+      "T ={(x, y) | (-2, 3), (-1, 4)"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② T ={(x, y) | (-2, 3), (1, -4) }"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-45",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음의 코드 조각(fragment)에 대해서 MISRA C:2012 코딩 규칙을 위반한 것을 모두 고른 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36960.png]",
+    "choices": [
+      "가, 나",
+      "나, 다",
+      "가, 나, 다",
+      "가, 나, 다, 라"
+    ],
+    "answer": 4,
+    "explanation": "정답 선택지 확인 - ④ 가, 나, 다, 라"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-46",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음은 UML 활동(activity) 다이어그램의 예를 보여 준다. 활동 다이어그램의 각 요소 a), b), c), d)의 이름을 차례대로 나열한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36961.png]",
+    "choices": [
+      "composite activity region, combined node, split node, object node",
+      "interruptable activity region, join node, fork node, object node",
+      "event region, merge node, split node, data store node",
+      "group activity region, merge node, branch node, data store node"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② interruptable activity region, join node, fork node, object node"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-47",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음에서 윗부분 코드는 클래스 설계를 위한 5대 원칙 중 하나를 위반한 사례이고, 아랫부분 코드는 해당 원칙을 준수한 사례이다. 여기에 적용된 클래스 설계 원칙으로 가장 적절한 것은? (단, 여기에 보이는 코드는 완전한 코드의 일부분으로서 동작하는데 전혀 문제가 없으며 동일한 기능을 수행한다고 가정함) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36962.png]",
+    "choices": [
+      "개방-폐쇄의 원칙(open-closed principle)",
+      "단일 책임의 원칙(single-responsibility principle)",
+      "리스코프 교체 원칙(liskov substitution principle)",
+      "의존관계 역전의 원칙(dependency inversion principl"
+    ],
+    "answer": 1,
+    "explanation": "정답 선택지 확인 - ① 개방-폐쇄의 원칙(open-closed principle)"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-48",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음 중에서 ISO/IEC 25010의 유지보수성과 가장 거리가 먼 것은?",
+    "choices": [
+      "하나의 컴포넌트에 대한 변경이 다른 부분에 미치는 영향을 최소화해야 한다.",
+      "시스템에 가해진 변경에 의해서 영향을 받을 수 있는 부분에 대한 분석이 용이해야 한다.",
+      "설정된 테스트 기준에 대한 만족 여부를 결정할 수 있도록 테스트가 용이해야 한다.",
+      "주어진 환경에서 소프트웨어의 설치 및 삭제가 용이해야 한다."
+    ],
+    "answer": 4,
+    "explanation": "정답 선택지 확인 - ④ 주어진 환경에서 소프트웨어의 설치 및 삭제가 용이해야 한다."
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-49",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음 클래스 다이어그램에서 College 클래스의 C++ 소스 코드로 가장 적절한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36964.png]",
+    "choices": [
+      "class College { vector<Course*> courses; vector<Building> buildings; };",
+      "class College { vector<Course> courses; vector<Building*> buildings; };",
+      "class College { vector<Course*> courses; vector<Building*> buildings; };",
+      "class College { vector<Course> courses; vector<Building> buildings; };"
+    ],
+    "answer": 2,
+    "explanation": "정답 선택지 확인 - ② class College { vector<Course> courses; vector<Building*> buildings; };"
+  },
+  {
+    "id": "2017년 제18회 소프트웨어 공학-50",
+    "deck": "2017년 제18회 소프트웨어 공학",
+    "question": "다음의 코드에 적용된 설계 원리로 가장 거리가 먼 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36965.png]",
+    "choices": [
+      "모듈화(modularization)",
+      "자료 추상화(data abstraction)",
+      "정보 은닉(information hiding)",
+      "다형성(polymorphism)"
+    ],
+    "answer": 4,
+    "explanation": "정답 선택지 확인 - ④ 다형성(polymorphism)"
+  }
+]
