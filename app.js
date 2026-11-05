@@ -39,6 +39,17 @@ const yearAreas=year=>ALL.filter(name=>Q.some(q=>q.year===year&&q.deck===name));
 const $app=document.getElementById('app');
 
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function textWithImages(value,cssClass,alt){
+  const text=String(value??'');
+  const imageUrl=/(?:\[[^\]]*이미지\]\s*URL:\s*|\bURL:\s*)?(https?:\/\/[^\s<>"']+?\.(?:png|jpe?g|gif|webp|svg)(?:\?[^\s<>"']*)?)/gi;
+  let html='',last=0,match;
+  while((match=imageUrl.exec(text))!==null){
+    html+=e(text.slice(last,match.index));
+    html+=`<img class="${cssClass}" src="${e(match[1])}" alt="${e(alt)}" loading="lazy">`;
+    last=imageUrl.lastIndex;
+  }
+  return html+e(text.slice(last));
+}
 function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function defaultState(){return {v:3,updatedAt:0,stats:{},res:{},review:{},rev:{},rsess:{}};}
 function migrate(raw){
@@ -304,11 +315,11 @@ function explBlocks(x){
 function explanationHtml(x){
   const blocks=explBlocks(x);
   return blocks.map(b=>{
-    if(b.type==='text')return b.strong?`<p class="tbl-title">${e(b.text)}</p>`:`<p>${e(b.text)}</p>`;
+    if(b.type==='text')return b.strong?`<p class="tbl-title">${textWithImages(b.text,'expl-img','풀이 그림')}</p>`:`<p>${textWithImages(b.text,'expl-img','풀이 그림')}</p>`;
     const w=Math.max(b.header.length,...b.rows.map(r=>r.length),1);
     const pad=r=>{r=r.slice();while(r.length<w)r.push('');return r;};
     const head=b.header.some(h=>h!=='')?`<thead><tr>${pad(b.header).map(h=>`<th>${e(h)}</th>`).join('')}</tr></thead>`:'';
-    return `${b.title?`<p class="tbl-title">${e(b.title)}</p>`:''}<div class="tbl-wrap"><table class="tbl">${head}<tbody>${b.rows.map(r=>`<tr>${pad(r).map(c=>`<td>${e(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    return `${b.title?`<p class="tbl-title">${e(b.title)}</p>`:''}<div class="tbl-wrap"><table class="tbl">${head}<tbody>${b.rows.map(r=>`<tr>${pad(r).map(c=>`<td>${textWithImages(c,'expl-img','풀이 그림')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }).join('');
 }
 
@@ -485,7 +496,7 @@ function renderQuiz(){
     let cls='';
     if(answered){if(correct.includes(i))cls='right';else if(selected.includes(i))cls='wrong';}
     else if(multi&&selected.includes(i))cls='selected';
-    return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${e(c)}</span></button>`;
+    return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${textWithImages(c,'choice-img',`${i+1}번 보기 그림`)}</span></button>`;
   }).join('');
   const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
   const questionImgBase=imageBase(q,'question');
@@ -510,7 +521,7 @@ function renderQuiz(){
     ${dotsHtml(ss.ids,res,'go',true)}
     <div class="qhead">${tags}</div>
     ${q.big?`<div class="bighan" lang="ko">${e(q.big)}</div>`:''}
-    <div class="qtext">${e(q.question)}</div>
+    <div class="qtext">${textWithImages(q.question,'qimg','문제 그림')}</div>
     ${questionImg}
     <div class="choices">${ch}</div>
     ${submit}
