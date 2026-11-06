@@ -260,8 +260,17 @@ function textBlocks(str){
   const lines=String(str).split('\n'),out=[];let buf=[];
   const isRow=l=>/^\s*\|.*\|\s*$/.test(l);
   const isSep=l=>/^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/.test(l);
+  const isBullet=l=>/^\s*(?:[-*•]|\d+[.)])\s+/.test(l);
   const split=l=>l.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(c=>c.trim());
-  const flush=()=>{const t=buf.join('\n').trim();if(t)out.push({type:'text',text:t});buf=[];};
+  const flush=()=>{
+    const t=buf.join('\n').trim();buf=[];
+    if(!t)return;
+    t.split(/\n\s*\n/).forEach(part=>{
+      const group=part.trim().split('\n');
+      if(group.every(isBullet))out.push({type:'list',items:group.map(line=>line.replace(/^\s*(?:[-*•]|\d+[.)])\s+/,''))});
+      else out.push({type:'text',text:part.trim()});
+    });
+  };
   for(let i=0;i<lines.length;i++){
     if(isRow(lines[i])&&i+1<lines.length&&isSep(lines[i+1])){
       flush();
@@ -316,6 +325,7 @@ function explanationHtml(x){
   const blocks=explBlocks(x);
   return blocks.map(b=>{
     if(b.type==='text')return b.strong?`<p class="tbl-title">${textWithImages(b.text,'expl-img','풀이 그림')}</p>`:`<p>${textWithImages(b.text,'expl-img','풀이 그림')}</p>`;
+    if(b.type==='list')return `<ul class="expl-list">${b.items.map(item=>`<li>${textWithImages(item,'expl-img','풀이 그림')}</li>`).join('')}</ul>`;
     const w=Math.max(b.header.length,...b.rows.map(r=>r.length),1);
     const pad=r=>{r=r.slice();while(r.length<w)r.push('');return r;};
     const head=b.header.some(h=>h!=='')?`<thead><tr>${pad(b.header).map(h=>`<th>${e(h)}</th>`).join('')}</tr></thead>`:'';
@@ -506,9 +516,11 @@ function renderQuiz(){
   const legacyExplBase=explImgBase&&q.year===LEGACY_YEAR
     ?LEGACY_EXPL_IMG_DIR+explImgBase.split('/').pop():'';
   const imgSlot=explImgBase?`<div class="expl-imgs" data-base="${e(explImgBase)}" data-fallback="${e(legacyExplBase)}"></div>`:'';
+  const explContent=explanationHtml(q.explanation);
   const verdict=answered?`<div class="verdict ${ok?'ok':'ng'}">
       <h3>${ok?'정답이에요!':'아쉬워요. 정답은 '+correct.map(i=>(i+1)+'번').join(', ')}</h3>
-      ${EXPL_IMG_POS==='top'?imgSlot:''}${explanationHtml(q.explanation)}${EXPL_IMG_POS==='top'?'':imgSlot}</div>`:'';
+      ${explContent||imgSlot?`<section class="explanation" aria-label="해설"><h4>해설</h4>
+      ${EXPL_IMG_POS==='top'?imgSlot:''}${explContent}${EXPL_IMG_POS==='top'?'':imgSlot}</section>`:''}</div>`:'';
   const last=cur===ss.ids.length-1;
   const footer=answered?`<div class="footer"><div class="row">
       <button class="btn ghost" onclick="retry()">다시 풀기</button>
