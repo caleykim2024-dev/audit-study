@@ -39,14 +39,16 @@ const yearAreas=year=>ALL.filter(name=>Q.some(q=>q.year===year&&q.deck===name));
 const $app=document.getElementById('app');
 
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const IMAGE_URL=/(?:\[[^\]]*이미지\]\s*URL:\s*|\bURL:\s*)?(https?:\/\/[^\s<>"']+?\.(?:png|jpe?g|gif|webp|svg)(?:\?[^\s<>"']*)?)/gi;
+const hasImageUrl=value=>new RegExp(IMAGE_URL.source,'i').test(String(value??''));
 function textWithImages(value,cssClass,alt){
   const text=String(value??'');
-  const imageUrl=/(?:\[[^\]]*이미지\]\s*URL:\s*|\bURL:\s*)?(https?:\/\/[^\s<>"']+?\.(?:png|jpe?g|gif|webp|svg)(?:\?[^\s<>"']*)?)/gi;
   let html='',last=0,match;
-  while((match=imageUrl.exec(text))!==null){
+  IMAGE_URL.lastIndex=0;
+  while((match=IMAGE_URL.exec(text))!==null){
     html+=e(text.slice(last,match.index));
     html+=`<img class="${cssClass}" src="${e(match[1])}" alt="${e(alt)}" loading="lazy">`;
-    last=imageUrl.lastIndex;
+    last=IMAGE_URL.lastIndex;
   }
   return html+e(text.slice(last));
 }
@@ -509,8 +511,9 @@ function renderQuiz(){
     return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${textWithImages(c,'choice-img',`${i+1}번 보기 그림`)}</span></button>`;
   }).join('');
   const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
-  const questionImgBase=imageBase(q,'question');
-  const questionImg=q.image?`<img class="qimg" src="${e(q.image)}" alt="문제 그림">`
+  const questionHasImage=hasImageUrl(q.question);
+  const questionImgBase=questionHasImage?null:imageBase(q,'question');
+  const questionImg=questionHasImage?'':q.image?`<img class="qimg" src="${e(q.image)}" alt="문제 그림">`
     :(questionImgBase?`<div class="question-imgs" data-base="${e(questionImgBase)}"></div>`:'');
   const explImgBase=answered?imageBase(q,'explanation'):null;
   const legacyExplBase=explImgBase&&q.year===LEGACY_YEAR
