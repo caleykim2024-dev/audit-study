@@ -52,6 +52,17 @@ function textWithImages(value,cssClass,alt){
   }
   return html+e(text.slice(last));
 }
+function questionHtml(value){
+  const source=String(value??'');
+  const codeBlock=/```sql[ \t]*\r?\n([\s\S]*?)\r?\n```/gi;
+  let html='',last=0,match;
+  while((match=codeBlock.exec(source))!==null){
+    html+=textWithImages(source.slice(last,match.index),'qimg','문제 그림');
+    html+=`<pre class="sql-block"><code>${e(match[1])}</code></pre>`;
+    last=codeBlock.lastIndex;
+  }
+  return html+textWithImages(source.slice(last),'qimg','문제 그림');
+}
 function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function defaultState(){return {v:3,updatedAt:0,stats:{},res:{},review:{},rev:{},rsess:{}};}
 function migrate(raw){
@@ -536,7 +547,7 @@ function renderQuiz(){
     ${dotsHtml(ss.ids,res,'go',true)}
     <div class="qhead">${tags}</div>
     ${q.big?`<div class="bighan" lang="ko">${e(q.big)}</div>`:''}
-    <div class="qtext">${textWithImages(q.question,'qimg','문제 그림')}</div>
+    <div class="qtext">${questionHtml(q.question)}</div>
     ${questionImg}
     <div class="choices">${ch}</div>
     ${submit}
