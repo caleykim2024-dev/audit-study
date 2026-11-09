@@ -295,6 +295,23 @@ function textBlocks(str){
   flush();
   return out;
 }
+function readableExplanationText(value){
+  const parts=String(value).split(/(【[^】]+】)/g);
+  return parts.map(part=>{
+    const heading=part.match(/^【([^】]+)】$/);
+    if(heading)return '<h5 class="expl-heading">'+e(heading[1])+'</h5>';
+    return part.trim().split(/\r?\n+/).filter(Boolean).flatMap(line=>{
+      const sentences=line.trim().replace(/([.!?。]["”’]?)\s+(?=[가-힣A-Z【"“‘])/g,'$1\n').split('\n');
+      const paragraphs=[];let current='';
+      sentences.forEach(sentence=>{
+        if(current&&current.length+sentence.length>170){paragraphs.push(current);current='';}
+        current+=(current?' ':'')+sentence;
+      });
+      if(current)paragraphs.push(current);
+      return paragraphs.map(text=>'<p>'+textWithImages(text,'expl-img','풀이 그림')+'</p>');
+    }).join('');
+  }).join('');
+}
 const T_TEXT=['text','설명','풀이','해설','explanation','description','desc'];
 const T_TABLE=['table','tables','표'];
 const T_HEAD=['headers','header','columns','머리글','열'];
@@ -337,7 +354,7 @@ function explBlocks(x){
 function explanationHtml(x){
   const blocks=explBlocks(x);
   return blocks.map(b=>{
-    if(b.type==='text')return b.strong?`<p class="tbl-title">${textWithImages(b.text,'expl-img','풀이 그림')}</p>`:`<p>${textWithImages(b.text,'expl-img','풀이 그림')}</p>`;
+    if(b.type==='text')return b.strong?`<p class="tbl-title">${textWithImages(b.text,'expl-img','풀이 그림')}</p>`:readableExplanationText(b.text);
     if(b.type==='list')return `<ul class="expl-list">${b.items.map(item=>`<li>${textWithImages(item,'expl-img','풀이 그림')}</li>`).join('')}</ul>`;
     const w=Math.max(b.header.length,...b.rows.map(r=>r.length),1);
     const pad=r=>{r=r.slice();while(r.length<w)r.push('');return r;};
