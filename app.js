@@ -205,8 +205,9 @@ function answersMatch(q,picked){
 }
 // 가장 최근에 푼 답이 맞았으면 '맞음' (틀렸다가 다시 풀어 맞혀도 맞은 것으로 센다)
 function isOk(res,id){const r=res[id];if(!r||!(r.tries>0))return false;
+  if(r.picked!=null&&QB[id])return answersMatch(QB[id],r.picked);
   if(r.ok!==undefined)return r.ok;
-  return r.picked!=null?answersMatch(QB[id],r.picked):!r.everWrong;}
+  return !r.everWrong;}
 
 /* ============ 동기화 (Supabase, 선택) ============ */
 const syncOn=()=>cfg.url&&cfg.key&&cfg.code;
@@ -462,4 +463,3 @@ function renderLanding(){
     <div class="areas">${reviewCard}${cards}</div>`;
   window.scrollTo(0,0);
 }
-
