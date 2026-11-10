@@ -106,7 +106,39 @@
   {
     "id": "2020년 제21회 데이터베이스-59",
     "deck": "2020년 제21회 데이터베이스",
-    "question": "ANSI/ISO SQL 표준(SQL92)에서 정의한 트랜잭션의\r\n고립성 단계(isolation level)에 따라 발생 가능한\r\n비일관성(inconsistency)의 현상을 아래 표와 같이\r\n정리하였다. 빈칸 Ⓐ, Ⓑ, Ⓒ에 차례로 들어갈\r\n내용으로 맞게 구성된 것은?\r\n레벨\r\nDirty\r\nread\r\nNon-repeatable\r\nread\r\nPhantom\r\nread\r\nRead\r\nuncommitted\r\n발생 가능 발생 가능 발생 가능\r\nRead\r\ncommitted\r\nⒶ 발생 가능 발생 가능\r\nRepeatable\r\nread\r\n발생 불가능 Ⓑ 발생 가능\r\nSerializable\r\nread\r\n발생 불가능 발생 불가능 Ⓒ",
+    "question": "ANSI/ISO SQL 표준(SQL92)에서 정의한 트랜잭션의 고립성 단계(isolation level)에 따라 발생 가능한 비일관성(inconsistency)의 현상을 아래 표와 같이 정리하였다. 빈칸 Ⓐ, Ⓑ, Ⓒ에 차례로 들어갈 내용으로 맞게 구성된 것은?",
+    "table": [
+      [
+        "레벨",
+        "Dirty read",
+        "Non-repeatable read",
+        "Phantom read"
+      ],
+      [
+        "Read uncommitted",
+        "발생 가능",
+        "발생 가능",
+        "발생 가능"
+      ],
+      [
+        "Read committed",
+        "Ⓐ",
+        "발생 가능",
+        "발생 가능"
+      ],
+      [
+        "Repeatable read",
+        "발생 불가능",
+        "Ⓑ",
+        "발생 가능"
+      ],
+      [
+        "Serializable read",
+        "발생 불가능",
+        "발생 불가능",
+        "Ⓒ"
+      ]
+    ],
     "choices": [
       "발생 가능, 발생 가능, 발생 가능",
       "발생 가능, 발생 가능, 발생 불가능",
