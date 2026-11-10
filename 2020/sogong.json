@@ -1,0 +1,327 @@
+[
+  {
+    "id": "2020년 제21회 소프트웨어 공학-26",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "요구사항 검증 과정 동안, 요구사항 문서에 작성\n된 요구사항들에 대해서 다양한 유형의 점검을\n수행해야 한다. 다음 중 요구사항 점검 유형과\n그 설명이 가장 적절하게 짝지어진 것은?",
+    "choices": [
+      "완전성 점검 : 문서상의 요구사항은 서로 상충\n되지 않아야 한다.",
+      "일관성 점검 : 요구사항 문서는 시스템 사용자가\n의도한 모든 기능과 제약을 정의하는 요구사항을\n포함해야 한다.",
+      "유효성 점검 : 요구사항이 시스템 사용자의 실제\n요구를 반영하는지를 점검한다.",
+      "실현성 점검 : 고객과 계약자 사이의 분쟁 가능성을\n줄이기 위해, 시스템 요구사항은 문서로 작성해서\n구현이 가능한지를 점검해야 한다."
+    ],
+    "answer": 2,
+    "explanation": "유효성 점검은 요구사항이 사용자의 실제 필요와 의도를 반영하는지 확인하는 것이다. 완전성·일관성·실현성 설명은 보기에서 서로 섞여 있다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-27",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음은 웹 기반 시스템에서 상호 작용 관리를 위\n해 MVC 패턴이 사용될 때 런타임 시스템 아키텍\n처를 그림으로 나타내고 있다. (가) ~ (다)에 가\n장 적절한 구성요소는?",
+    "choices": [
+      "(가) 뷰,      (나) 제어기,  (다) 모델",
+      "(가) 모델,    (나) 제어기,  (다) 뷰",
+      "(가) 제어기,  (나) 모델,    (다) 뷰",
+      "(가) 제어기,  (나) 뷰,      (다) 모델"
+    ],
+    "answer": 3,
+    "explanation": "MVC에서 제어기는 입력을 받아 흐름을 제어하고, 뷰는 표현, 모델은 데이터와 업무 상태를 담당한다. 제시 그림의 흐름은 제어기-뷰-모델 순서에 해당한다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-28",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 설명에 가장 적절한 디자인 패턴은?\n이 패턴의 특징은 ‘기능의 클래스 계층’과 ‘구현\n의 클래스 계층’을 분리하는 것이다. 이 두 개의\n클래스 계층을 분리해 두면 각각의 클래스 계층을\n독립적으로 확장할 수 있다. 기능을 추가하고 싶으\n면 기능의 클래스 계층에 클래스를 추가한다. 이때\n구현의 클래스 계층은 전혀 수정할 필요가 없다.",
+    "choices": [
+      "memento 패턴",
+      "flyweight 패턴",
+      "adapter 패턴",
+      "bridge 패턴"
+    ],
+    "answer": 3,
+    "explanation": "기능 계층과 구현 계층을 분리해 각각 독립적으로 확장하게 하는 패턴은 브리지 패턴이다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-29",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 표는 3개의 입력 인자가 가질 수 있는 값을\n나타내고 있다.\n입력 인자 A B C\n값(또는 클래스)\nA1 B1 C1\nA2 B2 C2\n    이 때 페어와이즈 테스트(pairwise test) 조합으\n로 생성된 테스트 케이스는 다음 표와 같다. (가)\n~ (라)에 가장 적절한 값은?\n           입력 인자\n테스트 케이스\nA B C\n1 A2 B2 (가)\n2 A2 B1 (나)\n3 A1 B2 (다)\n4 A1 B1 (라)",
+    "choices": [
+      "(가) C1, (나) C1, (다) C2, (라) C2",
+      "(가) C1, (나) C2, (다) C2, (라) C1",
+      "(가) C1, (나) C1, (다) C1, (라) C1",
+      "(가) C2, (나) C2, (다) C2, (라) C2"
+    ],
+    "answer": 1,
+    "explanation": "페어와이즈 테스트는 두 인자 값의 모든 조합이 최소 한 번씩 나오도록 배치한다. C 값을 C1, C2, C2, C1로 두면 A-C와 B-C 쌍이 모두 충족된다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-30",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "애자일 프로젝트에서 다음과 같이 시간의 경과에\n따라 완료된 작업량을 그래프로 표시하기 위해\n가장 적절한 것은?\n스프린트 1차 2차 3차 4차 5차 6차\n완료\n스토리포인트\n25 40 30 25\n40 45 55 60 42\n누적\n스토리포인트\n25 65 95 120\n전체\n스토리포인트\n300 300 300 320",
+    "choices": [
+      "번다운 차트",
+      "번업 차트",
+      "PERT/CPM 차트",
+      "백로그 진척률 차트"
+    ],
+    "answer": 1,
+    "explanation": "완료된 작업량 또는 누적 완료 스토리포인트가 시간에 따라 증가하는 모습을 보는 차트는 번업 차트다. 번다운 차트는 남은 작업량 감소를 본다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-31",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 설명에 해당하는 것으로 가장 적절한 것은?\nŸ 통제된 프로젝트 환경에서 점증적 프로토타이핑을\n통해 빠듯한 시간 제약조건 내에 시스템을 개발\n하고 유지보수하기 위한 프레임워크를 제공하는\n애자일 소프트웨어 개발 방식이다.\nŸ 각각의 반복 단계가 파레토 법칙(80% 규칙)을 따\n르는 반복적인 소프트웨어 프로세스이다.\nŸ 생명주기는 기본적인 비즈니스 요구사항과 제약\n조건을 설정하는 타당성 조사로부터 시작해서,\n기능성 그리고 정보 요구사항을 도출하는 비즈니스\n연구를 수행한다. 이후 기능적 모델 반복, 설계와\n구축 반복, 시행이라는 세 가지 다른 반복주기가\n정의된다.",
+    "choices": [
+      "스크럼(scrum)",
+      "애자일 모델링(agile modeling)",
+      "동적 시스템 개발 방법(DSDM)",
+      "애자일 통합 프로세스(AUP)"
+    ],
+    "answer": 2,
+    "explanation": "설명은 DSDM의 특징이다. DSDM은 통제된 프로젝트 환경, 점증적 프로토타이핑, 타당성 조사와 비즈니스 연구, 기능/설계·구축 반복을 강조한다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-32",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 코드에 대한  순환복잡도(cyclomatic complexity)\n로 가장 적절한 것은?(단, 코드 실행상의 문제가\n없다고 가정함)\nvoid Scoreboard::drawscore(int n) {\n   if (n > 0) {\n        score[numdigits]->erase();\n   }\n   numdigits = 0;\n   if (n == 0) {\n        delete score[numdigits];\n        score[numdigits] = new Displayable(digits[0]);\n        score[numdigits]->move(Point((700-numdigits*18),40));\n        score[numdigits]->draw();\n        numdigits++;\n   }\n   while (n) {\n        int rem = n % 10;\n        delete score[numdigits];\n        score[numdigits] = new Displayable(digits[rem]);\n        score[numdigits]->move(Point((700-numdigits*18),40));\n        score[numdigits]->draw();\n        n /= 10;\n        numdigits++;\n   }\n}",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 2,
+    "explanation": "순환복잡도는 결정 노드 수에 1을 더해 계산할 수 있다. 코드에는 if(n>0), if(n==0), while(n) 세 결정이 있어 3+1=4다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-33",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음과 같은 소스 코드가 주어졌다. 이 코드를 경로\n(path) 커버리지를 100% 만족하도록 테스트하고자\n한다. 이때 경로 커버리지를 측정하고자 코드의\n실행 경로 상의 특정 지점에 탐침(probe)을 삽입\n하려 한다. 각 경로의 실행 여부를 판단하기 위해\n필요한 최소 탐침 개수로 가장 적절한 것은?\n줄번호 소스 코드\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\nint main(void) {\n   int x, y, z;\n   scanf(“%d %d”, &x, &y);\n   if (x < 0) {\n       if (y < 0) {\n           z = x - y;\n       } else {\n           z = x + y;\n       }\n       z = 5 * z;\n   } else {\n       z = 2 * x * -y;\n   }\n   if (z >= 0) {\n       printf(“%d is positive\\n”, z);\n   } else {\n       printf(“%d is negative\\n”, z);\n   }\n   return 1;\n}",
+    "choices": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "answer": 1,
+    "explanation": "경로 커버리지 확인에는 독립 실행 경로를 식별할 수 있는 지점에 탐침을 두면 된다. 제시 코드의 분기와 합류 구조에서는 5개 탐침이면 각 경로 실행 여부를 구분할 수 있다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-34",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "소프트웨어 품질 속성 중 테스트 가능성(testability)은\n테스트를 통해 소프트웨어 결함을 쉽게 발견할\n수 있도록 소프트웨어를 개발하는 것을 말한다.\n다음은 여러 종류의 소프트웨어 설계 방법들을\n나열한 것이다. 이 중에서 소프트웨어의 테스트\n가능성을 높이기 위한 설계 방법만을 가장 적절\n하게 묶은 것은?\n\n가. executable assertions\n나. introduce concurrency\n다. limit structural complexity\n라. restrict dependencies\n마. limit nondeterminism\n바. maintain task model",
+    "choices": [
+      "가, 나, 다",
+      "가, 다, 마",
+      "나, 라, 바",
+      "라, 마, 바"
+    ],
+    "answer": 1,
+    "explanation": "테스트 가능성을 높이는 설계는 실행 가능한 assertion, 구조 복잡도 제한, 비결정성 제한이다. 동시성 도입이나 과도한 의존성은 테스트를 어렵게 만든다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-35",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 클린 아키텍처에 대한 설명 중 가장 적절하\n지 않은 것은?",
+    "choices": [
+      "엔티티 계층은 전사적인 핵심업무규칙을 캡슐화\n한다. 엔티티는 메소드를 가지는 객체이거나 일\n련의 데이터 구조와 함수의 집합일 수 있다.",
+      "외부인터페이스 계층은 프레임워크나 도구로 구\n성된다. 다른 계층과 통신하기 위한 집합 코드\n외에는 특별히 작성해야 할 코드가 그다지 많지\n않다.",
+      "인터페이스 어댑터 계층은 일련의 어댑터들로\n구성된다. GUI의 MVC(model, view, controller)\n는 모두 인터페이스 어댑터 계층에 속한다.",
+      "유스케이스는 업무계층에 특화된 업무 규칙을\n포함한다. 유스케이스 계층은 데이터베이스, UI 등\n과 원활하게 연계되어 있어 이들의 변경에 영향을\n받는 것이 일반적이다."
+    ],
+    "answer": 3,
+    "explanation": "클린 아키텍처의 의존성은 안쪽 정책 계층을 향해야 하며 유스케이스는 DB나 UI 변화에 영향받지 않아야 한다. 따라서 유스케이스 계층이 DB/UI와 원활히 연계되어 영향을 받는다는 설명은 부적절하다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-36",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "스크럼(scrum) 방법론을 따라 소프트웨어를 개발\n하고자 한다. 다음 표와 같은 사용자 스토리가\n있고, 그림과 같은 릴리스 계획을 갖고 있다고\n가정하자(릴리스 계획 내의 모든 스토리는 완료\n됨을 가정). 전체 스토리 포인트가 180일 경우,\n해당 릴리스를 완성하기 위한 프로젝트 일정으로\n가장 적절한 것은? (단, 한 스프린트는 2주이고,\n한 달은 4주라 가정한다)\n스토리 스토리 점수\n스토리 A 7\n스토리 B 5\n스토리 C 6\n스토리 D 4\n스토리 E 8\n스토리 F 6\n스토리 G 10\n스토리 H 5\n스토리 I 3\n... ...",
+    "choices": [
+      "3개월",
+      "4개월",
+      "5개월",
+      "6개월"
+    ],
+    "answer": 2,
+    "explanation": "릴리스 계획의 평균 처리량으로 전체 180 스토리포인트를 나누면 약 10개 스프린트가 필요하다. 1스프린트 2주이므로 20주, 즉 5개월이다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-37",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음은 오픈 소스 라이선스에 관한 설명이다.\n(가), (나), (다)에 해당하는 오픈 소스 라이선\n스를 나열한 것으로 가장 적절한 것은?\n(가) 이 라이선스 아래에 있는 오픈 소스 소프트웨\n어를 이용한다면 그 소프트웨어를 오픈 소스로 해야\n한다는 상호(reciprocal) 라이선스이다.\n(나) 컴포넌트의 소스를 공개할 필요 없이 오픈 소\n스 코드와 연결된 컴포넌트를 작성할 수 있다. 그러\n나 라이선스된 컴포넌트를 변경할 경우 그것을 오픈\n소스로 공개하여야 한다.\n(다) 이것은 비상호(nonreciprocal) 라이선스로서\n오픈 소스에 가한 어떤 변경이나 수정을 재공개할\n의무가 없다는 것을 의미한다. 오픈 소스 코드를 판\n매되는 사유(proprietary) 시스템에 포함할 수 있\n다. 오픈 소스 컴포넌트를 사용한다면 그 코드의 원\n작자를 알려야 한다.",
+    "choices": [
+      "(가) GNU General Public License(GPL)\n(나) GNU Lesser General Public License(LGPL)\n(다) Berkely Standard Distribution(BSD) License",
+      "(가) GNU Lesser General Public License(LGPL)\n(나) GNU General Public License(GPL)\n(다) Berkely Standard Distribution(BSD) License",
+      "(가) Berkely Standard Distribution(BSD) License\n(나) GNU Lesser General Public License(LGPL)\n(다) GNU General Public License(GPL)",
+      "(가) Berkely Standard Distribution(BSD) License\n(나) GNU General Public License(GPL)\n(다) GNU Lesser General Public License(LGPL)"
+    ],
+    "answer": 0,
+    "explanation": "GPL은 강한 상호 라이선스, LGPL은 라이브러리 연결은 허용하되 수정분 공개 의무가 있는 약한 상호 라이선스, BSD는 비상호 라이선스다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-38",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "ITIL v4 에서 ITIL management practices 는\ngeneral management practices, service\nmanagement practices, technical management\npractices 로 분류된다. 다음 중 나머지 3개와\n다른 분류에 해당되는 것은?",
+    "choices": [
+      "service financial management",
+      "change control",
+      "business analysis",
+      "service continuity management"
+    ],
+    "answer": 0,
+    "explanation": "ITIL v4에서 service financial management는 일반 관리 관행에 속한다. change control, business analysis, service continuity management는 서비스 관리 관행이다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-39",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 코드의 출력결과로 가장 적절한 것은?\npublic class SingletonExam\n{\n    private static int counter = 0;\n    private static class Singleton\n    {\n        private static SingletonExam INSTANCE\n          = new SingletonExam();\n    }\n    public static SingletonExam getInstance()\n    {\n        counter++;\n        return Singleton.INSTANCE;\n    }\n    private SingletonExam()\n    {\n        counter++;\n    }\n    public void increaseCounter()\n    {\n        counter++;\n    }\n    public int getCounter()\n    {\n        return counter;\n    }\n}\npublic class ExamThreeMain\n{\n    public static void main(String[] args)\n    {\n        SingletonExam se = SingletonExam.getInstance();\n        se.increaseCounter();\n        se.increaseCounter();\n        SingletonExam.getInstance().increaseCounter();\n        SingletonExam.getInstance().increaseCounter();\n        System.out.println\n          (SingletonExam.getInstance().getCounter());\n    }\n}",
+    "choices": [
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "answer": 1,
+    "explanation": "첫 getInstance 호출 때 생성자와 getInstance에서 각각 1씩 증가하고, increaseCounter와 이후 getInstance 호출들이 counter를 계속 증가시킨다. 최종 getCounter 직전 getInstance까지 포함하면 출력은 9다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-40",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "지속적 통합(continuous integration)은 통합이 빈번\n하게 이루어지고 통합 결과를 바로 알 수 있기 때문에\n소프트웨어의 품질을 높이고 통합의 위험을 줄이는 대\n표적인 애자일 방법으로 요즘 널리 사용되고 있다.\n이러한 지속적 통합을 효과적으로 지원하기 위해 다양\n한 오픈 소스 소프트웨어가 활용된다. 다음 중 지속\n적 통합에 밀접하게 사용될 수 있는 오픈 소스 소프트\n웨어로 가장 적절하지 않은 것은?",
+    "choices": [
+      "Git",
+      "JUnit",
+      "Jenkins",
+      "ProcessMaker"
+    ],
+    "answer": 3,
+    "explanation": "ProcessMaker는 BPM/워크플로우 도구로 지속적 통합 도구와 거리가 멀다. Git, JUnit, Jenkins는 CI 파이프라인에서 직접 사용된다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-41",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 그림은 왼쪽 리스트 박스에서 고객 타입을 지\n정하면 오른쪽의 입력 폼의 형태가 바뀐다. 그림\n에서 보듯이 왼쪽 리스트 박스와 오른쪽 입력 폼은\n서로 의존적이다. 이와 같이 직접적인 의존 관계가\n있는 요소들의 의존 관계를 완화하여 객체들이\n다른 객체의 존재를 모르는 상태에서도 협력할 수\n있도록 소프트웨어 설계를 개선하고자 할 경우에\n어떤 설계 패턴을 도입하는 것이 가장 적절한가?",
+    "choices": [
+      "상태 패턴 (state pattern)",
+      "위임 패턴 (delegation pattern)",
+      "중재자 패턴 (mediator pattern)",
+      "커맨드 패턴 (command pattern)"
+    ],
+    "answer": 2,
+    "explanation": "중재자 패턴은 객체들이 서로 직접 참조하지 않고 중재자를 통해 상호작용하게 해 결합도를 낮춘다. 의존적인 UI 요소 간 협력을 완화하는 데 적합하다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-42",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "전자정부 표준프레임워크는 공공사업에 적용되는\n개발 프레임워크의 정립된 표준으로 응용 소프트\n웨어 표준화, 품질 및 재사용성 향상을 목표로\n한다. 다음 중 전자정부 표준프레임워크의\n‘공통기술 서비스’ 그룹에 포함되지 않는 구성\n요소로만 묶은 것으로 가장 적절한 것은? (2020\n년도 버전(표준프레임워크 v3.9) 기준)\n\n가. 협업\n나. 표준 관리\n다. 변경 관리\n라. 서비스 요청관리\n마. 디지털 자산관리\n바. 사용자 디렉토리/통합인증",
+    "choices": [
+      "가, 다, 마",
+      "나, 다, 라",
+      "라, 마, 바",
+      "가, 마, 바"
+    ],
+    "answer": 1,
+    "explanation": "표준 관리, 변경 관리, 서비스 요청관리는 표준프레임워크 공통기술 서비스 그룹으로 보기 어렵다. 협업, 디지털 자산관리, 사용자 디렉토리/통합인증과 구분한다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-43",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음은 AOP(Aspect Oriented Programming)관련\n용어에 대한 설명이다. (가), (나)에 적합한 용\n어를 순서대로 가장 적절하게 나열한 것은?\n(가)는 관심(concern)을 구현한 코드이며, (나)는 포인\n트컷(pointcut)과 (가)로 구성되어 있다.",
+    "choices": [
+      "(가) 어드바이스(advice) (나) 애스팩트(aspect)",
+      "(가) 애스팩트(aspect) (나) 어드바이스(advice)",
+      "(가) 애스팩트(aspect) (나) 조인 포인트(join point)",
+      "(가) 조인 포인트(join point) (나) 애스팩트(aspect)"
+    ],
+    "answer": 0,
+    "explanation": "관심을 구현한 코드는 어드바이스이고, 포인트컷과 어드바이스를 묶은 단위는 애스팩트다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-44",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 표는 어느 회사에서 개발한 소프트웨어 제품\n군을 유지보수하는 과정에서 소요되는 노력을 유\n지보수 유형에 따라 정리한 것이다. 이런 상황을\n고려할 때 이 회사가 같은 종류의 소프트웨어 제\n품을 개발할 경우 비중을 두어야 할 ISO 25010 소\n프트웨어 품질 속성으로 가장 적절하지 않은 것은?\n유지보수 유형 소요 노력\n적응(adaptive) 유지보수 65%\n완전(perfective) 유지보수 20%\n수정(corrective) 유지보수 10%\n예방(preventive) 유지보수 5%",
+    "choices": [
+      "Integrity",
+      "Portability",
+      "Reusability",
+      "Interoperability"
+    ],
+    "answer": 0,
+    "explanation": "적응 유지보수 비중이 높으면 이식성, 재사용성, 상호운용성 같은 품질 속성이 중요하다. Integrity는 해당 유지보수 상황의 우선 품질 속성으로 보기 어렵다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-45",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 그림은 MDA(Model Driven Architecture)에서의\n계산 독립 모델인 CIM(Computation Independent\nModel)으로부터 실행 코드까지의 변환 과정을\n나타낸 것이다. (가)는 구현을 참조하지 않고\n시스템의 동작을 나타낸 모델이며, (나)는 플랫폼에\n특화된 세부 사항을 추가한 모델이라면 (가),\n(나)에 해당하는 모델로 가장 적절한 것은?",
+    "choices": [
+      "(가) DSM(Dynamic System Model)\n     (나) PDM(Platform Description Model)",
+      "(가) PIM(Platform Independent Model)\n     (나) PSM(Platform Specific Model)",
+      "(가) SAM(System Activity Model)\n     (나) PDM(Platform Description Model)",
+      "(가) SAM(System Activity Model)\n     (나) PSM(Platform Specific Model)"
+    ],
+    "answer": 1,
+    "explanation": "MDA에서 구현 플랫폼과 독립적인 모델은 PIM, 특정 플랫폼 세부사항이 반영된 모델은 PSM이다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-46",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음은 http 또는 https를 사용하는 RESTful\n서비스에서의 기본적인 네 가지 메소드에 대한\n설명이다. (가)~(라)에 가장 적절한 메소드는?\n(가) 자원 값을 갱신하는 데 쓰인다.\n(나) 자원을 삭제하는 데 쓰인다.\n(다) 자원을 생성하는 데 사용된다.\n(라) 자원 값을 읽어오는 데 사용된다.",
+    "choices": [
+      "(가) PUT  (나) DELETE  (다) POST   (라) GET",
+      "(가) SET  (나) REMOVE   (다) CREATE (라) PULL",
+      "(가) POST (나) REMOVE  (다) NEW   (라) READ",
+      "(가) POST (나) DELETE  (다) NEW   (라) PULL"
+    ],
+    "answer": 0,
+    "explanation": "REST 기본 메서드는 갱신 PUT, 삭제 DELETE, 생성 POST, 조회 GET으로 대응된다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-47",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음 왼쪽에 주어진 코드를 테스트하기 위하여 경로\n(path) 커버리지 기반의 테스트 데이터를 오른쪽과 같\n이 개발하였다. 주어진 4개의 테스트 데이터를 이용하\n여 왼쪽 코드를 테스트한다고 할 때, 테스트 되지 않는\n경로는? (단, 코드 실행상의 문제가 없다고 가정함)\nL01\nL02\nL03\nL04\nL05\nL06\nL07\nL08\nL09\nL10\nL11\nL12\nf (int x, int y) {\n   if (x * x * x > 0) {\n     if (x > 0 && y == 10) {\n       fail();\n     }\n   } else {\n     if ( x > 0 && y == 20) {\n       fail();\n     }\n   }\n   complete();\n}\nT1: x=70, y=50\nT2: x=-70, y=50\nT3: x=70, y=10\nT4: x=-70, y=20",
+    "choices": [
+      "L01 -> L02 -> L03 -> L04",
+      "L01 -> L02 -> L07 -> L08",
+      "L01 -> L02 -> L03 -> L11",
+      "L01 -> L02 -> L07 -> L11"
+    ],
+    "answer": 1,
+    "explanation": "x가 음수이면 else 블록으로 들어가지만 그 안의 조건 x>0은 거짓이므로 L07->L08의 fail 경로는 실행되지 않는다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-48",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음과 같은 학생정보 관리 시스템에 대한 요구\n사항이 있다. 이 정보를 바탕으로 내부논리파일\n(internal logical file : ILF)의 기능점수를 산\n출하기 위한 데이터요소유형(data element type\n: DET)과 레코드요소유형(record element type :\nRET)의 개수로 가장 적절한 것은?\n1. 다음을 포함하는 학생정보를 입력한다.\n   - 학번\n   - 학생 이름\n   - 학생 학과\n   - 학생 등록일자\n2. 정의한 학생정보를 언제든지 재사용하여 필요한\n경우 학생정보를 변경한다.\n3. 학생정보를 조회하고 출력한다.\n4. 학생 이름 또는 학생 등록일자별로 학생 목록을\n조회한다.",
+    "choices": [
+      "DET : 4, RET : 0",
+      "DET : 4, RET : 1",
+      "DET : 0, RET : 4",
+      "DET : 1, RET : 4"
+    ],
+    "answer": 1,
+    "explanation": "ILF의 DET는 사용자 관점에서 식별되는 데이터 항목이고 RET는 논리적 레코드 그룹이다. 학생정보는 학번, 이름, 학과, 등록일자 4개 DET와 1개 RET로 본다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-49",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "소프트웨어 유지보수 및 진화에 대한 Lehman의\n법칙에 대한 설명으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "엔트로피 또는 복잡도 증가의 법칙 : 진화하는\n시스템의 유지보수 프로세스는 시스템이 소멸될\n때까지 일정한 평균 작업량을 보인다.",
+      "친근성 유지의 법칙 : 시스템의 평균 성장률은\n소멸될 때까지 일정하다. 즉 개발 전 단계에 걸쳐\n각  버전의 변화는 거의 일정하다.",
+      "품질 저하의 법칙 : 진화하는 시스템의 품질은\n운영 환경의 변화에 완전히 적응하지 못하는 한\n지속적으로 저하한다.",
+      "지속적 변경의 법칙 : 시스템이 릴리즈 된 후에도\n변경은 그 시스템이 다른 시스템으로 대체될 때\n까지 지속된다."
+    ],
+    "answer": 0,
+    "explanation": "엔트로피/복잡도 증가 법칙은 별도 작업이 없으면 시스템 복잡도가 증가한다는 내용이다. 평균 작업량이 일정하다는 설명은 다른 Lehman 법칙과 섞인 것이다."
+  },
+  {
+    "id": "2020년 제21회 소프트웨어 공학-50",
+    "deck": "2020년 제21회 소프트웨어 공학",
+    "question": "다음은 형상감사 활동에 대한 설명이다. 설명이\n의미하는 것으로 가장 적절한 것은?\n소프트웨어 제품이 릴리즈되기 전에, 변경사항이 모\n든 산출물에 반영되었는지, 변경이 반영된 형상 품\n목들이 통합되었는지, 변경에 대한 형상 정보가 잘\n관리되었는지 등을 객관성이 보장된 형상관리 책임\n자에 의해 수행되는 감사 활동",
+    "choices": [
+      "물리 형상 감사(physical configuration audit)",
+      "기능 형상 감사(functional configuration audit)",
+      "베이스라인 형상 감사(baseline configuration audit)",
+      "부정합성 기록 및 보고(nonconformity recording and\nreporting)"
+    ],
+    "answer": 0,
+    "explanation": "릴리즈 전 실제 형상항목과 산출물이 변경사항을 제대로 반영했는지 확인하는 활동은 물리 형상 감사다. 기능 형상 감사는 요구 기능 충족 여부에 초점을 둔다."
+  }
+]
