@@ -69,16 +69,17 @@ function renderArea(){
     window.scrollTo(0,0);return;
   }
   const ids=deckIds(dk),n=ids.length,solved=answeredIn(ids,S.res);
+  const historical=ids.filter(id=>!(S.res[id]&&S.res[id].tries>0)&&(S.stats[id]||{}).seen>0).length;
   const fl=flaggedIds(dk),often=fl.filter(id=>wrongOf(id)>=2).length;
   const rv=S.review[reviewKey()],rvIds=rv?rv.ids.filter(id=>QB[id]):[],rvDone=rv?answeredIn(rvIds,rv.res):0;
   const resume=!!(rv&&rvIds.length&&rvDone<rvIds.length);
   const label=solved===0?'시작하기':solved<n?'이어서 풀기':'결과 보기';
   $app.innerHTML=`${top}
     <h1>${e(curYear)}년 · ${e(dk)}</h1>
-    <p class="sub">전체 ${n}문제 · ${solved}개 풀었어요</p>
+    <p class="sub">전체 ${n}문제 · ${solved}개 풀었어요${historical?` · 이전 풀이 ${historical}개 (선택 답 기록 없음)`:''}</p>
     ${bad.length?`<div class="notice">${e('읽지 못한 파일이 있어요 (형식 오류): '+bad.join(', '))}</div>`:''}
     <div class="panel">${dotsHtml(ids,S.res,'openAt')}
-      <p class="legend">번호를 누르면 그 문제로 가요. 초록은 맞음, 빨강은 틀림이고, 모서리의 빨간 점은 틀린 적이 있는 문제예요(자주 틀리면 진한 점).</p>
+      <p class="legend">번호를 누르면 그 문제로 가요. 초록은 맞음, 빨강은 틀림, 연한 파랑은 이전에 푼 기록만 남은 문제예요. 모서리의 빨간 점은 틀린 적이 있는 문제예요.</p>
       <p class="deckmeta">틀린 문제 ${fl.length}개${often?` · 자주 틀림 ${often}개`:''}</p>
       <div class="btns">
         <button class="btn" onclick="startAll()">${label}</button>
@@ -104,6 +105,7 @@ function renderQuiz(){
     return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${textWithImages(c,'choice-img',`${i+1}번 보기 그림`)}</span></button>`;
   }).join('');
   const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
+  const qTable=Array.isArray(q.table)?`<div class="tbl-wrap"><table class="tbl"><thead><tr>${q.table[0].map(c=>`<th>${e(c)}</th>`).join('')}</tr></thead><tbody>${q.table.slice(1).map(row=>`<tr>${row.map(c=>`<td>${e(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:'';
   const questionHasImage=hasImageUrl(q.question);
   const questionImgBase=questionHasImage?null:imageBase(q,'question');
   const questionImg=questionHasImage?'':q.image?`<img class="qimg" src="${e(q.image)}" alt="문제 그림">`
@@ -129,7 +131,7 @@ function renderQuiz(){
     ${dotsHtml(ss.ids,res,'go',true)}
     <div class="qhead">${tags}</div>
     ${q.big?`<div class="bighan" lang="ko">${e(q.big)}</div>`:''}
-    <div class="qtext">${questionHtml(q.question)}</div>
+    <div class="qtext">${questionHtml(q.question)}${qTable}</div>
     ${questionImg}
     <div class="choices">${ch}</div>
     ${submit}
@@ -183,6 +185,7 @@ function renderSettings(){
       </div>
       ${syncOn()?`<button class="btn small ghost" style="margin-top:12px" onclick="copySyncLink()">다른 기기 연결 링크 복사</button>
       <p class="help">다른 기기(폰, 패드 등)의 브라우저에서 이 링크를 열면 위 세 값이 자동으로 입력돼요.</p>`:''}
+      ${syncOn()?`<button class="btn small ghost" style="margin-top:12px" onclick="restoreFromSupabase()">Supabase 기록 다시 가져오기</button>`:''}
     </div>
 
     <h2>기록 지우기</h2>
@@ -206,7 +209,6 @@ function startAll(){
   cur=Math.max(0,ids.findIndex(id=>!(S.res[id]&&S.res[id].tries>0)));
   view='quiz';render();
 }
-// 틀린 문제 복습: 틀린 적 있는 문제만 모아서 푼다 (자주 틀린 문제가 앞에 온다)
 function startReview(resume){
   if(!resume)S.review[reviewKey()]={ids:flaggedIds(curDeck),res:{}};
   mode='review';
@@ -215,7 +217,6 @@ function startReview(resume){
   const i=ss.ids.findIndex(id=>!(ss.res[id]&&ss.res[id].tries>0));
   cur=Math.max(0,i);save();view='quiz';render();
 }
-// 복습 페이지에서 n차 복습 풀기 (resume=true 이면 오늘 하던 것 이어서)
 function startRound(n,resume){
   curRound=n;mode='rround';
   const T=todayStr(),rs=S.rsess[n];
@@ -225,7 +226,6 @@ function startRound(n,resume){
   cur=Math.max(0,ss.ids.findIndex(id=>!(ss.res[id]&&ss.res[id].tries>0)));
   save();view='quiz';render();
 }
-// 오늘 한 n차 복습을 다시 풀기 (onlyWrong=true 이면 오늘 틀린 문제만). 복습 일정은 바뀌지 않아요
 function startRedo(n,onlyWrong){
   const T=todayStr(),rs=S.rsess[n];
   curRound=n;mode='rround';
@@ -292,6 +292,20 @@ async function saveSync(){
   await pull();
   render();
 }
+async function restoreFromSupabase(){
+  if(!syncOn()){alert('먼저 Supabase 연결 정보를 입력하세요.');return;}
+  try{
+    const r=await fetch(base()+'?id=eq.'+encodeURIComponent(cfg.code)+'&select=data',{headers:hdr()});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const rows=await r.json(), remote=rows[0]&&rows[0].data;
+    if(!remote||isPristine(migrate(remote))){setSync('missing');alert('이 주소와 코드에서 풀이 기록을 찾지 못했어요. Project URL과 동기화 코드를 확인하세요.');return;}
+    const ids=Object.keys(remote.stats||{}), count=ids.length, matched=ids.filter(id=>QB[id]).length;
+    if(!confirm('Supabase 기록 '+count+'개 중 현재 문제와 일치하는 기록은 '+matched+'개예요. 이 기기의 현재 기록을 백업하고 가져올까요?'))return;
+    localStorage.setItem(LS_STATE+'.backup.'+Date.now(),JSON.stringify(S));
+    S=migrate(remote);localStorage.setItem(LS_STATE,JSON.stringify(S));setSync('ok');render();
+    alert('기록을 가져왔어요.');
+  }catch(err){setSync('err');alert('기록을 읽지 못했어요: '+err.message);}
+}
 function resetAll(){
   if(!confirm('모든 풀이 기록이 삭제돼요. 정말 지울까요?'))return;
   S=defaultState();save();view=curDeck?'area':'landing';render();
@@ -321,7 +335,6 @@ function copySyncLink(){
 }
 
 /* ============ 문제 파일 불러오기 ============ */
-// 결과: {state:'ok',data} / {state:'missing'}(없음) / {state:'bad'}(있는데 JSON 형식 오류)
 async function fetchJson(url){
   let r;
   try{r=await fetch(url,{cache:'no-cache'});}catch(_){return {state:'missing'};}
@@ -331,8 +344,6 @@ async function fetchJson(url){
   try{const data=JSON.parse(text);return Array.isArray(data)?{state:'ok',data}:{state:'bad'};}
   catch(_){return /^\s*</.test(text)?{state:'missing'}:{state:'bad'};}   // 없는 주소에 HTML이 돌아오면 '없음'으로 본다
 }
-// years.json 에 적힌 연도의 폴더에서 영역별 JSON을 읽는다.
-// 2020년 파일을 아직 옮기지 않았다면 기존 questions/ 폴더를 사용한다.
 async function loadAllQuestions(){
   BAD=[];
   const manifest=await fetchJson('years.json');
