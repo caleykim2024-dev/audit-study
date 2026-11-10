@@ -1,7 +1,7 @@
 /* ============ 상태 ============ */
 const LS_STATE='quizState.v1', LS_CFG='quizCfg.v1';
 let Q=[], QB={}, DECKS=[], YEARS=[], S=null, loadErr='', ready=false, loadNote='', BAD=[];
-// ★ 영역 목록(표시 순서). 영역을 바꾸거나 추가하려면 여기만 고치세요. 문제 파일의 deck 이름과 같아야 해요.
+// ★ 영역 목록(표시 순서). 영역을 바꾸거나 추가하려면 여기만 고치세요. 문제 파일의 deck 이름과 같아야 해요 .
 // 파일 이름(file)은 영문으로: 문제 파일은 2020/gamri.json, 길면 gamri-2.json, gamri-3.json … 으로 나눠 올려요.
 // match: 문제의 deck 이름에 이런 글자가 들어 있으면 그 영역으로 자동 분류돼요.
 //   예) '2020년 제21회 감리 및 사업관리' → 감리,  '2020년 제21회 시스템 구조' → 시구
