@@ -133,11 +133,13 @@ function addDays(s,n){const [y,m,d]=String(s).split('-').map(Number);const t=new
   return t.getUTCFullYear()+'-'+String(t.getUTCMonth()+1).padStart(2,'0')+'-'+String(t.getUTCDate()).padStart(2,'0');}
 const fmtDate=s=>{const [y,m,d]=String(s).split('-').map(Number);return m+'월 '+d+'일';};
 // 한 문제의 복습 상태: {round:다음에 할 차수, due:그 차수를 할 수 있는 날} / 5차까지 끝났으면 {round:0,grad:true} / 틀린 적 없으면 null
-// 틀린 날(lastWrong)이 기준이에요. 다시 풀어서 맞혀도 틀린 날은 그대로고, 복습 중에 또 틀리면 그날부터 새로 시작해요.
+// 예전 기록에 lastWrong이 없으면 마지막 풀이일(last)을 복습 기준일로 사용한다.
 function reviewInfo(id){
   const st=S.stats[id];
-  if(!st||!(st.wrong>0)||!st.lastWrong)return null;
-  const base=st.lastWrong,rv=(S.rev[id]&&S.rev[id].base===base)?S.rev[id]:null,done=rv?rv.done:{};
+  if(!st||!(st.wrong>0))return null;
+  const base=st.lastWrong||st.last;
+  if(!base)return null;
+  const rv=(S.rev[id]&&S.rev[id].base===base)?S.rev[id]:null,done=rv?rv.done:{};
   let n=1;while(n<=REVIEW_STEPS.length&&done[n])n++;
   if(n>REVIEW_STEPS.length)return {round:0,grad:true};
   let due=addDays(base,REVIEW_STEPS[n-1].days);
@@ -159,7 +161,7 @@ function reviewUpcoming(n){
 }
 const reviewGraduated=()=>Q.filter(q=>{const i=reviewInfo(q.id);return i&&i.grad;}).length;
 function markReviewDone(id,round){
-  const st=S.stats[id],base=st&&st.lastWrong;if(!base)return;
+  const st=S.stats[id],base=st&&(st.lastWrong||st.last);if(!base)return;
   let rv=S.rev[id];if(!rv||rv.base!==base)rv=S.rev[id]={base,done:{},last:''};
   rv.done[round]=todayStr();rv.last=todayStr();
 }
@@ -213,21 +215,21 @@ const hdr=()=>{const h={apikey:cfg.key,'Content-Type':'application/json'};
   // 예전 anon key(eyJ…)는 Authorization에도 보내고, 새 publishable key(sb_…)는 apikey로만 보낸다
   if(!cfg.key.startsWith('sb_'))h.Authorization='Bearer '+cfg.key;return h;};
 function setSync(s){syncStatus=s;const el=document.getElementById('sync');if(el){el.textContent=syncText();el.className='sync'+(s==='err'?' err':'');}}
-function syncText(){return !syncOn()?'이 기기에만 저장 중':syncStatus==='err'?'동기화 실패 (인터넷 확인)':syncStatus==='ok'?'동기화됨':'동기화 중…';}
+function syncText(){return !syncOn()?'이 기기에만 저장 중':syncStatus==='err'?'동기화 실패 (주소·키 확인)':syncStatus==='missing'?'기록 없음 (주소·코드 확인)':syncStatus==='ok'?'동기화됨':'동기화 중…';}
 async function pull(){
   if(!syncOn())return false;
   try{
     const r=await fetch(base()+'?id=eq.'+encodeURIComponent(cfg.code)+'&select=data',{headers:hdr()});
     if(!r.ok)throw new Error(r.status);
-    const rows=await r.json(); setSync('ok');
-    if(!rows[0]){if(!isPristine(S))push();return false;}
+    const rows=await r.json();
+    if(!rows[0]){setSync('missing');return false;}
     const d=rows[0].data;
-    if(!d)return false;
+    if(!d){setSync('missing');return false;}
     const remote=migrate(d), rEmpty=isPristine(remote), lEmpty=isPristine(S);
+    if(rEmpty){setSync('missing');return false;}
+    setSync('ok');
     // 이 기기에 푼 기록이 없고 서버에는 있으면 → 항상 서버 기록을 받아온다
-    // 이 기기에 푼 기록이 있고 서버가 비어 있으면 → 이 기기 기록을 서버로 올린다 (실수로 덮어쓴 경우 복구)
     if(lEmpty&&!rEmpty){S=remote;localStorage.setItem(LS_STATE,JSON.stringify(S));return true;}
-    if(!lEmpty&&rEmpty){push();return false;}
     if(d.updatedAt>S.updatedAt){S=remote;localStorage.setItem(LS_STATE,JSON.stringify(S));return true;}
     return false;
   }catch(_){setSync('err');return false;}
@@ -395,11 +397,12 @@ function explanationHtml(x){
 function dotsHtml(ids,res,fn,scroll){
   return `<div class="dots${scroll?' scroll':''}">`+ids.map((id,i)=>{
     const r=res[id];
-    let cls=r&&r.tries>0?(isOk(res,id)?'ok':'ng'):'';
+    const historic=res===S.res&&(S.stats[id]||{}).seen>0;
+    let cls=r&&r.tries>0?(isOk(res,id)?'ok':'ng'):historic?'seen':'';
     const w=wrongOf(id);
     if(w>=2)cls+=' often';else if(w>=1)cls+=' flag';
     if(fn==='go'&&view==='quiz'&&i===cur)cls+=' cur';
-    const label=`${i+1}번 문제${w?` (틀린 적 ${w}회)`:''}`;
+    const label=`${i+1}번 문제${historic&&!r?.tries?' (이전 풀이 기록 있음)':''}${w?` (틀린 적 ${w}회)`:''}`;
     return fn?`<button class="dot ${cls}" onclick="${fn}(${i})" aria-label="${label}">${i+1}</button>`
              :`<span class="dot ${cls}">${i+1}</span>`;
   }).join('')+'</div>';
