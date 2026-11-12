@@ -68,7 +68,7 @@ function textWithImages(value,cssClass,alt){
   }
   return html+e(text.slice(last));
 }
-function questionHtml(value){
+function questionTextHtml(value){
   const source=String(value??'');
   const codeBlock=/```sql[ \t]*\r?\n([\s\S]*?)\r?\n```/gi;
   let html='',last=0,match;
@@ -78,6 +78,25 @@ function questionHtml(value){
     last=codeBlock.lastIndex;
   }
   return html+textWithImages(source.slice(last),'qimg','문제 그림');
+}
+function questionHtml(value){
+  const source=String(value??'');
+  const lettered=[...source.matchAll(/(?:^|\n)(?:[가-하]\.\s|\([가-하]\)[ \t]+(?!\([가-하]\)))/g)];
+  if(lettered.length>=2){
+    const start=lettered[0].index+(source[lettered[0].index]==='\n'?1:0);
+    const intro=source.slice(0,start).trimEnd();
+    const items=lettered.map((match,i)=>{
+      const from=match.index+(source[match.index]==='\n'?1:0);
+      const to=i+1<lettered.length?lettered[i+1].index:source.length;
+      return source.slice(from,to).trim();
+    });
+    return `${questionTextHtml(intro)}<div class="given-list">${items.map(item=>`<div class="given-item">${questionTextHtml(item)}</div>`).join('')}</div>`;
+  }
+  const bullets=source.split(/\s+·\s+(?=[가-하]\.\s|[^\s])/);
+  if(bullets.length>=3){
+    return `${questionTextHtml(bullets[0].trimEnd())}<div class="given-list">${bullets.slice(1).map(item=>`<div class="given-item">${questionTextHtml(item.trim())}</div>`).join('')}</div>`;
+  }
+  return questionTextHtml(source);
 }
 function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function defaultState(){return {v:3,updatedAt:0,stats:{},res:{},review:{},rev:{},rsess:{}};}
