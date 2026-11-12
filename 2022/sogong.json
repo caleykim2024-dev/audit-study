@@ -236,7 +236,15 @@
   {
     "id": "2022년 제23회 소프트웨어 공학-44",
     "deck": "2022년 제23회 소프트웨어 공학",
-    "question": "다음의 Cause-Effect Graph에서 C1과 C2의 각 값에 대한 A1, A2, A3의 값으로 가장 적절한 것은?\n가 나 다 라 C1 T T F F C2 T F T F A1 T T T T A2 T F F F A3 T T F T",
+    "question": "다음 Cause-Effect Graph의 값 중 올바른 열은 어느 것인가? (T: 참, F: 거짓)",
+    "table": [
+      ["조건·결과", "가", "나", "다", "라"],
+      ["C1", "T", "T", "F", "F"],
+      ["C2", "T", "F", "T", "F"],
+      ["A1", "T", "T", "T", "T"],
+      ["A2", "T", "F", "F", "F"],
+      ["A3", "T", "T", "F", "T"]
+    ],
     "choices": [
       "가",
       "나",
