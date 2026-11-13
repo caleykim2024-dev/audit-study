@@ -383,7 +383,14 @@
   {
     "id": "2022년 제23회 데이터베이스-71",
     "deck": "2022년 제23회 데이터베이스",
-    "question": "다음은 정보 검색, 텍스트 마이닝에서 문서 집합 과 용어에 대한 TFIDF의 개념을 설명한다. 만일, 문서 집합 D에 다음과 같이 d1, d2의 두 문서만 존재한다고 할 때, 용어 “this”에 대한 TFIDF 값이 옳은 것은?\n- TF는 term frequency의 약어로, 해당 용어가 주어 진 문서에 얼마나 많이 나타나는지를 나타낸다. - IDF는 inverse document frequency의 약어로, 해당 용어가 문서 집합에 얼마나 많이 나타나는 지에 대한 역수를 나타낸다. - TFIDF는 문서 집합에서 특정 단어가 주어진 문 서 내에서 얼마나 중요한 것인지를 나타내는 통 계적 수치이다.\n문서 d1 문서 d2 용어 출현 횟수 용어 출현 횟수 this 1 this 2 is 1 is 1 a 2 another 1 sample 1 example 1",
+    "question": "다음은 정보 검색, 텍스트 마이닝에서 문서 집합과 용어에 대한 TFIDF의 개념을 설명한다. 만일 문서 집합 D에 다음과 같이 d1, d2의 두 문서만 존재한다고 할 때, 용어 “this”에 대한 TFIDF 값이 옳은 것은?\n\n- TF는 term frequency의 약어로, 해당 용어가 주어진 문서에 얼마나 많이 나타나는지를 나타낸다.\n- IDF는 inverse document frequency의 약어로, 해당 용어가 문서 집합에 얼마나 많이 나타나는지에 대한 역수를 나타낸다.\n- TFIDF는 문서 집합에서 특정 단어가 주어진 문서 내에서 얼마나 중요한 것인지를 나타내는 통계적 수치이다.",
+    "table": [
+      ["문서 d1: 용어", "출현 횟수", "문서 d2: 용어", "출현 횟수"],
+      ["this", "1", "this", "2"],
+      ["is", "1", "is", "1"],
+      ["a", "2", "another", "1"],
+      ["sample", "1", "example", "1"]
+    ],
     "choices": [
       "TFIDF(“this”, d1, D) = 0, TFIDF(“this”, d2, D) = 0",
       "TFIDF(“this”, d1, D) = 0.1, TFIDF(“this”, d2, D) = 0.2",
