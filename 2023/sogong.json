@@ -1,0 +1,460 @@
+[
+  {
+    "id": "2023년 제24회 소프트웨어 공학-26",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 Sequence diagram의 동작에서 적용된 디자인 패턴으로 가장 적절한 것은?",
+    "choices": [
+      "Iterator",
+      "Strategy",
+      "State",
+      "Chain of Responsibility"
+    ],
+    "answer": 4,
+    "explanation": "요청을 처리할 수 있는 객체를 만날 때까지 다음 객체로 계속 넘기는 구조는 책임 연쇄(Chain of Responsibility) 패턴이다. 시퀀스 다이어그램에서 같은 종류의 객체들이 한 줄로 이어 호출을 전달하는 모습이 전형적인 신호다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-27",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음은 3개의 Condition과 2개의 Action으로 구성된 Decision Table이다. TC1, TC2, TC3, TC4 네 개의 테스트케이스를 사용하는 경우 커버리지는?",
+    "tables": [
+      {
+        "title": "Decision Table",
+        "rows": [
+          [
+            "조건 / 동작",
+            "Rule 1",
+            "Rule 2",
+            "Rule 3",
+            "Rule 4",
+            "Rule 5",
+            "Rule 6",
+            "Rule 7",
+            "Rule 8"
+          ],
+          [
+            "C1: -100 <= X",
+            "T",
+            "T",
+            "T",
+            "T",
+            "F",
+            "F",
+            "F",
+            "F"
+          ],
+          [
+            "C2: 150 < Y",
+            "T",
+            "T",
+            "F",
+            "F",
+            "T",
+            "T",
+            "F",
+            "F"
+          ],
+          [
+            "C3: X+Y >= 150",
+            "T",
+            "F",
+            "T",
+            "F",
+            "T",
+            "F",
+            "T",
+            "F"
+          ],
+          [
+            "A1",
+            "T",
+            "F",
+            "F",
+            "T",
+            "T",
+            "F",
+            "F",
+            "T"
+          ],
+          [
+            "A2",
+            "T",
+            "T",
+            "T",
+            "F",
+            "T",
+            "T",
+            "T",
+            "F"
+          ]
+        ]
+      },
+      {
+        "title": "테스트케이스",
+        "rows": [
+          [
+            "TC",
+            "X",
+            "Y"
+          ],
+          [
+            "TC1",
+            "-200",
+            "0"
+          ],
+          [
+            "TC2",
+            "0",
+            "200"
+          ],
+          [
+            "TC3",
+            "-100",
+            "150"
+          ],
+          [
+            "TC4",
+            "-100",
+            "250"
+          ]
+        ]
+      }
+    ],
+    "choices": [
+      "1 / 8",
+      "2 / 8",
+      "3 / 8",
+      "4 / 8"
+    ],
+    "answer": 3,
+    "explanation": "각 테스트케이스가 어느 규칙(Rule)에 해당하는지 따져 보면, TC1(X=−200, Y=0)은 (F,F,F)로 Rule 8, TC2(X=0, Y=200)는 (T,T,T)로 Rule 1, TC3(X=−100, Y=150)은 (T,F,F)로 Rule 4, TC4(X=−100, Y=250)는 (T,T,T)로 다시 Rule 1이다. 서로 다른 규칙은 1, 4, 8의 3개뿐이므로 커버리지는 3/8이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-28",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "Robert C. Martin은 clean architecture를 설명하 면서 컴포넌트 결합도에 대한 3가지 원칙을 제시 하였다. 이에 대한 설명 중 가장 적절하지 않은 것은?",
+    "choices": [
+      "자신보다 재사용성이 높은 컴포넌트에 의존해야 한다.",
+      "컴포넌트간의 의존성에 사이클이 존재하지 않아 야 한다.",
+      "자신보다 안정적(stable)인 컴포넌트에 의존해 야 한다.",
+      "자신보다 추상화된 컴포넌트에 의존해야 한다."
+    ],
+    "answer": 1,
+    "explanation": "로버트 마틴의 컴포넌트 결합도 3원칙은 ADP(의존성 비순환), SDP(안정된 의존성: 자신보다 안정적인 쪽에 의존), SAP(안정된 추상화: 안정적일수록 추상적)이다. '재사용성이 높은 쪽에 의존'은 결합도 3원칙에 없는 서술이므로 ①이 부적절하다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-29",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 중 인공신경망을 테스팅 할 때 사용할 수 있 는 커버리지로 가장 적절하지 않은 것은?",
+    "choices": [
+      "Neuron coverage",
+      "Layer coverage",
+      "Component coverage",
+      "Sign-sign coverage"
+    ],
+    "answer": 3,
+    "explanation": "인공신경망 테스트에는 Neuron coverage, Layer coverage(Top-k), Neuron boundary coverage, Sign-sign coverage 등 뉴런·계층의 활성 상태를 기준으로 한 커버리지를 쓴다. Component coverage는 전통적 구조 테스트 용어로 신경망 커버리지에 해당하지 않는다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-30",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 설명으로 가장 적절한 용어는? 악의적인 행위자가 시스템에 무단으로 진입하거나 악의적인 행동을 유발하는 데 사용될 수 있는 소 프트웨어 아키텍처 및 소스 코드의 문제점을 말하 며, 최근 소프트웨어 시스템에 영향을 미치는 다 른 심각한 약점을 수용하기 위해 보안을 넘어 그 범위가 확장되고 있다.",
+    "choices": [
+      "Common Weakness Enumeration",
+      "Technical Debt",
+      "Bad Smells",
+      "Anti-patterns"
+    ],
+    "answer": 1,
+    "explanation": "소프트웨어 아키텍처와 소스 코드에 존재하는 약점을 목록화한 표준 분류 체계가 CWE(Common Weakness Enumeration)다. 최근에는 보안뿐 아니라 품질·신뢰성 약점까지 범위가 넓어지고 있다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-31",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "OMG에서는 하드웨어 등을 포함한 복잡한 시스템 을 모델링하기 위한 목적으로 SysML을 정의하였 다. SysML을 구성하는 일부 다이어그램은 UML을 차용하였다. 다음 중 SysML과 UML에 공통적으로 존재하는 다이어그램으로 가장 적절한 것은?",
+    "choices": [
+      "Use case diagram",
+      "Class diagram",
+      "Component diagram",
+      "Requirement diagram"
+    ],
+    "answer": 1,
+    "explanation": "SysML은 UML의 일부 다이어그램을 그대로 차용했는데, 유스케이스·시퀀스·상태머신·패키지 다이어그램이 여기에 해당한다. 클래스 다이어그램은 블록정의 다이어그램(BDD)으로 대체되었고, 컴포넌트 다이어그램은 SysML에 없으며, 요구사항 다이어그램은 SysML 고유 다이어그램이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-32",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "CMMI-DEV(CMMI for Development)는 소프트웨어 개발 시 프로세스 품질을 향상시킬 수 있는 가 이드라인이다. 다음은 CMMI-DEV의 22개 프로세스 영역 중 일부이다. 이 중 분류체계 성격이 가장 다른 것은 어느 것인가?",
+    "choices": [
+      "Configuration Management(CM)",
+      "Technical Solution(TS)",
+      "Decision Analysis and Resolution(DAR)",
+      "Causal Analysis and Resolution(CAR)"
+    ],
+    "answer": 2,
+    "explanation": "CMMI-DEV의 프로세스 영역은 프로세스 관리·프로젝트 관리·엔지니어링·지원의 4개 범주로 나뉜다. CM, DAR, CAR는 모두 지원(Support) 범주이고 TS(Technical Solution)만 엔지니어링 범주이므로 성격이 다르다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-33",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "Software Engineering Institute(SEI) 아키텍처 뷰 모델 중 다음 설명에 해당하는 뷰(View)로 가 장 적절한 것은? Ÿ 데이터의 생성과 소비에 관련된 내용으로 컴포 넌트들에 감지된 이벤트를 통해 상호작용한다. Ÿ 데이터의 생성자와 사용자를 구분하고 이벤트 를 통하여 정보의 사용을 관리한다. Ÿ 모든 컴포넌트는 이벤트 분배자(Distributor) 에 연결된다.",
+    "choices": [
+      "Peer to Peer View",
+      "Client-Server View",
+      "Pipe and Filter View",
+      "Publish-Subscribe View"
+    ],
+    "answer": 4,
+    "explanation": "데이터 생산자와 소비자를 분리하고 이벤트 분배자를 통해 모든 컴포넌트가 연결되는 구조는 발행-구독(Publish-Subscribe) 뷰다. 생산자는 누가 받는지 모른 채 이벤트를 던지고, 구독자는 관심 있는 이벤트만 받는다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-34",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "ISO/IEC/IEEE 29119는 소프트웨어 테스트에 대한 표준을 정의하고 있다. 다음 중 ISO/IEC/IEEE 29119 파트 2에 정의된 전체적 적합성(full conformance)과 맞춤형 적합 성(tailored conformance)에 대한 설명 중 가장 적절한 것은?",
+    "choices": [
+      "전체적 적합성은 모든 프로세스의 요구사항을 전 부 만족하는 것이고, 맞춤형 적합성은 프로세스 의 일부의 요구사항을 모두 만족하는 것이다.",
+      "전체적 적합성은 모든 프로세스의 요구사항을 전부 만족하는 것이고, 맞춤형 적합성은 일부 프로세스의 일부 요구사항을 만족하는 것이다.",
+      "전체적 적합성은 합의된 프로세스의 요구사항을 모두 만족하는 것이고, 맞춤형 적합성은 합의된 프로세스의 일부를 만족하는 것이다.",
+      "전체적 적합성은 모든 프로세스의 요구사항과 권 고사항을 전부 만족하는 것이고, 맞춤형 적합성은 모든 프로세스의 요구사항만을 만족하는 것이다."
+    ],
+    "answer": 1,
+    "explanation": "ISO/IEC/IEEE 29119-2의 전체적 적합성(full conformance)은 표준에 정의된 모든 프로세스의 요구사항을 전부 만족하는 것이고, 맞춤형 적합성(tailored conformance)은 선택한 일부 프로세스에 대해 그 요구사항을 모두 만족하는 것이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-35",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 설명에 해당하는 아키텍처 스타일로 가장 적절한 것은? 사용자 인터페이스를 시스템의 다른 부분과 분리 하여 결합도를 낮추기 위한 아키텍처 스타일로, 사용자 인터페이스를 담당하는 계층의 응집력을 높일 수 있고, 여러 개의 다른 UI를 만들어 그 사 이에 결합도를 낮출 수 있다.",
+    "choices": [
+      "Event-Driven style",
+      "Client-Server style",
+      "Model-View-Controller style",
+      "Layered style"
+    ],
+    "answer": 3,
+    "explanation": "사용자 인터페이스를 모델·제어 로직과 분리해 UI 계층의 응집도를 높이고 여러 UI를 갈아끼울 수 있게 하는 아키텍처 스타일은 MVC(Model-View-Controller)다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-36",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음은 웹 SOA(service oriented architecture) 에 대한 주요 표준과 이들에 대한 설명이다. 상 호간의 연결이 가장 적절한 것은? [설명] A. 여러 개의 다른 서비스를 포함하는 프로세스 프로그램을 정의하는데 사용되는 워크플로우 언어 B. 서비스 인터페이스 정의에 대한 표준 C. 서비스들 간의 통신을 지원하는 메시지 교환 표준 [주요 표준]\n\n가. SOAP\n나. WSDL\n다. WS-BPEL",
+    "choices": [
+      "가-A, 나-B, 다-C",
+      "가-B, 나-C, 다-A",
+      "가-C, 나-A, 다-B",
+      "가-C, 나-B, 다-A"
+    ],
+    "answer": 4,
+    "explanation": "SOAP는 서비스 간 메시지 교환 표준(C), WSDL은 서비스 인터페이스 정의 표준(B), WS-BPEL은 여러 서비스를 엮는 워크플로우 언어(A)다. 따라서 가-C, 나-B, 다-A가 맞는 연결이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-37",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "애자일 프로젝트 관리 방법인 스크럼(scrum)에 대한 설명 중 가장 적절하지 않은 것은?",
+    "choices": [
+      "스크럼(scrum)은 소프트웨어 개발 팀이며 7명을 넘지 않을 것을 권장한다.",
+      "스프린트(sprint)는 개발에서 이루어지는 반복 을 의미하며 주로 2~4주 길이로 구성한다.",
+      "제품 백로그(product backlog)는 해야 할 일에 대 한 목록이며 소프트웨어 요구사항 등이 포함된다.",
+      "스크럼 마스터(scrum master)는 프로젝트 관리 자와 유사한 역할이며 팀이 스크럼 프로세스를 효과적으로 따를 수 있도록 한다."
+    ],
+    "answer": 1,
+    "explanation": "스크럼은 애자일 개발 프레임워크의 이름이지 개발 팀 자체를 가리키는 용어가 아니며, 스크럼 가이드가 권장하는 규모도 개발자 기준 3~9명이다. 따라서 ①이 가장 부적절하다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-38",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 중 CMMI 수준 3인 정의(defined) 단계의 프로 세스 영역에 해당하는 것으로 가장 적절한 것은?\n\n가. 위험 관리(Risk Management)\n나. 통합 프로젝트 관리(Integrated Project Management)\n다. 정량적 프로젝트 관리(Quantitative Project Management)\n라. 조직 프로세스 정의(Organizational Process Definition)\n마. 조직 프로세스 성과 관리(Organizational Process Performance)",
+    "choices": [
+      "가, 나, 라",
+      "가, 나, 마",
+      "나, 다, 라",
+      "다, 라, 마"
+    ],
+    "answer": 1,
+    "explanation": "CMMI 성숙도 3단계(정의)의 프로세스 영역에는 위험 관리(RSKM), 통합 프로젝트 관리(IPM), 조직 프로세스 정의(OPD)가 포함된다. 정량적 프로젝트 관리(QPM)와 조직 프로세스 성과(OPP)는 '숫자로 관리'하는 4단계(정량적 관리) 영역이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-39",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "마이크로서비스(microservice) 아키텍처의 특징 에 대한 설명 중 가장 적절하지 않은 것은?",
+    "choices": [
+      "각 컴포넌트는 응집력이 있고 독립적이며 자체 배 포가 가능하여 지속적 통합과 배포에 적합하다.",
+      "특정 컴포넌트에서 장애가 일어나더라도 이를 격리하여 애플리케이션 전체가 중단되지 않도록 할 수 있다.",
+      "컴포넌트들은 서로 느슨하게 결합되어 있고 각 각 독립된 기능을 제공하며 단일 데이터베이스 를 중심으로 통합된다.",
+      "마이크로서비스 간 통신은 오케스트레이션 (orchestration) 또는 코레오그래피(choreography) 방식을 사용할 수 있다."
+    ],
+    "answer": 3,
+    "explanation": "마이크로서비스는 서비스마다 자기 데이터베이스를 갖는 'Database per Service'가 원칙이다. 단일 데이터베이스를 중심으로 통합된다고 한 ③은 오히려 모놀리식의 특징이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-40",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 UML State Machine 다이어그램의 Y 상태에 서 signal 이벤트를 받았을 때 Z 상태로 전이하 면서 실행되는 액션의 순서로 가장 적절한 것은?",
+    "choices": [
+      "A, B, C, E, D",
+      "B, C, A, D, E",
+      "C, B, A, E, D",
+      "D, C, A, B, E"
+    ],
+    "answer": 2,
+    "explanation": "UML 상태머신에서 전이가 일어날 때 실행 순서는 '떠나는 상태의 exit 동작 → 전이(transition)에 붙은 effect → 도착 상태의 entry 동작'이다. 중첩 상태가 있으면 exit은 안쪽부터 바깥쪽으로, entry는 바깥쪽부터 안쪽으로 실행된다. 이 규칙을 그림에 적용하면 B, C, A, D, E 순서가 된다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-41",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "각 개발 단계에서 생성된 결함의 수와 발견된 결함의 수는 다음 표와 같다. 단계별 PCE(Phase Containment Effectiveness)가 큰 단계에서 작은 단계의 순서대로 바르게 나열한 것은?",
+    "table": [
+      [
+        "결함 생성 단계 / 결함 발견 단계",
+        "분석",
+        "설계",
+        "구현",
+        "테스트"
+      ],
+      [
+        "분석",
+        "114",
+        "27",
+        "4",
+        "15"
+      ],
+      [
+        "설계",
+        "-",
+        "93",
+        "6",
+        "24"
+      ],
+      [
+        "구현",
+        "-",
+        "-",
+        "213",
+        "105"
+      ]
+    ],
+    "choices": [
+      "분석 - 설계 – 구현",
+      "분석 – 구현 - 설계",
+      "설계 – 구현 – 분석",
+      "설계 – 분석 – 구현"
+    ],
+    "answer": 4,
+    "explanation": "PCE = (그 단계에서 생성되어 그 단계에서 발견된 결함) / (그 단계에서 생성된 전체 결함)이다. 분석은 114/(114+27+4+15)=114/160≈0.713, 설계는 93/(93+6+24)=93/123≈0.756, 구현은 213/(213+105)=213/318≈0.670이므로 큰 순서는 설계 → 분석 → 구현이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-42",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "Git 명령어에 대한 설명으로 가장 적절한 것은?",
+    "choices": [
+      "git push – 원격 저장소의 모든 내용을 로컬 저 장소로 복사한다.",
+      "git fetch – 로컬 저장소의 변경 사항을 원격 저 장소로 보낸다.",
+      "git pull – git remote 명령을 통해 서로 연결 된 원격 저장소의 최신 내용을 로컬 저장소로 가져오면서 병합한다.",
+      "git clone – 로컬 저장소와 원격 저장소의 변경 사항이 다를 때 이를 비교 대조하고 git merge 명령어와 함께 최신 데이터를 반영하거나 충돌 문제 등을 해결한다."
+    ],
+    "answer": 3,
+    "explanation": "git pull은 원격 저장소의 최신 내용을 가져온 뒤(fetch) 현재 브랜치에 병합(merge)까지 수행한다. ①은 clone, ②는 push, ④는 fetch에 대한 설명이라 서로 뒤바뀌어 있다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-43",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 그림은 메인라인, 베이스라인, 코드라인의 관계를 나타낸다. A, B, C를 각각의 코드라고 할 때, (가)~(다)에 해당하는 것을 바르게 연결한 것은? (가) (나) (다)",
+    "choices": [
+      "코드라인 메인라인 베이스라인",
+      "베이스라인 코드라인 메인라인",
+      "코드라인 베이스라인 메인라인",
+      "메인라인 베이스라인 코드라인"
+    ],
+    "answer": 1,
+    "explanation": "코드라인은 개별 코드의 버전 계보, 메인라인은 그 코드라인들이 최종적으로 모이는 주 개발 줄기, 베이스라인은 특정 시점에 공식 승인되어 고정된 형상이다. 이 관계에 따라 (가) 코드라인, (나) 메인라인, (다) 베이스라인이 된다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-44",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 컴포넌트 Cc의 안정성(stability) 지표로 가장 적절한 것은?",
+    "choices": [
+      "Fan-in: 3, Fan-out: 1, I(Instability): 1/4",
+      "Fan-in: 1, Fan-out: 3, I(Instability): 1/4",
+      "Fan-in: 3, Fan-out: 1, I(Instability): 3/4",
+      "Fan-in: 1, Fan-out: 3, I(Instability): 3/4"
+    ],
+    "answer": 1,
+    "explanation": "Fan-in은 자신을 사용하는(들어오는) 의존의 수, Fan-out은 자신이 사용하는(나가는) 의존의 수이며, 불안정도 I = Fan-out / (Fan-in + Fan-out)이다. 그림에서 Fan-in 3, Fan-out 1이므로 I = 1/(3+1) = 1/4이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-45",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 소스 코드 커버리지의 포함 관계에서 (가)~(라)에 해당하는 항목으로 바르게 연결한 것은?",
+    "choices": [
+      "(가) 구문커버리지 (나) 조건/결정커버리지 (다) 변경조건/결정커버리지 (라) 다중 조건 커버리지",
+      "(가) 다중 조건 커버리지 (나) 조건/결정커버리지 (다) 변경조건/결정커버리지 (라) 구문커버리지",
+      "(가) 구문커버리지 (나) 변경조건/결정커버리지 (다) 조건/결정커버리지 (라) 다중 조건 커버리지",
+      "(가) 다중 조건 커버리지 (나) 변경조건/결정커버리지 (다) 조건/결정커버리지 (라) 구문커버리지"
+    ],
+    "answer": 4,
+    "explanation": "커버리지 포함 관계는 다중조건 ⊃ 변경조건/결정(MC/DC) ⊃ 조건/결정 ⊃ 결정 ⊃ 구문 순으로 강하다. 가장 바깥인 (가)가 다중 조건 커버리지, 가장 안쪽인 (라)가 구문 커버리지이므로 ④가 맞다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-46",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음은 JUnit4의 코드 골격이다. 테스트 수행시 에 메소드들의 수행순서로 가장 적절한 것은? public class TestSample { @BeforeClass public static void a() { } @AfterClass public static void b() { } @Before public void c() { } @After public void d() { } @Test public void t1() { } @Test public void t2() { } }",
+    "choices": [
+      "a(), b(), c(), d(), t1(), t2()",
+      "a(), c(), t1(), t2(), d(), b()",
+      "a(), c(), t1(), d(), c(), t2(), d(), b()",
+      "a(), c(), t1(), d(), b(), a(), c(), t2(), d(), b()"
+    ],
+    "answer": 3,
+    "explanation": "JUnit4는 @BeforeClass를 클래스당 한 번 실행하고, 각 @Test마다 @Before → @Test → @After를 반복한 뒤, 마지막에 @AfterClass를 한 번 실행한다. 따라서 a(), c(), t1(), d(), c(), t2(), d(), b() 순서가 된다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-47",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 중 Release testing에 대한 설명으로 가장 적절한 것은?",
+    "choices": [
+      "심각한 결함을 유발하는 버그들을 검출하기 위 해 결함 테스팅을 수행한다.",
+      "시스템을 개발한 팀원들로 구성된 검증팀을 따 로 만들어 테스팅을 수행한다.",
+      "외부 배포 이전에 시스템의 요구명세 기반 블랙 박스 테스팅을 수행한다.",
+      "시스템 테스팅에서 확인된 요구사항은 제외하고 변경 항목들을 테스트한다."
+    ],
+    "answer": 3,
+    "explanation": "릴리즈 테스팅은 외부 배포 직전에 시스템이 요구명세를 만족하는지 확인하는 블랙박스 기반 시스템 테스팅이다. 개발팀과 독립된 조직이 수행하고, 결함을 찾는 것보다 '배포해도 되는가'를 판정하는 데 목적이 있다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-48",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 상황에 부합하는 유지보수 유형으로 가장 적 절한 것은? 데이터베이스 내에서 데이터 세트를 재구성하여 더 빠르게 검색하고 스토리지를 더 적게 사용하도록 성능향상 작업을 진행하고자 한다.",
+    "choices": [
+      "수정형 유지보수(corrective maintenance)",
+      "적응형 유지보수(adaptive maintenance)",
+      "완전형 유지보수(perfective maintenance)",
+      "예방형 유지보수(preventive maintenance)"
+    ],
+    "answer": 3,
+    "explanation": "동작에 문제가 없는 상태에서 검색 속도와 저장 효율을 높이려는 성능 개선 작업은 완전형(perfective) 유지보수다. 수정형은 결함 제거, 적응형은 환경 변화 대응, 예방형은 장래 문제 예방이 목적이다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-49",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음에 설명하는 4가지 유형의 소프트웨어 형상 관리 활동에 해당하지 않은 것은? A. 베이스라인을 설정하고 식별된 모든 형상 항목에 식별자를 부여한다. B. 변경요청이 발생했을 때 해당 변경에 대한 평가, 조정, 변경 승인 등의 활동을 수행한다. C. 형상 항목에 대한 변경 히스토리를 기록하고 보고 한다. D. 개발된 소프트웨어 제품이 승인된 제품의 명세와 정확히 일치하는지를 평가한다.",
+    "choices": [
+      "Configuration Status Accounting",
+      "Configuration Identification",
+      "Configuration Verification",
+      "Configuration Control"
+    ],
+    "answer": 3,
+    "explanation": "소프트웨어 형상관리의 4대 활동은 형상 식별(Identification), 형상 통제(Control), 형상 상태 보고(Status Accounting), 형상 감사(Audit)다. 지문 A는 식별, B는 통제, C는 상태 보고, D는 감사에 해당하므로 보기 중 Configuration Verification만 해당 활동이 아니다."
+  },
+  {
+    "id": "2023년 제24회 소프트웨어 공학-50",
+    "deck": "2023년 제24회 소프트웨어 공학",
+    "question": "다음 중 (가)~(다)에 들어갈 용어를 순서대로 가장 적절하게 나열한 것은? SPICE는 소프트웨어 개발 프로세스 개선을 목적으 로 제정된 ISO 15504 표준의 별칭으로, L0: Incomplete Process, L1: (가) Process, L2: (나) Process, L3: (다) Process, L4: Predictable Process, L5: Optimizing Process로 총 6레벨의 성 숙도로 정의되어 있다.",
+    "choices": [
+      "Managed, Established, Performed",
+      "Managed, Performed, Established",
+      "Established, Performed, Managed",
+      "Performed, Managed, Established"
+    ],
+    "answer": 4,
+    "explanation": "SPICE(ISO/IEC 15504)의 프로세스 수행 능력 6수준은 L0 불완전(Incomplete), L1 수행(Performed), L2 관리(Managed), L3 확립(Established), L4 예측(Predictable), L5 최적화(Optimizing)다."
+  }
+]
