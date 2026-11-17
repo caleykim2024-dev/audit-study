@@ -1,0 +1,354 @@
+[
+  {
+    "id": "2023년 제24회 데이터베이스-51",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "ISO 8000의 데이터 품질 기준 관련하여 다음 괄 호안에 적합한 용어는? ( ) 오류는 데이터가 표준 코드 값 또는 표준도메인 값에 위배될 경우 발생한다.",
+    "choices": [
+      "충분성",
+      "사실성",
+      "적합성",
+      "필수성"
+    ],
+    "answer": 3,
+    "explanation": "데이터가 표준 코드 값이나 표준 도메인 값의 범위를 벗어날 때 발생하는 오류는 적합성(conformance) 오류다. 정해진 형식·코드집합을 '따르고 있는가'를 보는 기준이다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-52",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "고정 길이 레코드 방식을 사용할 때, 레코드의 길이가 300 바이트, 블록의 크기가 4096 바이트, 블록 헤더의 길이가 12 바이트라고 가정한다. 다 음 중 15개의 레코드를 저장하는 상황을 잘 표현 한 것은?",
+    "choices": [
+      "첫 번째 블록에는 196 바이트가 남는다.",
+      "두 번째 블록에는 3,484 바이트가 남는다.",
+      "두 번째 블록에는 3,494 바이트가 남는다.",
+      "두 번째 블록에는 3,784 바이트가 남는다."
+    ],
+    "answer": 2,
+    "explanation": "블록에서 헤더 12바이트를 빼면 4096−12=4084바이트를 쓸 수 있고, 4084÷300=13.6이므로 한 블록에 13개가 들어간다. 첫 블록은 13×300=3900을 쓰고 184바이트가 남으므로 ①의 196은 틀리다. 두 번째 블록에는 나머지 2개(600바이트)만 들어가므로 4084−600=3484바이트가 남는다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-53",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 ERD(Entity Relationship Diagram)에서 수퍼키(superkey)에 해당되지 않는 것은? (단, Registration과 Vehicle_id는 각각 후보키이다.)",
+    "choices": [
+      "(State, Year, Model)",
+      "(Vehicle_id, Number)",
+      "(Registration, State)",
+      "(Registration, Vehicle_id, Year)"
+    ],
+    "answer": 1,
+    "explanation": "수퍼키는 후보키를 포함하는 모든 속성 집합이다. 후보키가 Registration과 Vehicle_id이므로 ②③④는 모두 후보키를 포함해 수퍼키가 되지만, (State, Year, Model)은 어느 후보키도 포함하지 않아 수퍼키가 아니다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-54",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "릴레이션 R과 S에 대하여 |R| = 7, |S| = 6이다. 다음 릴레이션 연산결과의 상한값 중 가장 작은 값은?",
+    "choices": [
+      "|R∪S|",
+      "|R∩S|",
+      "|R-S|",
+      "|R×S|"
+    ],
+    "answer": 2,
+    "explanation": "상한값은 합집합 |R∪S| ≤ 7+6=13, 교집합 |R∩S| ≤ min(7,6)=6, 차집합 |R−S| ≤ 7, 카티전 곱 |R×S| = 7×6=42다. 이 중 가장 작은 상한은 교집합의 6이다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-55",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "ER 모델의 약한 개체(weak entity)에 대한 설명 으로 옳지 않은 것은?",
+    "choices": [
+      "자기 자신의 키 속성을 가지지 않는 개체 타입을 약한 개체 타입이라고 한다.",
+      "약한 개체를 강한 개체와 연결시키는 관계 타입 을 식별 관계라고 부른다.",
+      "약한 개체가 식별 관계에 대해 전체 참여 제약 을 가질 필요는 없다.",
+      "모든 존재 종속(existence dependency)이 약한 개체 타입이 될 필요는 없다."
+    ],
+    "answer": 3,
+    "explanation": "약한 개체는 식별 관계를 통해서만 존재할 수 있으므로 그 식별 관계에 대해 반드시 전체 참여(total participation) 제약을 가진다. 가질 필요가 없다고 한 ③이 틀렸다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-56",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 ER 다이어그램을 관계 모델로 변환할 경우 릴레이션의 개수로 가장 적절한 것은? (단, ER 다이어그램의 이중선은 전체 참여를, 이중타원은 다치 속성을, 밑줄을 친 속성은 키 속성을 의미 한다.)",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 3,
+    "explanation": "EMPLOYEE, PROJECT 두 개체가 각각 릴레이션이 되고, M:N 관계인 WORKS_ON이 별도 릴레이션이 되며, 다치 속성인 Location이 다시 별도 릴레이션으로 분리되어 총 4개가 된다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-57",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 뷰(view)의 변경 연산에 대해 적절하게 설 명된 것을 모두 나열한 것은?\n\n가. 두 개 이상의 테이블이 관련되어 정의된 뷰는변경할 수 없다.\n나. DISTINCT, GROUP BY가 사용되어 정의된 뷰는변경할 수 없다.\n다. 기본 테이블의 기본 키를 구성하는 속성이 포함되어있지 않은 뷰는 변경할 수 없다.\n라. 뷰의 열이 상수나 산술 연산자 또는 함수가 사용 된 산술식으로 만들어진 뷰는 변경할 수 없다.",
+    "choices": [
+      "가, 다, 라",
+      "나, 다, 라",
+      "가, 나, 라",
+      "가, 나, 다, 라"
+    ],
+    "answer": [
+      2,
+      4
+    ],
+    "explanation": "확정답안에서 ②와 ④가 모두 정답으로 인정된 복수정답 문항이다. 나(DISTINCT·GROUP BY 사용), 다(기본키 미포함), 라(상수·산술식 열)는 뷰 변경이 불가능한 전형적인 사유라 이견이 없다. 가(두 개 이상 테이블이 관련된 조인 뷰)는 '변경 불가'로 보는 교과서적 서술과 '조건에 따라 갱신 가능'으로 보는 실제 DBMS 동작이 갈려 ②와 ④가 함께 인정되었다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-58",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "속성 X, Y, Z를 포함하는 릴레이션 R(X, Y, Z)에 존재하는 함수 종속(functional dependency)에서 항상 성립하는 추론 규칙으로 옳지 않은 것은?",
+    "choices": [
+      "X ⊇ Y 이면 X → Y",
+      "X → YZ 이면 X → Y 이고 X → Z",
+      "X → Y 이면 임의의 Z에 대해 XZ → YZ",
+      "XZ → YZ 이면 임의의 Z에 대해 X → Y"
+    ],
+    "answer": 4,
+    "explanation": "암스트롱 공리에서 X→Y이면 XZ→YZ(증가 규칙)는 성립하지만, 그 역인 XZ→YZ에서 X→Y를 끌어낼 수는 없다. 양변에서 Z를 똑같이 떼어내는 '감소' 규칙은 존재하지 않으므로 ④가 틀렸다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-59",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "아래 릴레이션 A(P, Q, R)와 B(Q, R, S)로부터 결과 릴레이션 C(P, Q, R, S)를 얻는 관계 대수 연산은?",
+    "tables": [
+      {"title": "A", "rows": [
+        ["P", "Q", "R"],
+        ["p1", "q1", "r1"],
+        ["p2", "q1", "r1"],
+        ["p3", "q1", "r2"],
+        ["p4", "q2", "r3"]
+      ]},
+      {"title": "B", "rows": [
+        ["Q", "R", "S"],
+        ["q1", "r1", "s1"],
+        ["q1", "r1", "s2"],
+        ["q2", "r3", "s3"]
+      ]},
+      {"title": "결과 C", "rows": [
+        ["P", "Q", "R", "S"],
+        ["p1", "q1", "r1", "s1"],
+        ["p1", "q1", "r1", "s2"],
+        ["p2", "q1", "r1", "s1"],
+        ["p2", "q1", "r1", "s2"],
+        ["p3", "q1", "r2", "NULL"],
+        ["p4", "q2", "r3", "s3"]
+      ]}
+    ],
+    "choices": [
+      "A ⋈N B (자연 조인)",
+      "A ⋈+ B (외부 조인)",
+      "A ⋉ B (세미 조인)",
+      "A ⋃+ B (외부 합집합)"
+    ],
+    "answer": 2,
+    "explanation": "결과 C에는 B와 짝이 없는 A의 튜플(p3, q1, r2)이 NULL을 채운 채 남아 있다. 짝이 없는 튜플을 버리지 않고 NULL로 보존하는 연산은 외부 조인이다. 자연 조인이면 그 행이 사라지고, 세미 조인이면 A의 속성만 남는다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-60",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "EMPLOYEE 테이블의 Dno 열에 대해 다음과 같은 참조 무결성이 선언되었다고 할 때, 이와 관련된 설명으로 옳은 것은?\n\n```sql\nCONSTRAINT EmpDeptFK FOREIGN KEY(Dno) REFERENCES DEPARTMENT(Dnumber)\nON DELETE SET DEFAULT\nON UPDATE CASCADE\n```",
+    "choices": [
+      "EMPLOYEE 테이블의 Dno 값이 삭제되면 DEPARTMENT 의 Dnumber 값은 디폴트 값으로 설정된다.",
+      "EMPLOYEE 테이블의 Dno 값이 갱신되면 DEPARTMENT 의 Dnumber 값도 그 값으로 갱신된다.",
+      "DEPARTMENT의 Dnumber 값이 삭제되면 EMPLOYEE 테이블의 Dno 값은 NULL 값으로 설정된다.",
+      "DEPARTMENT의 Dnumber 값이 갱신되면 EMPLOYEE 테이블의 Dno 값도 그 값으로 갱신된다."
+    ],
+    "answer": 4,
+    "explanation": "참조 무결성 옵션은 부모(DEPARTMENT) 쪽이 변할 때 자식(EMPLOYEE)을 어떻게 할지 정한다. ON UPDATE CASCADE이므로 DEPARTMENT.Dnumber가 갱신되면 EMPLOYEE.Dno도 따라 갱신된다. ③은 ON DELETE가 SET DEFAULT이므로 NULL이 아니라 디폴트 값이 되며, ①②는 부모와 자식을 거꾸로 설명했다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-61",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음과 같은 함수 종속을 가진 릴레이션 R을 BCNF로 정규화한 결과로 옳은 것은? (단, 아래 지문에서 밑줄친 열은 기본키, 이탤릭체는 외래 키를 의미한다.) R(A, B, C, D) 함수종속: A→(B, C, D), B→(A, C, D), D→C",
+    "choices": [
+      "R1(A, B, D), R2(D, C)",
+      "R1(A, B, C), R2(C, D)",
+      "R1(A, B, C), R2(B, D)",
+      "R1(A, C, D), R2(B, A)"
+    ],
+    "answer": 1,
+    "explanation": "후보키는 A와 B이고 D→C에서 D는 수퍼키가 아니므로 BCNF를 위반한다. 위반 종속 D→C를 R2(D, C)로 떼어내고 나머지를 R1(A, B, D)로 두면 두 릴레이션 모두 결정자가 후보키가 되어 BCNF를 만족한다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-62",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 Sailors, Boats, Reserves 3개의 릴레이션에 서 질의 “color가 'red'인 Boat와 'green'인 Boat를 모두 reserve한 Sailor의 sname을 검색하 라.”를 SQL로 나타낸 문장으로 옳은 것은? (단, Sailors, Boats, Reserves 릴레이션 각각의 기 본 키는 sid, bid, (sid, bid)이다.)\nSailors(sid, sname, rating, age) Boats(bid, bname, color) Reserves(sid, bid, day)",
+    "choices": [
+      "SELECT S.sname\nFROM Sailors S, Reserves R, Boats B\nWHERE S.sid = R.sid\n  AND R.bid = B.bid\n  AND (B.color = 'red'\n  OR B.color = 'green');",
+      "SELECT S.sname\nFROM Sailors S, Reserves R, Boats B\nWHERE S.sid = R.sid\n  AND R.bid = B.bid\n  AND (B.color = 'red'\n  AND B.color = 'green');",
+      "SELECT S.sname\nFROM Sailors S, Reserves R1, Boats B1, Reserves R2, Boats B2\nWHERE S.sid = R1.sid\n  AND R1.bid = B1.bid\n  AND S.sid = R2.sid\n  AND R2.bid = B2.bid\n  AND B1.color = 'red'\n  AND B2.color = 'green';",
+      "SELECT S.sname\nFROM Sailors S, Reserves R, Boats B\nWHERE S.sid = R.sid\n  AND R.bid = B.bid\n  AND B.color = 'red'\nUNION SELECT S2.sname\nFROM Sailors S2, Boats B2, Reserves R2\nWHERE S2.sid = R2.sid\n  AND R2.bid = B2.bid\n  AND B2.color = 'green';"
+    ],
+    "answer": 3,
+    "explanation": "'red 보트와 green 보트를 모두' 예약한 선원을 찾으려면 같은 sid에 대해 Reserves·Boats를 두 벌(R1·B1, R2·B2) 조인해 각각 red와 green 조건을 걸어야 한다. ①은 둘 중 하나(OR), ②는 한 행의 color가 동시에 red이자 green이어야 해 결과가 항상 공집합, ④는 합집합이라 '둘 다'가 아니다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-63",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 STUDENT(학생)와 ENROLL(수강) 릴레이션에서 “Cno가 ‘C413’인 과목을 수강한 학생의 Sname, Dept와 수강의 Grade를 검색하라.”는 질의를 SQL 로 나타낸 문장으로 옳은 것은? (단, STUDENT와 ENROLL 릴레이션 각각의 기본 키는 Sno, (Sno, Cno)이다.) STUDENT(Sno, Sname, Year, Dept) ENROLL(Sno, Cno, Grade)",
+    "choices": [
+      "SELECT Sname, Dept, Grade\nFROM STUDENT JOIN ENROLL WITH(Sno)\nWHERE ENROLL.Cno = 'C413';",
+      "SELECT Sname, Dept, Grade\nFROM STUDENT NATURAL JOIN ENROLL USING(Sno)\nWHERE ENROLL.Cno = 'C413';",
+      "SELECT Sname, Dept, Grade\nFROM STUDENT NATURAL JOIN ENROLL ON (STUDENT.Sno = ENROLL.Sno) WHERE ENROLL.Cno = 'C413‘;",
+      "SELECT Sname, Dept, Grade\nFROM STUDENT JOIN ENROLL ON (STUDENT.Sno = ENROLL.Sno)\nWHERE ENROLL.Cno = 'C413';"
+    ],
+    "answer": 4,
+    "explanation": "NATURAL JOIN은 공통 열로 자동 조인하므로 USING이나 ON을 함께 쓸 수 없고, JOIN에 WITH 절은 존재하지 않는다. 일반 JOIN에 ON 조건을 명시한 ④만 올바른 문법이다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-64",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 그림은 트랜잭션 T1~T5에 대해 각각의 수행 시간을 표기하였다. 트랜잭션 수행 중 체크 포인 트를 실시하였고, 그 이후 시스템이 다운되었다. 시스템이 재가동될 때 수행되는 회복 기능으로 가장 적절한 것은?",
+    "choices": [
+      "T2, T4 트랜잭션은 재수행한다.",
+      "T2, T4 트랜잭션은 취소한다.",
+      "T3, T4, T5 트랜잭션은 재수행한다.",
+      "T3, T4, T5 트랜잭션은 취소한다."
+    ],
+    "answer": 1,
+    "explanation": "체크포인트 이후 회복은 '커밋했으면 REDO, 못 했으면 UNDO'다. T1은 체크포인트 이전에 끝나 대상이 아니고, T2와 T4는 체크포인트 이후 커밋을 마쳤으므로 재수행(REDO), T3와 T5는 다운 시점까지 커밋하지 못했으므로 취소(UNDO) 대상이다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-65",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음은 릴레이션 EMPLOYEE와 DEPENDENT를 생성 하는 데이터 정의문이다. 두 릴레이션에 대해 “자신의 부양가족과 이름이 같은 직원의 이름 (Name)을 출력하라”를 처리하는 SQL 질의를 모 두 나열한 것은?\n\n```sql\nCREATE TABLE EMPLOYEE ( Name VARCHAR(15) NOT NULL, Ssn CHAR(9) NOT NULL, PRIMARY KEY (Ssn) );\nCREATE TABLE DEPENDENT ( Essn CHAR(9) NOT NULL, Name VARCHAR(15) NOT NULL, PRIMARY KEY(Essn, Name), FOREIGN KEY(Essn) REFERENCES EMPLOYEE(Ssn) );\n\n\n가. SELECT E.Name\nFROM EMPLOYEE AS E\nWHERE E.Ssn IN (SELECT Essn\nFROM DEPENDENT AS D\nWHERE E.Name=D.Name );\n\n\n나.  SELECT E.Name\nFROM EMPLOYEE AS E\nWHERE EXISTS (SELECT *\nFROM DEPENDENT AS D\nWHERE E.Ssn=D.Essn\n  AND E.Name=D.Name );\n\n\n다.   SELECT E.Name\nFROM EMPLOYEE AS E, DEPENDENT AS D\nWHERE E.Ssn=D.Essn\n  AND E.Name=D.Name;\n```",
+    "choices": [
+      "가, 나",
+      "가, 다",
+      "가, 다",
+      "가, 나, 다"
+    ],
+    "answer": 4,
+    "explanation": "가는 상관 부질의로 E.Name과 D.Name이 같은 부양가족의 Essn 중에 E.Ssn이 있는지 확인하고, 나는 EXISTS로 같은 조건을 확인하며, 다는 조인으로 직접 비교한다. 세 질의 모두 '자신의 부양가족과 이름이 같은 직원'을 정확히 반환한다. (원본 시험지의 보기 ②와 ③은 '가, 다'로 동일하게 인쇄되어 있다.)"
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-66",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 그림은 트랜잭션의 동시성 제어에서 격리 성(isolation)을 나타내는 예로써, 트랜잭션 T1, T2가 ➀~➄ 순서대로 수행할 때 생길 수 있 는 현상으로 가장 적절한 것은? T1 T2\n\n```sql\n➀ SELECT 도시, COUNT(*)\nFROM 고객\nGROUP BY 도시; ➁ INSERT INTO 고객 (고객번호, 이름, 도시, 나이)\nVALUES (3, ‘김민재’, ‘통영’, 27); ➂ COMMIT; ➃ SELECT 나이, COUNT(*)\nFROM 고객\nGROUP BY 나이; ➄ COMMIT;\n```",
+    "choices": [
+      "오손 데이터 읽기(dirty read)",
+      "유령 데이터 읽기(phantom read)",
+      "연쇄 데이터 읽기(cascading read)",
+      "직렬 데이터 읽기(serializable read)"
+    ],
+    "answer": 2,
+    "explanation": "T1이 같은 조건의 집계 질의를 두 번 수행하는 사이에 T2가 새 행을 INSERT하고 커밋하면, 두 번째 조회에서 없던 행이 나타난다. 이것이 유령 데이터 읽기(phantom read)다. 오손 읽기는 커밋되지 않은 값을 읽는 경우다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-67",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "동시성 제어(concurrency control)의 로킹 (locking) 단위에 대한 다음 설명 중 옳은 것 을 모두 나열한 것은?\n\n가. 로킹 단위가 작아지면 동시성(병행) 수준은 낮아진다.\n나. 데이터베이스, 파일, 레코드 등은 로킹 단위가 될 수 있다.\n다. 로킹 단위가 작아지면 일반적으로 로킹 오버헤드가 증가한다.\n라. 한꺼번에 로킹할 수 있는 데이터의 크기를로킹 단위라 한다.",
+    "choices": [
+      "가, 다",
+      "가, 나, 라",
+      "나, 다, 라",
+      "가, 나, 다, 라"
+    ],
+    "answer": 3,
+    "explanation": "로킹 단위가 작아지면 여러 트랜잭션이 동시에 접근할 수 있어 동시성은 높아지고 대신 관리할 락이 많아져 오버헤드가 커진다. 따라서 동시성이 낮아진다고 한 가만 틀리고 나·다·라는 옳다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-68",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "로킹 규약 중에서 strict 2단계 로킹 규약(strict2PLP)에 해당하는 설명으로 가장 적절한 것은?",
+    "choices": [
+      "데이터 항목에 대해 read나 write 연산을 하려 면 반드시 lock을 걸고 트랜잭션 실행을 종료하기 전에 unlock을 수행",
+      "로크를 걸기만 하는 확장 단계와 로크를 풀기만하는 축소 단계로 구성",
+      "로킹이 2단계일 뿐 아니라 모든 독점 로크는 그 트랜잭션이 완료될 때까지 unlock하지 않고 그대로 유지",
+      "로킹이 2단계일 뿐 아니라 모든 로크는 그 트랜잭션이 완료될 때까지 unlock하지 않고 그대로 유지"
+    ],
+    "answer": 3,
+    "explanation": "strict 2PL은 2단계 로킹을 지키면서 '독점(exclusive) 로크'만은 트랜잭션이 완료될 때까지 풀지 않아 연쇄 복귀를 막는다. 모든 로크를 끝까지 유지하는 것은 더 엄격한 rigorous 2PL이며 ④가 이에 해당한다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-69",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "대표적인 분산 파일 시스템인 HDFS(Hadoop Distributed File System)는 여러 노드(node) 로 구성되어 있다. 다음의 (가), (나)에 들어 갈 노드 이름으로 가장 옳은 것은? ⦁(가)는 메타정보를 관리하며 데이터 블록들이 어느 (나)에 있는지를 유지한다. ⦁(나)는 실제 데이터 블록을 저장하고 클라이언 트에 이를 제공한다. ⦁Secondary (가)는 primary (가)가 고장(fail)일 때를 대비하는 백업 노드이다.",
+    "choices": [
+      "(가) master node, (나) data node",
+      "(가) name node, (나) data node",
+      "(가) master node, (나) slave node",
+      "(가) name node, (나) slave node"
+    ],
+    "answer": 2,
+    "explanation": "HDFS에서 파일 메타정보와 블록 위치를 관리하는 노드가 네임노드(name node), 실제 데이터 블록을 저장하는 노드가 데이터노드(data node)다. Secondary NameNode는 네임노드의 메타데이터 체크포인트를 돕는 노드다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-70",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 SQL 구문은 테이블 STUDENT에 대한 SELECT 와 UPDATE 권한을 admuser에게 부여하는 기능을 한다. 그런데 이때 권한을 부여받은 admuser가 다른 사용자에게 SELECT나 UPDATE 권한을 다시 부여할 수 있도록 하기 위해서 (가)에 들어갈 구문으로 가장 옳은 것은?\n\n```sql\nGRANT SELECT, UPDATE ON STUDENT TO admuser (가);\n```",
+    "choices": [
+      "WITH OPTION GRANT",
+      "WITH OPTION REGRANT",
+      "WITH GRANT OPTION",
+      "WITH REGRANT OPTION"
+    ],
+    "answer": 3,
+    "explanation": "권한을 받은 사용자가 그 권한을 다시 다른 사용자에게 넘길 수 있게 하려면 GRANT 문 끝에 WITH GRANT OPTION을 붙인다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-71",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "분산 데이터베이스 시스템에서 분산 투명성에 대 한 설명으로 적절하지 않은 것은?",
+    "choices": [
+      "데이터의 실제 저장 위치를 알 필요 없이 데이 터베이스의 논리적 이름만으로 데이터에 접근할 수 있는 위치 투명성(location transparency)을 보장해야 한다.",
+      "분산 데이터베이스와 관련된 트랜잭션들이 동시 에 수행되더라도 항상 일관성을 유지하는 장애 투명성(failure transparency)을 보장해야 한다.",
+      "동일한 데이터가 여러 지역에 중복해서 저장되 는 경우 사용자가 중복을 인식하지 못하게 하는 중복 투명성(replication transparency)을 보장 해야 한다.",
+      "하나의 릴레이션을 더 작은 조각(단편)으로 나누 고 각 조각을 별개의 릴레이션으로 처리할 때 완 전성, 회복성, 분리성을 보장하는 단편화 투명성 (fragmentation transparency)을 보장해야 한다."
+    ],
+    "answer": 2,
+    "explanation": "여러 트랜잭션이 동시에 수행되어도 일관성을 유지하는 것은 병행 투명성(concurrency transparency)이다. 장애 투명성(failure transparency)은 노드나 통신 장애가 생겨도 트랜잭션의 원자성이 보장되는 성질이므로 ②는 용어를 잘못 붙였다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-72",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "NoSQL 시스템의 특징을 표현하는 CAP 이론에 대한 설명으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "복제본을 가지는 분산 시스템의 요구사항을 설 명한다.",
+      "일관성(consistency), 가용성(availability), 분할감내(partition tolerance) 성질을 의미한다.",
+      "NoSQL 시스템에서는 CAP의 세 가지 성질을 모두보장할 것을 요구한다.",
+      "NoSQL 시스템에서는 보통 일관성의 완화된 형태인 궁극적 일관성(eventual consistency)을 수용한다."
+    ],
+    "answer": 3,
+    "explanation": "CAP 이론의 핵심은 일관성·가용성·분할 감내 중 최대 두 가지만 동시에 보장할 수 있다는 것이다. 세 가지를 모두 보장하도록 요구한다고 한 ③이 틀렸고, 그래서 NoSQL은 보통 일관성을 완화한 궁극적 일관성을 택한다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-73",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "멀티미디어 데이터에 대한 다양한 유형의 검색 질의를 처리하기 위한 기법 중 “수학 함수로 저장된 데이터와 질의 조건으로 주어진 데이터 간의 유사도를 수학 함수로 계산하여 유사도가 높은 데이터를 검색한다.”는 어떤 기법을 설명 한 것인가?",
+    "choices": [
+      "랭킹 기법(ranking technique)",
+      "인덱스 기법(index technique)",
+      "매칭 기법(matching technique)",
+      "필터링 기법(filtering technique)"
+    ],
+    "answer": 3,
+    "explanation": "저장된 데이터와 질의 데이터의 유사도를 수학 함수로 계산해 유사한 것을 찾는 기법은 매칭 기법이다. 랭킹은 계산된 유사도로 순위를 매겨 상위를 보여 주는 단계이고, 필터링은 후보를 미리 줄이는 단계다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-74",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음 (가)부터 (라)는 관계형 데이터베이스와 NoSQL의 몇 가지 측면을 기술해 놓은 것이다. 이 들 중 관계형 데이터베이스보다 비교적 NoSQL에 가까운 측면을 기술한 것을 모두 선택한 것으로 가장 적절한 것은? (가) 스키마: 스키마가 없거나 변경이 자유롭다. (나) 확장성: 클러스터 환경에 적합하다. (다) 검색기능: 단순한 데이터 검색 기능을 제공한다. (라) 트랜잭션: 일관성 유지를 보장하기 어렵다.",
+    "choices": [
+      "가, 라",
+      "가, 나, 라",
+      "나, 다, 라",
+      "가, 나, 다, 라"
+    ],
+    "answer": 4,
+    "explanation": "스키마가 자유롭고, 클러스터 확장에 적합하며, 검색 기능이 단순하고, 강한 일관성 보장이 어렵다는 네 가지 모두 관계형 데이터베이스보다 NoSQL에 가까운 특징이다."
+  },
+  {
+    "id": "2023년 제24회 데이터베이스-75",
+    "deck": "2023년 제24회 데이터베이스",
+    "question": "다음은 k-Means 군집화(k-Means clustering) 알 고리즘에 대한 설명이다. 옳은 것을 모두 나열 한 것은? (가) 초기 중심점 선택에 따라 군집 결과가 달라질 수 있다. (나) 군집 모양이 구형(원형)이 아닐 경우에 다른방법보다 잘 동작한다. (다) 이상치(outlier)를 포함하고 있는 경우 잘동작하지 않는다.",
+    "choices": [
+      "가, 나",
+      "가, 다",
+      "나, 다",
+      "가, 나, 다"
+    ],
+    "answer": 2,
+    "explanation": "k-Means는 초기 중심점에 따라 결과가 달라지고(가), 평균을 쓰기 때문에 이상치에 크게 흔들린다(다). 반면 구형이 아닌 임의 모양 군집에는 약하므로 나는 틀렸다."
+  }
+]
