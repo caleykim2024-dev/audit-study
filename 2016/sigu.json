@@ -10,7 +10,7 @@
                         "K-평균(Means)법"
                     ],
         "answer":  4,
-        "explanation":  "계층적 군집분석에는 Ward, 단일연결, 평균연결 방식이 있다. K-평균은 대표적인 비계층적 분할 군집 방법이다. 단일연결법(Single Linkage): 두 군집 간 최단거리 기준 완전연결법(Complete Linkage): 두 군집 간 최장거리 기준 평균연결법(Average Linkage): 두 군집 간 평균거리 기준 중심연결법(Centroid Linkage): 두 군집의 중심점 간 거리 기준 Ward법: 군집 내 오차제곱합(분산) 증가량 최소화 기준"
+        "explanation":  "계층적 군집분석에는 Ward, 단일연결, 평균연결 방식이 있다. K-평균은 대표적인 비계층적 분할 군집 방법이다.\n단일연결법(Single Linkage): 두 군집 간 최단거리 기준\n완전연결법(Complete Linkage): 두 군집 간 최장거리 기준\n평균연결법(Average Linkage): 두 군집 간 평균거리 기준\n중심연결법(Centroid Linkage): 두 군집의 중심점 간 거리 기준\nWard법: 군집 내 오차제곱합(분산) 증가량 최소화 기준"
     },
     {
         "id":  "2016년 제17회 시스템 구조-77",
