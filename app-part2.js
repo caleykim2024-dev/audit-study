@@ -102,7 +102,11 @@ function renderQuiz(){
     let cls='';
     if(answered){if(correct.includes(i))cls='right';else if(selected.includes(i))cls='wrong';}
     else if(multi&&selected.includes(i))cls='selected';
-    return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${textWithImages(c,'choice-img',`${i+1}번 보기 그림`)}</span></button>`;
+    const rows=Array.isArray(q.choiceTables)?q.choiceTables[i]:null;
+    const body=Array.isArray(rows)&&rows.length
+      ?`<span class="choice-table-wrap"><span class="choice-table" role="table">${rows.map((row,j)=>`<span class="choice-table-row" role="row">${row.map(cell=>`<span class="choice-table-cell" role="${j===0?'columnheader':'cell'}">${e(cell)}</span>`).join('')}</span>`).join('')}</span></span>`
+      :textWithImages(c,'choice-img',`${i+1}번 보기 그림`);
+    return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${body}</span></button>`;
   }).join('');
   const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
   const questionTables=Array.isArray(q.tables)?q.tables:(Array.isArray(q.table)?[{rows:q.table}]:[]);
