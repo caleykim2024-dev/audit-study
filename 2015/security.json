@@ -145,7 +145,9 @@
   {
     "id": "2015년 제16회 보안-112",
     "deck": "2015년 제16회 보안",
-    "question": "다음은 C 프로그램의 일부분이다. 진하게 표시 된 부분에는 어떤 보안 약점이 존재하는가?\nint main()\n{\nchar* rPort = getenv(“rPort”);\nstruct sockaddr_in serv_addr;\nint sockfd = 0;\n...\nserv_addr.sin_port = htons(atoi(rPort));\nif (connect(sockfd, &serv_addr, sizeof(serv_addr)) < 0) {\nexit(1);\n}\nreturn 0;\n}",
+    "question": "다음은 C 프로그램의 일부분이다. 진하게 표시 된 부분에는 어떤 보안 약점이 존재하는가?",
+    "given": "int main()\n{\nchar* rPort = getenv(“rPort”);\nstruct sockaddr_in serv_addr;\nint sockfd = 0;\n...\nserv_addr.sin_port = htons(atoi(rPort));\nif (connect(sockfd, &serv_addr, sizeof(serv_addr)) < 0) {\nexit(1);\n}\nreturn 0;\n}",
+    "givenFormat": "code",
     "choices": [
       "부적절한 인가",
       "포맷 스트링 삽입",
@@ -200,7 +202,8 @@
   {
     "id": "2015년 제16회 보안-116",
     "deck": "2015년 제16회 보안",
-    "question": "다음 보기의 설명을 통해 기업에서 설치해야하는 정보보호 시스템을 올바르게 짝지은 것은?\nIP주소 및 port 번호를 기반으로 외부에서 유입되는 트래픽을 사전에 차단하기를 원하며, 기업외부에서 내부망으로 접근하여 업무를 수행할 경우 암호통신을 통한 통신내용 보호를 원한다.",
+    "question": "다음 보기의 설명을 통해 기업에서 설치해야하는 정보보호 시스템을 올바르게 짝지은 것은?",
+    "given": "IP주소 및 port 번호를 기반으로 외부에서 유입되는 트래픽을 사전에 차단하기를 원하며, 기업외부에서 내부망으로 접근하여 업무를 수행할 경우 암호통신을 통한 통신내용 보호를 원한다.",
     "choices": [
       "침입차단시스템 - VPN",
       "웹방화벽 - 침입탐지시스템",
