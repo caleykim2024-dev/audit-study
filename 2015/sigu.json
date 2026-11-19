@@ -28,7 +28,8 @@
   {
     "id": "2015년 제16회 시스템 구조-78",
     "deck": "2015년 제16회 시스템 구조",
-    "question": "다음 중 ( ㉮ )에 들어갈 용어로 가장 적절한 것은?\nIPv6는 호스트가 직접 IP주소를 설정할 수 있는 자동설정(autoconfiguration)기능을 가지고 있다. 이를 위해 호스트는 먼저 링크 로컬 주소를 생성하고 생성된 링크 로컬 주소가 서브넷 내에서 유일함을 확인하기 위해 ( ㉮ )를 전송한다.",
+    "question": "다음 중 ( ㉮ )에 들어갈 용어로 가장 적절한 것은?",
+    "given": "IPv6는 호스트가 직접 IP주소를 설정할 수 있는 자동설정(autoconfiguration)기능을 가지고 있다. 이를 위해 호스트는 먼저 링크 로컬 주소를 생성하고 생성된 링크 로컬 주소가 서브넷 내에서 유일함을 확인하기 위해 ( ㉮ )를 전송한다.",
     "choices": [
       "neighbor solicitation message(이웃간청메시지)",
       "neighbor advertisement message(이웃광고메시지)",
@@ -93,7 +94,8 @@
   {
     "id": "2015년 제16회 시스템 구조-83",
     "deck": "2015년 제16회 시스템 구조",
-    "question": "다음은 네트워크 인프라에 소프트웨어의 장점을 적용하는 기술에 대한 설명이다. ( ㉮ )와 ( ㉯ )에 들어갈 용어로 가장 적절한 것은?\n( ㉮ )는(은) 네트워크의 제어부와 전달부를 분리하고 제어부의 소프트웨어와 전달부 하드웨어 사이에 개방형 인터페이스를 정의하여, 운영자는 제어부를 프로그래밍하여 원하는 방식으로 제어하는 기술이며, ( ㉯ )는(은) 방화벽(Firewall), 네트워크 주소 변환(NAT), 부하분산기(load balancer) 등의 전용 하드웨어 장비를 소프트웨어화하여 범용 하드웨어 장비에 설치하는 기술이다.\n※ SDN(Software-Defined Networking)\nNFV(Network Function Virtualization)\nCDN(Content Delivery Network)\n          ㉮                    ㉯",
+    "question": "다음은 네트워크 인프라에 소프트웨어의 장점을 적용하는 기술에 대한 설명이다. ( ㉮ )와 ( ㉯ )에 들어갈 용어로 가장 적절한 것은?",
+    "given": "( ㉮ )는(은) 네트워크의 제어부와 전달부를 분리하고 제어부의 소프트웨어와 전달부 하드웨어 사이에 개방형 인터페이스를 정의하여, 운영자는 제어부를 프로그래밍하여 원하는 방식으로 제어하는 기술이며, ( ㉯ )는(은) 방화벽(Firewall), 네트워크 주소 변환(NAT), 부하분산기(load balancer) 등의 전용 하드웨어 장비를 소프트웨어화하여 범용 하드웨어 장비에 설치하는 기술이다.\n※ SDN(Software-Defined Networking)\nNFV(Network Function Virtualization)\nCDN(Content Delivery Network)\n          ㉮                    ㉯",
     "choices": [
       "SDN                 NFV",
       "OpenFlow     SDN",
