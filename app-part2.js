@@ -146,6 +146,7 @@ function renderQuiz(){
     ${submit}
     ${verdict}${footer}`;
   fillImages('.question-imgs','qimg','문제 그림');
+  fillChoiceImages(q);
   fillImages('.expl-imgs','expl-img','풀이 그림');
   window.scrollTo(0,0);
   const box=$app.querySelector('.dots.scroll'),c=$app.querySelector('.dot.cur');
