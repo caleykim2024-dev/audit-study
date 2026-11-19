@@ -137,7 +137,7 @@ let mode='all';   // 'all' = 영역 전체 문제, 'review' = 영역의 틀린 �
 let curRound=0;
 
 /* ============ 복습 (에빙하우스 망각곡선): 틀린 날로부터 1일 / 3일 / 5일 / 7일 / 30일 뒤에 다시 풀기 ============ */
-// ★ 복습 간격은 여기만 고치면 돼요. days = 틀린 날로부터 며칠 뒤
+// ★ 복습 간격은 여기만 고치면 돼요. 1차는 마지막 오답일, 이후는 직전 복습 완료일을 기준으로 해요.
 const REVIEW_NAME='복습';
 const REVIEW_STEPS=[
   {n:1,days:1,label:'전날'},
@@ -152,17 +152,22 @@ function addDays(s,n){const [y,m,d]=String(s).split('-').map(Number);const t=new
   return t.getUTCFullYear()+'-'+String(t.getUTCMonth()+1).padStart(2,'0')+'-'+String(t.getUTCDate()).padStart(2,'0');}
 const fmtDate=s=>{const [y,m,d]=String(s).split('-').map(Number);return m+'월 '+d+'일';};
 // 한 문제의 복습 상태: {round:다음에 할 차수, due:그 차수를 할 수 있는 날} / 5차까지 끝났으면 {round:0,grad:true} / 틀린 적 없으면 null
-// 예전 기록에 lastWrong이 없으면 마지막 풀이일(last)을 복습 기준일로 사용한다.
+// 예전 기록은 마지막 풀이일이 마지막 오답일보다 늦으면 최근에 맞힌 것으로 간주한다.
+function latestAttemptWasWrong(st){
+  if(typeof st.lastFirstWrong==='boolean')return st.lastFirstWrong;
+  return !st.lastWrong||!st.last||st.lastWrong>=st.last;
+}
 function reviewInfo(id){
   const st=S.stats[id];
   if(!st||!(st.wrong>0))return null;
   const base=st.lastWrong||st.last;
   if(!base)return null;
   const rv=(S.rev[id]&&S.rev[id].base===base)?S.rev[id]:null,done=rv?rv.done:{};
+  // 1차를 아직 시작하지 않았다면 가장 최근의 첫 풀이가 오답인 문제만 복습한다.
+  if(!done[1]&&!latestAttemptWasWrong(st))return null;
   let n=1;while(n<=REVIEW_STEPS.length&&done[n])n++;
   if(n>REVIEW_STEPS.length)return {round:0,grad:true};
-  let due=addDays(base,REVIEW_STEPS[n-1].days);
-  if(rv&&rv.last){const nx=addDays(rv.last,1);if(nx>due)due=nx;}   // 오늘 한 복습은 내일부터 다음 차수
+  const due=addDays(n===1?base:(rv.last||base),REVIEW_STEPS[n-1].days);
   return {round:n,due};
 }
 const areaOrder=q=>{const i=AREA_NAMES.indexOf(q.deck);return i<0?99:i;};
@@ -187,9 +192,9 @@ function markReviewDone(id,round){
 const sessLabel=()=>mode==='rround'?'복습 '+curRound+'차':e(curYear+'년 '+curDeck)+(mode==='review'?' 복습':'');
 const deckIds=dk=>Q.filter(q=>q.year===curYear&&q.deck===dk).map(q=>q.id);
 const wrongOf=id=>((S.stats[id]||{}).wrong||0);
-// 틀린 적 있는 문제: 자주 틀린 순, 같으면 오래전에 틀린 순
+// 가장 최근 세션의 첫 답이 틀린 문제: 자주 틀린 순, 같으면 오래전에 틀린 순
 function flaggedIds(dk){
-  return deckIds(dk).filter(id=>wrongOf(id)>0).sort((a,b)=>{
+  return deckIds(dk).filter(id=>wrongOf(id)>0&&latestAttemptWasWrong(S.stats[id])).sort((a,b)=>{
     const d=wrongOf(b)-wrongOf(a);if(d)return d;
     const la=(S.stats[a]||{}).lastWrong||'',lb=(S.stats[b]||{}).lastWrong||'';
     return la<lb?-1:la>lb?1:0;
