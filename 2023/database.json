@@ -111,28 +111,108 @@
     "deck": "2023년 제24회 데이터베이스",
     "question": "아래 릴레이션 A(P, Q, R)와 B(Q, R, S)로부터 결과 릴레이션 C(P, Q, R, S)를 얻는 관계 대수 연산은?",
     "tables": [
-      {"title": "A", "rows": [
-        ["P", "Q", "R"],
-        ["p1", "q1", "r1"],
-        ["p2", "q1", "r1"],
-        ["p3", "q1", "r2"],
-        ["p4", "q2", "r3"]
-      ]},
-      {"title": "B", "rows": [
-        ["Q", "R", "S"],
-        ["q1", "r1", "s1"],
-        ["q1", "r1", "s2"],
-        ["q2", "r3", "s3"]
-      ]},
-      {"title": "결과 C", "rows": [
-        ["P", "Q", "R", "S"],
-        ["p1", "q1", "r1", "s1"],
-        ["p1", "q1", "r1", "s2"],
-        ["p2", "q1", "r1", "s1"],
-        ["p2", "q1", "r1", "s2"],
-        ["p3", "q1", "r2", "NULL"],
-        ["p4", "q2", "r3", "s3"]
-      ]}
+      {
+        "title": "A",
+        "rows": [
+          [
+            "P",
+            "Q",
+            "R"
+          ],
+          [
+            "p1",
+            "q1",
+            "r1"
+          ],
+          [
+            "p2",
+            "q1",
+            "r1"
+          ],
+          [
+            "p3",
+            "q1",
+            "r2"
+          ],
+          [
+            "p4",
+            "q2",
+            "r3"
+          ]
+        ]
+      },
+      {
+        "title": "B",
+        "rows": [
+          [
+            "Q",
+            "R",
+            "S"
+          ],
+          [
+            "q1",
+            "r1",
+            "s1"
+          ],
+          [
+            "q1",
+            "r1",
+            "s2"
+          ],
+          [
+            "q2",
+            "r3",
+            "s3"
+          ]
+        ]
+      },
+      {
+        "title": "결과 C",
+        "rows": [
+          [
+            "P",
+            "Q",
+            "R",
+            "S"
+          ],
+          [
+            "p1",
+            "q1",
+            "r1",
+            "s1"
+          ],
+          [
+            "p1",
+            "q1",
+            "r1",
+            "s2"
+          ],
+          [
+            "p2",
+            "q1",
+            "r1",
+            "s1"
+          ],
+          [
+            "p2",
+            "q1",
+            "r1",
+            "s2"
+          ],
+          [
+            "p3",
+            "q1",
+            "r2",
+            "NULL"
+          ],
+          [
+            "p4",
+            "q2",
+            "r3",
+            "s3"
+          ]
+        ]
+      }
     ],
     "choices": [
       "A ⋈N B (자연 조인)",
@@ -172,7 +252,9 @@
   {
     "id": "2023년 제24회 데이터베이스-62",
     "deck": "2023년 제24회 데이터베이스",
-    "question": "다음 Sailors, Boats, Reserves 3개의 릴레이션에 서 질의 “color가 'red'인 Boat와 'green'인 Boat를 모두 reserve한 Sailor의 sname을 검색하 라.”를 SQL로 나타낸 문장으로 옳은 것은? (단, Sailors, Boats, Reserves 릴레이션 각각의 기 본 키는 sid, bid, (sid, bid)이다.)\nSailors(sid, sname, rating, age) Boats(bid, bname, color) Reserves(sid, bid, day)",
+    "question": "다음 Sailors, Boats, Reserves 3개의 릴레이션에 서 질의 “color가 'red'인 Boat와 'green'인 Boat를 모두 reserve한 Sailor의 sname을 검색하 라.”를 SQL로 나타낸 문장으로 옳은 것은? (단, Sailors, Boats, Reserves 릴레이션 각각의 기 본 키는 sid, bid, (sid, bid)이다.)",
+    "given": "Sailors(sid, sname, rating, age) Boats(bid, bname, color) Reserves(sid, bid, day)",
+    "givenFormat": "code",
     "choices": [
       "SELECT S.sname\nFROM Sailors S, Reserves R, Boats B\nWHERE S.sid = R.sid\n  AND R.bid = B.bid\n  AND (B.color = 'red'\n  OR B.color = 'green');",
       "SELECT S.sname\nFROM Sailors S, Reserves R, Boats B\nWHERE S.sid = R.sid\n  AND R.bid = B.bid\n  AND (B.color = 'red'\n  AND B.color = 'green');",
