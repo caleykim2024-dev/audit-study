@@ -15,7 +15,112 @@
   {
     "id": "2017년 제18회 데이터베이스-66",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "다음 두 릴레이션 R과 S에 대해 조인 연산을 수행했다고 할 때, 이 연산의 조인 선택률(join selectivity)은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36981.png]",
+    "question": "다음 두 릴레이션 R과 S에 대해 조인 조건 R.D1 < S.D4로 조인 연산을 수행했다고 할 때, 이 연산의 조인 선택률(join selectivity)은?",
+    "tables": [
+      {
+        "title": "릴레이션 R",
+        "rows": [
+          [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          [
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "6",
+            "7",
+            "8"
+          ],
+          [
+            "9",
+            "7",
+            "8"
+          ]
+        ]
+      },
+      {
+        "title": "릴레이션 S",
+        "rows": [
+          [
+            "D2",
+            "D3",
+            "D4"
+          ],
+          [
+            "2",
+            "3",
+            "4"
+          ],
+          [
+            "2",
+            "3",
+            "5"
+          ],
+          [
+            "7",
+            "8",
+            "10"
+          ]
+        ]
+      },
+      {
+        "title": "조인 결과 (R.D1 < S.D4)",
+        "rows": [
+          [
+            "R.D1",
+            "R.D2",
+            "R.D3",
+            "S.D2",
+            "S.D3",
+            "S.D4"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "2",
+            "3",
+            "4"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "2",
+            "3",
+            "5"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "7",
+            "8",
+            "10"
+          ],
+          [
+            "6",
+            "7",
+            "8",
+            "7",
+            "8",
+            "10"
+          ],
+          [
+            "9",
+            "7",
+            "8",
+            "7",
+            "8",
+            "10"
+          ]
+        ]
+      }
+    ],
     "choices": [
       "1",
       "4/9",
@@ -54,7 +159,53 @@
   {
     "id": "2017년 제18회 데이터베이스-69",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "사용자 U1이 생성한 EMPLOYEE(Eno, Name, Salary) 테이블에 대해 다음의 SQL 명령을 순서대로 실행할 때, 권한 부여 에러가 발생하는 위치를 모두 모아놓은 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36984.png]",
+    "question": "사용자 U1이 생성한 EMPLOYEE(Eno, Name, Salary) 테이블에 대해 다음의 SQL 명령을 순서대로 실행할 때, 권한 부여 에러가 발생하는 위치를 모두 모아놓은 것은?",
+    "table": [
+      [
+        "순서",
+        "SQL 명령"
+      ],
+      [
+        "1",
+        "U1: GRANT INSERT, DELETE ON EMPLOYEE TO U2;"
+      ],
+      [
+        "2",
+        "U1: GRANT SELECT ON EMPLOYEE TO U3 WITH GRANT OPTION;"
+      ],
+      [
+        "3",
+        "U2: GRANT INSERT ON EMPLOYEE TO U4;"
+      ],
+      [
+        "4",
+        "U4: GRANT SELECT ON EMPLOYEE TO U5;"
+      ],
+      [
+        "5",
+        "U4: GRANT SELECT ON EMPLOYEE TO U6;"
+      ],
+      [
+        "6",
+        "U1: GRANT SELECT ON EMPLOYEE TO U6;"
+      ],
+      [
+        "7",
+        "U1: REVOKE SELECT ON EMPLOYEE FROM U3;"
+      ],
+      [
+        "8",
+        "U6: SELECT * FROM EMPLOYEE;"
+      ],
+      [
+        "9",
+        "U5: SELECT * FROM EMPLOYEE;"
+      ],
+      [
+        "10",
+        "U6: UPDATE EMPLOYEE SET Salary = Salary * 1.1;"
+      ]
+    ],
     "choices": [
       "2, 3, 5",
       "3, 5, 10",
@@ -67,7 +218,47 @@
   {
     "id": "2017년 제18회 데이터베이스-70",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "트랜잭션 T1, T2, T3에 대하여 스케줄 s1, s2 중에서 충돌 직렬 가능한(conflict serializable) 것은?\n\n[트랜잭션]\nT1: r1(x); r1(z); w1(x);\nT2: r2(z); r2(y); w2(z);\nT3: r3(x); r3(y); w3(y);\n\n[스케줄 s1]\nr1(x); r2(z); r1(z); r3(x); r3(y);\nw1(x); w3(y); r2(y); w2(z);\n\n[스케줄 s2]\nr1(x); r2(z); r3(x); r1(z); r2(y);\nr3(y); w1(x); w2(z); w3(y);",
+    "question": "트랜잭션 T1, T2, T3에 대하여 스케줄 s1, s2 중에서 충돌 직렬 가능한(conflict serializable) 것은?",
+    "tables": [
+      {
+        "title": "트랜잭션",
+        "rows": [
+          [
+            "트랜잭션",
+            "연산"
+          ],
+          [
+            "T1",
+            "r1(x); r1(z); w1(x);"
+          ],
+          [
+            "T2",
+            "r2(z); r2(y); w2(z);"
+          ],
+          [
+            "T3",
+            "r3(x); r3(y); w3(y);"
+          ]
+        ]
+      },
+      {
+        "title": "스케줄",
+        "rows": [
+          [
+            "스케줄",
+            "연산 순서"
+          ],
+          [
+            "s1",
+            "r1(x); r2(z); r1(z); r3(x); r3(y);\nw1(x); w3(y); r2(y); w2(z);"
+          ],
+          [
+            "s2",
+            "r1(x); r2(z); r3(x); r1(z); r2(y);\nr3(y); w1(x); w2(z); w3(y);"
+          ]
+        ]
+      }
+    ],
     "choices": [
       "s1",
       "s2",
@@ -119,7 +310,24 @@
   {
     "id": "2017년 제18회 데이터베이스-74",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "데이터마이닝 분류 분석을 위한 다음 오분류표의 평가 지표에 대한 설명으로 가장 거리가 먼 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36989.png]",
+    "question": "데이터마이닝 분류 분석을 위한 다음 오분류표의 평가 지표에 대한 설명으로 가장 거리가 먼 것은?",
+    "table": [
+      [
+        "실제값 / 예측값",
+        "예측값(검색결과 포함)",
+        "예측값(검색결과에 미포함)"
+      ],
+      [
+        "실제값 참(P)",
+        "TP(True Positive)",
+        "FN(False Negative)"
+      ],
+      [
+        "실제값 거짓(N)",
+        "FP(False Positive)",
+        "TN(True Negative)"
+      ]
+    ],
     "choices": [
       "민감도(sensitivity) – TP / P",
       "특이도(specificity) – TN / N",
@@ -132,7 +340,8 @@
   {
     "id": "2017년 제18회 데이터베이스-75",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "Google의 PageRank 알고리즘과 관련하여 3개의 웹사이트가 다음 그림과 같이 연결되어 있다고 하자. 이 웹에 대한 전이 행렬(transition matrix) M의 i번째 행, j번째 열의 원소 mij는 다음과 같이 정의된다. 전이 행렬 M에서 그 값이 1/2인 원소의 개수와 1인 원소의 개수를 올바르게 나열한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36990.png]\n자료: - 페이지 j가 페이지 i에 대한 링크를 가지고 있고 j가 링크한 전체 페이지 수가 r(≥1) 페이지일 때 mij = 1/r - 그렇지 않으면 mij = 0",
+    "question": "Google의 PageRank 알고리즘과 관련하여 3개의 웹사이트가 다음 그림과 같이 연결되어 있다고 하자. 이 웹에 대한 전이 행렬(transition matrix) M의 i번째 행, j번째 열의 원소 mij는 다음과 같이 정의된다. 전이 행렬 M에서 그 값이 1/2인 원소의 개수와 1인 원소의 개수를 올바르게 나열한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36990.png]",
+    "given": "자료: - 페이지 j가 페이지 i에 대한 링크를 가지고 있고 j가 링크한 전체 페이지 수가 r(≥1) 페이지일 때 mij = 1/r - 그렇지 않으면 mij = 0",
     "choices": [
       "2, 1",
       "3, 2",
