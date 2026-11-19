@@ -55,7 +55,7 @@ const yearAreas=year=>ALL.filter(name=>Q.some(q=>q.year===year&&q.deck===name));
 const $app=document.getElementById('app');
 
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const IMAGE_URL=/(?:\[[^\]]*이미지\]\s*URL:\s*|\bURL:\s*)?(https?:\/\/[^\s<>"']+?\.(?:png|jpe?g|gif|webp|svg)(?:\?[^\s<>"']*)?)/gi;
+const IMAGE_URL=/(?:\[[^\]]*이미지\]\s*URL:\s*|\bURL:\s*)?((?:https?:\/\/|(?:\.\.?\/)?(?:\d{4}\/)?(?:answer|question|explanation)\/img\/)[^\s<>"']+?\.(?:png|jpe?g|gif|webp|svg)(?:\?[^\s<>"']*)?)/gi;
 const hasImageUrl=value=>new RegExp(IMAGE_URL.source,'i').test(String(value??''));
 function textWithImages(value,cssClass,alt){
   const text=String(value??'');
@@ -268,11 +268,12 @@ async function push(){
 }
 function schedulePush(){if(!syncOn())return;clearTimeout(pushTimer);pushTimer=setTimeout(push,700);}
 
-/* ============ 문제/풀이 그림: 연도/question 또는 explanation/img/영역-번호.png ============ */
+/* ============ 문제/보기/풀이 그림: 연도/{question,answer,explanation}/img/영역-번호.png ============ */
 const LEGACY_EXPL_IMG_DIR='questions/explanation/img/';
 const IMG_EXTS=['png','jpg','jpeg','webp'];
 const EXPL_IMG_POS='top';                           // 'top' = 풀이 글 위, 'bottom' = 풀이 글 아래
 const IMG_CACHE={};
+const CHOICE_IMG_CACHE={};
 // 예) 2019년 데이터베이스 61번 → 2019/question/img/database-61
 function imageBase(q,section){
   const area=AREAS.find(a=>a.name===q.deck);
@@ -280,18 +281,48 @@ function imageBase(q,section){
   return (area&&m)?q.year+'/'+section+'/img/'+area.file+'-'+parseInt(m[1],10):null;
 }
 function probeImage(url){return new Promise(res=>{const im=new Image();im.onload=()=>res(true);im.onerror=()=>res(false);im.src=url;});}
+async function findImageFile(stem){
+  for(const ext of IMG_EXTS){const url=stem+'.'+ext;if(await probeImage(url))return url;}
+  return null;
+}
 // 기본 파일과 -2, -3 … 파일(최대 6장)을 찾는다. 파일이 없으면 표시하지 않는다.
 async function findImages(base){
   if(IMG_CACHE[base])return IMG_CACHE[base];
   const found=[];
   for(let n=1;n<=6;n++){
     const stem=n===1?base:base+'-'+n;
-    let hit=null;
-    for(const ext of IMG_EXTS){const u=stem+'.'+ext;if(await probeImage(u)){hit=u;break;}}
+    const hit=await findImageFile(stem);
     if(!hit)break;
     found.push(hit);
   }
   return IMG_CACHE[base]=found;
+}
+// 보기 네 장: 영역-번호.png, -2, -3, -4 또는 영역-번호-1.png, -2, -3, -4
+async function findChoiceImages(base){
+  if(!CHOICE_IMG_CACHE[base])CHOICE_IMG_CACHE[base]=(async()=>{
+    const standard=await findImages(base);
+    if(standard.length)return standard.slice(0,4);
+    const numbered=[];
+    for(let n=1;n<=4;n++){
+      const hit=await findImageFile(base+'-'+n);
+      if(!hit)break;
+      numbered.push(hit);
+    }
+    return numbered;
+  })();
+  return CHOICE_IMG_CACHE[base];
+}
+function fillChoiceImages(q){
+  if(!q.choices.every(choice=>String(choice).includes('그림: 원문 PDF 참조')))return;
+  const base=imageBase(q,'answer');
+  const container=$app.querySelector('.choices');
+  if(!base||!container)return;
+  findChoiceImages(base).then(urls=>{
+    if(!container.isConnected)return;
+    container.querySelectorAll('.choice .t').forEach((slot,i)=>{
+      if(urls[i])slot.innerHTML=`<img class="choice-img" src="${e(urls[i])}" alt="${i+1}번 보기 그림" loading="lazy">`;
+    });
+  });
 }
 function fillImages(selector,cssClass,label){
   const h=$app.querySelector(selector);if(!h)return;
