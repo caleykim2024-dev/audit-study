@@ -43,14 +43,14 @@ function renderReview(){
       ?`<button class="btn ghost" onclick="startRedo(${st.n},false)">오늘 푼 ${allIds.length}개 다시 풀기</button>`
         +(wrongToday.length?`<button class="btn ghost" onclick="startRedo(${st.n},true)">오늘 틀린 ${wrongToday.length}개만 다시 풀기</button>`:''):'';
     const btnHtml=(btn||redo)?`<div class="btns">${btn}${redo}</div>`:'';
-    return `<div class="panel rcard"><div class="deckhead"><b>${st.n}차 복습</b><span>틀린 날로부터 ${e(st.label)}</span></div>${body}${next}${btnHtml}</div>`;
+    return `<div class="panel rcard"><div class="deckhead"><b>${st.n}차 복습</b><span>${st.n===1?'마지막으로 틀린 다음 날':`이전 복습 ${e(st.label)}`}</span></div>${body}${next}${btnHtml}</div>`;
   }).join('');
   const grad=reviewGraduated();
   $app.innerHTML=`${top}
     <h1>복습</h1>
     <p class="sub">틀린 문제를 잊을 때쯤 다시 풀면 오래 기억돼요. 모든 영역의 문제가 함께 나와요.</p>
     ${cards}
-    <p class="legend" style="margin-top:16px">틀린 문제는 다시 풀어서 맞아도 복습에 포함돼요. 복습 중에 또 틀리면 그날부터 1차부터 새로 시작해요.${grad?` 5차까지 끝낸 문제 ${grad}개.`:''}</p>`;
+    <p class="legend" style="margin-top:16px">1차는 최근 풀이에서 틀린 문제만 나와요. 복습에서 맞힌 문제는 정해진 간격 뒤에 다음 차수로 넘어가고, 다시 틀리면 그날부터 1차를 시작해요.${grad?` 5차까지 끝낸 문제 ${grad}개.`:''}</p>`;
   window.scrollTo(0,0);
 }
 
@@ -278,11 +278,15 @@ function recordAnswer(picked){
   if(r.picked!=null)return;
   r.picked=picked;r.tries++;r.ok=answersMatch(q,picked);
   delete pendingChoices[id];
+  const rs=(mode==='rround')?S.rsess[curRound]:null, redo=!!(rs&&rs.redo);
   const today=todayStr();
   const st=S.stats[id]||(S.stats[id]={seen:0,wrong:0,last:'',lastWrong:''});
-  if(r.tries===1){st.seen++;st.last=today;}
-  // 틀리면 '틀린 문제'로 표시 (다시 풀어서 맞혀도 표시는 남는다). 한 번 풀이에서 여러 번 틀려도 1회로 센다
-  const rs=(mode==='rround')?S.rsess[curRound]:null, redo=!!(rs&&rs.redo);
+  // 복습 후보는 세션의 첫 답을 기준으로 판단한다. 같은 날 다시 풀어 맞힌 결과도 기록한다.
+  if(r.tries===1){
+    st.seen++;
+    if(!redo){st.last=today;st.lastFirstWrong=!r.ok;}
+  }
+  // 틀리면 '틀린 문제'로 표시 (다시 풀어서 맞아도 오답 횟수는 남는다). 한 번 풀이에서 여러 번 틀려도 1회로 센다.
   if(!r.ok&&!r.everWrong){r.everWrong=true;if(!(redo&&st.lastWrong===today))st.wrong++;st.lastWrong=today;}
   // 복습 첫 풀이에서 한 번에 맞히면 그 차수 완료 (다시 풀기는 일정에 영향 없음). 틀리면 틀린 날이 오늘로 바뀌어 복습이 1차부터 새로 시작된다
   if(mode==='rround'&&!redo&&r.ok&&!r.everWrong)markReviewDone(id,curRound);
