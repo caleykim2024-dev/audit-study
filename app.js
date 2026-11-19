@@ -79,6 +79,19 @@ function questionTextHtml(value){
   }
   return html+textWithImages(source.slice(last),'qimg','문제 그림');
 }
+function givenTextHtml(value){
+  const source=String(value??''),key=/\[\[(pk|fk):([^\]\n]+)\]\]/gi;
+  let html='',last=0,match;
+  while((match=key.exec(source))!==null){
+    html+=questionTextHtml(source.slice(last,match.index));
+    html+=`<span class="schema-key ${match[1].toLowerCase()}">${e(match[2])}</span>`;
+    last=key.lastIndex;
+  }
+  return html+questionTextHtml(source.slice(last));
+}
+function givenSentences(value){
+  return String(value??'').replace(/(?<=[가-힣])\.[ \t]+(?=\S)/g,'.\n');
+}
 function questionHtml(value){
   const source=String(value??'');
   const lettered=[...source.matchAll(/(?:^|\n)(?:[가-하]\.\s|\([가-하]\)[ \t]+(?!\([가-하]\)))/g)];
