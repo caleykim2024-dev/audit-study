@@ -54,7 +54,9 @@
   {
     "id": "2017년 제18회 데이터베이스-55",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "다음은 릴레이션 R1, R2와 SQL 질의문이다. SQL 문에 대한 관계대수 연산으로 가장 적합한 것은?\n(⋈은 자연조인, ⟕은 왼쪽 외부조인 기호)\n\n[릴레이션]\nR1(r1name, a, b, c)\nR2(r2name, a, b, c)\n\n[SQL]\n```sql\nSELECT r1name\nFROM R1\nWHERE EXISTS (\n  SELECT *\n  FROM R2\n  WHERE r1name = r2name\n);\n```",
+    "question": "다음은 릴레이션 R1, R2와 SQL 질의문이다. SQL 문에 대한 관계대수 연산으로 가장 적합한 것은?",
+    "given": "(⋈은 자연조인, ⟕은 왼쪽 외부조인 기호)\n\n[릴레이션]\nR1(r1name, a, b, c)\nR2(r2name, a, b, c)\n\n[SQL]\n```sql\nSELECT r1name\nFROM R1\nWHERE EXISTS (\n  SELECT *\n  FROM R2\n  WHERE r1name = r2name\n);\n```",
+    "givenFormat": "code",
     "choices": [
       "πr1name (\n  R1 ⟕ r1name = r2name (R2))",
       "πr1name (\n  R2 - R1)",
@@ -80,7 +82,9 @@
   {
     "id": "2017년 제18회 데이터베이스-57",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "수강신청 데이터를 저장한 릴레이션 ENROLL에서 강좌번호(COURSEID) 100과 101번 강좌를 모두 수강 신청한 학생의 학번을 찾는 SQL 질의로 틀린 것은?\n\n[릴레이션]\nENROLL(COURSEID, STUDENTID, TIME)",
+    "question": "수강신청 데이터를 저장한 릴레이션 ENROLL에서 강좌번호(COURSEID) 100과 101번 강좌를 모두 수강 신청한 학생의 학번을 찾는 SQL 질의로 틀린 것은?",
+    "given": "[릴레이션]\nENROLL(COURSEID, STUDENTID, TIME)",
+    "givenFormat": "code",
     "choices": [
       "SELECT STUDENTID\nFROM ENROLL E1, ENROLL E2\nWHERE E1.STUDENTID = E2.STUDENTID\n  AND E1.COURSEID = 100\n  AND E2.COURSEID = 101",
       "SELECT STUDENTID\nFROM ENROLL E\nWHERE E.COURSEID = 100\nINTERSECT\nSELECT STUDENTID\nFROM ENROLL E\nWHERE E.COURSEID = 101",
@@ -93,7 +97,9 @@
   {
     "id": "2017년 제18회 데이터베이스-58",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "다음 SQL 문과 질의에 대한 결과 값으로 맞는 것은?\n\n[테이블 생성 및 데이터 입력]\nCREATE TABLE TEST(A INTEGER, B VARCHAR(10));\nINSERT INTO TEST VALUES (1, 'kim');\nINSERT INTO TEST VALUES (2, ' ');\nINSERT INTO TEST VALUES (3, NULL);\nINSERT INTO TEST VALUES (4, 'park');\nINSERT INTO TEST VALUES (5, NULL);\nINSERT INTO TEST VALUES (6, 'lee');\n\n[Oracle DBMS의 SQL]\n```sql\nSELECT X, X-Y, Z\nFROM (\n  SELECT COUNT(*) AS X,\n         COUNT(B) AS Y,\n         COUNT(CASE WHEN B IS NOT NULL\n                     AND LTRIM(B) IS NULL\n                    THEN '1' END) AS Z\n  FROM TEST\n) T;\n\n```\n\n[SQL Server DBMS의 SQL]\n```sql\nSELECT X, X-Y, Z\nFROM (\n  SELECT COUNT(*) AS X,\n         COUNT(B) AS Y,\n         COUNT(CASE WHEN B IS NOT NULL\n                     AND LEN(LTRIM(B)) = 0\n                    THEN '1' END) AS Z\n  FROM TEST\n) T;\n```",
+    "question": "다음 SQL 문과 질의에 대한 결과 값으로 맞는 것은?",
+    "given": "[테이블 생성 및 데이터 입력]\nCREATE TABLE TEST(A INTEGER, B VARCHAR(10));\nINSERT INTO TEST VALUES (1, 'kim');\nINSERT INTO TEST VALUES (2, ' ');\nINSERT INTO TEST VALUES (3, NULL);\nINSERT INTO TEST VALUES (4, 'park');\nINSERT INTO TEST VALUES (5, NULL);\nINSERT INTO TEST VALUES (6, 'lee');\n\n[Oracle DBMS의 SQL]\n```sql\nSELECT X, X-Y, Z\nFROM (\n  SELECT COUNT(*) AS X,\n         COUNT(B) AS Y,\n         COUNT(CASE WHEN B IS NOT NULL\n                     AND LTRIM(B) IS NULL\n                    THEN '1' END) AS Z\n  FROM TEST\n) T;\n\n```\n\n[SQL Server DBMS의 SQL]\n```sql\nSELECT X, X-Y, Z\nFROM (\n  SELECT COUNT(*) AS X,\n         COUNT(B) AS Y,\n         COUNT(CASE WHEN B IS NOT NULL\n                     AND LEN(LTRIM(B)) = 0\n                    THEN '1' END) AS Z\n  FROM TEST\n) T;\n```",
+    "givenFormat": "code",
     "choices": [
       "6, 2, 1",
       "6, 3, 0",
@@ -106,7 +112,9 @@
   {
     "id": "2017년 제18회 데이터베이스-59",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "다음의 데이터베이스에서 “3명 이상의 사원이 근무하는 각 부서에서 부서 번호, 부서 이름, 그리고 그 부서에서 연봉이 4만불 이상인 사원의 수를 검색하라”는 질의를 SQL로 올바르게 표시한 것은?\n\n[릴레이션]\nEMPLOYEE(Name, Ssn, Salary, Sex, Dno)\nDEPARMENT(Dname, Dnumber, Mgr_ssn)",
+    "question": "다음의 데이터베이스에서 “3명 이상의 사원이 근무하는 각 부서에서 부서 번호, 부서 이름, 그리고 그 부서에서 연봉이 4만불 이상인 사원의 수를 검색하라”는 질의를 SQL로 올바르게 표시한 것은?",
+    "given": "[릴레이션]\nEMPLOYEE(Name, Ssn, Salary, Sex, Dno)\nDEPARMENT(Dname, Dnumber, Mgr_ssn)",
+    "givenFormat": "code",
     "choices": [
       "SELECT Dnumber, Dname, COUNT(*)\nFROM DEPARTMENT, EMPLOYEE\nWHERE Dnumber = Dno\n  AND Salary >= 40000\n  AND Dno IN (\n    SELECT Dno\n    FROM EMPLOYEE\n    GROUP BY Dno\n    HAVING COUNT(*) > 2\n  )\nGROUP BY Dnumber;",
       "SELECT Dnumber, Dname, COUNT(*)\nFROM DEPARTMENT, EMPLOYEE\nWHERE Dnumber = Dno\n  AND Salary >= 40000\n  AND COUNT(*) > 2\nGROUP BY Dnumber, Dname;",
@@ -148,7 +156,9 @@
   {
     "id": "2017년 제18회 데이터베이스-62",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "EMPLOYEE(Eno, Name, Salary, CommissionPercent) 테이블에 대한 다음과 같은 질의가 있다. 이러한 유형의 질의는 실행 빈도가 높을 수 있지만 Salary 열의 일반 인덱스가 있어도 제대로 이용하지 못한다. 이 경우에 활용할 수 있는 가장 적절한 인덱싱 기법은?\n\n[SQL]\n```sql\nSELECT Name\nFROM EMPLOYEE\nWHERE ((Salary * CommissionPercent) + Salary) > 15000;\n```",
+    "question": "EMPLOYEE(Eno, Name, Salary, CommissionPercent) 테이블에 대한 다음과 같은 질의가 있다. 이러한 유형의 질의는 실행 빈도가 높을 수 있지만 Salary 열의 일반 인덱스가 있어도 제대로 이용하지 못한다. 이 경우에 활용할 수 있는 가장 적절한 인덱싱 기법은?",
+    "given": "[SQL]\n```sql\nSELECT Name\nFROM EMPLOYEE\nWHERE ((Salary * CommissionPercent) + Salary) > 15000;\n```",
+    "givenFormat": "code",
     "choices": [
       "Bitmap indexing",
       "Function-based indexing",
@@ -161,7 +171,34 @@
   {
     "id": "2017년 제18회 데이터베이스-63",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "트랜잭션 T1, T2가 수행되는 다음 그림에서, T1의 연산 결과(x + 100)가 T2의 연산 결과(x * 2)로 인해 바르게 저장되지 않는 현상이 발생할 수 있다. 이 같은 현상을 무엇이라고 하는가? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36978.png]",
+    "question": "트랜잭션 T1, T2가 수행되는 다음 그림에서, T1의 연산 결과(x + 100)가 T2의 연산 결과(x * 2)로 인해 바르게 저장되지 않는 현상이 발생할 수 있다. 이 같은 현상을 무엇이라고 하는가?",
+    "tables": [
+      {
+        "title": "시간 순서 (위에서 아래로)",
+        "rows": [
+          [
+            "T1",
+            "T2"
+          ],
+          [
+            "read(x)\nx ← x + 100",
+            ""
+          ],
+          [
+            "",
+            "read(x)\nx ← x * 2"
+          ],
+          [
+            "write(x)",
+            ""
+          ],
+          [
+            "",
+            "write(x)"
+          ]
+        ]
+      }
+    ],
     "choices": [
       "갱신 손실(lost update)",
       "오손 읽기(dirty read)",
@@ -174,7 +211,54 @@
   {
     "id": "2017년 제18회 데이터베이스-64",
     "deck": "2017년 제18회 데이터베이스",
-    "question": "트랜잭션 T1은 x와 y에 100을 더하고, 트랜잭션 T2는 y와 x에 2를 곱한다. 두 트랜잭션이 다음 순서로 실행될 때 발생한 상황은?\n\n[실행 순서]\n시간 1: T1 lock(x); read(x);\n시간 2: T2 lock(y); read(y);\n시간 3: T1 x = x + 100\n시간 4: T2 y = y * 2\n시간 5: T1 write(x)\n시간 6: T2 write(y)\n시간 7: T1 lock(y)\n시간 8: T2 lock(x)",
+    "question": "트랜잭션 T1은 x와 y에 100을 더하고, 트랜잭션 T2는 y와 x에 2를 곱한다. 두 트랜잭션이 다음 순서로 실행될 때 발생한 상황은?",
+    "table": [
+      [
+        "시간",
+        "트랜잭션",
+        "연산"
+      ],
+      [
+        "1",
+        "T1",
+        "lock(x); read(x);"
+      ],
+      [
+        "2",
+        "T2",
+        "lock(y); read(y);"
+      ],
+      [
+        "3",
+        "T1",
+        "x = x + 100"
+      ],
+      [
+        "4",
+        "T2",
+        "y = y * 2"
+      ],
+      [
+        "5",
+        "T1",
+        "write(x)"
+      ],
+      [
+        "6",
+        "T2",
+        "write(y)"
+      ],
+      [
+        "7",
+        "T1",
+        "lock(y)"
+      ],
+      [
+        "8",
+        "T2",
+        "lock(x)"
+      ]
+    ],
     "choices": [
       "갱신 손실(lost update)",
       "교착 상태(deadlock)",
