@@ -110,11 +110,13 @@ function renderQuiz(){
   }).join('');
   const submit=multi&&!answered?`<button class="btn submit-answers" id="submitAnswers" onclick="submitMultiple()" ${selected.length?'':'disabled'}>선택한 답 제출</button>`:'';
   const questionTables=Array.isArray(q.tables)?q.tables:(Array.isArray(q.table)?[{rows:q.table}]:[]);
+  const given=q.given?`<div class="given-block${q.givenFormat==='code'?' code':''}">${givenTextHtml(q.givenFormat==='code'?q.given:givenSentences(q.given))}</div>`:'';
   const qTable=questionTables.map(block=>{
     const rows=block.rows||[];
     if(!rows.length)return '';
     return `${block.title?`<p class="question-table-title">${e(block.title)}</p>`:''}<div class="tbl-wrap"><table class="tbl${rows[0].length>=4?' wide':''}"><thead><tr>${rows[0].map(c=>`<th>${e(c)}</th>`).join('')}</tr></thead><tbody>${rows.slice(1).map(row=>`<tr>${row.map(c=>`<td>${e(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }).join('');
+  const material=given||qTable?`<section class="question-material" aria-label="문제 자료"><h3 class="material-title">${e(q.givenTitle||'제시 자료')}</h3>${given}${qTable}</section>`:'';
   const questionHasImage=hasImageUrl(q.question);
   const questionImgBase=questionHasImage?null:imageBase(q,'question');
   const questionImg=questionHasImage?'':q.image?`<img class="qimg" src="${e(q.image)}" alt="문제 그림">`
@@ -140,7 +142,8 @@ function renderQuiz(){
     ${dotsHtml(ss.ids,res,'go',true)}
     <div class="qhead">${tags}</div>
     ${q.big?`<div class="bighan" lang="ko">${e(q.big)}</div>`:''}
-    <div class="qtext">${questionHtml(q.question)}${qTable}</div>
+    <div class="qtext">${questionHtml(q.question)}</div>
+    ${material}
     ${questionImg}
     <div class="choices">${ch}</div>
     ${submit}
