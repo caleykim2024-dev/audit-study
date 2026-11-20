@@ -80,7 +80,7 @@ function questionTextHtml(value){
   return html+textWithImages(source.slice(last),'qimg','문제 그림');
 }
 function givenTextHtml(value){
-  const source=String(value??''),key=/\[\[(pk|fk):([^\]\n]+)\]\]/gi;
+  const source=String(value??''),key=/\[\[(pk|fk|underline):([^\]\n]+)\]\]/gi;
   let html='',last=0,match;
   while((match=key.exec(source))!==null){
     html+=questionTextHtml(source.slice(last,match.index));
@@ -530,4 +530,6 @@ function renderLanding(){
     ${noticeHtml()}
     <div class="areas">${reviewCard}${cards}</div>`;
   window.scrollTo(0,0);
+}
+o(0,0);
 }
