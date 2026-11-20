@@ -114,7 +114,16 @@ function renderQuiz(){
   const qTable=questionTables.map(block=>{
     const rows=block.rows||[];
     if(!rows.length)return '';
-    return `${block.title?`<p class="question-table-title">${e(block.title)}</p>`:''}<div class="tbl-wrap"><table class="tbl${rows[0].length>=4?' wide':''}"><thead><tr>${rows[0].map(c=>`<th>${e(c)}</th>`).join('')}</tr></thead><tbody>${rows.slice(1).map(row=>`<tr>${row.map(c=>`<td>${e(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    const cellHtml=(cell,tag)=>{
+      const data=cell&&typeof cell==='object'&&!Array.isArray(cell)?cell:{text:cell};
+      const span=Number.isInteger(data.colspan)&&data.colspan>1?` colspan="${data.colspan}"`:'';
+      const highlight=data.highlight?' class="highlight"':'';
+      return `<${tag}${span}${highlight}>${e(data.text)}</${tag}>`;
+    };
+    const rowHtml=(row,tag)=>`<tr>${row.map(cell=>cellHtml(cell,tag)).join('')}</tr>`;
+    const hasHeader=block.header!==false;
+    const tableClass=block.style==='hex-grid'?' hex-grid':rows[0].length>=4?' wide':'';
+    return `${block.title?`<p class="question-table-title">${e(block.title)}</p>`:''}<div class="tbl-wrap"><table class="tbl${tableClass}">${hasHeader?`<thead>${rowHtml(rows[0],'th')}</thead>`:''}<tbody>${(hasHeader?rows.slice(1):rows).map(row=>rowHtml(row,'td')).join('')}</tbody></table></div>`;
   }).join('');
   const material=given||qTable?`<section class="question-material" aria-label="문제 자료"><h3 class="material-title">${e(q.givenTitle||'제시 자료')}</h3>${given}${qTable}</section>`:'';
   const questionHasImage=hasImageUrl(q.question);
