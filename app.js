@@ -531,5 +531,3 @@ function renderLanding(){
     <div class="areas">${reviewCard}${cards}</div>`;
   window.scrollTo(0,0);
 }
-o(0,0);
-}
