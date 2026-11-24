@@ -67,7 +67,11 @@ a.icon-btn{display:grid;place-items:center;text-decoration:none}
 .bighan{font-family:"Noto Serif KR","Noto Serif CJK KR","Songti SC","Batang",serif;font-size:96px;line-height:1.15;text-align:center;margin:6px 0 16px}
 
 /* quiz */
-.qhead{display:flex;align-items:center;gap:8px;margin:14px 0 6px}
+.qhead{display:flex;align-items:center;gap:8px;margin:14px 0 6px;flex-wrap:wrap}
+.question-ref{display:inline-flex;align-items:center;gap:5px;padding:3px 7px;min-height:28px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.question-ref:hover{border-color:var(--accent)}
+.question-ref strong{font-size:14px;color:var(--ink)}
+.question-ref .copy-icon{font-size:12px;line-height:1;color:var(--accent)}
 .tag{font-size:13px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--marker);color:#3B3000}
 .qtext{font-size:19px;font-weight:600;line-height:1.6;white-space:pre-wrap;margin:6px 0 16px;word-break:keep-all}
 .question-material .tbl{font-weight:400}
@@ -91,6 +95,7 @@ a.icon-btn{display:grid;place-items:center;text-decoration:none}
   padding:13px 14px;border-radius:14px;border:2px solid var(--line);background:#fff}
 .choice .n{flex:none;width:26px;height:26px;border-radius:50%;background:#EEF2F9;font-size:14px;font-weight:700;display:grid;place-items:center;margin-top:1px}
 .choice .t{flex:1;min-width:0;white-space:pre-wrap;word-break:keep-all}
+.choice-code{display:block;max-width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#F6F8FC;font:400 14px/1.55 Consolas,"Courier New",monospace;white-space:pre-wrap;overflow-wrap:anywhere;overflow-x:auto;tab-size:2}
 .choice-table-wrap{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .choice-table{display:table;border-collapse:collapse;min-width:520px;width:100%;font-size:14px;line-height:1.45;white-space:nowrap}
 .choice-table-row{display:table-row}
@@ -137,6 +142,9 @@ a.icon-btn{display:grid;place-items:center;text-decoration:none}
 .tbl{border-collapse:collapse;width:100%;font-size:15px;background:#fff}
 .tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;white-space:pre-wrap;word-break:keep-all}
 .tbl th{background:#EEF2F9;font-weight:700}
+.question-material .tbl.hex-grid{width:auto;min-width:0;font-family:Consolas,"Courier New",monospace;table-layout:fixed}
+.tbl.hex-grid td{min-width:25px;padding:3px 5px;text-align:center;white-space:nowrap}
+.tbl.hex-grid td.highlight{background:#fff36b}
 
 .footer{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(to top,var(--bg) 70%,transparent);
   padding:20px 16px calc(14px + env(safe-area-inset-bottom))}
