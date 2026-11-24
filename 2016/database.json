@@ -1,4 +1,4 @@
-[
+a[
   {
     "id": "2016년 제17회 데이터베이스-51",
     "deck": "2016년 제17회 데이터베이스",
@@ -44,7 +44,7 @@
       "보안 등급은 극비(top secret) > 비밀(secret) 대외비(confidential) > 일반(unclassified)의 순서이다."
     ],
     "answer": 3,
-    "explanation": "③은 틀리다. 필수 접근 제어에서 읽기는 주체의 허가 등급이 객체의 비밀 등급 이상이어야 하지만, 쓰기는 정보가 상위 등급에서 하위 등급으로 흐르지 않도록 별도 규칙을 적용한다. 따라서 허가 등급이 더 높으면 갱신할 수 있다는 단순 비교는 맞지 않는다. ①은 주체·객체에 등급을 부여한다는 설명이고 ②는 상위 등급 자료를 읽지 못하게 하는 단순 보안 규칙이다. ④는 등급의 높낮이를 설명한다."
+    "explanation": "③은 틀리다. 필수 접근 제어에서 읽기는 주체의 허가 등급이 객체의 비밀 등급 이상이어야 하지만, 쓰기는 정보가 상위 등급에서 하위 등급으로 흐르지 않도록 별도 규칙을 적용한다. 따라서 허가 등급이 더 높으면 갱신할 수 있다는 단순 비교는 맞지 않는다.\n①은 주체·객체에 등급을 부여한다는 설명이고 ②는 상위 등급 자료를 읽지 못하게 하는 단순 보안 규칙이다.\n④는 등급의 높낮이를 설명한다."
   },
   {
     "id": "2016년 제17회 데이터베이스-54",
@@ -57,7 +57,7 @@
       "항목 X에 read_lock(X)를 수행하여 배타적 로크를 획득한 후 나중에 write_lock(X)를 수행하여공유 로크로 로크를 하강시킬 수 있다."
     ],
     "answer": 1,
-    "explanation": "①은 공유 로크를 배타 로크로 바꾸는 상승(upgrade)으로, 2단계 로킹의 확장 단계에서 가능하다. ②는 배타 로크를 공유 로크로 바꾸는 하강(downgrade)이며 상승이라는 이름이 틀렸다. ③은 공유에서 배타로 바꾸므로 하강이 아니라 상승이다. ④는 read_lock이 공유 로크, write_lock이 배타 로크라는 기본 대응을 거꾸로 적었다. 하강은 축소 단계에서만 허용된다."
+    "explanation": "①은 공유 로크를 배타 로크로 바꾸는 상승(upgrade)으로, 2단계 로킹의 확장 단계에서 가능하다.\n②는 배타 로크를 공유 로크로 바꾸는 하강(downgrade)이며 상승이라는 이름이 틀렸다.\n③은 공유에서 배타로 바꾸므로 하강이 아니라 상승이다.\n④는 read_lock이 공유 로크, write_lock이 배타 로크라는 기본 대응을 거꾸로 적었다. 하강은 축소 단계에서만 허용된다."
   },
   {
     "id": "2016년 제17회 데이터베이스-55",
@@ -214,7 +214,7 @@
       "데이터베이스에 NULL 값을 삽입할 수 있으며, NULL 값을 읽어낼 수 있다."
     ],
     "answer": 2,
-    "explanation": "②는 틀리다. 내장 SQL은 콜론을 붙인 호스트 변수 등을 사용해 호스트 언어에서 선언한 변수를 SQL 문 안에서 참조할 수 있다. ①은 여러 행을 순서대로 처리하기 위한 커서 등의 추가 명령을 설명한다. ③은 SQL 실행 결과를 호스트 변수에 저장할 수 있다는 뜻이다. ④는 NULL을 쓰거나 읽을 때 지시자 변수 등을 사용할 수 있다는 뜻이다."
+    "explanation": "②는 틀리다. 내장 SQL은 콜론을 붙인 호스트 변수 등을 사용해 호스트 언어에서 선언한 변수를 SQL 문 안에서 참조할 수 있다.\n①은 여러 행을 순서대로 처리하기 위한 커서 등의 추가 명령을 설명한다.\n③은 SQL 실행 결과를 호스트 변수에 저장할 수 있다는 뜻이다.\n④는 NULL을 쓰거나 읽을 때 지시자 변수 등을 사용할 수 있다는 뜻이다."
   },
   {
     "id": "2016년 제17회 데이터베이스-59",
@@ -231,6 +231,7 @@
       ["Dasol", "Park", "20150203", "F", "B", "4"],
       ["Kyunghee", "Jung", "20162011", "F", "A", "5"]
     ],
+    "choiceFormat": "code",
     "choices": [
       "SELECT ALL Sex, GPA FROM STUDENT;",
       "ALL SELECT Sex, GPA FROM STUDENT;",
@@ -238,12 +239,14 @@
       "SELECT DISTINCT Sex, GPA\nFROM STUDENT;"
     ],
     "answer": 4,
-    "explanation": "④ SELECT DISTINCT Sex, GPA FROM STUDENT가 맞다. 관계대수의 프로젝션은 결과의 중복 튜플을 제거하므로 SQL에서도 DISTINCT가 필요하다. ① SELECT ALL은 중복을 유지한다. ② ALL SELECT와 ③ DISTINCT SELECT는 SQL에서 키워드 순서가 잘못되었다."
+    "explanation": "④ SELECT DISTINCT Sex, GPA FROM STUDENT가 맞다. 관계대수의 프로젝션은 결과의 중복 튜플을 제거하므로 SQL에서도 DISTINCT가 필요하다.\n① SELECT ALL은 중복을 유지한다.\n② ALL SELECT와 ③ DISTINCT SELECT는 SQL에서 키워드 순서가 잘못되었다."
   },
   {
     "id": "2016년 제17회 데이터베이스-60",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "직원과 부양가족 릴레이션이 아래와 같을 때, '부양가족이 없는 직원의 이름을 검색하라'는 SQL 질의에서 ㉮, ㉯, ㉰에 들어갈 내용은? EMPLOYEE의 기본키는 SSN, DEPENDENT의 기본키는 (ESSN, DEPNAME)이며, ESSN은 EMPLOYEE.SSN을 참조한다.\n\n```sql\nSELECT NAME\nFROM EMPLOYEE\nWHERE ㉮ (\n  SELECT ㉯\n  FROM DEPENDENT\n  WHERE ㉰\n);\n```",
+    "question": "직원과 부양가족 릴레이션이 아래와 같을 때, \u0027부양가족이 없는 직원의 이름을 검색하라\u0027는 SQL 질의에서 ㉮, ㉯, ㉰에 들어갈 내용은? EMPLOYEE의 기본키는 SSN, DEPENDENT의 기본키는 (ESSN, DEPNAME)이며, ESSN은 EMPLOYEE.SSN을 참조한다.",
+    "given": "SELECT NAME\nFROM EMPLOYEE\nWHERE ㉮ (\n  SELECT ㉯\n  FROM DEPENDENT\n  WHERE ㉰\n);",
+    "givenFormat": "code",
     "tables": [
       {"title": "EMPLOYEE 구조", "rows": [["NAME", "SSN", "ADDR", "PHONE"], ["VARCHAR(30) NOT NULL", "CHAR(9) NOT NULL", "VARCHAR(30)", "CHAR(10)"]]},
       {"title": "DEPENDENT 구조", "rows": [["ESSN", "DEPNAME", "AGE"], ["CHAR(9) NOT NULL", "VARCHAR(30) NOT NULL", "INT"]]}
@@ -260,7 +263,9 @@
   {
     "id": "2016년 제17회 데이터베이스-61",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "EMPLOYEE와 DEPENDENT 릴레이션으로 아래 뷰를 만들 때 ㉱와 ㉲에 들어갈 내용은? EMPLOYEE의 기본키는 SSN이고, DEPENDENT.ESSN은 이를 참조한다. EMPSSN과 EMPNAME은 직원의 식별번호와 이름, NO_DEPS와 M_AGE는 부양가족 수와 평균 나이이다.\n\n```sql\nCREATE VIEW EMPDEPEND(EMPSSN, EMPNAME, NO_DEPS, M_AGE) AS\nSELECT SSN, NAME, ㉱, ㉲\nFROM EMPLOYEE, DEPENDENT\nWHERE SSN=ESSN\nGROUP BY SSN;\n```",
+    "question": "EMPLOYEE와 DEPENDENT 릴레이션으로 아래 뷰를 만들 때 ㉱와 ㉲에 들어갈 내용은? EMPLOYEE의 기본키는 SSN이고, DEPENDENT.ESSN은 이를 참조한다. EMPSSN과 EMPNAME은 직원의 식별번호와 이름, NO_DEPS와 M_AGE는 부양가족 수와 평균 나이이다.",
+    "given": "CREATE VIEW EMPDEPEND(EMPSSN, EMPNAME, NO_DEPS, M_AGE) AS\nSELECT SSN, NAME, ㉱, ㉲\nFROM EMPLOYEE, DEPENDENT\nWHERE SSN=ESSN\nGROUP BY SSN;",
+    "givenFormat": "code",
     "tables": [
       {"title": "EMPLOYEE 구조", "rows": [["NAME", "SSN", "ADDR", "PHONE"], ["VARCHAR(30) NOT NULL", "CHAR(9) NOT NULL", "VARCHAR(30)", "CHAR(10)"]]},
       {"title": "DEPENDENT 구조", "rows": [["ESSN", "DEPNAME", "AGE"], ["CHAR(9) NOT NULL", "VARCHAR(30) NOT NULL", "INT"]]}
@@ -277,7 +282,10 @@
   {
     "id": "2016년 제17회 데이터베이스-62",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "SQL 문으로 테이블 DEPT와 EMP를 생성하고 뷰 EMPDEPT를 생성하였다. 뷰 생성과 투플 삽입 후 아래 문장을 실행했을 때 오류가 발생하지 않는 것은 (SQL 문)\n\n```sql\nCREATE TABLE DEPT( DEPTNO INTEGER PRIMARY KEY, DNAME VARCHAR(14) NOT NULL, LOC VARCHAR(13) );\nINSERT INTO DEPT\nVALUES(10, 'sales', 'seoul');\nCREATE TABLE EMP ( EMPNO INTEGER PRIMARY KEY, ENAME VARCHAR(10), JOB VARCHAR(9), DEPTNO INTEGER REFERENCES DEPT(DEPTNO) );\nINSERT INTO EMP\nVALUES(1, 'park', 'managing', 10);\nCREATE VIEW EMPDEPT AS SELECT ENAME, DNAME, JOB, DEPT.DEPTNO\nFROM EMP, DEPT\nWHERE EMP.DEPTNO=DEPT.DEPTNO;\n```",
+    "question": "SQL 문으로 테이블 DEPT와 EMP를 생성하고 뷰 EMPDEPT를 생성하였다. 뷰 생성과 투플 삽입 후 아래 문장을 실행했을 때 오류가 발생하지 않는 것은 (SQL 문)",
+    "given": "CREATE TABLE DEPT( DEPTNO INTEGER PRIMARY KEY, DNAME VARCHAR(14) NOT NULL, LOC VARCHAR(13) );\nINSERT INTO DEPT\nVALUES(10, \u0027sales\u0027, \u0027seoul\u0027);\nCREATE TABLE EMP ( EMPNO INTEGER PRIMARY KEY, ENAME VARCHAR(10), JOB VARCHAR(9), DEPTNO INTEGER REFERENCES DEPT(DEPTNO) );\nINSERT INTO EMP\nVALUES(1, \u0027park\u0027, \u0027managing\u0027, 10);\nCREATE VIEW EMPDEPT AS SELECT ENAME, DNAME, JOB, DEPT.DEPTNO\nFROM EMP, DEPT\nWHERE EMP.DEPTNO=DEPT.DEPTNO;",
+    "givenFormat": "code",
+    "choiceFormat": "code",
     "choices": [
       "INSERT INTO EMPDEPT VALUES ('kim', 'sales', 'managing', 10);",
       "CREATE VIEW EMPDNAME AS SELECT ENAME, DNAME FROM EMPDEPT;",
@@ -291,6 +299,7 @@
     "id": "2016년 제17회 데이터베이스-63",
     "deck": "2016년 제17회 데이터베이스",
     "question": "권한(authorization)을 부여하는 ㉮와 회수하는 ㉯를 SQL로 바르게 표현한 것은? ㉮ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 Mary와 John에게 부여한다. ㉯ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 John으로부터 회수한다.",
+    "choiceFormat": "code",
     "choices": [
       "㉮ = GRANT SELECT ON EMPLOYEE TO Mary, John; ㉯ = REVOKE SELECT ON EMPLOYEE FROM John;",
       "㉮ = AUTHORIZE SELECT ON EMPLOYEE TO Mary, John; ㉯ = CANCEL SELECT ON EMPLOYEE FROM John;",
@@ -426,7 +435,7 @@
       "오손 읽기(dirty read) 문제"
     ],
     "answer": 4,
-    "explanation": "④ 오손 읽기는 다른 트랜잭션이 아직 커밋하지 않은 값을 읽는 현상이다. T2가 T1의 미커밋 갱신값을 읽고 T1이 실패하면 T2가 사용한 값은 무효가 된다. ① 갱신 손실은 두 갱신 중 하나가 덮여 사라지는 현상이다. ② 부정확한 요약은 집계 도중 다른 트랜잭션의 갱신이 섞여 일관되지 않은 합계가 나오는 현상이다. ③ 반복 불가능 읽기는 같은 행을 다시 읽었을 때 값이 달라지는 현상이다."
+    "explanation": "④ 오손 읽기는 다른 트랜잭션이 아직 커밋하지 않은 값을 읽는 현상이다. T2가 T1의 미커밋 갱신값을 읽고 T1이 실패하면 T2가 사용한 값은 무효가 된다.\n① 갱신 손실은 두 갱신 중 하나가 덮여 사라지는 현상이다.\n② 부정확한 요약은 집계 도중 다른 트랜잭션의 갱신이 섞여 일관되지 않은 합계가 나오는 현상이다.\n③ 반복 불가능 읽기는 같은 행을 다시 읽었을 때 값이 달라지는 현상이다."
   },
   {
     "id": "2016년 제17회 데이터베이스-70",
@@ -444,7 +453,9 @@
   {
     "id": "2016년 제17회 데이터베이스-71",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "테이블 BOOK(bookid, bookname, price)에서 트랜잭션 T1과 T2가 다음 순서로 실행될 때 ㉮와 ㉯에 출력되는 값을 고르시오. BOOK을 읽거나 쓰는 트랜잭션은 T1과 T2뿐이며, bookid=1인 행이 존재한다.\n\n```sql\n[T2] BEGIN TRANSACTION;\n[T2] SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\n[T2] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: 10000\n\n[T1] BEGIN TRANSACTION;\n[T1] SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;\n[T1] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: 10000\n\n[T2] UPDATE BOOK SET price=price+100 WHERE bookid=1;\n     -- 여기서 대기\n[T1] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: ㉮\n[T1] COMMIT;\n\n[T2] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: ㉯\n[T2] COMMIT;\n```",
+    "question": "테이블 BOOK(bookid, bookname, price)에서 트랜잭션 T1과 T2가 다음 순서로 실행될 때 ㉮와 ㉯에 출력되는 값을 고르시오. BOOK을 읽거나 쓰는 트랜잭션은 T1과 T2뿐이며, bookid=1인 행이 존재한다.",
+    "given": "[T2] BEGIN TRANSACTION;\n[T2] SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\n[T2] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: 10000\n\n[T1] BEGIN TRANSACTION;\n[T1] SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;\n[T1] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: 10000\n\n[T2] UPDATE BOOK SET price=price+100 WHERE bookid=1;\n     -- 여기서 대기\n[T1] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: ㉮\n[T1] COMMIT;\n\n[T2] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: ㉯\n[T2] COMMIT;",
+    "givenFormat": "code",
     "choices": [
       "10000 / 10000",
       "10000 / 10100",
@@ -495,7 +506,7 @@
       "회귀(regression)서술(descriptive),"
     ],
     "answer": 3,
-    "explanation": "③ 이산형 목표 변수의 범주를 맞히는 과제는 분류, 연속형 수치를 예측하는 과제는 회귀다. ①과 ②의 군집은 정답 목표 변수 없이 비슷한 데이터를 묶는 비지도 학습이다. ④는 두 유형의 순서를 거꾸로 놓았으며 서술(descriptive)은 목표값 예측보다 데이터의 패턴을 설명하는 접근이다."
+    "explanation": "③ 이산형 목표 변수의 범주를 맞히는 과제는 분류, 연속형 수치를 예측하는 과제는 회귀다. ①과 ②의 군집은 정답 목표 변수 없이 비슷한 데이터를 묶는 비지도 학습이다.\n④는 두 유형의 순서를 거꾸로 놓았으며 서술(descriptive)은 목표값 예측보다 데이터의 패턴을 설명하는 접근이다."
   },
   {
     "id": "2016년 제17회 데이터베이스-74",
