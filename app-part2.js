@@ -90,6 +90,34 @@ function renderArea(){
   window.scrollTo(0,0);
 }
 
+async function copyQuestionRef(button){
+  const q=QB[sess().ids[cur]],value=questionRef(q);
+  if(!value)return;
+  let copied=false;
+  try{
+    if(navigator.clipboard?.writeText){
+      await navigator.clipboard.writeText(value);
+      copied=true;
+    }
+  }catch(_){}
+  if(!copied){
+    const input=document.createElement('textarea');
+    input.value=value;
+    input.setAttribute('readonly','');
+    input.style.position='fixed';
+    input.style.opacity='0';
+    document.body.appendChild(input);
+    input.select();
+    try{copied=document.execCommand('copy');}catch(_){}
+    input.remove();
+  }
+  if(!copied){prompt('다음 값을 복사하세요',value);return;}
+  const icon=button?.querySelector('.copy-icon');
+  if(icon){
+    icon.innerHTML='&#10003;';
+    setTimeout(()=>{if(icon.isConnected)icon.innerHTML='&#x29C9;';},1800);
+  }
+}
 function renderQuiz(){
   const ss=sess();
   const id=ss.ids[cur],q=QB[id];
@@ -98,6 +126,8 @@ function renderQuiz(){
   const multi=isMulti(q),correct=answerIndices(q);
   const selected=answered?(Array.isArray(r.picked)?r.picked:[r.picked]):(pendingChoices[id]||[]);
   const w=wrongOf(id);
+  const realNumber=questionNumber(q),ref=questionRef(q);
+  const questionIdHtml=ref?'<button type="button" class="question-ref" onclick="copyQuestionRef(this)" title="번호 복사" aria-label="'+e(ref)+' 복사"><strong>'+realNumber+'번</strong><span class="copy-icon" aria-hidden="true">&#x29C9;</span></button>':'';
   const ch=q.choices.map((c,i)=>{
     let cls='';
     if(answered){if(correct.includes(i))cls='right';else if(selected.includes(i))cls='wrong';}
@@ -105,6 +135,8 @@ function renderQuiz(){
     const rows=Array.isArray(q.choiceTables)?q.choiceTables[i]:null;
     const body=Array.isArray(rows)&&rows.length
       ?`<span class="choice-table-wrap"><span class="choice-table" role="table">${rows.map((row,j)=>`<span class="choice-table-row" role="row">${row.map(cell=>`<span class="choice-table-cell" role="${j===0?'columnheader':'cell'}">${e(cell)}</span>`).join('')}</span>`).join('')}</span></span>`
+      :q.choiceFormat==='code'
+      ?'<span class=choice-code>'+e(c)+'</span>'
       :textWithImages(c,'choice-img',`${i+1}번 보기 그림`);
     return `<button class="choice ${cls}" ${answered?'disabled':''} ${multi?`aria-pressed="${selected.includes(i)}"`:''} onclick="${multi?'toggleChoice':'pick'}(${i})"><span class="n">${i+1}</span><span class="t">${body}</span></button>`;
   }).join('');
@@ -149,7 +181,7 @@ function renderQuiz(){
   $app.innerHTML=`
     <div class="top"><button class="icon-btn" onclick="home()" aria-label="처음으로">←</button><span class="sync">${sessLabel()} · ${cur+1} / ${ss.ids.length}</span><span style="width:44px"></span></div>
     ${dotsHtml(ss.ids,res,'go',true)}
-    <div class="qhead">${tags}</div>
+    <div class="qhead">${questionIdHtml}${tags}</div>
     ${q.big?`<div class="bighan" lang="ko">${e(q.big)}</div>`:''}
     <div class="qtext">${questionHtml(q.question)}</div>
     ${material}
