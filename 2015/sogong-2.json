@@ -10,7 +10,7 @@
       "다, 라, 마"
     ],
     "answer": 3,
-    "explanation": "해설: WMC, NOC, RFC 증가는 복잡도/영향/테스트 난이도를 키운다.\n학습 포인트: CK 메트릭의 WMC는 클래스 메서드의 가중 복잡도, NOC는 자식 클래스 수, RFC는 메시지에 응답해 실행될 수 있는 메서드 수다. 값이 커질수록 수정 영향·시험 범위가 커질 수 있지만, 수치 하나로 품질을 단정하지 않고 설계 맥락을 함께 본다.",
+    "explanation": "해설: WMC, NOC, RFC 증가는 복잡도/영향/테스트 난이도를 키운다. 학습 포인트: CK 메트릭의 WMC는 클래스 메서드의 가중 복잡도, NOC는 자식 클래스 수, RFC는 메시지에 응답해 실행될 수 있는 메서드 수다. 값이 커질수록 수정 영향·시험 범위가 커질 수 있지만, 수치 하나로 품질을 단정하지 않고 설계 맥락을 함께 본다.",
     "given": "가. WMC(Weighted Method per Class)가 클수록 테스트 경로가 많아져 유지보수가 어렵다.\n나. DIT(Depth of Inheritance Tree)가 클수록 클래스의 동작에 대한 예측이 용이하다.\n다. NOC(Number of Children)가 클수록 변경의 영향을 많이 받는다.\n라. CBO(Coupling Between Object Classes)가 클수록 모듈화가 잘 된 것이다.\n마. RFC(Response for a Class)가 클수록 테스트 하고 디버깅하기가 어렵다."
   },
   {
