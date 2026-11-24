@@ -1,0 +1,370 @@
+[
+  {
+    "id": "2016년 제17회 소프트웨어 공학-26",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 중 소프트웨어 요구 명세서(software requirements specification)에 포함되어야 할 항목으로 가장 적절한 것은? 가. 사용자 인터페이스나. 시스템 구조 다. 성능 요구라. 알고리즘 마. 인수 조건바. 자원에 대한 제약 조건",
+    "choices": [
+      "가, 나, 다, 바",
+      "나, 다, 라, 마",
+      "나, 라, 마, 바",
+      "가, 다, 마, 바"
+    ],
+    "answer": 4,
+    "explanation": "SRS에는 사용자 인터페이스, 성능 요구, 인수 조건, 자원 제약 같은 요구사항이 들어간다. 시스템 구조와 알고리즘은 설계 상세에 가까워 요구 명세 항목으로는 덜 적절하다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-27",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 그림은 클래스 다이어그램과 시퀀스 다이어 그램에바탕을 둔 설계의 일부이다. 본 설계가 위반한 설계 원칙으로 가장적절한 것은?",
+    "choices": [
+      "SRP(Single Responsibility Principle)",
+      "LSP(Liskov Substitution Principle)",
+      "ISP(Interface Segregation Principle)",
+      "DRY(Don't Repeat Yourself)"
+    ],
+    "answer": 2,
+    "explanation": "② LSP는 하위 타입의 객체를 상위 타입 대신 사용해도 프로그램의 기대 동작이 깨지지 않아야 한다는 원칙이다. ① SRP는 클래스나 모듈이 하나의 변경 이유를 갖도록 한다. ③ ISP는 사용하지 않는 기능에 의존하지 않도록 인터페이스를 분리한다. ④ DRY는 중복된 지식·로직을 한곳에 유지한다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-28",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "아래 기계어와 어셈블리어의 명령은 고급 언어의 Z = X + Y로 표현할 수 있다. 이 과정에 적용된 추상화 방법으로 가장 적절한 것은?",
+    "table": [
+      ["기계어", "어셈블리어"],
+      ["00100101", "LOAD A, X"],
+      ["10000110", "ADD A, Y"],
+      ["01000111", "STORE Z, A"]
+    ],
+    "choices": [
+      "프로시저 추상화(procedure abstraction)",
+      "데이터 추상화(data abstraction)",
+      "제어 추상화(control abstraction)",
+      "기능 추상화(function abstraction)"
+    ],
+    "answer": 3,
+    "explanation": "③ 제어 추상화는 분기·반복 등 실행 흐름의 낮은 수준 세부를 숨긴다. ① 프로시저 추상화는 일련의 작업을 호출 가능한 절차로 묶는다. ② 데이터 추상화는 내부 표현을 숨기고 데이터의 의미와 연산을 드러낸다. ④ 기능 추상화는 무엇을 계산하는지에 초점을 두고 구현 방법을 감춘다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-29",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음은 아키텍처 설계과정에서 결함허용(fault tolerance)을 높이기 위해 취할 수 있는 방법 중하나에 대한 설명이다. 다음 설명으로가장 적절한 것은? - 그룹에서 활성화 요소가 입력을 처리하도록 구 성된형상 - 중복 요소를 위해 주기적으로 상태 업데이트 - 활성화 요소와 중복 요소 간에 상태 일치를 위해 체크 포인트 메커니즘 사용",
+    "choices": [
+      "active redundancy(hot spare)",
+      "passive redundancy(warm spare)",
+      "spare(cold spare)",
+      "condition monitoring"
+    ],
+    "answer": 2,
+    "explanation": "활성 요소가 입력을 처리하고 대기 요소가 주기적으로 상태를 넘겨받는 구성은 ② passive redundancy(warm spare)이다. 장애가 나면 저장해 둔 상태에서 대기 요소가 이어받는다.\n① hot spare는 중복 요소도 즉시 처리할 수 있도록 활성 상태를 유지하므로, 대기 요소에 주기적으로 상태를 복사하는 설명과 다르다.\n③ cold spare는 예비 요소를 미리 동기화하지 않고 장애 후 가동·복구하므로 체크포인트를 통한 상태 일치와 다르다.\n④ condition monitoring은 구성 요소의 상태나 장애 징후를 감시하는 활동으로, 예비 요소를 두고 상태를 동기화하는 중복 방식이 아니다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-30",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음은 UML 모델링을 위해 사용되는 특정 다이어 그램의 활용에 대한 설명이다. 해당 다이어그램으로 가장 적절한 것은? - 유스케이스에서 흐름을 모델링하기 위해 사용된다. - 객체의 연산에 대한 플로우차트로 활용될 수 있다. - 비즈니스 프로세스나 작업 흐름을 모델링할 수 있다.",
+    "choices": [
+      "시퀀스 다이어그램(sequence diagram)",
+      "액티비티 다이어그램(activity diagram)",
+      "상태 다이어그램(state diagram)",
+      "협력 다이어그램(collaboration diagram)"
+    ],
+    "answer": 2,
+    "explanation": "② 액티비티 다이어그램은 업무나 유스케이스의 활동 흐름과 분기를 나타낸다. ① 시퀀스 다이어그램은 객체 사이의 메시지를 시간 순서로 보여 준다. ③ 상태 다이어그램은 한 객체의 상태와 사건에 따른 전이를 보여 준다. ④ 협력 다이어그램은 객체 간 연결과 메시지 교환 관계를 중심으로 보여 준다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-31",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 코드를 수행할때, 수행 결과로 가장 적절한 것은? class Temp { private static Temp t; private int m = 0; public Temp() { } public static Temp getTemp() { if (t == null) t = new Temp(); return t; } public int add(int i) { m += i; return m; } } public class TempTest { public static void main(String[] args) { Temp obj1 = new Temp(); Temp obj2 = new Temp(); System.out.print(obj1.add(5) + “ ”); System.out.print(obj2.add(5) + “ ”); Temp obj3 = Temp.getTemp(); Temp obj4 = Temp.getTemp(); System.out.print(obj3.add(5) + “ ”); System.out.println(obj4.add(5)); } }",
+    "choices": [
+      "5 5 5 5",
+      "5 5 5 10",
+      "5 5 10 15",
+      "5 10 15 20"
+    ],
+    "answer": 2,
+    "explanation": "obj1과 obj2는 각각 새 객체라 add(5)가 5, 5를 낸다. getTemp로 얻는 obj3과 obj4는 같은 정적 객체이므로 5 다음 10이 출력된다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-32",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "어느 소프트웨어는 평균적으로 에러(error)가 일에 1개씩 발생한다고한다. 이 소프트웨어가 3일 동안 에러(error) 없이 가동될 신뢰성은 얼마인가?",
+    "choices": [
+      "0.5",
+      "0.125",
+      "0.675",
+      "0.25"
+    ],
+    "answer": 2,
+    "explanation": "보기 체계상 2일에 1개 오류를 하루 무오류 확률 1/2로 보고 3일 연속 무오류를 (1/2)^3 = 0.125로 계산한다. 지수분포 모델로 접근하면 보기와 맞지 않으므로 시험 의도를 우선한다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-33",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 코드를 수행할 때, 수행 결과로 가장 적절한 것은? class Parent { public Parent(){ System.out.println(\"Parent default\"); } public Parent(int i){ this(\"hello\"); System.out.println(\"int constructor \" + i); } public Parent(char c){ this(); System.out.println(\"char constructor \" + c); } public Parent(String s){ this('A'); System.out.println(\"String constructor \" + s); } } class Child extends Parent{ public Child() { super(10); System.out.println(\"Child default\"); } public Child(int i) { System.out.println(\"int constructor\"); } } public class Exam { public static void main(String[] args) { Child c1 = new Child(); System.out.println(\"-----\"); Child c2 = new Child(10); } } 2",
+    "choices": [
+      "Parent default char constructor A String constructor hello int constructor 10 Child default ----- Parent default int constructor",
+      "Parent default char constructor A String constructor hello int constructor 10 Child default ----- int constructor",
+      "char constructor A String constructor hello int constructor 10 Child default ----- Child default int constructor",
+      "int constructor 10 String constructor hello char constructor A Parent default ----- Child default int constructor"
+    ],
+    "answer": 1,
+    "explanation": "Child()는 super(10)을 호출하고 Parent(int)에서 Parent(String), Parent(char), Parent() 순으로 체인이 이어진다. Child(int)는 명시 super가 없으므로 Parent()가 먼저 호출된다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-34",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "코딩 규칙 MISRA-C:2004에 제시된 규칙들이 참조하는 관련 표준으로 가장 거리가 먼 것은?",
+    "choices": [
+      "ISO/IEC 9899 Programming languages - C",
+      "ISO/IEC 9126 Software Engineering – Product Quality",
+      "ISO/IEC 10646 Information technology — Universal Multiple-Octet Coded Character Set",
+      "ANSI/IEEE 754 IEEE Standard for Binary Floating-Point Arithmetic"
+    ],
+    "answer": 2,
+    "explanation": "MISRA-C는 C 언어, 문자집합, 부동소수점 등 C 코드 안정성 관련 표준과 연관된다. ISO/IEC 9126은 소프트웨어 제품 품질 모델이라 MISRA-C 규칙 참조 표준으로는 거리가 멀다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-35",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음은 Excel 프로그램에서 셀의 글꼴을 설정하는 대화상자를 보여준다. 테스터에게 소스 코드가 제공되지 않는다고 가정할 때이 대화 상자를 테스트하기 위해서 적용되는 테스트 방법으로 가장 거리가 먼 것은?",
+    "choices": [
+      "동등 분할(equivalence partitioning)",
+      "조합(pairwise) 테스팅",
+      "분류트리(classification tree) 방법",
+      "결정(decision) 테스팅"
+    ],
+    "answer": 4,
+    "explanation": "④ 결정 테스트는 소스 코드의 분기 결과를 확인하는 화이트박스 기법이므로 소스 코드가 없는 대화상자 시험과 거리가 멀다. ① 동등 분할은 같은 동작이 예상되는 입력 집합을 대표값으로 시험한다. ② 페어와이즈는 인자 두 개의 값 조합을 빠짐없이 포함한다. ③ 분류트리는 입력 조건을 분류·조합해 시험 사례를 만든다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-36",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "통합 테스트는 모듈간의 인터페이스에 존재할 수 있는 결함 검출을 목표로한다. 다음 중에서인터 페이스 결함과 가장 거리가 먼 것은?",
+    "choices": [
+      "전달되는 매개변수들의 형이 잘못된 경우",
+      "정렬되지 않은 배열임에도 이진 탐색 루틴을 호출하는 경우",
+      "데이터 생성자와 소비자의 수행 속도 차이에 따른 결함",
+      "주어진 기능에 대한 알고리즘을 부정확하게 구현한 경우"
+    ],
+    "answer": 4,
+    "explanation": "인터페이스 결함은 매개변수 형, 호출 전제, 생산자·소비자 속도 차이처럼 모듈 간 연결부에서 생긴다. 알고리즘 자체를 잘못 구현한 것은 모듈 내부 기능 결함이다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-37",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "소스 코드에 나타나는 bad smell과 이를 해결하기 위한 마틴 파울러(M. Fowler)의 리팩토링 기법으로 적절하지 않은 것은?",
+    "choices": [
+      "duplicated code – extract method",
+      "long method – introduce parameter object",
+      "large class – extract class",
+      "divergent change – inline method"
+    ],
+    "answer": 4,
+    "explanation": "④ divergent change는 한 클래스가 서로 다른 이유로 자주 변경되는 문제이므로 책임을 나누는 Extract Class 등이 더 적절하다. Inline Method는 지나치게 단순한 메서드의 내용을 호출 위치에 넣는 기법이다. ① 중복 코드는 Extract Method로 공통 코드를 추출할 수 있고, ③ 큰 클래스는 Extract Class로 역할을 나눌 수 있다. ② 긴 메서드에 Introduce Parameter Object를 적용하는 것은 매개변수 묶음 문제에 한정되므로 다른 분리 기법과 함께 판단해야 한다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-38",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "아래의 소스 코드에 대해 테스트를 수행하기 위하여 다음과 같이 테스트 데이터를 준비하였다 조건 커버리지(condition coverage), 결정 커버리지 (decision coverage), 문장 커버리지(statement coverage) 기준으로 평가할 때, 다음 중 가장 적절한 것은? (단, short-circuit evaluation은 수행하지 않음) 소스 코드테스트 데이터 if (x >= -2 && y < 4) T = {(-3, -2), (0, 6)} x = y * 5; 단, 테스트 데이터는 else (x, y) 값에 해당함 x = y - 5;",
+    "choices": [
+      "조건 커버리지: 50%, 결정 커버리지: 50%, 문장 커버리지: 50%",
+      "조건 커버리지: 50%, 결정 커버리지: 100%, 문장 커버리지: 66%",
+      "조건 커버리지: 100%, 결정 커버리지: 50%, 문장 커버리지: 66%",
+      "조건 커버리지: 100%, 결정 커버리지: 100%, 문장 커버리지: 100%"
+    ],
+    "answer": 3,
+    "explanation": "문제의 코드와 테스트 데이터 기준으로 조건 커버리지는 모든 조건의 참/거짓을 만족하지만 결정 결과는 일부만 만족하고 문장은 약 66% 수행된다. 따라서 조건 100%, 결정 50%, 문장 66% 조합이다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-39",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음은 테스트 방법에 관한 설명이다. 각 테스트 방법에 대한 설명과 해당되는 테스트 방법의 이름이 가장 잘 짝지어진 것은?\n\n가. 개발된 소프트웨어를 사용자가 실제 운영 환경에서 수행하는 테스트\n나. 시스템의 변경된 부분이 기존 시스템에 부작용을 일으키는지 여부를 파악하기 위한 테스트\n다. 개발자의 통제 하에 사용자가 개발 환경에서 수행하는 테스트\n라. 시스템에 고장이 발생하더라도 시스템이 정상적으로 작동하는지 여부를 파악하기 위한 테스트",
+    "choices": [
+      "가: 알파 테스트 나: 뮤테이션 테스트 다: 베타 테스트 라: 복구 테스트",
+      "가: 베타 테스트 나: 뮤테이션 테스트 다: 알파 테스트 라: 스트레스 테스트",
+      "가: 알파 테스트 나: 회귀 테스트 다: 베타 테스트 라: 스트레스 테스트",
+      "가: 베타 테스트 나: 회귀 테스트 다: 알파 테스트 라: 복구 테스트"
+    ],
+    "answer": 4,
+    "explanation": "베타 테스트는 사용자가 실제 운영 환경에서 수행하고, 회귀 테스트는 변경 영향 확인, 알파 테스트는 개발자 통제 환경, 복구 테스트는 장애 후 정상 작동 확인이다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-40",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음의 그림 (가)와 (나)는 변경요청과 이에 따른. 수정이 필요한 모듈간의 관계를 보여 준다. 즉 (가)의 경우 변경요청1에 의해서 시스템을 구성하는 많은 수의 모듈이 변경되고 있으며 (나)의 경우에는 여러 개의 변경요청이 하나의 모듈에 집중되고 있다. 이러한 형태의 bad smell을 부르는 용어로 가장 적절한 것은? (가) (나)",
+    "choices": [
+      "(가) switch statements,(나) divergent change",
+      "(가) shotgun surgery,(나) divergent change",
+      "(가) switch statements, (나) middle man",
+      "(가) shotgun surgery, (나) middle man"
+    ],
+    "answer": 2,
+    "explanation": "하나의 변경이 많은 모듈 수정을 유발하면 shotgun surgery, 여러 변경 요구가 한 모듈에 몰리면 divergent change다. 두 냄새 모두 응집도와 책임 분리 관점에서 본다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-41",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "어떤 시스템의 운영상황이 다음과 같다고 할 때, 이 시스템의 가용성(availability)에 가장 가까운 값은? (단, 시스템 운영 시간은 (0 ~ 101)h로 가정하고 고장 발생 시각의 단위는 시[hour]임) 고장 발생 시각수리 시간 a23ha′- a0.7h b45hb′- b1.5h c75hc′- c0.8h d100hd′- d1.0h",
+    "choices": [
+      "약 90%",
+      "약 93%",
+      "약 96%",
+      "약 99%"
+    ],
+    "answer": 3,
+    "explanation": "가용성은 전체 운영시간 중 정상 서비스 가능 시간의 비율이다. 그림의 장애 구간을 합산해 가동시간/(가동시간+중단시간)으로 계산하면 약 96%에 가장 가깝다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-42",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "ISO/IEC 25010에서는 ISO/IEC 9126-2의 표준 문서에서 제시한 소프트웨어 품질 평가의 6가지 품질 특성에 2가지의 품질 특성을 추가하여 8개의 소프트웨어 품질 특성에 대해 평가방안을 제시하고 있다. ISO/IEC 25010에 추가된 2가지의 소프트웨어 품질 특성으로 가장 적절한 것은?",
+    "choices": [
+      "상호운용성과 이식성",
+      "상호운용성과 보안성",
+      "유지보수성과 이식성",
+      "유지보수성과 보안성"
+    ],
+    "answer": 2,
+    "explanation": "ISO/IEC 25010은 ISO/IEC 9126의 6개 품질특성 체계를 재정리하면서 호환성/상호운용성과 보안성을 독립 특성으로 강조했다. 보기에서는 상호운용성과 보안성이 맞다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-43",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음은 사용자 인터뷰 일부를 발췌한 것이다. 이와 관련된 ISO 9126 품질 특성으로 가장 적절한 것은? 요즘 컴퓨터가 재부팅하면 20초 내에 켜지는 것처럼 만약 시스템이 멈추게 되어도 20초 내에 정상작동이 되도록 해주세요. 그리고 절대 저 이외에는 다른 사람들이이 시스템을 껐다 켜지 못하게해야 합니다. 아무나 껐다 켤 수 있다면 정말 큰일 나니까요.",
+    "choices": [
+      "효율성, 신뢰성",
+      "기능성, 신뢰성",
+      "기능성, 유지보수성",
+      "사용성, 이식성"
+    ],
+    "answer": 2,
+    "explanation": "20초 내 정상작동 복구 요구는 신뢰성, 아무나 껐다 켤 수 없게 하는 요구는 기능성의 보안 측면과 연결된다. ISO 9126에서는 보안성이 기능성 하위 특성으로 취급된다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-44",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "COCOMO II(COnstructive COst MOdel II) 비용 예측 모델에 대한 설명으로 가장 적절하지 않은 것은?",
+    "choices": [
+      "COCOMO II는 재사용성 강화 및 컴포넌트를 이용한 조립 개발 환경을 반영하여 COCOMO 비용 예측 모델을 보완하였다.",
+      "COCOMO II는 3가지의 대표 모델, 즉 애플리케이션 구성 모델, 초기 추정 모델, 후반 구조 모델을 포함하고 있다.",
+      "COCOMO II는 원시 코드의 라인 수를 정확히 예측하기 어렵다는 점을 고려하여 원시코드를 사용 하지 않고, 단계별로 정의된 방법으로 값을 계산하고 인건비를 예측하는 방식이다.",
+      "COCOMO II에 적용되는 기본 공식은 E = b × S c × m(X)이다. 단, 여기서 b × S는 기초 소요 노력 예측값, m(X)는 비용 승수의 벡터를 의미한다"
+    ],
+    "answer": 3,
+    "explanation": "COCOMO II는 애플리케이션 구성, 초기 설계, 후반 구조 모델 등 단계별 모델을 제공하고 FP나 SLOC 기반 추정도 활용한다. 원시코드를 사용하지 않는 방식이라고 단정한 설명이 부적절하다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-45",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 표는 두 조직이 수행하고 있는 소프트웨어 개발 프로젝트에 대한 요약이다. B 조직의 개발자 1인당 평균 생산성은 A 조직의 개발자 1인당 평균 생산성의 1.5배로 알려져 있다고 가정할 때, (가)와 (나)의 값으로 가장 적절한 것은?",
+    "table": [
+      [
+        "항목",
+        "A 조직",
+        "B 조직"
+      ],
+      [
+        "개발 언어",
+        "C++",
+        "C"
+      ],
+      [
+        "언어별 평균 소스 라인 수/FP",
+        "50 SLOC/FP",
+        "130 SLOC/FP"
+      ],
+      [
+        "추정된 소프트웨어의 라인 수",
+        "150,000 SLOC",
+        "390,000 SLOC"
+      ],
+      [
+        "투입되는 개발자 수",
+        "6명",
+        "5명"
+      ],
+      [
+        "소프트웨어 개발 완료 소요시간",
+        "10개월",
+        "(나)"
+      ],
+      [
+        "개발자 1인당 월평균 생산성",
+        "(가)",
+        "1.5 × (가)"
+      ]
+    ],
+    "choices": [
+      "(가) 40 FP/month, (나) 15개월",
+      "(가) 50 FP/month, (나) 12개월",
+      "(가) 40 FP/month, (나) 10개월",
+      "(가) 50 FP/month, (나) 8개월"
+    ],
+    "answer": 4,
+    "explanation": "생산성은 기능점수/투입 인원/기간으로 계산한다. B 조직 생산성이 A의 1.5배라는 조건을 대입하면 보기 ④의 생산성과 기간 조합이 맞는다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-46",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 중 COCOMO II 모델에서 기능 점수 1 FP에 대한 SLOC가 큰 것에서 작은 언어 순으로 나타낸 것은?",
+    "choices": [
+      "Assembly > Unix Shell Scripts > C > Java > Powerbuilder",
+      "Assembly >C >Unix Shell Scripts >Java >Powerbuilder",
+      "Assembly > C > Unix Shell Scripts > Powerbuilder > Java",
+      "Assembly > C > Powerbuilder > Unix Shell Scripts > Java c."
+    ],
+    "answer": 2,
+    "explanation": "COCOMO II의 언어별 SLOC/FP는 저수준 언어일수록 크고 4GL에 가까울수록 작다. 일반 순서는 Assembly, C, Unix Shell Scripts, Java, PowerBuilder 쪽으로 본다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-47",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 중에서 서비스 지향 아키텍처(SOA)와 관련된 표준에 대한 설명으로 가장거리가먼 것은?",
+    "choices": [
+      "속성-값의 쌍으로 이루어진 데이터 객체를 전달하기 위한경량의 데이터 교환 표준",
+      "다양한 서비스를 포함하는 프로세스 프로그램을 정의하는 데 이용되는 워크플로 언어를 위한 표준",
+      "서비스의 존재를 찾기 위해 이용될 수 있는 서비스 명세의 컴포넌트에 대한 정의",
+      "서비스의 인터페이스와 바인딩에 대한 표준"
+    ],
+    "answer": 1,
+    "explanation": "SOA 핵심 표준은 WSDL, UDDI, BPEL, SOAP 계열과 관련된다. 속성-값 쌍의 경량 데이터 교환 표준은 JSON 설명에 가까워 SOA 표준 설명으로는 거리가 있다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-48",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음과 같은 특징을 갖는 미들웨어 아키텍처로 가장 적절한 것은? - 대규모 엔터프라이즈 시스템을 구축할 때 중요한 기술이며, 서로 다른 독립적인 애플리케이션을 하 나의통합된 시스템으로 묶기 위한 접착제 같은 역 할을한다. - 여러 가지 애플리케이션을 다양한 기술과 다양한 플랫폼을 이용하여 구축할 수 있으나이 미들웨어를 사용하면 사용자는 현재의 애플리케이션을 엔터프 라이즈급의 애플리케이션에 추가하기 위하여 다시 구축하거나 근본적인 변경을 가할 필요가 없다. - 기본적으로 느슨한 결합의 비동기 기술이며, 동기화 미들웨어 기술과는 다르게 CORBA에서 볼 수 있는 것처럼 수신측과 송신측이 강하게 결합되어 있지 않다.",
+    "choices": [
+      "RPC(Remote Procedure Call) Middleware",
+      "MOM(Message Oriented Middleware)",
+      "ORB(Object Request Broker) Middleware",
+      "WAS(Web Application Server) Middleware"
+    ],
+    "answer": 2,
+    "explanation": "② MOM은 메시지 큐를 통해 비동기적으로 데이터를 전달하므로 송신자와 수신자가 동시에 연결돼 있을 필요가 없다. ① RPC는 원격 절차를 직접 호출하는 방식이다. ③ ORB는 분산 객체의 메서드 호출을 중개한다. ④ WAS는 웹 애플리케이션을 실행하고 요청을 처리하는 서버다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-49",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음은 서비스 지향 아키텍처(SOA)에서 비즈니스 서비스의 통합을 위해 사용되는 개념에 대한 설명이다. 설명에 해당하는 개념으로 가장 적절한 것은? - 비즈니스 협업 관점에서 비즈니스 서비스 통합 - 여러 참여자가 거래 파트너끼리 메시지 교환 - 비즈니스 프로세스 안에서 다수의 참여자가 peer-to-peer 방식으로 협업 - 기업 사이의 프로세스 통합에 많이 사용됨",
+    "choices": [
+      "Service Orchestration",
+      "Service Choreography",
+      "Enterprise Service Bus",
+      "Enterprise Application Integration"
+    ],
+    "answer": 2,
+    "explanation": "② Service Choreography는 중앙 통제자 없이 여러 참여자가 메시지를 주고받으며 협력하는 전체 상호작용을 정의한다. ① Service Orchestration은 한 중앙 프로세스가 여러 서비스를 호출·조율한다. ③ ESB는 서비스 간 메시지 전달과 변환을 지원하는 통합 기반이다. ④ EAI는 기업 내부의 여러 애플리케이션을 연결하는 넓은 통합 접근이다."
+  },
+  {
+    "id": "2016년 제17회 소프트웨어 공학-50",
+    "deck": "2016년 제17회 소프트웨어 공학",
+    "question": "다음 그림은 XP(eXtreme Programming) 개발 프로세스를 나타낸 것이다. (가), (나), (다)에 해당하는 과정으로 가장 적절한 것은? (단, 그림에서 OOOO로 표시된 부분은 내용을 가리기 위해 의도적으로 사용하였음)",
+    "choices": [
+      "(가)사용자 스토리, (나)인수 테스트, (다) 작은 릴리즈",
+      "(가) 프로젝트 계획,(나)인수 테스트, (다)새로운 애플리케이션",
+      "(가)유스케이스,(나)통합 테스트, (다)컴포 넌트 조립",
+      "(가) 사용자 스토리,(나)통합 테스트, (다)새로운 애플리케이션"
+    ],
+    "answer": 1,
+    "explanation": "XP는 사용자 스토리로 요구를 잡고, 인수 테스트로 요구 충족을 확인하며, 작은 릴리즈로 빠르게 피드백을 받는다. 보기의 사용자 스토리, 인수 테스트, 작은 릴리즈 조합이 맞다."
+  }
+]
