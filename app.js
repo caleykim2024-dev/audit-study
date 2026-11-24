@@ -3,18 +3,30 @@
 const LS_STATE='audit-2020.quizState.v1', LS_CFG='audit-2020.quizCfg.v1';
 const LEGACY_LS_STATE='quizState.v1', LEGACY_LS_CFG='quizCfg.v1';
 const SYNC_CODE='audit-2020';
+function legacyQuizState(){
+  try{
+    const raw=localStorage.getItem(LEGACY_LS_STATE);
+    if(!raw)return null;
+    const state=JSON.parse(raw);
+    const ids=[...Object.keys(state.stats||{}),...Object.keys(state.res||{}),
+      ...(Array.isArray(state.queue)?state.queue.map(item=>item.id):[])];
+    return ids.some(id=>/^(?:\d{4}\/)?\d{4}년 제\d+회/.test(id))?state:null;
+  }catch(_){return null;}
+}
 function storedConfig(){
   const own=localStorage.getItem(LS_CFG);
-  if(own){try{return JSON.parse(own)||{};}catch(_){return {};}}
-  // Only adopt the old shared storage when it belongs to this quiz.
+  let current={};
+  if(own){try{current=JSON.parse(own)||{};}catch(_){}}
+  if(current.url&&current.key&&current.code)return current;
+  // The old storage key was shared by projects on this host. Check question IDs before adopting it.
   try{
     const legacy=JSON.parse(localStorage.getItem(LEGACY_LS_CFG)||'{}');
-    if(legacy.code===SYNC_CODE){
+    if(legacyQuizState()&&legacy.url&&legacy.key&&legacy.code){
       localStorage.setItem(LS_CFG,JSON.stringify(legacy));
       return legacy;
     }
   }catch(_){}
-  return {code:SYNC_CODE};
+  return Object.keys(current).length?current:{code:SYNC_CODE};
 }
 let Q=[], QB={}, DECKS=[], YEARS=[], S=null, loadErr='', ready=false, loadNote='', BAD=[];
 // ★ 영역 목록(표시 순서). 영역을 바꾸거나 추가하려면 여기만 고치세요. 문제 파일의 deck 이름과 같아야 해요.
@@ -90,7 +102,11 @@ function givenTextHtml(value){
   return html+questionTextHtml(source.slice(last));
 }
 function givenSentences(value){
-  return String(value??'').replace(/(?<=[가-힣])\.[ \t]+(?=\S)/g,'.\n');
+  const source=String(value??'');
+  return source.replace(/(?<=[가-힣])\.[ \t]+(?=\S)/g,(match,offset)=>{
+    const lineStart=source.lastIndexOf('\n',offset)+1;
+    return /^[ \t]*[가-하]$/.test(source.slice(lineStart,offset))?match:'.\n';
+  });
 }
 function questionHtml(value){
   const source=String(value??'');
@@ -127,12 +143,18 @@ function migrate(raw){
 function loadLocal(){
   try{
     const own=localStorage.getItem(LS_STATE);
-    if(own)return migrate(JSON.parse(own));
-    const legacyCfg=JSON.parse(localStorage.getItem(LEGACY_LS_CFG)||'{}');
-    if(legacyCfg.code===SYNC_CODE){
-      const legacy=localStorage.getItem(LEGACY_LS_STATE);
-      if(legacy){const state=migrate(JSON.parse(legacy));localStorage.setItem(LS_STATE,JSON.stringify(state));return state;}
+    const current=own?migrate(JSON.parse(own)):defaultState();
+    const hasAnswers=Object.keys(current.stats).length||Object.keys(current.res).length||
+      Object.values(current.review).some(session=>Object.keys(session.res||{}).length)||
+      Object.values(current.rsess).some(session=>Object.keys(session.res||{}).length);
+    if(hasAnswers)return current;
+    const legacy=legacyQuizState();
+    if(legacy){
+      const state=migrate(legacy);
+      localStorage.setItem(LS_STATE,JSON.stringify(state));
+      return state;
     }
+    return current;
   }catch(_){}
   return defaultState();
 }
@@ -463,17 +485,26 @@ function explanationHtml(x){
 
 /* ============ 화면 ============ */
 // fn: 눌렀을 때 부를 함수 이름('go','openAt'), 없으면 표시만
+function questionNumber(q){
+  const match=String(q?.id||'').match(/-(\d+)$/);
+  return match?Number(match[1]):null;
+}
+function questionRef(q){
+  const area=AREAS.find(a=>a.name===q?.deck),number=questionNumber(q);
+  return area&&number!==null?String(q.year)+'/'+area.file+'/'+number:'';
+}
 function dotsHtml(ids,res,fn,scroll){
   return `<div class="dots${scroll?' scroll':''}">`+ids.map((id,i)=>{
     const r=res[id];
     const historic=res===S.res&&(S.stats[id]||{}).seen>0;
     let cls=r&&r.tries>0?(isOk(res,id)?'ok':'ng'):historic?'seen':'';
     const w=wrongOf(id);
+    const no=questionNumber(QB[id])??i+1;
     if(w>=2)cls+=' often';else if(w>=1)cls+=' flag';
     if(fn==='go'&&view==='quiz'&&i===cur)cls+=' cur';
-    const label=`${i+1}번 문제${historic&&!r?.tries?' (이전 풀이 기록 있음)':''}${w?` (틀린 적 ${w}회)`:''}`;
-    return fn?`<button class="dot ${cls}" onclick="${fn}(${i})" aria-label="${label}">${i+1}</button>`
-             :`<span class="dot ${cls}">${i+1}</span>`;
+    const label=`${no}번 문제${historic&&!r?.tries?' (이전 풀이 기록 있음)':''}${w?` (틀린 적 ${w}회)`:''}`;
+    return fn?`<button class="dot ${cls}" onclick="${fn}(${i})" aria-label="${label}">${no}</button>`
+             :`<span class="dot ${cls}">${no}</span>`;
   }).join('')+'</div>';
 }
 
