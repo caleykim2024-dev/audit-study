@@ -1,219 +1,68 @@
 [
   {
-    "id": "2017년 제18회 데이터베이스-51",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "뷰의 장점을 설명하는 것 중 가장 거리가 먼 것은?",
+    "id": "2016년 제17회 데이터베이스-51",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "현재 가장 널리 사용되는 빅데이터의 속성을 3V라고 정의할 때, 3V의 세 가지 속성이 바르게 짝지어진 것은?",
     "choices": [
-      "테이블 구조가 변경되어도 뷰를 사용하는 응용 프로그램은 변경하지 않아도 된다.",
-      "뷰를 생성함으로써 복잡한 질의를 단순하게 작성할 수 있다.",
-      "직원의 급여 정보 같은 숨기고 싶은 정보가 존재한다면 해당 칼럼을 빼고 뷰를 생성하여 사용한다.",
-      "서버에 저장되는 컴포넌트로 독립적으로 실행되거나 다른 프로그램으로부터 실행된다."
+      "규모(Volume), 다양성(Variety), 속도(Velocity)",
+      "규모(Volume), 다변성(Verbosity), 가시성(Visibility)",
+      "가시성(Visibility), 다변성(Verbosity), 변동성(Variability)",
+      "변동성(Variability), 다양성(Variety), 속도 (Velocity)"
     ],
-    "answer": 4,
-    "explanation": "정답 ④. 뷰는 하나 이상의 테이블에 대한 SELECT 질의로 정의하는 가상 테이블이다. 일반 뷰는 조회 시 정의된 질의를 사용하므로 원본 데이터와 별도로 데이터를 저장하는 실행 프로그램이 아니다. ④의 '서버에 저장되어 독립 실행 또는 호출'은 저장 프로시저의 특징이다.\n① 뷰가 원본 테이블의 변경을 흡수하면 응용 프로그램에 동일한 논리 구조를 제공할 수 있다.\n② 복잡한 조인과 조건을 뷰에 정의해 질의를 재사용할 수 있다.\n③ 민감한 열이나 행을 제외한 뷰에만 접근 권한을 주어 정보를 제한할 수 있다.\n암기: 뷰는 논리적 데이터 독립성·질의 단순화·보안, 저장 프로시저는 저장된 실행 절차다. 일반 뷰와 별도로 결과를 물리적으로 보관하는 구체화 뷰(materialized view)가 있다는 점도 구분한다."
+    "answer": 1,
+    "explanation": "빅데이터 3V는 Volume, Variety, Velocity다. 이후 Veracity, Value 등이 추가로 언급되기도 하지만 기본 3V 조합은 규모, 다양성, 속도다."
   },
   {
-    "id": "2017년 제18회 데이터베이스-52",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "다음은 어느 회사의 데이터베이스 구축을 위한 ER 다이어 그램 설계 내용이다. ER 다이어그램을 데이터베이스 테이블로 변환할 때 생성되는 테이블의 가장 적절한 개수는? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36967.png]",
+    "id": "2016년 제17회 데이터베이스-52",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음과 같은 상품 구매 트랜잭션에 대해 연관규칙 탐사를 수행했다고 하자. 이 때 계산된 지지도(support)와 신뢰도(confidence)로 옳지 않은 것은?",
+    "table": [
+      ["트랜잭션", "구매 상품"],
+      ["T1", "{milk, coke, beer}"],
+      ["T2", "{milk, pepsi, juice}"],
+      ["T3", "{milk, beer}"],
+      ["T4", "{coke, juice}"],
+      ["T5", "{milk, pepsi, beer}"]
+    ],
     "choices": [
-      "3-4개",
-      "5-6개",
-      "7-8개",
-      "9-10개"
+      "항목집합 {beer, milk}의 지지도는 3/5이다.",
+      "{milk} → beer의 지지도는 4/5이다.",
+      "{milk} → beer의 신뢰도는 3/4이다.",
+      "{juice} → milk의 신뢰도는 1/2이다."
     ],
     "answer": 2,
-    "explanation": "정답 ②(실제 6개). 원본 ER 그림의 개체는 직원, 부서, 프로젝트, 부양가족의 4개다. 부양가족은 이중 사각형으로 표시된 약한 개체지만 자체 테이블을 만든다. 직원과 프로젝트의 '참여'는 양쪽 최대 대응수가 N인 다대다 관계이므로 참여 테이블을 1개 추가한다. 부서의 '위치'는 이중 타원으로 표시된 다중값 속성이므로 위치 테이블을 1개 추가한다. 따라서 4+1+1=6개로 보기 ②의 5~6개 범위에 든다.\n근무는 직원 쪽 (1,1), 부서 쪽 (1,N)인 일대다 관계이고, 수행은 프로젝트 쪽 (1,1), 부서 쪽 (0,N)인 일대다 관계이므로 별도 관계 테이블 없이 외래키로 표현할 수 있다. 지휘는 일대일, 감독은 자기 참조 일대다, 부양은 약한 개체의 식별 관계여서 이 계산에 추가 테이블을 만들지 않는다. 관계 자체에 속성인 '참여율'이 있더라도 이미 만든 참여 테이블에 저장하면 된다.\n암기: 개체 테이블 수에 다대다 관계와 다중값 속성의 테이블 수를 더하고, 일대다·일대일 관계는 외래키로 처리한다."
+    "explanation": "지지도는 전체 5건 중 해당 항목들이 함께 나타난 거래의 비율이고, 신뢰도는 X가 나타난 거래 중 Y도 나타난 거래의 비율이다.\n① 맞음: beer와 milk가 함께 나타난 거래는 3건이므로 지지도는 3/5이다.\n② 틀림: {milk}→beer의 지지도도 두 항목이 함께 나타난 거래를 세므로 3/5이다. 4/5는 milk가 나타난 거래의 비율이다.\n③ 맞음: milk가 나타난 4건 중 beer도 나타난 거래가 3건이므로 신뢰도는 3/4이다.\n④ 맞음: juice가 나타난 2건 중 milk도 나타난 거래가 1건이므로 신뢰도는 1/2이다."
   },
   {
-    "id": "2017년 제18회 데이터베이스-53",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "다음과 같은 함수적 종속성 집합에 대한 설명 중 틀린 것은?",
+    "id": "2016년 제17회 데이터베이스-53",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "데이터 객체에 대한 제어 기법 중 필수 접근 제어 (mandatory access control)에 대한 설명으로 옳지 않은 것은?",
     "choices": [
-      "함수적 종속성 집합{ A →{ B, C, D, E}, E →{ F, G}}로부터 A →{ F, G}를 추론할 수 있다.",
-      "함수적 종속성 집합{ A → B, C →{ D, E},{ A, C} → F} 로부터 폐포집합{ A}+ ={ A, B}를 구할 수 있다.",
-      "다음 두 함수적 종속성 집합 F ={ A → C, AC → D, E → AD, E → H}와 G ={ A → CD, E → AH}는 동등하다.",
-      "함수적 종속성 집합{ B → A, D → A, AB → D}에 대한 최소 커버는{ B → A, D → A}이다."
-    ],
-    "answer": 4,
-    "explanation": "정답 ④. 최소 커버는 우변을 단일 속성으로 분해하고, 좌변의 불필요한 속성과 중복 종속성을 제거해 구한다. {B→A, D→A, AB→D}에서 B→A이므로 B만으로 A를 알 수 있고 AB→D의 A는 불필요하다. 따라서 B→D로 줄여야 한다. ④처럼 AB→D를 통째로 빼면 B→D를 도출할 수 없어 원래 집합과 동등하지 않다. 한 최소 커버는 {B→A, B→D, D→A}이며 B→A는 B→D→A로 유도되므로 {B→D, D→A}까지 줄일 수 있다.\n① A→E와 E→FG를 연결하는 이행성으로 A→FG다.\n② A의 폐포는 A에서 시작해 A→B만 적용되므로 {A,B}다.\n③ F에서 A→C와 AC→D로 A→D를 얻어 A→CD가 되고, E→AD와 E→H로 E→AH가 된다. 역방향도 성립해 두 집합은 동등하다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-54",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "다음과 같이 선언된 테이블 MYTABLE에서 슈퍼키의 개수는? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36969.png]",
-    "choices": [
-      "2",
-      "3",
-      "4",
-      "5"
-    ],
-    "answer": 4,
-    "explanation": "정답 ④(5개). 그림의 선언은 X, Y, Z 세 열에 PRIMARY KEY(X,Y)와 UNIQUE(Z)를 둔다. Z는 NOT NULL이므로 {Z}도 각 행을 유일하게 식별하는 후보키이고, {X,Y} 역시 후보키다. 슈퍼키는 후보키를 포함하는 모든 속성 집합이다.\n{X,Y}를 포함하는 집합은 {X,Y}, {X,Y,Z}이고, {Z}를 포함하는 집합은 {Z}, {X,Z}, {Y,Z}, {X,Y,Z}다. 중복인 {X,Y,Z}를 한 번만 세면 {X,Y}, {Z}, {X,Z}, {Y,Z}, {X,Y,Z}로 총 5개다. 핵심은 UNIQUE만 보고 후보키로 세지 말고 NULL 허용 여부를 확인하고, 여러 후보키에서 나온 슈퍼키의 중복을 제거하는 것이다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-55",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "다음은 릴레이션 R1, R2와 SQL 질의문이다. SQL 문에 대한 관계대수 연산으로 가장 적합한 것은?",
-    "given": "(⋈은 자연조인, ⟕은 왼쪽 외부조인 기호)\n\n[릴레이션]\nR1(r1name, a, b, c)\nR2(r2name, a, b, c)\n\n[SQL]\n```sql\nSELECT r1name\nFROM R1\nWHERE EXISTS (\n  SELECT *\n  FROM R2\n  WHERE r1name = r2name\n);\n```",
-    "givenFormat": "code",
-    "choices": [
-      "πr1name (\n  R1 ⟕ r1name = r2name (R2))",
-      "πr1name (\n  R2 - R1)",
-      "πr1name (\n  R1 ⋈ r1name = r2name (R2))",
-      "πr1name (\n  R1 - R2)"
+      "데이터 객체에 대해서는 일정한 비밀 등급이, 사 용자에 대해서는 일정한 허가 등급이 지정된다.",
+      "사용자의 허가 등급이 데이터의 비밀 등급보다 크거나 같은 경우에 판독이 가능하다.",
+      "사용자의 허가 등급이 데이터의 비밀 등급보다 커야 갱신이 가능하다.",
+      "보안 등급은 극비(top secret) > 비밀(secret) 대외비(confidential) > 일반(unclassified)의 순서이다."
     ],
     "answer": 3,
-    "explanation": "정답 ③. EXISTS는 R1의 각 행에 대해 같은 이름(r1name=r2name)을 가진 R2 행이 하나라도 있는지 검사한다. 따라서 일치하는 행만 남기는 내부 동등 조인 후 r1name을 투영한 ③과 대응한다. R2에 같은 이름이 여러 개 있어도 EXISTS는 존재 여부만 검사한다. 관계대수는 집합 의미론이라 중복을 제거하지만 SQL은 DISTINCT가 없으면 중복 행을 남길 수 있다는 차이가 있다.\n① 왼쪽 외부 조인은 일치하지 않는 R1 행도 남기므로 틀리다. ②·④ 차집합은 관계의 스키마가 같아야 하고, 여기서는 존재 여부를 검사하는 연산도 아니다. 문제의 ⋈ 표기는 이름이 다른 두 열에 대한 조인 조건을 붙인 동등 조인으로 읽는다."
+    "explanation": "③은 틀리다. 필수 접근 제어에서 읽기는 주체의 허가 등급이 객체의 비밀 등급 이상이어야 하지만, 쓰기는 정보가 상위 등급에서 하위 등급으로 흐르지 않도록 별도 규칙을 적용한다. 따라서 허가 등급이 더 높으면 갱신할 수 있다는 단순 비교는 맞지 않는다.\n①은 주체·객체에 등급을 부여한다는 설명이고 ②는 상위 등급 자료를 읽지 못하게 하는 단순 보안 규칙이다.\n④는 등급의 높낮이를 설명한다."
   },
   {
-    "id": "2017년 제18회 데이터베이스-56",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "SQL Injection을 줄이기 위한 방법 중 가장 거리가 먼 것은?",
+    "id": "2016년 제17회 데이터베이스-54",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "2단계 로킹 규약(2 phase locking protocol)의 로크 전환(혹은 로크 변환)에 대한 다음 설명 중 옳은 것은?",
     "choices": [
-      "저장 프로시저 사용을 가능한 줄이도록 한다.",
-      "입력 데이터가 허용되는 타입에 한하여 허용한다.",
-      "인용부호에 대한 체크를 통하여 인젝션 가능성을 제거한다.",
-      "웹접근 코드가 접근하는 데이터베이스의 경우 꼭 필요한 접근권한 만을 부여한다."
+      "항목 X에 read_lock(X)를 수행하여 공유 로크를 획득한 후 나중에 write_lock(X)를 수행하여 배 타적 로크로 로크를 상승(upgrade)시킬 수 있다.",
+      "항목 X에 write_lock(X)를 수행하여 배타적 로크를 획득한 후 나중에 read_lock(X)를 수행하여 공유 로크로 로크를 상승시킬 수 있다.",
+      "항목 X에 read_lock(X)를 수행하여 공유 로크를 획득한 후 나중에 write_lock(X)를 수행하여 배타적 로크로 로크를 하강(downgrade)시킬 수 있다.",
+      "항목 X에 read_lock(X)를 수행하여 배타적 로크를 획득한 후 나중에 write_lock(X)를 수행하여공유 로크로 로크를 하강시킬 수 있다."
     ],
     "answer": 1,
-    "explanation": "정답 ①. 저장 프로시저 자체를 줄이는 것이 SQL 인젝션 방어책은 아니다. 핵심은 사용자 입력을 SQL 명령 문자열에 이어 붙이지 않고 매개변수 바인딩(준비된 문장)을 사용하는 것이다. 저장 프로시저도 내부에서 동적 SQL을 문자열 결합으로 만들면 취약해질 수 있다.\n② 입력 형식과 허용 범위를 제한하면 공격 표면을 줄인다.\n④ 애플리케이션 DB 계정에 최소 권한만 주면 침해 시 피해를 제한한다.\n③ 인용부호 검사는 보조적인 입력 검증으로 이해해야 하며, 이것만으로 인젝션을 '제거'할 수는 없다. 시험의 최선의 선택은 ①이지만 실무에서는 바인딩을 우선 적용한다."
+    "explanation": "①은 공유 로크를 배타 로크로 바꾸는 상승(upgrade)으로, 2단계 로킹의 확장 단계에서 가능하다.\n②는 배타 로크를 공유 로크로 바꾸는 하강(downgrade)이며 상승이라는 이름이 틀렸다.\n③은 공유에서 배타로 바꾸므로 하강이 아니라 상승이다.\n④는 read_lock이 공유 로크, write_lock이 배타 로크라는 기본 대응을 거꾸로 적었다. 하강은 축소 단계에서만 허용된다."
   },
   {
-    "id": "2017년 제18회 데이터베이스-57",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "수강신청 데이터를 저장한 릴레이션 ENROLL에서 강좌번호(COURSEID) 100과 101번 강좌를 모두 수강 신청한 학생의 학번을 찾는 SQL 질의로 틀린 것은?",
-    "given": "[릴레이션]\nENROLL(COURSEID, STUDENTID, TIME)",
-    "givenFormat": "code",
-    "choiceFormat": "code",
-    "choices": [
-      "SELECT STUDENTID\nFROM ENROLL E1, ENROLL E2\nWHERE E1.STUDENTID = E2.STUDENTID\n  AND E1.COURSEID = 100\n  AND E2.COURSEID = 101",
-      "SELECT STUDENTID\nFROM ENROLL E\nWHERE E.COURSEID = 100\nINTERSECT\nSELECT STUDENTID\nFROM ENROLL E\nWHERE E.COURSEID = 101",
-      "SELECT STUDENTID\nFROM ENROLL E\nWHERE E.COURSEID = 100\n  AND STUDENTID IN (\n    SELECT STUDENTID\n    FROM ENROLL\n    WHERE COURSEID = 101\n  )",
-      "SELECT STUDENTID\nFROM ENROLL E\nWHERE E.COURSEID = 100\n  AND E.COURSEID = 101"
-    ],
-    "answer": 4,
-    "explanation": "정답 ④. 하나의 ENROLL 행에서 COURSEID가 동시에 100이면서 101일 수 없으므로 ④의 AND 조건은 항상 거짓이다. '두 강좌 모두 수강'은 같은 STUDENTID를 기준으로 서로 다른 행 두 개가 존재하는지 확인해야 한다.\n①은 ENROLL의 자기 조인, ②는 100번 수강자 집합과 101번 수강자 집합의 교집합, ③은 100번 수강자를 뽑고 101번 수강자 집합에 포함되는지 검사하는 방식이다. 원문 ①의 SELECT STUDENTID는 별칭이 없어 DBMS에 따라 모호하고, ②의 INTERSECTSELECT는 INTERSECT SELECT로 띄어야 한다. 의도된 논리 기준으로는 ④가 오답이며, 실제 실행용 SQL에서는 ①을 E1.STUDENTID로 고치고 ②의 공백을 보완해야 한다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-58",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "다음 SQL 문과 질의에 대한 결과 값으로 맞는 것은?",
-    "given": "[테이블 생성 및 데이터 입력]\nCREATE TABLE TEST(A INTEGER, B VARCHAR(10));\nINSERT INTO TEST VALUES (1, 'kim');\nINSERT INTO TEST VALUES (2, ' ');\nINSERT INTO TEST VALUES (3, NULL);\nINSERT INTO TEST VALUES (4, 'park');\nINSERT INTO TEST VALUES (5, NULL);\nINSERT INTO TEST VALUES (6, 'lee');\n\n[Oracle DBMS의 SQL]\n```sql\nSELECT X, X-Y, Z\nFROM (\n  SELECT COUNT(*) AS X,\n         COUNT(B) AS Y,\n         COUNT(CASE WHEN B IS NOT NULL\n                     AND LTRIM(B) IS NULL\n                    THEN '1' END) AS Z\n  FROM TEST\n) T;\n\n```\n\n[SQL Server DBMS의 SQL]\n```sql\nSELECT X, X-Y, Z\nFROM (\n  SELECT COUNT(*) AS X,\n         COUNT(B) AS Y,\n         COUNT(CASE WHEN B IS NOT NULL\n                     AND LEN(LTRIM(B)) = 0\n                    THEN '1' END) AS Z\n  FROM TEST\n) T;\n```",
-    "givenFormat": "code",
-    "choices": [
-      "6, 2, 1",
-      "6, 3, 0",
-      "6, 2, 0",
-      "6, 3, 1"
-    ],
-    "answer": 1,
-    "explanation": "정답 ①(6, 2, 1). COUNT(*)는 NULL 여부와 무관하게 여섯 행을 세므로 X=6이다. COUNT(B)는 NULL을 제외하므로 'kim', 공백 한 칸, 'park', 'lee'의 네 행을 세어 Y=4, X-Y=2다. 세 번째 값 Z는 B가 NULL은 아니면서 공백 제거 후 빈 문자열이 되는 행만 세므로 공백 한 칸인 행 하나가 해당한다.\nOracle에서는 빈 문자열을 NULL로 취급해 LTRIM(' ') IS NULL이 참이고, SQL Server에서는 LEN(LTRIM(' '))=0이 참이다. 따라서 Z=1이다. 핵심은 COUNT(열)이 NULL을 세지 않는다는 점과 문자열 길이/빈 문자열의 DBMS별 처리 차이다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-59",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "다음의 데이터베이스에서 “3명 이상의 사원이 근무하는 각 부서에서 부서 번호, 부서 이름, 그리고 그 부서에서 연봉이 4만불 이상인 사원의 수를 검색하라”는 질의를 SQL로 올바르게 표시한 것은?",
-    "given": "[릴레이션]\nEMPLOYEE(Name, Ssn, Salary, Sex, Dno)\nDEPARMENT(Dname, Dnumber, Mgr_ssn)",
-    "givenFormat": "code",
-    "choiceFormat": "code",
-    "choices": [
-      "SELECT Dnumber, Dname, COUNT(*)\nFROM DEPARTMENT, EMPLOYEE\nWHERE Dnumber = Dno\n  AND Salary >= 40000\n  AND Dno IN (\n    SELECT Dno\n    FROM EMPLOYEE\n    GROUP BY Dno\n    HAVING COUNT(*) > 2\n  )\nGROUP BY Dnumber;",
-      "SELECT Dnumber, Dname, COUNT(*)\nFROM DEPARTMENT, EMPLOYEE\nWHERE Dnumber = Dno\n  AND Salary >= 40000\n  AND COUNT(*) > 2\nGROUP BY Dnumber, Dname;",
-      "SELECT Dnumber, Dname, COUNT(*)\nFROM DEPARTMENT, EMPLOYEE\nWHERE Dnumber = Dno\n  AND Salary >= 40000\n  AND Dno IN (\n    SELECT Dno\n    FROM EMPLOYEE\n    GROUP BY Dno\n    HAVING COUNT(*) > 2\n  )\nGROUP BY Dnumber, Dname;",
-      "SELECT Dnumber, Dname, COUNT(*)\nFROM DEPARTMENT, EMPLOYEE\nWHERE Dnumber = Dno\n  AND Dno IN (\n    SELECT Dno\n    FROM EMPLOYEE\n    WHERE Salary >= 40000\n    GROUP BY Dno\n    HAVING COUNT(*) > 2\n  )\nGROUP BY Dnumber, Dname;"
-    ],
-    "answer": 3,
-    "explanation": "정답 ③. 조건은 두 단계다. 먼저 전체 EMPLOYEE를 부서별로 GROUP BY 하고 HAVING COUNT(*)>2로 '총 직원 3명 이상'인 부서를 찾는다. 그 부서의 직원 중 Salary>=40000인 행만 외부 질의에서 남겨 부서 번호·이름별 COUNT(*)를 계산한다.\n③은 두 조건의 집계 대상을 분리하고 Dnumber와 Dname을 함께 GROUP BY 한다.\n①은 집계하지 않은 Dname을 SELECT하면서 GROUP BY에는 Dnumber만 적어 표준 SQL 기준으로 부적절하다.\n②는 집계 함수 COUNT(*)를 WHERE에 써서 틀리다.\n④는 내부에서 고연봉 직원이 3명 이상인 부서를 고르는 다른 조건이며, 외부에서는 급여 조건 없이 전 직원을 센다. 문제 문구의 DEPARMENT는 DEPARTMENT의 오기로 보인다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-60",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "EMPLOYEE(Eno, Name, DeptName, Salary) 테이블에 대해 “평균 봉급이 가장 높은 부서명(DeptName)을 검색” 하는 질의를 다음과 같이 작성한다고 할 때, 밑줄 친 부분에 들어갈 내용으로 맞는 것은?",
-    "choices": [
-      "㉠ : WHERE Salary, ㉡ : all, ㉢ : ORDER BY",
-      "㉠ : WHERE AVG(Salary), ㉡ : some, ㉢ : GROUP BY",
-      "㉠ : HAVING Salary, ㉡ : some, ㉢ : ORDER BY",
-      "㉠ : HAVING AVG(Salary), ㉡ : all, ㉢ : GROUP BY"
-    ],
-    "answer": 4,
-    "explanation": "정답 ④. GROUP BY DeptName으로 부서별 평균을 만든 뒤 HAVING AVG(Salary)로 그룹 결과를 제한한다. 하위 질의도 GROUP BY DeptName으로 부서 평균들의 집합을 만들고, >= ALL(그 집합)을 적용하면 그중 최대 평균과 같은 부서가 선택된다. 최고 평균이 같은 부서가 여러 곳이면 모두 반환된다.\nWHERE는 그룹화 전 행을 거르므로 AVG 같은 집계 조건을 직접 적는 자리가 아니다. SOME/ANY는 적어도 하나의 평균보다 크거나 같다는 뜻이라 최고값을 보장하지 않는다. ORDER BY는 그룹별 평균 목록을 만드는 절이 아니다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-61",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "인덱스의 생성 여부를 결정하기 위해 고려할 사항에 대한 설명이 잘못된 것은? (2개 선택)",
-    "choices": [
-      "유일한 키 속성에 대해서는 인덱스를 생성한다.",
-      "실렉션 조건이나 조인 조건에서 사용되는 속성에 대해서는 인덱스를 생성한다.",
-      "인덱스 탐색만을 통해 답변이 가능한 질의에 대해서는 클러스터 인덱스를 고려한다.",
-      "동등 조건과 범위 질의에 사용되는 속성에 대해서는 해시 인덱스가 유리하다."
-    ],
-    "answer": [
-      3,
-      4
-    ],
-    "explanation": "정답 ③·④.\n③은 '인덱스만 읽어서 질의에 답할 수 있다'는 커버링 인덱스(index-only scan)의 조건이다. 필요한 열이 인덱스에 모두 있으면 테이블 접근을 줄일 수 있지만, 이것이 곧 클러스터 인덱스를 선택해야 한다는 뜻은 아니다. 클러스터링은 테이블 행의 물리적 배치와 인덱스 키 순서를 관련짓는 개념으로 범위 검색이나 정렬에 유리하다.\n④ 해시 인덱스는 키의 동등 비교에 알맞지만 키 순서를 보존하지 않아 범위 조건에는 일반적으로 B+트리 같은 순서형 인덱스가 유리하다.\n① 고유 키와 ② 선택·조인에 자주 쓰이는 속성은 인덱스 후보이지만, 읽기 빈도·선택도·갱신 비용을 함께 평가한다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-62",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "EMPLOYEE(Eno, Name, Salary, CommissionPercent) 테이블에 대한 다음과 같은 질의가 있다. 이러한 유형의 질의는 실행 빈도가 높을 수 있지만 Salary 열의 일반 인덱스가 있어도 제대로 이용하지 못한다. 이 경우에 활용할 수 있는 가장 적절한 인덱싱 기법은?",
-    "given": "[SQL]\n```sql\nSELECT Name\nFROM EMPLOYEE\nWHERE ((Salary * CommissionPercent) + Salary) > 15000;\n```",
-    "givenFormat": "code",
-    "choices": [
-      "Bitmap indexing",
-      "Function-based indexing",
-      "Hash indexing",
-      "R-tree indexing"
-    ],
-    "answer": 2,
-    "explanation": "정답 ②. WHERE절은 Salary 단독 값이 아니라 (Salary*CommissionPercent)+Salary라는 계산 결과를 15000과 비교한다. Salary에만 만든 일반 인덱스는 이 식의 결과 순서대로 정렬되어 있지 않아 직접 활용하기 어렵다. 식 기반 인덱스(function-based index)를 같은 식에 만들면 계산 결과를 검색 키로 사용해 조건을 효율적으로 평가할 수 있다.\n① 비트맵 인덱스는 값 종류가 적고 읽기 중심인 열에 주로 쓰인다.\n③ 해시 인덱스는 동등 검색에 적합해 > 범위 조건과 맞지 않는다.\n④ R-트리는 공간·다차원 데이터 검색에 쓰인다. 인덱스 식과 질의 식의 일치, NULL 처리, DBMS의 최적화 방식도 실제 사용 여부에 영향을 준다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-63",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "트랜잭션 T1, T2가 수행되는 다음 그림에서, T1의 연산 결과(x + 100)가 T2의 연산 결과(x * 2)로 인해 바르게 저장되지 않는 현상이 발생할 수 있다. 이 같은 현상을 무엇이라고 하는가?",
-    "tables": [
-      {
-        "title": "시간 순서 (위에서 아래로)",
-        "rows": [
-          [
-            "T1",
-            "T2"
-          ],
-          [
-            "read(x)\nx ← x + 100",
-            ""
-          ],
-          [
-            "",
-            "read(x)\nx ← x * 2"
-          ],
-          [
-            "write(x)",
-            ""
-          ],
-          [
-            "",
-            "write(x)"
-          ]
-        ]
-      }
-    ],
-    "choices": [
-      "갱신 손실(lost update)",
-      "오손 읽기(dirty read)",
-      "지연 갱신(deferred update)",
-      "갱신 충돌(update conflict)"
-    ],
-    "answer": 1,
-    "explanation": "정답 ① 갱신 손실. 두 트랜잭션이 같은 이전 x를 읽고 각각 x+100과 x*2를 계산한 뒤 한쪽의 결과가 다른 쪽의 쓰기로 덮이면 먼저 수행한 갱신 효과가 사라진다. 예를 들어 x=10에서 둘 다 10을 읽어 T1은 110, T2는 20을 쓰면 최종 값은 마지막 쓰기 하나만 반영한다. 직렬 실행이라면 두 연산의 효과가 모두 반영돼야 한다.\n② 오손 읽기는 커밋되지 않은 값을 다른 트랜잭션이 읽는 현상이다.\n③ 지연 갱신은 복구·갱신 전략이고, ④ 갱신 충돌은 일반적 표현이지 이 이상 현상의 표준 명칭이 아니다. 잠금이나 적절한 격리 수준으로 갱신 손실을 방지한다."
-  },
-  {
-    "id": "2017년 제18회 데이터베이스-64",
-    "deck": "2017년 제18회 데이터베이스",
-    "question": "트랜잭션 T1은 x와 y에 100을 더하고, 트랜잭션 T2는 y와 x에 2를 곱한다. 두 트랜잭션이 다음 순서로 실행될 때 발생한 상황은?",
+    "id": "2016년 제17회 데이터베이스-55",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음 스케줄에 대해 타임스탬프 순서 기법을 적용하였을 때 설명이 올바른 것은? (TS(Ti)는 트랜잭션 Ti의 타임스탬프이고, read_TS(x)는 read(x) 연산을 성공적으로 수행한 트랜잭션들의 타임스탬프 중 가장 큰 것이고, write_TS(x)는 write(x) 연산을 성공적으로 수행한 트랜잭션들의 타임스탬프 중 가장 큰 것이다. read_TS(x)와 write_TS(x)의 초기값은 모두 1이라고 가정한다.)",
     "table": [
       [
         "시간",
@@ -221,53 +70,471 @@
         "연산"
       ],
       [
-        "1",
+        "2시",
         "T1",
-        "lock(x); read(x);"
+        "read(x)"
       ],
       [
-        "2",
+        "3시",
         "T2",
-        "lock(y); read(y);"
+        "write(x)"
       ],
       [
-        "3",
+        "4시",
         "T1",
-        "x = x + 100"
+        "write(x)"
+      ]
+    ],
+    "choices": [
+      "T1은 read(x)를 실행하고 read_TS(x)를 그대로 둔다.",
+      "T2의 write(x)는 TS(T2) ≥ write_TS(x)이므로 거부된다.",
+      "타임스탬프 순서 기법을 적용하면, 위에 주어진 스케줄은 직렬 가능하다.",
+      "토마스(Thomas)의 기록 규칙을 적용하면, T1의 write(x)는무시된다. >"
+    ],
+    "answer": 4,
+    "explanation": "정답: ④ (출제 의도에 따른 해석)\n\n먼저 시간과 타임스탬프를 구별해야 한다. ‘3시: T2 write(x)’는 T2가 3시에 쓰기 연산을 한다는 표시다. TS(T2)는 트랜잭션이 시작할 때 부여받아 끝까지 유지하는 값이므로, 3시에 한 번 등장했다는 사실만으로 TS(T2)=3이라고 엄밀하게 확정할 수는 없다. 문제에는 시작 시각이 별도로 없고, 아래 풀이는 ‘각 트랜잭션이 처음 등장한 시각에 시작했다’는 출제 의도를 가정한다. 이때 TS(T1)=2, TS(T2)=3이다. T1은 4시에 다시 등장해도 TS(T1)=2 그대로다.\n\n초기 상태: (read_TS(x), write_TS(x)) = (1, 1)\n- 2시 T1 read(x): TS(T1)=2 ≥ write_TS(x)=1이므로 읽기 성공. read_TS(x)=max(1, 2)=2가 되어 상태는 (2, 1)이다. 따라서 ①의 ‘그대로 둔다’는 틀리다.\n- 3시 T2 write(x): TS(T2)=3은 read_TS(x)=2와 write_TS(x)=1보다 작지 않으므로 쓰기 성공. write_TS(x)=3이 되어 상태는 (2, 3)이다. 따라서 ②의 ‘거부된다’는 틀리다.\n- 4시 T1 write(x): T1의 타임스탬프는 여전히 2다. TS(T1)=2 < write_TS(x)=3이므로 기본 타임스탬프 순서 기법에서는 거부하고 T1을 재시작한다. 세 연산을 모두 성공시킨 스케줄도 충돌 그래프에 T1→T2→T1 순환이 생기므로 ③은 틀리다.\n\nThomas의 기록 규칙에서는 마지막 오래된 쓰기를 다르게 처리한다. TS(T1)=2는 read_TS(x)=2보다 작지 않아 읽기 위반은 없고, write_TS(x)=3보다 작으므로 T1의 쓰기는 이미 T2의 새 쓰기에 밀린 값이다. 따라서 T1을 중단하지 않고 이 write(x)만 무시하여 ④가 맞다.\n\n주의: 시작 시각을 첫 등장 시각으로 본다는 가정이 없으면 표의 연산 시각만으로 TS(T1)=2, TS(T2)=3 또는 두 트랜잭션의 타임스탬프 순서를 확정할 수 없다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-56",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음은 두 릴레이션 R, S에 대해 어떤 관계 대수 연산을 적용한 결과 릴레이션을 보이고 있다. R과 S에 대해 적용된 관계 대수 연산은?",
+    "tables": [
+      {
+        "title": "릴레이션 R",
+        "rows": [
+          ["A", "B"],
+          ["a", "1"],
+          ["b", "2"],
+          ["c", "1"]
+        ]
+      },
+      {
+        "title": "릴레이션 S",
+        "rows": [
+          ["B", "C"],
+          ["1", "x"],
+          ["2", "y"],
+          ["3", "z"]
+        ]
+      },
+      {
+        "title": "결과 릴레이션",
+        "rows": [
+          ["R.A", "R.B", "S.B", "S.C"],
+          ["a", "1", "2", "y"],
+          ["a", "1", "3", "z"],
+          ["b", "2", "3", "z"],
+          ["c", "1", "2", "y"],
+          ["c", "1", "3", "z"]
+        ]
+      }
+    ],
+    "choices": [
+      "R⋈NS",
+      "R⋈B=BS",
+      "R⋈B<BS",
+      "R×S"
+    ],
+    "answer": 3,
+    "explanation": "결과 릴레이션의 조합 조건이 R의 B 값이 S의 B 값보다 작은 경우에 해당한다. 따라서 동등조인이나 자연조인이 아니라 B<B 조건 조인이다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-57",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "릴레이션 E, W가 아래와 같을 때, E와 W를 완전외부조인(full outer join)한 실행 결과 중 옳은 것은?",
+    "tables": [
+      {
+        "title": "릴레이션 E",
+        "rows": [
+          ["Member", "City", "Country"],
+          ["Kim", "Seoul", "Korea"],
+          ["Susan", "London", "England"],
+          ["Smith", "Austin", "USA"],
+          ["Nakamura", "Tokyo", "Japan"]
+        ]
+      },
+      {
+        "title": "릴레이션 W",
+        "rows": [
+          ["Member", "Gender", "Age"],
+          ["Kim", "Female", "39"],
+          ["Susan", "Female", "32"],
+          ["Gates", "Male", "53"],
+          ["Nakamura", "Male", "39"]
+        ]
+      }
+    ],
+    "choices": [
+      "MemberCityCountryGenderAge KimSeoulKoreaFemale39 SusanLondonEnglandFemale32 NakamuraTokyoJapanMale39",
+      "R MemberCityCountryGenderAge KimSeoulKoreaFemale39 SusanLondonEnglandFemale32 NakamuraTokyoJapanMale39 SmithAustinUSAnullnull",
+      "MemberCityCountryGenderAge KimSeoulKoreaFemale39 SusanLondonEnglandFemale32 NakamuraTokyoJapanMale39 GatesnullnullMale53",
+      "MemberCityCountryGenderAge KimSeoulKoreaFemale39 SusanLondonEnglandFemale32 NakamuraTokyoJapanMale39 SmithAustinUSAnullnull GatesnullnullMale53"
+    ],
+    "choiceTables": [
+      [
+        ["Member", "City", "Country", "Gender", "Age"],
+        ["Kim", "Seoul", "Korea", "Female", "39"],
+        ["Susan", "London", "England", "Female", "32"],
+        ["Nakamura", "Tokyo", "Japan", "Male", "39"]
       ],
       [
-        "4",
-        "T2",
-        "y = y * 2"
+        ["Member", "City", "Country", "Gender", "Age"],
+        ["Kim", "Seoul", "Korea", "Female", "39"],
+        ["Susan", "London", "England", "Female", "32"],
+        ["Nakamura", "Tokyo", "Japan", "Male", "39"],
+        ["Smith", "Austin", "USA", "null", "null"]
       ],
       [
-        "5",
+        ["Member", "City", "Country", "Gender", "Age"],
+        ["Kim", "Seoul", "Korea", "Female", "39"],
+        ["Susan", "London", "England", "Female", "32"],
+        ["Nakamura", "Tokyo", "Japan", "Male", "39"],
+        ["Gates", "null", "null", "Male", "53"]
+      ],
+      [
+        ["Member", "City", "Country", "Gender", "Age"],
+        ["Kim", "Seoul", "Korea", "Female", "39"],
+        ["Susan", "London", "England", "Female", "32"],
+        ["Nakamura", "Tokyo", "Japan", "Male", "39"],
+        ["Smith", "Austin", "USA", "null", "null"],
+        ["Gates", "null", "null", "Male", "53"]
+      ]
+    ],
+    "answer": 4,
+    "explanation": "완전외부조인은 양쪽 릴레이션의 일치하는 행과 어느 한쪽에만 있는 행을 모두 남긴다. 한쪽에 값이 없는 열에는 NULL을 채운다.\n① Kim·Susan·Nakamura만 있으므로 E에만 있는 Smith와 W에만 있는 Gates가 모두 빠졌다.\n② Smith는 있지만 Gates가 빠져 W의 모든 행을 보존하지 못했다.\n③ Gates는 있지만 Smith가 빠져 E의 모든 행을 보존하지 못했다.\n④ Smith의 W 쪽 열과 Gates의 E 쪽 열을 NULL로 채워 양쪽의 미일치 행까지 모두 포함하므로 정답이다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-58",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "내장 SQL(Embedded SQL)은 C, Java, JSP 등 프로 그래밍 언어(호스트 언어)에 SQL을 직접 끼워넣어 사용하며 SQL 전처리 컴파일러(precompiler)가 번역을한다. 내장 SQL에 대한 다음 설명 중 옳지 않은 것은?",
+    "choices": [
+      "SQL 문 결과를 행단위로 처리하기 위하여 호스트 언어에 추가적인 명령문이 사용된다.",
+      "SQL 문에서는호스트 언어에 의하여 선언된 변수를 참조할 수 없다.",
+      "호스트 언어에 의하여 선언된 변수를 이용하여 SQL 문의 실행 결과를 저장할 수 있다.",
+      "데이터베이스에 NULL 값을 삽입할 수 있으며, NULL 값을 읽어낼 수 있다."
+    ],
+    "answer": 2,
+    "explanation": "②는 틀리다. 내장 SQL은 콜론을 붙인 호스트 변수 등을 사용해 호스트 언어에서 선언한 변수를 SQL 문 안에서 참조할 수 있다.\n①은 여러 행을 순서대로 처리하기 위한 커서 등의 추가 명령을 설명한다.\n③은 SQL 실행 결과를 호스트 변수에 저장할 수 있다는 뜻이다.\n④는 NULL을 쓰거나 읽을 때 지시자 변수 등을 사용할 수 있다는 뜻이다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-59",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "아래 STUDENT 릴레이션에서 성별(Sex)과 평점(GPA)을 추출하는 관계 대수식 π_{Sex, GPA}(STUDENT)와 같은 결과를 얻는 SQL문은?",
+    "table": [
+      ["Fname", "Lname", "StudID", "Sex", "GPA", "DeptNo"],
+      ["Chulsoo", "Kim", "20160395", "M", "A", "5"],
+      ["Gilok", "Hong", "20152932", "F", "B", "4"],
+      ["Yoosin", "Kim", "20160244", "M", "C", "5"],
+      ["Soonhee", "Lee", "20140294", "F", "A", "5"],
+      ["Chansoo", "Shim", "20151285", "M", "A", "5"],
+      ["Soonsin", "Lee", "20140893", "M", "B", "4"],
+      ["Dasol", "Park", "20150203", "F", "B", "4"],
+      ["Kyunghee", "Jung", "20162011", "F", "A", "5"]
+    ],
+    "choiceFormat": "code",
+    "choices": [
+      "SELECT ALL Sex, GPA FROM STUDENT;",
+      "ALL SELECT Sex, GPA FROM STUDENT;",
+      "DISTINCT SELECT Sex, GPA FROM STUDENT;",
+      "SELECT DISTINCT Sex, GPA\nFROM STUDENT;"
+    ],
+    "answer": 4,
+    "explanation": "④ SELECT DISTINCT Sex, GPA FROM STUDENT가 맞다. 관계대수의 프로젝션은 결과의 중복 튜플을 제거하므로 SQL에서도 DISTINCT가 필요하다.\n① SELECT ALL은 중복을 유지한다.\n② ALL SELECT와 ③ DISTINCT SELECT는 SQL에서 키워드 순서가 잘못되었다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-60",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "직원과 부양가족 릴레이션이 아래와 같을 때, \u0027부양가족이 없는 직원의 이름을 검색하라\u0027는 SQL 질의에서 ㉮, ㉯, ㉰에 들어갈 내용은? EMPLOYEE의 기본키는 SSN, DEPENDENT의 기본키는 (ESSN, DEPNAME)이며, ESSN은 EMPLOYEE.SSN을 참조한다.",
+    "given": "SELECT NAME\nFROM EMPLOYEE\nWHERE ㉮ (SELECT ㉯ FROM DEPENDENT WHERE ㉰) ;",
+    "givenFormat": "code",
+    "tables": [
+      {"title": "EMPLOYEE 구조", "rows": [["NAME", "SSN", "ADDR", "PHONE"], ["VARCHAR(30) NOT NULL", "CHAR(9) NOT NULL", "VARCHAR(30)", "CHAR(10)"]]},
+      {"title": "DEPENDENT 구조", "rows": [["ESSN", "DEPNAME", "AGE"], ["CHAR(9) NOT NULL", "VARCHAR(30) NOT NULL", "INT"]]}
+    ],
+    "choices": [
+      "가) NOT IN\n나) *\n다) NAME=DEPNAME",
+      "가) NOT EXISTS\n나) *\n다) SSN=ESSN",
+      "가) NOT IN\n나) ESSN\n다) SSN=ESSN",
+      "가) NOT EXISTS\n나) ESSN\n다) NAME=DEPNAME"
+    ],
+    "answer": 2,
+    "explanation": "정답은 ② NOT EXISTS / * / SSN=ESSN이다. 직원마다 DEPENDENT에서 EMPLOYEE.SSN = DEPENDENT.ESSN을 만족하는 행이 없는지 확인한다. 따라서 WHERE NOT EXISTS (SELECT * FROM DEPENDENT WHERE EMPLOYEE.SSN = DEPENDENT.ESSN)으로 작성한다. EXISTS는 행의 존재 여부만 확인하므로 SELECT *의 값 자체는 결과에 영향을 주지 않는다.\nNOT IN은 값이 목록에 없는지 비교하므로 WHERE SSN NOT IN (SELECT ESSN FROM DEPENDENT)처럼 왼쪽 비교 값 SSN이 필요하다. 문제의 빈칸은 WHERE ㉮ (...) 형태여서 NOT IN만 넣을 수 없다. 이 문제에서는 ESSN이 NOT NULL이라 두 방식으로 같은 직원을 찾을 수 있지만, 일반적으로 NOT IN의 하위 질의 결과에 NULL이 섞이면 비교 결과가 UNKNOWN이 되어 기대한 행이 나오지 않을 수 있다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-61",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "EMPLOYEE와 DEPENDENT 릴레이션으로 아래 뷰를 만들 때 ㉱와 ㉲에 들어갈 내용은? EMPLOYEE의 기본키는 SSN이고, DEPENDENT.ESSN은 이를 참조한다. EMPSSN과 EMPNAME은 직원의 식별번호와 이름, NO_DEPS와 M_AGE는 부양가족 수와 평균 나이이다.",
+    "given": "CREATE VIEW EMPDEPEND(EMPSSN, EMPNAME, NO_DEPS, M_AGE) AS\nSELECT SSN, NAME, ㉱, ㉲\nFROM EMPLOYEE, DEPENDENT\nWHERE SSN=ESSN\nGROUP BY SSN;",
+    "givenFormat": "code",
+    "tables": [
+      {"title": "EMPLOYEE 구조", "rows": [["NAME", "SSN", "ADDR", "PHONE"], ["VARCHAR(30) NOT NULL", "CHAR(9) NOT NULL", "VARCHAR(30)", "CHAR(10)"]]},
+      {"title": "DEPENDENT 구조", "rows": [["ESSN", "DEPNAME", "AGE"], ["CHAR(9) NOT NULL", "VARCHAR(30) NOT NULL", "INT"]]}
+    ],
+    "choices": [
+      "라) UNIQUE(*)\n마) MEDIAN(AGE)",
+      "라) COUNT(*)\n마) MEDIAN(AGE)",
+      "라) COUNT(*)\n마) AVG(AGE)",
+      "라) UNIQUE(*)\n마) AVG(AGE)"
+    ],
+    "answer": 3,
+    "explanation": "③ COUNT(*)는 부양가족 수를, AVG(AGE)는 평균 나이를 구한다. ①과 ④의 UNIQUE(*)는 행 수를 세는 집계 함수가 아니다. ①과 ②의 MEDIAN(AGE)는 중앙값을 구하는 함수여서 평균 나이를 요구하는 조건에 맞지 않는다. 그룹별 집계 뷰에서는 직원 식별자별 GROUP BY도 필요하다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-62",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "SQL 문으로 테이블 DEPT와 EMP를 생성하고 뷰 EMPDEPT를 생성하였다. 뷰 생성과 투플 삽입 후 아래 문장을 실행했을 때 오류가 발생하지 않는 것은 (SQL 문)",
+    "given": "CREATE TABLE DEPT( DEPTNO INTEGER PRIMARY KEY, DNAME VARCHAR(14) NOT NULL, LOC VARCHAR(13) );\nINSERT INTO DEPT\nVALUES(10, \u0027sales\u0027, \u0027seoul\u0027);\nCREATE TABLE EMP ( EMPNO INTEGER PRIMARY KEY, ENAME VARCHAR(10), JOB VARCHAR(9), DEPTNO INTEGER REFERENCES DEPT(DEPTNO) );\nINSERT INTO EMP\nVALUES(1, \u0027park\u0027, \u0027managing\u0027, 10);\nCREATE VIEW EMPDEPT AS SELECT ENAME, DNAME, JOB, DEPT.DEPTNO\nFROM EMP, DEPT\nWHERE EMP.DEPTNO=DEPT.DEPTNO;",
+    "givenFormat": "code",
+    "choiceFormat": "code",
+    "choices": [
+      "INSERT INTO EMPDEPT VALUES ('kim', 'sales', 'managing', 10);",
+      "CREATE VIEW EMPDNAME AS SELECT ENAME, DNAME FROM EMPDEPT;",
+      "CREATE INDEX E_01 ON EMPDEPT(ENAME);",
+      "UPDATE EMPDEPT SET DEPTNO=20 WHERE JOB LIKE 'managing';"
+    ],
+    "answer": 2,
+    "explanation": "조인 뷰나 집계 뷰는 삽입, 갱신, 인덱스 생성에 제약이 많다. 기존 뷰에서 다시 SELECT로 뷰를 만드는 것은 일반적으로 오류 없이 가능하다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-63",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "권한(authorization)을 부여하는 ㉮와 회수하는 ㉯를 SQL로 바르게 표현한 것은? ㉮ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 Mary와 John에게 부여한다. ㉯ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 John으로부터 회수한다.",
+    "choiceFormat": "code",
+    "choices": [
+      "㉮ = GRANT SELECT ON EMPLOYEE TO Mary, John; ㉯ = REVOKE SELECT ON EMPLOYEE FROM John;",
+      "㉮ = AUTHORIZE SELECT ON EMPLOYEE TO Mary, John; ㉯ = CANCEL SELECT ON EMPLOYEE FROM John;",
+      "㉮ = GRANT EMPLOYEE TO Mary, John ON SELECT; ㉯ = REVOKE EMPLOYEE FROM John ON SELECT;",
+      "㉮ = AUTHORIZE EMPLOYEE TO Mary, John ON SELECT; ㉯ = CANCEL EMPLOYEE FROM John ON SELECT;"
+    ],
+    "answer": 1,
+    "explanation": "표준 SQL 권한 부여와 회수는 GRANT 권한 ON 객체 TO 사용자, REVOKE 권한 ON 객체 FROM 사용자 형식이다. AUTHORIZE나 CANCEL은 SQL 권한 명령이 아니다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-64",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "데이터베이스 시스템의 데이터 독립성에 대한 설명 중 옳지 않은 것은?",
+    "choices": [
+      "ANSI 3단계 스키마 아키텍쳐는 내부단계(내부스 키마), 개념단계(개념스키마), 외부단계(외부스 키마)로 나눈다. 3단계 스키마의 목적은 물리적 데이터베이스로부터 사용자의 응용을 분리시키는 것이다.",
+      "외부스키마는 데이터베이스의 물리적 저장구조를, 개념스키마는 특정 사용자 그룹이 관심을 갖는 데이터베이스 부분을, 내부스키마는 모든 사용 자를 위한 전체 데이터베이스 구조를 기술한다.",
+      "물리적 데이터 독립성은 개념스키마를 변경하지 않으면서 내부스키마를 변경할 수 있음을 말한다. 내부스키마의 접근 구조 변경이나, 파일 재구성이 개념스키마에 가능한 한 영향을 주지 않도록한다.",
+      "논리적 데이터 독립성은 외부스키마를 변경하지 않으면서 개념스키마를 변경하는 것을 말한다. 개념스키마의 데이터베이스 확장, 제약조건 갱신 등 변경이 외부스키마에 가능한 한 영향을 주지 않도록한다."
+    ],
+    "answer": 2,
+    "explanation": "외부스키마는 사용자 관점, 개념스키마는 전체 논리 구조, 내부스키마는 물리 저장 구조를 기술한다. ②는 외부, 개념, 내부의 역할을 뒤섞었다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-65",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "데이터 품질에 관한 다음 설명 중 옳지 않은 것은",
+    "choices": [
+      "데이터 품질은 조직의 목적 달성을 위하여 관리되는 데이터가 이용자의 만족을 충족시킬 수 있는 수준을 말한다.",
+      "데이터 품질 관리는 조직이 운영하는 정보시스 템을 활용하는 이용자의 기대를 만족시키기 위하여 수행하는 데이터 관리 활동이다.",
+      "데이터 품질 진단의 종류 중 데이터 구조 진단은 데이터 관리 프로세스를 분석하여 문제점을도 출하고, 이를 개선할 수 있는 핵심 업무 프로 세스를 최적화한다.",
+      "데이터 품질 진단을 위한 데이터 프로파일링은 데이터의 중요 정보와 통계 값을 수집하는 정보 분석 기법이다."
+    ],
+    "answer": 3,
+    "explanation": "데이터 구조 진단은 테이블, 컬럼, 관계, 제약 등 구조 품질을 보는 활동이다. 데이터 관리 프로세스를 분석해 개선하는 것은 프로세스 진단 쪽이다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-66",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "상품(상품번호, 상품명, 해당부서, 구매자) 릴레이션에서 상품번호와 상품명은 각각 후보키이고 구매자는 하나의 부서(해당부서)에 속한다고 하자. 이 릴레이션의 정규형과 관련된 설명 중 옳은 것을 모두 고르시오. (2개 선택)",
+    "choices": [
+      "이 릴레이션이 속한 최고차 정규형은 1NF이다.",
+      "이 릴레이션은 현재 해당부서→구매자의 함수 종속이 성립한다.",
+      "이 릴레이션은 현재 상품명→(상품번호, 해당부서, 구매자)의 함수 종속이 성립한다.",
+      "R1(구매자, 해당부서), R2(상품번호, 상품명, 구매자)로 분해하면 두 릴레이션은 BCNF에 속하게 된다."
+    ],
+    "answer": [
+      3,
+      4
+    ],
+    "explanation": "정답은 ③, ④이다. 상품번호와 상품명은 각각 하나의 속성만으로 이루어진 후보키이므로, 둘 중 어느 하나로도 나머지 속성을 결정한다. 또 '구매자는 하나의 부서에 속한다'는 조건에서 구매자→해당부서가 성립한다.\n1NF 예: 전화번호 여러 개를 한 칸에 넣지 않고 한 칸에 값 하나씩 저장한다. 2NF 예: 수강(학생ID, 과목ID, 학생명)의 키가 (학생ID, 과목ID)라면 학생명은 학생ID에만 종속되므로 학생(학생ID, 학생명)으로 분리한다.\n① 틀림: 후보키가 모두 단일 속성이므로 후보키의 일부에만 종속되는 속성이 없어 2NF는 만족한다. 그러나 상품번호→구매자→해당부서처럼 키가 아닌 구매자를 거치는 이행 종속이 있어 3NF는 만족하지 못한다. 따라서 최고차 정규형은 1NF가 아니라 2NF이다.\n② 틀림: 주어진 조건의 방향은 구매자→해당부서이다. 한 부서에 여러 구매자가 속할 수 있으므로 해당부서만으로 구매자 한 명을 결정할 수 없다.\n③ 맞음: 상품명도 후보키이므로 상품명→(상품번호, 해당부서, 구매자)가 성립한다.\n④ 맞음: R1(구매자, 해당부서)에서는 구매자가 해당부서를 결정하며 구매자가 키다. R2(상품번호, 상품명, 구매자)에서는 상품번호와 상품명이 각각 키다. 두 릴레이션의 비자명한 함수 종속은 결정자가 슈퍼키이므로 BCNF를 만족한다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-67",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음의 릴레이션과 함수 종속을 고려해 보자. 이 릴레이션의 현재 속한 정규형과 BCNF로 분해 후 릴레이션의 수를 올바르게 나타낸 것은? R(A,B,C,D,E) 후보키: (A,C) 함수종속: A→B, C→D, (A,C)→E",
+    "choices": [
+      "1NF, 3",
+      "2NF, 2",
+      "2NF, 3",
+      "3NF, 2"
+    ],
+    "answer": 1,
+    "explanation": "후보키가 (A,C)인데 A→B와 C→D가 부분 종속이므로 현재 최고 정규형은 1NF다. BCNF 분해는 A,B / C,D / A,C,E의 3개 릴레이션으로 정리된다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-68",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "뷰에 대한 갱신은 기본 릴레이션에 대한 갱신으로 변환되는데, 이 때 대부분의 관계 DBMS에서 갱신이 가능한 뷰로 가장 적절한 것은?",
+    "choices": [
+      "기본키가 포함된 한 릴레이션 위에 정의된 뷰",
+      "두 개 이상의 릴레이션 위에 조인으로 정의된 뷰",
+      "집단 함수가 포함된 뷰",
+      "기본 릴레이션의 애트리뷰트들 중에서 뷰에 포함되지 않은 애트리뷰트에 대해 NOT NULL이 지정되어 있을 때의 뷰"
+    ],
+    "answer": 1,
+    "explanation": "대부분 DBMS에서 갱신 가능한 뷰는 기본키를 포함한 단일 기본 릴레이션 기반 뷰다. 조인, 집계, NOT NULL 컬럼 누락은 갱신 가능성을 크게 제한한다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-69",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음의 스케줄대로 트랜잭션을 실행했을 때 발생하는 문제는? (트랜잭션 연산 앞의 표기는 시간을 시:분:초로 표시한 것임)",
+    "table": [
+      [
+        "시간",
+        "트랜잭션",
+        "연산"
+      ],
+      [
+        "00:00:00",
+        "T1",
+        "read(x)"
+      ],
+      [
+        "00:00:01",
+        "T1",
+        "x = x - N"
+      ],
+      [
+        "00:00:02",
         "T1",
         "write(x)"
       ],
       [
-        "6",
+        "00:00:03",
         "T2",
-        "write(y)"
+        "read(x)"
       ],
       [
-        "7",
+        "00:00:04",
+        "T2",
+        "x = x + M"
+      ],
+      [
+        "00:00:05",
+        "T2",
+        "write(x)"
+      ],
+      [
+        "00:00:06",
         "T1",
-        "lock(y)"
+        "read(y)"
       ],
       [
-        "8",
-        "T2",
-        "lock(x)"
+        "00:00:07",
+        "T1",
+        "fail"
       ]
     ],
     "choices": [
-      "갱신 손실(lost update)",
-      "교착 상태(deadlock)",
-      "오손 읽기(dirty read)",
-      "철회(rollback)"
+      "갱신 손실(lost update) 문제,",
+      "부정확한 요약(incorrect summary) 문제",
+      "반복할 수 없는 읽기(unrepeatable read)문제,",
+      "오손 읽기(dirty read) 문제"
+    ],
+    "answer": 4,
+    "explanation": "④ 오손 읽기는 다른 트랜잭션이 아직 커밋하지 않은 값을 읽는 현상이다. T2가 T1의 미커밋 갱신값을 읽고 T1이 실패하면 T2가 사용한 값은 무효가 된다.\n① 갱신 손실은 두 갱신 중 하나가 덮여 사라지는 현상이다.\n② 부정확한 요약은 집계 도중 다른 트랜잭션의 갱신이 섞여 일관되지 않은 합계가 나오는 현상이다.\n③ 반복 불가능 읽기는 같은 행을 다시 읽었을 때 값이 달라지는 현상이다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-70",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "공공데이터에 대한 다음 설명 중 가장 거리가 먼 것은?",
+    "choices": [
+      "Open API를 활용하려면 정보제공자에게 활용신청을 해야하며, 승인을 받은 후 인증키를 받아 사 용한다.",
+      "공공데이터 또는 Open API로 제공되는 데이터는 특별한 사유가 존재하지 않는 한 상업적으로 이용이 가능하다.",
+      "공공데이터는 공공기관 등에서 데이터의 공개 여부를판단하여 제공하며, 미제공 데이터에 대해 일반 사용자가 공개를 신청하는 것은 허용되지 않는다.",
+      "공공데이터 서비스 유형은 SOAP, REST, RSS, LINK 등이 있다."
+    ],
+    "answer": 3,
+    "explanation": "공공데이터는 원칙적으로 개방과 활용을 전제로 하며, 미제공 데이터도 이용자가 제공 신청을 할 수 있다. 미제공 데이터 공개 신청이 허용되지 않는다는 설명이 틀리다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-71",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "테이블 BOOK(bookid, bookname, price)에서 트랜잭션 T1과 T2가 다음 순서로 실행될 때 ㉮와 ㉯에 출력되는 값을 고르시오. BOOK을 읽거나 쓰는 트랜잭션은 T1과 T2뿐이며, bookid=1인 행이 존재한다.",
+    "given": "[T2] BEGIN TRANSACTION;\n[T2] SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\n[T2] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: 10000\n\n[T1] BEGIN TRANSACTION;\n[T1] SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;\n[T1] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: 10000\n\n[T2] UPDATE BOOK SET price=price+100 WHERE bookid=1;\n     -- 여기서 대기\n[T1] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: ㉮\n[T1] COMMIT;\n\n[T2] SELECT SUM(price) AS 총액 FROM BOOK;  -- 결과: ㉯\n[T2] COMMIT;",
+    "givenFormat": "code",
+    "choices": [
+      "10000 / 10000",
+      "10000 / 10100",
+      "10100 / 10000",
+      "10100 / 10100"
     ],
     "answer": 2,
-    "explanation": "정답 ② 교착 상태. T1은 x의 잠금을 쥔 채 y의 잠금을 기다리고, T2는 y의 잠금을 쥔 채 x의 잠금을 기다린다. 대기 그래프로 나타내면 T1→T2와 T2→T1의 순환이 생겨 둘 다 진행할 수 없다. 이때의 핵심 조건은 서로 자원을 점유하고 상대가 가진 자원을 기다리는 순환 대기다.\n갱신 손실은 쓰기 결과가 덮이는 현상, 오손 읽기는 미커밋 값을 읽는 현상이다. 교착 상태는 타임아웃, 대기 그래프 탐지 후 한 트랜잭션 철회, 잠금 획득 순서의 통일 등으로 처리하거나 예방한다."
+    "explanation": "트랜잭션 격리와 커밋 시점에 따라 첫 조회는 기존 값 10000, 이후 조회는 갱신 후 값 10100으로 해석된다. 보기에서는 10000, 10100 조합이 맞다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-72",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음 표는 문서들에 대한 검색을 수행한 결과 검색된(retrieved) 문서와 적합한(relevant) 문서의 수를 각각 나타낸다. 재현율(recall)과 정확률(precision)을 각각 바르게 계산한 것은?",
+    "table": [
+      [
+        "검색된 문서 / 적합한 문서",
+        "Yes",
+        "No"
+      ],
+      [
+        "Yes",
+        "75",
+        "50"
+      ],
+      [
+        "No",
+        "45",
+        "30"
+      ]
+    ],
+    "choices": [
+      "재현율) 0.375\n정확률) 0.150",
+      "재현율) 0.375\n정확률) 0.400",
+      "재현율) 0.525\n정확률) 0.475",
+      "재현율) 0.625\n정확률) 0.600"
+    ],
+    "answer": 4,
+    "explanation": "정답은 ④이다. 표에서 적합하고 검색된 문서는 75개, 적합하지만 검색되지 않은 문서는 45개, 검색됐지만 적합하지 않은 문서는 50개다.\n재현율(recall) = 검색된 적합 문서 수 / 전체 적합 문서 수 = 75 / (75 + 45) = 0.625. 실제로 적합한 문서 120개 중 몇 개를 찾아냈는지 보는 지표다.\n정확률(precision) = 검색된 적합 문서 수 / 전체 검색 문서 수 = 75 / (75 + 50) = 0.600. 검색 결과 125개 중 몇 개가 적합한지 보는 지표다.\n검색되지 않았고 적합하지도 않은 30개는 두 공식의 분모에 들어가지 않는다. 정확률은 전체 문서 중 올바르게 분류한 비율인 정확도(accuracy)와 다르다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-73",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음 문장에서 빈칸 ㉮와 ㉯에 들어갈 용어로 적절한 것은? 예측 모델링(Predictive Modeling)은 목표 변수를 설명 변수의 함수 모델로 생성하는 작업을 말한다. 예측 모델링은 이산형 목표 변수에 사용되는 ( ㉮ ) 과(와) 연속형 목표 변수에 사용하는 ( ㉯ )의 두 가지 유형이 있다. ㉮㉯",
+    "choices": [
+      "군집(clustering)서술(descriptive)",
+      "군집(clustering)분류(classification)",
+      "분류(classification) 회귀(regression)",
+      "회귀(regression)서술(descriptive),"
+    ],
+    "answer": 3,
+    "explanation": "③ 이산형 목표 변수의 범주를 맞히는 과제는 분류, 연속형 수치를 예측하는 과제는 회귀다. ①과 ②의 군집은 정답 목표 변수 없이 비슷한 데이터를 묶는 비지도 학습이다.\n④는 두 유형의 순서를 거꾸로 놓았으며 서술(descriptive)은 목표값 예측보다 데이터의 패턴을 설명하는 접근이다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-74",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음은 회사 데이터베이스를 표현한 E-R 다이어 그램의 일부를 보이고 있다. 속성 이름에 밑줄 친 것은 키 속성을 의미한다. 이 E-R 다이어그램과 관련된 설명으로 적절한 것을 모두고르시오 (2개 선택)(단, 이 E-R 다이어그램은 DEPARTMENT와 EMPLOYEE릴레이션으로만 변환된다고 가정한다.)",
+    "choices": [
+      "특정 부서에 배치되지 않은 직원이 존재 할 수 있다.",
+      "직원이 없는 부서가 존재할 수 있다.",
+      "DEPARTMENT 개체를 릴레이션으로 변환하면 DEPARTMENT(DNO, DName)이 된다.",
+      "EMPLOYEE 개체를 릴레이션으로 변환하면 EMPLOYEE (ENO, Name)이 된다."
+    ],
+    "answer": [
+      2,
+      3
+    ],
+    "explanation": "정답은 ②, ③이다. E-R 다이어그램에서는 관계선이 이중선이면 전체 참여(모든 개체가 관계에 참여), 단일선이면 부분 참여(참여하지 않는 개체도 가능)를 뜻한다. 이 그림은 직원은 부서 배치 관계에 반드시 참여하고, 부서는 참여하지 않아도 되는 경우다.\n① 틀림: EMPLOYEE 쪽이 전체 참여이므로 모든 직원은 부서에 배치되어야 한다. 어느 부서에도 배치되지 않은 직원은 이 모델에서 허용되지 않는다.\n② 맞음: DEPARTMENT 쪽은 부분 참여이므로 아직 직원이 배치되지 않은 부서도 존재할 수 있다. '직원이 없는 부서'와 '부서가 없는 직원'은 서로 다른 조건이다.\n③ 맞음: DEPARTMENT 개체의 키 DNO와 일반 속성 DName을 담아 DEPARTMENT(DNO, DName)으로 변환한다. 부서와 직원의 관계는 문제에서 두 릴레이션으로만 변환한다고 했으므로 직원 쪽에 부서 키를 외래키로 둔다.\n④ 틀림: EMPLOYEE(ENO, Name)만 만들면 각 직원이 어느 부서에 속하는지 저장할 수 없다. EMPLOYEE(ENO, Name, DNO)처럼 부서의 키 DNO를 외래키로 포함해야 한다."
+  },
+  {
+    "id": "2016년 제17회 데이터베이스-75",
+    "deck": "2016년 제17회 데이터베이스",
+    "question": "다음은 대학 데이터베이스의 일부를 E-R 다이어 그램으로 표현한 것이다. 이 다이어그램에 대한 설명으로 옳지 않은 것은? (단, 수퍼타입과 서브 타입을연결하는 중간 원안의 표시 ‘d’는 disjoint를, PERSON 개체 쪽의 단일선은 partial을 표현한다고하자.)",
+    "choices": [
+      "이 E-R 다이어그램은 세분화(specialization) 관계를 표현한 것이다.",
+      "PERSON이 수퍼클래스에 해당하는 개체이다.",
+      "FACULTY나 STUDENT가 아닌 PERSON 개체는 없다.",
+      "FACULTY 개체이면서 동시에 STUDENT 개체일 수는 없다.."
+    ],
+    "answer": 3,
+    "explanation": "d 표시는 disjoint라 FACULTY와 STUDENT가 동시에 될 수 없음을 뜻한다. PERSON 쪽 단일선은 partial이므로 둘 중 어디에도 속하지 않는 PERSON이 있을 수 있어 ③이 틀리다."
   }
 ]
