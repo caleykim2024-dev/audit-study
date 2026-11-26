@@ -2,7 +2,9 @@
   {
     "id": "2017년 제18회 소프트웨어 공학-26",
     "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음은 정보전략계획 및 업무재설계(ISP/BPR)의 업무활동들이다. 업무절차와 업무활동의 연결이 가장 적절한 것은?\n자료: 가. 정보기술 환경분석 나. 업무분석 다. 정보시스템분석 라. 차이분석 마. 벤치마킹 바. 정보전략 수립 사. 정보관리체계수립 아. 정보시스템구조 설계 자. 업무프로세스 개선계획 수립 차. 기능점수 도출",
+    "question": "다음은 정보전략계획 및 업무재설계(ISP/BPR)의 업무활동들이다. 업무절차와 업무활동의 연결이 가장 적절한 것은?",
+    "givenTitle": "업무활동",
+    "given": "가. 정보기술 환경분석\n나. 업무분석\n다. 정보시스템분석\n라. 차이분석\n마. 벤치마킹\n바. 정보전략 수립\n사. 정보관리체계수립\n아. 정보시스템구조 설계\n자. 업무프로세스 개선계획 수립\n차. 기능점수 도출",
     "choices": [
       "이행계획수립 - 바, 사, 아, 자",
       "미래모델설계 - 마, 아, 자, 차",
@@ -10,12 +12,13 @@
       "환경분석 - 가, 나, 다, 라"
     ],
     "answer": 3,
-    "explanation": "정답 선택지 확인 - ③ 현황분석 - 나, 다, 라, 마"
+    "explanation": "정답 ③. 현황분석은 현재 업무·정보시스템을 파악하고 차이를 분석하며 벤치마킹해 개선 단서를 얻는 단계다. 정보기술 환경분석은 환경분석, 정보전략 수립과 정보관리체계 수립은 미래 방향 설계 또는 이행계획에 가깝다. 기능점수 도출을 이 단계의 핵심 활동으로 섞은 보기에도 주의한다.\n보기별 판단\n① 이행계획 수립에 정보전략 수립·정보시스템 구조 설계까지 한꺼번에 넣은 분류가 맞지 않다.\n② 벤치마킹과 기능점수 도출을 미래모델 설계의 대표 활동으로 묶은 것이 부적절하다.\n③ 업무분석·정보시스템분석·차이분석·벤치마킹을 현황분석으로 묶은 정답이다.\n④ 정보기술 환경분석(가) 외에 현재 업무·시스템 분석과 차이분석까지 환경분석으로 묶었다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-27",
     "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "CMM(Capability Maturity Model)은 소프트웨어프로세스 성숙도를 높이기 위하여 필요한 작업들에 대한 단계적 모델을 제시하고 있다. 다음에 제시한 주요 프로세스 영역들이 처음으로 포함되는 단계로 가장 적절한 것은?\n자료: - 소프트웨어 프로젝트 계획 - 소프트웨어 프로젝트 추적 및 감독 - 소프트웨어 하청 관리 - 소프트웨어 품질 보증 - 소프트웨어 형상 관리 - 요구 관리",
+    "question": "CMM(Capability Maturity Model)은 소프트웨어프로세스 성숙도를 높이기 위하여 필요한 작업들에 대한 단계적 모델을 제시하고 있다. 다음에 제시한 주요 프로세스 영역들이 처음으로 포함되는 단계로 가장 적절한 것은?",
+    "given": "- 소프트웨어 프로젝트 계획\n- 소프트웨어 프로젝트 추적 및 감독\n- 소프트웨어 하청 관리\n- 소프트웨어 품질 보증\n- 소프트웨어 형상 관리\n- 요구 관리",
     "choices": [
       "최적단계(Optimizing)",
       "관리단계(Managed)",
@@ -23,7 +26,8 @@
       "반복단계(Repeatable)"
     ],
     "answer": 4,
-    "explanation": "정답 선택지 확인 - ④ 반복단계(Repeatable)"
+    "explanation": "정답 ④ 반복단계(수준 2). 요구관리, 프로젝트 계획·추적, 하청관리, 품질보증, 형상관리는 CMM의 반복 가능한 관리 기반을 마련하는 주요 프로세스 영역이다. 수준 1 초기, 수준 2 반복, 수준 3 정의, 수준 4 관리, 수준 5 최적화의 순서로 암기한다.\n보기별 판단: 제시된 여섯 활동은 CMM 수준 2의 주요 프로세스 영역이다. ① 최적 단계는 수준 5, ② 관리 단계는 수준 4, ③ 정의 단계는 수준 3이므로 모두 해당하지 않는다. ④ 반복 단계가 수준 2다. CMM의 수준 4 관리(Managed)와 CMMI의 수준 2 관리됨(Managed)을 혼동하지 않는다.",
+    "givenTitle": "주요 프로세스 영역"
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-28",
@@ -36,7 +40,7 @@
       "데이터 흐름 기반 테스팅"
     ],
     "answer": 2,
-    "explanation": "정답 선택지 확인 - ② 베타(beta) 테스팅"
+    "explanation": "정답 ② 베타 테스팅. 베타 테스트는 외부 사용자가 실제 환경에서 제품을 시험하는 배포 전 수용 성격의 테스트다. 슬라이싱, 상태 기반, 데이터 흐름 기반 방법은 클래스의 메서드·상태·데이터 사용을 분석하는 객체지향 테스트에 적용할 수 있다.\n보기별 판단: ① 슬라이싱은 특정 변수·결과에 영향을 주는 코드 부분을 따라 검사한다. ③ 상태 기반은 객체의 상태와 전이를, ④ 데이터 흐름 기반은 정의·사용 관계를 검사한다. ② 베타 테스트는 실제 사용자가 제품을 시험하는 방식이라 특정 클래스의 내부 테스트 기법이 아니다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-29",
@@ -49,7 +53,7 @@
       "context diagram"
     ],
     "answer": 1,
-    "explanation": "정답 선택지 확인 - ① state transition diagram"
+    "explanation": "정답 ① 상태 전이도. 상태 전이도는 시스템 내부 상태와 이벤트에 따른 변화·동작을 표현한다. 시스템 범위는 외부 주체와의 경계를 보여 주는 컨텍스트 다이어그램, 이벤트 목록, 주변 생태계 맵처럼 시스템 바깥과의 관계를 파악하는 도구가 알맞다.\n보기별 판단: ① 상태 전이도는 시스템 내부의 상태 변화에 초점이 있어 범위·경계 표현과 거리가 멀다. ② 이벤트 목록은 외부에서 시스템에 발생시키는 사건을, ③ 생태계 맵은 주변 주체·시스템을, ④ 컨텍스트 다이어그램은 시스템과 외부 사이의 경계를 파악하는 데 쓴다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-30",
@@ -62,7 +66,7 @@
       "Template Method 패턴"
     ],
     "answer": 2,
-    "explanation": "정답 선택지 확인 - ② Adapter 패턴"
+    "explanation": "정답 ② 어댑터 패턴. 기존 TextView의 인터페이스가 편집도구가 기대하는 Shape 인터페이스와 다르므로 TextShape가 중간에서 호출을 변환한다. 어댑터는 기존 클래스를 수정하지 않고 새로운 클라이언트 인터페이스에 맞춰 재사용한다. 생성 방법을 맡는 Factory, 알고리즘 교체의 Strategy와 구별한다.\n보기별 판단: ① Factory는 객체 생성을 맡고, ③ Strategy는 알고리즘을 교체하며, ④ Template Method는 상위 클래스가 알고리즘 골격을 정의한다. ② Adapter는 TextView를 Shape가 요구하는 인터페이스로 연결한다. TextShape가 기존 TextView를 재사용하도록 중간 역할을 한다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-31",
@@ -75,7 +79,7 @@
       "사용사례기반 테스팅은 객체지향 테스팅의 일종으로 사용사례 명세로부터 테스트케이스를 추출한다."
     ],
     "answer": 3,
-    "explanation": "정답 선택지 확인 - ③ 설치 테스팅은 개발의뢰자가 개발환경에서 프로젝트 계약에 명시된 사용용이성, 기능성, 성능 등을 테스트하는 것이다."
+    "explanation": "정답 ③. 설치 테스팅은 대상 운영 환경에 소프트웨어를 설치·설정하고 정상 동작하는지 확인한다. 보기 ③의 계약상 사용 용이성·기능·성능을 개발의뢰자가 평가하는 설명은 인수 테스팅에 가깝다. 상태 기반 테스트는 전이, 빅뱅 통합은 결함 위치 추적의 어려움, 사용사례 기반 테스트는 시나리오 검증이 핵심이다.\n보기별 판단: ① 상태 기반 테스트는 상태·전이에서 사례를 만들고, ② 빅뱅 통합은 한꺼번에 결합하여 결함 위치를 찾기 어렵다. ③의 발주자·계약 요구 평가 설명은 인수 테스트에 가깝고 설치 테스트의 뜻이 아니다. ④ 사용사례 기반 테스트는 사용 시나리오에서 사례를 도출한다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-32",
@@ -88,7 +92,7 @@
       "스프린트(Sprint) 사이클에서는 Inception, Elaboration, Construction, Transition 단계가 반복적으로 수행된다."
     ],
     "answer": 4,
-    "explanation": "정답 선택지 확인 - ④ 스프린트(Sprint) 사이클에서는 Inception, Elaboration, Construction, Transition 단계가 반복적으로 수행된다."
+    "explanation": "정답 ④. Inception·Elaboration·Construction·Transition은 통합 프로세스(RUP)의 단계다. Scrum의 반복 단위인 스프린트는 계획, 개발·협업, 검토, 회고 등을 수행한다. XP의 현장 고객 참여와 작은 기능 단위의 반복 릴리스는 애자일 개발의 특징이다.\n보기별 판단: ① XP의 고객 참여, ② 작은 단위의 반복 릴리스, ③ 스크럼의 스프린트 중심 진행은 애자일 설명으로 볼 수 있다. ④의 Inception·Elaboration·Construction·Transition은 RUP 단계이며 스프린트 내부 단계가 아니다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-33",
@@ -101,23 +105,23 @@
       "MVC 구조, 계층 구조"
     ],
     "answer": 3,
-    "explanation": "정답 선택지 확인 - ③ 파이프 필터 구조, 저장소 구조"
+    "explanation": "정답 ③. 컴파일러는 어휘분석·구문분석·의미분석·코드생성 등 단계별 변환 결과를 다음 단계로 넘기므로 파이프-필터 구조가 적합하다. 여러 단계가 공통 심벌 테이블이나 중간 표현을 공유하면 저장소 구조도 쓸 수 있다. MVC는 사용자 인터페이스 분리에 초점이 있다.\n보기별 판단: ③ 파이프·필터는 컴파일 단계의 연속 변환에, 저장소는 공통 심벌 테이블·중간 표현 공유에 대응한다. ①·④의 클라이언트 서버나 ②·④의 MVC는 컴파일러 핵심 처리 구조를 설명하는 조합으로 적절하지 않다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-34",
     "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음은 자바코드와 결과 화면이다. 결과 화면처럼 출력되기 위해 ( ) 안에 들어갈 코드 중 틀린 것은?\n자료: interface Command { public abstract void execute(); }\nclass Lamp { public void turnOn() { System.out.println(\"Lamp On\"); } }\nclass LampOnCommand (  ①  ) Command { private Lamp theLamp; public LampOnCommand(Lamp theLamp) { (  ②  ) = theLamp; } public void execute() { theLamp.turnOn(); } }\nclass Button { private Command theCommand; public Button(Command theCommand) { (  ③  ) } public void setCommand(Command newCommand) { this.theCommand=newCommand; } public void pressed() { theCommand.execute(); } } public class Client { public static void main(String[] args) { Lamp lamp = new Lamp(); Command lampOnCommand = new LampOnCommand(lamp); Button button1 = new Button(  ④  ); button1.pressed(); } }\n결과 화면 Lamp On",
+    "question": "다음 자바 코드가 “Lamp On”을 출력할 때 빈칸 ①~④에 들어갈 코드 중 틀린 것은?",
+    "given": "interface Command {\n  public abstract void execute();\n}\n\nclass Lamp {\n  public void turnOn() {\n    System.out.println(\"Lamp On\");\n  }\n}\n\nclass LampOnCommand ① Command {\n  private Lamp theLamp;\n  public LampOnCommand(Lamp theLamp) {\n    ② = theLamp;\n  }\n  public void execute() {\n    theLamp.turnOn();\n  }\n}\n\nclass Button {\n  private Command theCommand;\n  public Button(Command theCommand) {\n    ③\n  }\n  public void setCommand(Command newCommand) {\n    this.theCommand = newCommand;\n  }\n  public void pressed() {\n    theCommand.execute();\n  }\n}\n\npublic class Client {\n  public static void main(String[] args) {\n    Lamp lamp = new Lamp();\n    Command lampOnCommand = new LampOnCommand(lamp);\n    Button button1 = new Button(④);\n    button1.pressed();\n  }\n}\n\n// 실행 결과: Lamp On",
+    "givenFormat": "code",
     "choices": [
-      "implement",
+      "implements",
       "Lamp.theLamp",
-      "setCommand(theComma",
+      "setCommand(theCommand)",
       "lampOnCommand"
     ],
-    "answer": [
-      2,
-      3
-    ],
-    "explanation": "복수 정답 문항입니다. 정답 선택지 확인 - ② Lamp.theLamp / ③ setCommand(theComma"
+    "answer": 2,
+    "explanation": "정답 ②. LampOnCommand 생성자에서 매개변수 theLamp를 객체의 필드에 저장하려면 this.theLamp = theLamp처럼 써야 한다. Lamp.theLamp는 인스턴스 필드를 클래스 이름으로 접근하려는 잘못된 표현이다.\n① implements는 인터페이스 구현 선언, ③ setCommand(theCommand)는 생성자에서 필드를 설정하는 메서드 호출, ④ lampOnCommand는 Button에 전달할 명령 객체로 모두 적절하다.\n보기별 판단: ① implements는 Command 인터페이스 구현에 맞다. ② Lamp.theLamp는 인스턴스 필드를 클래스명으로 참조하므로 틀리고, this.theLamp가 필요하다. ③ setCommand(theCommand)는 생성자 인수를 필드에 저장하는 메서드 호출로 가능하다. ④ lampOnCommand는 Button 생성자에 넘기는 Command 객체다.",
+    "givenTitle": "Java 코드와 실행 결과"
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-35",
@@ -130,12 +134,13 @@
       "공격자를 파악하고 그들의 행동을 추적하기 위해 사용자 및 시스템 행동을 기록하기 위한 목적"
     ],
     "answer": 2,
-    "explanation": "정답 선택지 확인 - ② 메모리, 네트워크 연결, 접근 포인트 등과 같은 자원에 대한 접근 제한 목적"
+    "explanation": "정답 ②. DMZ는 외부에서 접근해야 하는 공개 서버를 내부망과 분리해 배치하는 네트워크 구역이다. 방화벽과 접근 제어로 외부망에서 내부 자원으로 직접 들어오는 경로를 제한한다.\n① 인증, ③ 장애 복구, ④ 감사 로그는 별도의 보안 통제 목적이다.\n보기별 판단: ①은 인증, ③은 장애 복구, ④는 감사·추적의 목적이다. ②처럼 공개 서버를 내부망에서 분리하고 접근 경로를 통제하는 것이 DMZ의 핵심이다. DMZ 자체가 모든 자원의 접근 제어를 대신하는 것은 아니며 방화벽·정책과 함께 구성한다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-36",
     "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "컴포넌트 기반 개발방법론은 컴포넌트 개발 과정과 컴포넌트 기반 소프트웨어 개발 과정으로 이루어진다. 다음은 컴포넌트 기반 개발방법론에서 컴포넌트 개발 과정의 절차를 나타낸 것이다. (가)~(라)에 들어갈 컴포넌트 개발 단계의 순서가 올바르게 나열된 것은? (단, 컴포넌트 저장소 저장 단계는 컴포넌트 개발 과정 이후의 절차임)\n자료: 도메인 분석 - 도메인 설계 - (가) - (나) - (다) - (라) - (컴포넌트 저장소 저장)",
+    "question": "컴포넌트 기반 개발방법론은 컴포넌트 개발 과정과 컴포넌트 기반 소프트웨어 개발 과정으로 이루어진다. 다음은 컴포넌트 기반 개발방법론에서 컴포넌트 개발 과정의 절차를 나타낸 것이다. (가)~(라)에 들어갈 컴포넌트 개발 단계의 순서가 올바르게 나열된 것은? (단, 컴포넌트 저장소 저장 단계는 컴포넌트 개발 과정 이후의 절차임)",
+    "given": "자료: 도메인 분석 - 도메인 설계 - (가) - (나) - (다) - (라) - (컴포넌트 저장소 저장)",
     "choices": [
       "컴포넌트 설계, 컴포넌트 추출, 컴포넌트 구현, 컴포넌트 인증",
       "컴포넌트 설계, 컴포넌트 추출, 컴포넌트 인증, 컴포넌트 구현",
@@ -143,7 +148,7 @@
       "컴포넌트 추출, 컴포넌트 인증, 컴포넌트 설계, 컴포넌트 구현"
     ],
     "answer": 3,
-    "explanation": "정답 선택지 확인 - ③ 컴포넌트 추출, 컴포넌트 설계, 컴포넌트 구현, 컴포넌트 인증"
+    "explanation": "정답 ③. 도메인 분석·도메인 설계 후 재사용 후보 컴포넌트를 추출하고, 인터페이스와 구조를 설계하며 구현·시험한 다음 인증한다. 따라서 추출→설계→구현→인증이다. 저장소 등록은 검증된 컴포넌트를 재사용 가능하게 하는 후속 단계다.\n보기별 판단: ①은 설계를 추출보다 앞에 두고, ②는 인증을 구현보다 앞에 둔다. ④도 추출 직후 인증하므로 순서가 맞지 않는다. ③만 도메인 설계 이후 추출→설계→구현→인증 순서다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-37",
@@ -156,7 +161,7 @@
       "@Repository"
     ],
     "answer": 1,
-    "explanation": "정답 선택지 확인 - ① @SessionBean"
+    "explanation": "정답 ①. @Controller, @Service, @Repository는 Spring이 관리하는 구성요소를 역할에 따라 표시하는 스테레오타입 애너테이션이다. @SessionBean은 Java EE의 세션 빈과 관련된 이름으로 Spring 컴포넌트 표시 애너테이션이 아니다.\n보기별 판단: ② @Controller는 웹 요청 처리, ③ @Service는 서비스 계층, ④ @Repository는 저장소 계층을 나타내는 Spring 스테레오타입이다. ① @SessionBean은 이 세 가지와 같은 Spring 구성요소 표시가 아니다."
   },
   {
     "id": "2017년 제18회 소프트웨어 공학-38",
@@ -169,162 +174,67 @@
       "90"
     ],
     "answer": 3,
-    "explanation": "정답 선택지 확인 - ③ 50"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-39",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음은 형상 관리 업무에서 수행되는 변경 제어 절차를 순서대로 나열한 것이다. 네모 칸에 들어갈 절차를 순서대로 바르게 나열한 것은?",
-    "choices": [
-      "요청서 분석 → 변경 구현 및 테스트 → 형상관리 위원회",
-      "형상관리 위원회 → 요청서 분석 → 변경 구현 및 테스트",
-      "변경 구현 및 테스트 → 요청서 분석 → 형상관리 위원회",
-      "요청서 분석 → 형상관리 위원회 → 변경 구현 및 테스트"
-    ],
-    "answer": 4,
-    "explanation": "정답 선택지 확인 - ④ 요청서 분석 → 형상관리 위원회 → 변경 구현 및 테스트"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-40",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음은 소프트웨어 재공학(reengineering)에 사용되는 주요 기법 중의 하나에 대한 설명이다. 해당 기법으로 가장 적절한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36953.png]\n자료: 사용되고 있는 각 애플리케이션에 대해 크기, 비즈니스 결정성, 유지 보수성 등 판정 기준에 대해 분석하여 재공학 후보들을 찾아냄",
-    "choices": [
-      "인벤토리(inventory) 분석",
-      "역공학(reverse engineering",
-      "코드 개조(code restructuring)",
-      "순방향 공학(forward engineering)"
-    ],
-    "answer": 1,
-    "explanation": "정답 선택지 확인 - ① 인벤토리(inventory) 분석"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-41",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "소프트웨어 제품의 기능적인 특징을 기술하는 형식적인 표기법은 관계형 표기법과 상태위주 표기법으로 크게 구분된다. 다음 중 상태위주 표기법으로 가장 적절하지 않은 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36954.png]",
-    "choices": [
-      "recurrence relation",
-      "finite state machine",
-      "event table",
-      "petri nets"
-    ],
-    "answer": 1,
-    "explanation": "정답 선택지 확인 - ① recurrence relation"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-42",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "A 회사에서 다음 표의 조건에 따라 소프트웨어 개발 프로젝트를 수행하려 한다. 계약 기간 내에 프로젝트를 완수하기 위해서는 몇 명의 개발자를 추가로 채용하여야 하는가? (단, 채용되는 개발자들의 평균 생산성은 기존 개발자들의 평균 생산성과 동일하다고 가정함) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36957.png]",
-    "choices": [
-      "3명",
-      "4명",
-      "5명",
-      "6명"
-    ],
-    "answer": 2,
-    "explanation": "정답 선택지 확인 - ② 4명"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-43",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음 표는 A 회사가 프로젝트 P를 수행하는데 필요한 작업, 작업 예측 소요 기간(일), 각 작업의 선행 작업을 나타낸 것이다. 작업 T5를 담당한 개발자가 독감에 걸려 작업 T5는 예측 소요 기간 7일에 지연된 7일을 더하여 14일이 소요되었다. 이런 상황에서 A 회사가 프로젝트 P의 결과물을 납품한 다음 발주처에 지불하게 될 지체상금은 얼마 인가? (단, 프로젝트 P의 계약금액은 60,000,000원이고, 지체상금율(1일당)은 2.5/1000 임) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36958.png]",
-    "choices": [
-      "0원",
-      "450,000원",
-      "600,000원",
-      "1,050,000원"
-    ],
-    "answer": 3,
-    "explanation": "정답 선택지 확인 - ③ 600,000원"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-44",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음의 소스 코드에 대해 테스트를 수행하려 할 때, 문장 커버리지(statement coverage) 기준으로 가장 높은 커버리지를 달성할 수 있는 테스트 케이스로 가장 적절한 것은? (단, short-circuit evaluation은 수행하지 않음) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36959.png]",
-    "choices": [
-      "T ={(x, y) | (2, -3), (-4, 6) }",
-      "T ={(x, y) | (-2, 3), (1, -4) }",
-      "T ={(x, y) | (2, -3), (4, -6) }",
-      "T ={(x, y) | (-2, 3), (-1, 4)"
-    ],
-    "answer": 2,
-    "explanation": "정답 선택지 확인 - ② T ={(x, y) | (-2, 3), (1, -4) }"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-45",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음의 코드 조각(fragment)에 대해서 MISRA C:2012 코딩 규칙을 위반한 것을 모두 고른 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36960.png]",
-    "choices": [
-      "가, 나",
-      "나, 다",
-      "가, 나, 다",
-      "가, 나, 다, 라"
-    ],
-    "answer": 4,
-    "explanation": "정답 선택지 확인 - ④ 가, 나, 다, 라"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-46",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음은 UML 활동(activity) 다이어그램의 예를 보여 준다. 활동 다이어그램의 각 요소 a), b), c), d)의 이름을 차례대로 나열한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36961.png]",
-    "choices": [
-      "composite activity region, combined node, split node, object node",
-      "interruptable activity region, join node, fork node, object node",
-      "event region, merge node, split node, data store node",
-      "group activity region, merge node, branch node, data store node"
-    ],
-    "answer": 2,
-    "explanation": "정답 선택지 확인 - ② interruptable activity region, join node, fork node, object node"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-47",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음에서 윗부분 코드는 클래스 설계를 위한 5대 원칙 중 하나를 위반한 사례이고, 아랫부분 코드는 해당 원칙을 준수한 사례이다. 여기에 적용된 클래스 설계 원칙으로 가장 적절한 것은? (단, 여기에 보이는 코드는 완전한 코드의 일부분으로서 동작하는데 전혀 문제가 없으며 동일한 기능을 수행한다고 가정함) [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36962.png]",
-    "choices": [
-      "개방-폐쇄의 원칙(open-closed principle)",
-      "단일 책임의 원칙(single-responsibility principle)",
-      "리스코프 교체 원칙(liskov substitution principle)",
-      "의존관계 역전의 원칙(dependency inversion principl"
-    ],
-    "answer": 1,
-    "explanation": "정답 선택지 확인 - ① 개방-폐쇄의 원칙(open-closed principle)"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-48",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음 중에서 ISO/IEC 25010의 유지보수성과 가장 거리가 먼 것은?",
-    "choices": [
-      "하나의 컴포넌트에 대한 변경이 다른 부분에 미치는 영향을 최소화해야 한다.",
-      "시스템에 가해진 변경에 의해서 영향을 받을 수 있는 부분에 대한 분석이 용이해야 한다.",
-      "설정된 테스트 기준에 대한 만족 여부를 결정할 수 있도록 테스트가 용이해야 한다.",
-      "주어진 환경에서 소프트웨어의 설치 및 삭제가 용이해야 한다."
-    ],
-    "answer": 4,
-    "explanation": "정답 선택지 확인 - ④ 주어진 환경에서 소프트웨어의 설치 및 삭제가 용이해야 한다."
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-49",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음 클래스 다이어그램에서 College 클래스의 C++ 소스 코드로 가장 적절한 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36964.png]",
-    "choices": [
-      "class College { vector<Course*> courses; vector<Building> buildings; };",
-      "class College { vector<Course> courses; vector<Building*> buildings; };",
-      "class College { vector<Course*> courses; vector<Building*> buildings; };",
-      "class College { vector<Course> courses; vector<Building> buildings; };"
-    ],
-    "answer": 2,
-    "explanation": "정답 선택지 확인 - ② class College { vector<Course> courses; vector<Building*> buildings; };"
-  },
-  {
-    "id": "2017년 제18회 소프트웨어 공학-50",
-    "deck": "2017년 제18회 소프트웨어 공학",
-    "question": "다음의 코드에 적용된 설계 원리로 가장 거리가 먼 것은? [문제 이미지: https://exambomb-bucket.s3.ap-northeast-2.amazonaws.com/images/%EC%A0%95%EB%B3%B4%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B4%80%EB%A6%AC%EC%82%AC/36965.png]",
-    "choices": [
-      "모듈화(modularization)",
-      "자료 추상화(data abstraction)",
-      "정보 은닉(information hiding)",
-      "다형성(polymorphism)"
-    ],
-    "answer": 4,
-    "explanation": "정답 선택지 확인 - ④ 다형성(polymorphism)"
+    "explanation": "정답 ③(50개). 표에서 수정되지 않은 코드 C_UM은 C_I(변경 영향 10개)와 C_UI(영향 없음 40개)의 합집합이며 해당 테스트 케이스 수는 50개다. 변경으로 기존 동작에 문제가 생겼는지 확인하는 회귀 시험 대상은 C_UM의 50개로 본다. 삭제된 C_D의 20개는 새 프로그램에 없고, C_M의 30개와 새 C_A의 10개는 수정·추가 기능의 시험 대상이다. 따라서 보기 ① 30, ② 40, ④ 90은 요구한 회귀 시험 범위와 다르다.",
+    "tables": [
+      {
+        "title": "변경 전후 코드와 테스트 케이스",
+        "rows": [
+          [
+            "구분",
+            "설명",
+            "관계",
+            "테스트 케이스 수"
+          ],
+          [
+            "P",
+            "변경 이전 프로그램",
+            "P = C_D ∪ C_M ∪ C_UM",
+            "100"
+          ],
+          [
+            "C_D",
+            "변경 중 삭제된 코드",
+            "",
+            "20"
+          ],
+          [
+            "C_M",
+            "변경 중 수정된 코드",
+            "",
+            "30"
+          ],
+          [
+            "C_UM",
+            "변경 중 수정되지 않은 코드",
+            "C_UM = C_I ∪ C_UI",
+            "50"
+          ],
+          [
+            "C_I",
+            "변경으로 영향받는 코드",
+            "",
+            "10"
+          ],
+          [
+            "C_UI",
+            "변경에 영향받지 않는 코드",
+            "",
+            "40"
+          ],
+          [
+            "P′",
+            "변경 이후 프로그램",
+            "P′ = C_A ∪ C_M ∪ C_UM",
+            "90"
+          ],
+          [
+            "C_A",
+            "변경 중 새롭게 추가된 코드",
+            "",
+            "10"
+          ]
+        ]
+      }
+    ]
   }
 ]
