@@ -157,7 +157,7 @@ function renderQuiz(){
     const tableClass=block.style==='hex-grid'?' hex-grid':rows[0].length>=4?' wide':'';
     return `${block.title?`<p class="question-table-title">${e(block.title)}</p>`:''}<div class="tbl-wrap"><table class="tbl${tableClass}">${hasHeader?`<thead>${rowHtml(rows[0],'th')}</thead>`:''}<tbody>${(hasHeader?rows.slice(1):rows).map(row=>rowHtml(row,'td')).join('')}</tbody></table></div>`;
   }).join('');
-  const material=given||qTable?`<section class="question-material" aria-label="문제 자료"><h3 class="material-title">${e(q.givenTitle||'제시 자료')}</h3>${given}${qTable}</section>`:'';
+  const material=given||qTable?`<section class="question-material" aria-label="문제 자료"><h3 class="material-title">${e(q.givenTitle||'제시 자료')}</h3>${q.givenAfterTable?qTable+given:given+qTable}</section>`:'';
   const questionHasImage=hasImageUrl(q.question);
   const questionImgBase=questionHasImage?null:imageBase(q,'question');
   const questionImg=questionHasImage?'':q.image?`<img class="qimg" src="${e(q.image)}" alt="문제 그림">`
