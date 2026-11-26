@@ -179,11 +179,11 @@
       ],
       [
         "4",
-        "U4: GRANT SELECT ON EMPLOYEE TO U5;"
+        "U3: GRANT SELECT ON EMPLOYEE TO U5;"
       ],
       [
         "5",
-        "U4: GRANT SELECT ON EMPLOYEE TO U6;"
+        "U5: GRANT SELECT ON EMPLOYEE TO U6;"
       ],
       [
         "6",
