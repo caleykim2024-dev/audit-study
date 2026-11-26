@@ -298,7 +298,8 @@
   {
     "id": "2016년 제17회 데이터베이스-63",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "권한(authorization)을 부여하는 ㉮와 회수하는 ㉯를 SQL로 바르게 표현한 것은? ㉮ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 Mary와 John에게 부여한다. ㉯ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 John으로부터 회수한다.",
+    "question": "권한(authorization)을 부여하는 ㉮와 회수하는 ㉯를 SQL로 바르게 표현한 것은?",
+    "given": "㉮ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 Mary와 John에게 부여한다. ㉯ 테이블 EMPLOYEE에 대한 SELECT 권한을 계정 John으로부터 회수한다.",
     "choiceFormat": "code",
     "choices": [
       "㉮ = GRANT SELECT ON EMPLOYEE TO Mary, John; ㉯ = REVOKE SELECT ON EMPLOYEE FROM John;",
@@ -354,7 +355,8 @@
   {
     "id": "2016년 제17회 데이터베이스-67",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "다음의 릴레이션과 함수 종속을 고려해 보자. 이 릴레이션의 현재 속한 정규형과 BCNF로 분해 후 릴레이션의 수를 올바르게 나타낸 것은? R(A,B,C,D,E) 후보키: (A,C) 함수종속: A→B, C→D, (A,C)→E",
+    "question": "다음의 릴레이션과 함수 종속을 고려해 보자. 이 릴레이션의 현재 속한 정규형과 BCNF로 분해 후 릴레이션의 수를 올바르게 나타낸 것은?",
+    "given": "R(A,B,C,D,E) 후보키: (A,C) 함수종속: A→B, C→D, (A,C)→E",
     "choices": [
       "1NF, 3",
       "2NF, 2",
@@ -498,7 +500,8 @@
   {
     "id": "2016년 제17회 데이터베이스-73",
     "deck": "2016년 제17회 데이터베이스",
-    "question": "다음 문장에서 빈칸 ㉮와 ㉯에 들어갈 용어로 적절한 것은? 예측 모델링(Predictive Modeling)은 목표 변수를 설명 변수의 함수 모델로 생성하는 작업을 말한다. 예측 모델링은 이산형 목표 변수에 사용되는 ( ㉮ ) 과(와) 연속형 목표 변수에 사용하는 ( ㉯ )의 두 가지 유형이 있다. ㉮㉯",
+    "question": "다음 문장에서 빈칸 ㉮와 ㉯에 들어갈 용어로 적절한 것은?",
+    "given": "예측 모델링(Predictive Modeling)은 목표 변수를 설명 변수의 함수 모델로 생성하는 작업을 말한다. 예측 모델링은 이산형 목표 변수에 사용되는 ( ㉮ ) 과(와) 연속형 목표 변수에 사용하는 ( ㉯ )의 두 가지 유형이 있다. ㉮㉯",
     "choices": [
       "군집(clustering)서술(descriptive)",
       "군집(clustering)분류(classification)",
