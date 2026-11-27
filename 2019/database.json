@@ -2,7 +2,9 @@
   {
     "id": "2019년 제20회 데이터베이스-51",
     "deck": "2019년 제20회 데이터베이스",
-    "question": "다음은 두 릴레이션 R(A,B,C)과 S(C,D)를 SQL로 정의한 것이다. 두 테이블에 대한 데이터 조작 연산과 관련된 설명 중 옳은 것을 모두 고르시오. (2개 선택)\n\n```sql\nCREATE TABLE R\n(A INT NOT NULL, B CHAR(5), C INT, PRIMARY KEY(A), FOREIGN KEY(C) REFERENCES S(C)\nON DELETE SET NULL\nON UPDATE CASCADE);\nCREATE TABLE S\n(C INT NOT NULL, D CHAR(5), PRIMARY KEY(C));\n```",
+    "question": "다음은 두 릴레이션 R(A,B,C)과 S(C,D)를 SQL로 정의한 것이다. 두 테이블에 대한 데이터 조작 연산과 관련된 설명 중 옳은 것을 모두 고르시오. (2개 선택)",
+    "given": "CREATE TABLE R\n(A INT NOT NULL, B CHAR(5), C INT, PRIMARY KEY(A), FOREIGN KEY(C) REFERENCES S(C)\nON DELETE SET NULL\nON UPDATE CASCADE);\nCREATE TABLE S\n(C INT NOT NULL, D CHAR(5), PRIMARY KEY(C));",
+    "givenFormat": "code",
     "choices": [
       "테이블 R의 투플은 테이블 S의 상태와 무관하게 삽입이 가능하다.",
       "테이블 S의 투플은 테이블 R의 상태와 무관하게 삽입이 가능하다.",
@@ -65,7 +67,7 @@
       "phantom"
     ],
     "answer": 1,
-    "explanation": "① 직렬 스케줄은 트랜잭션을 겹치지 않게 실행하는 방식이므로 읽기 이상현상이 아니다. ② 오손 읽기는 다른 트랜잭션의 미커밋 값을 읽는 현상이다. ③ 반복 불가능 읽기는 같은 행을 다시 읽었을 때 값이 달라지는 현상이다. ④ 유령 읽기는 같은 조건으로 다시 검색할 때 새 행이 나타나거나 사라지는 현상이다."
+    "explanation": "① 직렬 스케줄은 트랜잭션을 겹치지 않게 실행하는 방식이므로 읽기 이상현상이 아니다.\n② 오손 읽기는 다른 트랜잭션의 미커밋 값을 읽는 현상이다.\n③ 반복 불가능 읽기는 같은 행을 다시 읽었을 때 값이 달라지는 현상이다.\n④ 유령 읽기는 같은 조건으로 다시 검색할 때 새 행이 나타나거나 사라지는 현상이다."
   },
   {
     "id": "2019년 제20회 데이터베이스-56",
@@ -86,6 +88,7 @@
     "question": "릴레이션 Emp, Dept가 다음과 같이 정의되어 있다. 부서에 사원이 한명도 없는 부서(deptno)를 검색하는 질의를 작성했을 때, 가장 거리가 먼 것은? (단, Emp의 deptno는 Dept의 deptno를 참조하는 외래키이다.)",
     "given": "Emp(empno, ename, job, mgr, hiredate, sal, comm, deptno)\nDept(deptno, dname, loc)",
     "givenFormat": "code",
+    "choiceFormat": "code",
     "choices": [
       "SELECT deptno FROM Dept WHERE deptno NOT IN (SELECT deptno FROM Emp);",
       "SELECT deptno\nFROM Dept a\nWHERE NOT EXISTS (SELECT *\nFROM Emp b\nWHERE a.deptno = b.deptno);",
@@ -335,7 +338,7 @@
       2,
       4
     ],
-    "explanation": "BCNF 분해 과정에서 C→D, E→CD 같은 종속을 별도 릴레이션으로 분리하면 C와 E가 분해된 릴레이션 사이를 연결하는 외래키 역할을 한다."
+    "explanation": "정답: ② C, ④ E\n\n먼저 A→BCDE, B→ACDE이므로 A와 B는 각각 R의 모든 속성을 결정하는 후보키다. 후보키는 자기 릴레이션의 행을 식별하는 속성이고, 외래키는 다른 릴레이션의 키를 참조하는 속성이다.\n\nBCNF 분해의 한 가지 결과는 다음과 같다.\n- R1(A, B, E): A와 B가 후보키다. E는 R2의 E를 참조한다.\n- R2(E, C): E가 키다. C는 R3의 C를 참조한다.\n- R3(C, D): C가 키다.\n\n따라서 외래키는 R1.E → R2.E와 R2.C → R3.C의 E, C다. A와 B는 R1 안에서 행을 식별하는 후보키이며, 이 분해에서는 다른 릴레이션에 A나 B를 참조하는 속성이 없다. 후보키도 다른 릴레이션을 참조하면 외래키가 될 수 있지만, 여기서는 그런 참조가 없으므로 A와 B를 고르지 않는다. D는 R3에서 C에 종속되는 일반 속성이다.\n\n암기: ‘E가 C를 데려오고(E→C), C가 D를 데려온다(C→D).’ 분리된 표를 이어 주는 E와 C가 외래키다."
   },
   {
     "id": "2019년 제20회 데이터베이스-67",
@@ -348,12 +351,14 @@
       "다중 해싱(multiple hashing)"
     ],
     "answer": 3,
-    "explanation": "③ 그림자 기법은 기존 데이터를 보존해 복구하는 방식이지 해시 충돌 해결 기법이 아니다. ① 개방 주소 지정은 충돌 시 테이블의 다른 빈 칸을 찾는다. ② 체이닝은 같은 해시 주소의 항목들을 연결 목록 등에 묶는다. ④ 다중 해싱은 다른 해시 함수를 사용해 다음 저장 위치를 찾는다."
+    "explanation": "③ 그림자 기법은 기존 데이터를 보존해 복구하는 방식이지 해시 충돌 해결 기법이 아니다.\n① 개방 주소 지정은 충돌 시 테이블의 다른 빈 칸을 찾는다.\n② 체이닝은 같은 해시 주소의 항목들을 연결 목록 등에 묶는다.\n④ 다중 해싱은 다른 해시 함수를 사용해 다음 저장 위치를 찾는다."
   },
   {
     "id": "2019년 제20회 데이터베이스-68",
     "deck": "2019년 제20회 데이터베이스",
-    "question": "테이블 R과 S가 다음과 같을 때, 아래 SQL문 (SELECT 구문)의 실행 결과로 옳은 것은?\n\n```sql\nSELECT COUNT(*)\nFROM R, S;\n```",
+    "question": "테이블 R과 S가 다음과 같을 때, 아래 SQL문 (SELECT 구문)의 실행 결과로 옳은 것은?",
+    "given": "SELECT COUNT(*)\nFROM R, S;",
+    "givenFormat": "code",
     "choices": [
       "4",
       "5",
@@ -443,7 +448,8 @@
   {
     "id": "2019년 제20회 데이터베이스-69",
     "deck": "2019년 제20회 데이터베이스",
-    "question": "다음은 데이터베이스 특징 중에서 데이터 공유에 대한 설명이다. (가)와 (나)에 들어갈 용어를 바르게 짝 지은 것은? 여러 사용자가 동시에 사용하더라도 데이터의 일관성(consistency)을 보장하기 위해 ( 가 ) 기능을 제공한다. 데이터베이스 작업을 수행하는 단위 프로세스를 ( 나 ) (이)라고 하며, ( 나 )의 주요 성질로는 고립성과 원자성이 있다.",
+    "question": "다음은 데이터베이스 특징 중에서 데이터 공유에 대한 설명이다. (가)와 (나)에 들어갈 용어를 바르게 짝 지은 것은?",
+    "given": "여러 사용자가 동시에 사용하더라도 데이터의 일관성(consistency)을 보장하기 위해 ( 가 ) 기능을 제공한다. 데이터베이스 작업을 수행하는 단위 프로세스를 ( 나 ) (이)라고 하며, ( 나 )의 주요 성질로는 고립성과 원자성이 있다.",
     "choices": [
       "(가) 데이터 무결성 (나) 스레드",
       "(가) 데이터 무결성 (나) 트랜잭션",
@@ -456,7 +462,8 @@
   {
     "id": "2019년 제20회 데이터베이스-70",
     "deck": "2019년 제20회 데이터베이스",
-    "question": "다음은 OLAP 연산에 대한 설명이다. (가)와 (나) 에 들어갈 OLAP 연산으로 바르게 짝지어진 것은? 작은 단위(예: day)에서 큰 단위(예: month, year)로 집계를 수행하는 OLAP 연산을 (가)이라 한다. 큰 단위(예: year)에서 작은 단위(예: month, day)로 집계를 수행하는 OLAP 연산을 (나)이라 한다.",
+    "question": "다음은 OLAP 연산에 대한 설명이다. (가)와 (나) 에 들어갈 OLAP 연산으로 바르게 짝지어진 것은?",
+    "given": "작은 단위(예: day)에서 큰 단위(예: month, year)로 집계를 수행하는 OLAP 연산을 (가)이라 한다. 큰 단위(예: year)에서 작은 단위(예: month, day)로 집계를 수행하는 OLAP 연산을 (나)이라 한다.",
     "choices": [
       "(가) 드릴-다운(drill-down) (나) 롤-업(roll-up)",
       "(가) 롤-업(roll-up) (나) 드릴-다운(drill-down)",
@@ -540,7 +547,7 @@
       "B+-트리로서, 내부 노드의 키 값이 단말 노드에 중복하여 나타난다."
     ],
     "answer": 4,
-    "explanation": "B+트리는 내부 노드의 탐색 키가 단말 노드에도 중복 저장될 수 있고 실제 데이터 탐색은 단말 쪽으로 이어진다. B+-트리로 판단되는 근거가 두 가지 보입니다. 첫째, 단말 노드들이 화살표로 서로 연결되어 있습니다. 이는 B+-트리의 연결 리스트입니다. 둘째, 내부 노드의 키가 단말 노드에 다시 나타납니다. 루트의 Perryridge는 단말에도 있고, 내부 노드의 Mianus와 Redwood도 각각 단말에 있습니다. 내부 노드의 키는 길 안내용이고 실제 데이터는 단말에만 있기 때문입니다. 【보기 판정】 ① B-트리: 그림이 B-트리가 아니므로 오답입니다. 또 루트는 사용률 규칙의 예외라서 \"루트를 포함한\"이라는 표현도 틀렸습니다. ② B+-트리이지만 \"루트를 포함한 모든 노드가 절반 이상\"이라는 표현이 틀립니다. 루트는 예외입니다. ③ B-트리로서 키가 중복된다는 설명은 B-트리의 성질과 맞지 않습니다. B-트리는 키가 한 번만 나옵니다. ④ B+-트리이고 내부 노드의 키가 단말 노드에 중복해 나타나므로, 그림과 정확히 일치합니다."
+    "explanation": "B+트리는 내부 노드의 탐색 키가 단말 노드에도 중복 저장될 수 있고 실제 데이터 탐색은 단말 쪽으로 이어진다. B+-트리로 판단되는 근거가 두 가지 보입니다. 첫째, 단말 노드들이 화살표로 서로 연결되어 있습니다. 이는 B+-트리의 연결 리스트입니다. 둘째, 내부 노드의 키가 단말 노드에 다시 나타납니다. 루트의 Perryridge는 단말에도 있고, 내부 노드의 Mianus와 Redwood도 각각 단말에 있습니다. 내부 노드의 키는 길 안내용이고 실제 데이터는 단말에만 있기 때문입니다. 【보기 판정】 ① B-트리: 그림이 B-트리가 아니므로 오답입니다. 또 루트는 사용률 규칙의 예외라서 \"루트를 포함한\"이라는 표현도 틀렸습니다.\n② B+-트리이지만 \"루트를 포함한 모든 노드가 절반 이상\"이라는 표현이 틀립니다. 루트는 예외입니다.\n③ B-트리로서 키가 중복된다는 설명은 B-트리의 성질과 맞지 않습니다. B-트리는 키가 한 번만 나옵니다.\n④ B+-트리이고 내부 노드의 키가 단말 노드에 중복해 나타나므로, 그림과 정확히 일치합니다."
   },
   {
     "id": "2019년 제20회 데이터베이스-73",
@@ -684,6 +691,7 @@
     "question": "다음 릴레이션에 대하여 아래와 같이 인덱스를 생성하였다. 다음 중 생성된 인덱스에 의하여 검색속도를 향상시킬 수 있는 질의로 가장 적절하지 않은 것은?",
     "given": "릴레이션\nArticles(ID, title, journal, issue, year, startpage, endpage, TR_ID)\n<설명> 논문(Articles) 릴레이션은 과학 논문에 관한 정보를 포함하고 있고 밑줄친 속성은 키값이다. 각 논문은 고유의 ID를 가지고 있으며, 논문제목(title)과 저널명(journal), 권(issue), 발행연도 (year), 시작페이지(startpage), 끝페이지(endpage) 정보를 포함하고 있다. 논문이 기술 리포트(technical report)에 게재된 적이 있으면 TR_ID 번호가 기록된다. 각 저널에는 고유의 일련번호인 권(issue) 번호가 있으며, 논문에는 시작페이지와 끝페이지가 기록된다.\n인덱스\n\n```sql\nCREATE INDEX Idx1 ON Articles(year, startpage);\nCREATE INDEX Idx2 ON Articles(startpage, endpage);\nCREATE INDEX Idx3 ON Articles(journal, issue, year);\n```",
     "givenFormat": "code",
+    "choiceFormat": "code",
     "choices": [
       "SELECT title FROM Articles WHERE journal = 'JACM' AND issue = 55;",
       "SELECT title FROM Articles WHERE endpage - startpage > 50;",
